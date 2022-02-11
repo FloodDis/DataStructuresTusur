@@ -56,6 +56,12 @@ void EnterNumber(string message, int& value);
 void EnterString(string message, string& value);
 
 /// <summary>
+/// Функция вывода словаря
+/// </summary>
+/// <param name="message">строка с сообщением</param>
+void PrintDictionary(vector<KeyValueList*> hashTableUnit);
+
+/// <summary>
 /// Функция вывода сообщения Ваш словарь: и словаря 
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хэш-таблицы</param>

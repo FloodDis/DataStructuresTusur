@@ -47,14 +47,14 @@ void MainMenu()
 
 void DictionaryMenu()
 {
-	vector<KeyValueList*> hashTableUnit;
+	Dictionary* dictionaryUnit= new Dictionary;
 	setlocale(LC_ALL, "ru");
 	int size;
 	printf("Введите размер словаря:\n");
 	cin >> size;
-	InitializationOfHashTable(hashTableUnit, size);
+	InitializationOfDictionary(dictionaryUnit->HashTable, size);
 	printf("\nВаш словарь:\n");
-	PrintTable(hashTableUnit);
+	PrintTable(dictionaryUnit->HashTable);
 	int option;
 	while (true)
 	{
@@ -65,18 +65,18 @@ void DictionaryMenu()
 		case 1:
 		{
 			string value, key;
-			double size = hashTableUnit.size();
+			double size = dictionaryUnit->HashTable.size();
 			printf("Введите значение value: ");
 			cin >> value;
 			printf("Введите значение key: ");
 			cin >> key;
-			if (ElementCount(hashTableUnit) / size >= 1.5)
+			if (ElementCount(dictionaryUnit->HashTable) / size >= 1.5)
 			{
-				Rehashing(hashTableUnit, ElementCount(hashTableUnit));
+				Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
 			}
-			AddInDictionary(hashTableUnit, value, key);
+			AddInDictionary(dictionaryUnit->HashTable, value, key);
 			printf("\nВаш словарь:\n");
-			PrintTable(hashTableUnit);
+			PrintTable(dictionaryUnit->HashTable);
 			break;
 		}
 		case 2:
@@ -84,9 +84,9 @@ void DictionaryMenu()
 			string key;
 			printf("Введите key удаляемого элемента: ");
 			cin >> key;
-			DeleteFromDictionary(hashTableUnit, key);
+			DeleteFromDictionary(dictionaryUnit->HashTable, key);
 			printf("\nВаш словарь:\n");
-			PrintTable(hashTableUnit);
+			PrintTable(dictionaryUnit->HashTable);
 			break;
 		}
 		case 3:
@@ -95,17 +95,17 @@ void DictionaryMenu()
 			string answer;
 			printf("Введите key искомого элемента: ");
 			cin >> key;
-			answer = SearchInDictionary(hashTableUnit, key);
+			answer = SearchInDictionary(dictionaryUnit->HashTable, key);
 			cout << answer;
 			printf("\nВаш словарь:\n");
-			PrintTable(hashTableUnit);
+			PrintTable(dictionaryUnit->HashTable);
 			break;
 		}
 		case 4:
 		{
-			Rehashing(hashTableUnit, ElementCount(hashTableUnit));
+			Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
 			printf("Ваш словарь:\n");
-			PrintTable(hashTableUnit);
+			PrintTable(dictionaryUnit->HashTable);
 			break;
 		}
 		case 5:

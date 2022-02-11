@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <string>
 using namespace std;
 
 struct StructOfArray
@@ -61,8 +62,7 @@ void CreateArray(StructOfArray* arrayUnit, int length, int capacity)
 void AddByIndex(StructOfArray* arrayUnit, int index)
 {
 	int temp = arrayUnit->Array[index];
-	cout << "Enter your element:\narray [" << index << "] = ";
-	cin >> arrayUnit->Array[index];
+	arrayUnit->Array[index] = EnterNumber("Enter your element:\narray [" + to_string(index) + "] = ", arrayUnit->Array[index]);
 
 	for (int i = index + 1; i < arrayUnit->Length; i++)
 	{

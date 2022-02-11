@@ -172,8 +172,7 @@ void RingBufferMenu()
 				else
 				{
 					printf("\nБуфер не пуст!\n");
-					printf("Ваш буфер:\n");
-					PrintBuffer(ringBuffer);
+					ShowRingBuffer(ringBuffer);
 				}
 				break;
 			}
@@ -184,15 +183,13 @@ void RingBufferMenu()
 					int newElement;
 					EnterNumber("Введите значение нового элемента: ", newElement);
 					PushInRingBuffer(ringBuffer, newElement);
-					printf("Ваш буфер:\n");
-					PrintBuffer(ringBuffer);
+					ShowRingBuffer(ringBuffer);
 					break;
 				}
 				else
 				{
 					printf("В буфере нет места для записи!\n");
-					printf("Ваш буфер:\n");
-					PrintBuffer(ringBuffer);
+					ShowRingBuffer(ringBuffer);
 					break;
 				}
 
@@ -201,8 +198,7 @@ void RingBufferMenu()
 			{
 				int elementFromBuffer = PopFromRingBuffer(ringBuffer);
 				printf("Значение из буфера: %i\n", elementFromBuffer);
-				printf("Ваш буфер:\n");
-				PrintBuffer(ringBuffer);
+				ShowRingBuffer(ringBuffer);
 				break;
 			}
 			case 5:

@@ -74,3 +74,8 @@ RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer);
 /// <param name="ringBuffer">указатель на экземпл€р структуры</param>
 void PrintBuffer(RingBuffer* ringBuffer);
 
+/// <summary>
+/// ‘ункци€ вывода сообщение ¬аш буфер: и кольцевого буфера на экран
+/// </summary>
+/// <param name="ringBuffer">указатель на экземпл€р структуры</param>
+void ShowRingBuffer(RingBuffer* ringBuffer);

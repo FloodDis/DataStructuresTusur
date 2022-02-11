@@ -63,3 +63,9 @@ void PrintBuffer(RingBuffer* ringBuffer)
 	}
 
 }
+
+void ShowRingBuffer(RingBuffer* ringBuffer)
+{
+	cout << "Ваш буфер:\n";
+	PrintBuffer(ringBuffer);
+}

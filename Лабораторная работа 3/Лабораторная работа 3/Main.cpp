@@ -294,8 +294,7 @@ void QueueRingBufferBasedMenu()
 	{
 		RingBuffer* queueRingBuffer = CreationOfQueue(sizeOfQueue);
 		printf("Очередь создана!\n");
-		printf("Ваша очередь:\n");
-		PrintQueueRingBuffer(queueRingBuffer);
+		ShowQueueRingBuffer(queueRingBuffer);
 		while (true)
 		{
 			printf("Выберете вариант:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n");
@@ -306,11 +305,9 @@ void QueueRingBufferBasedMenu()
 			case 1:
 			{
 				int newElement;
-				printf("Введите новый элемент очереди\n");
-				cin >> newElement;
+				EnterNumber("Введите новый элемент очереди\n", newElement);
 				EnqueueRingBuffer(queueRingBuffer, newElement);
-				printf("Ваша очередь:\n");
-				PrintQueueRingBuffer(queueRingBuffer);
+				ShowQueueRingBuffer(queueRingBuffer);
 				break;
 			}
 			case 2:
@@ -318,8 +315,7 @@ void QueueRingBufferBasedMenu()
 				int elementFromQueue;
 				elementFromQueue = DequeueRingBuffer(queueRingBuffer);
 				printf("Извлеченный элемент: %i\n", elementFromQueue);
-				printf("Ваша очередь:\n");
-				PrintQueueRingBuffer(queueRingBuffer);
+				ShowQueueRingBuffer(queueRingBuffer);
 				break;
 			}
 			case 3:
@@ -327,8 +323,7 @@ void QueueRingBufferBasedMenu()
 				DeleteQueueRingBuffer(queueRingBuffer);
 				printf("Ваша очередь удалена!\n");
 				int sizeOfQueue;
-				printf("Введите размер очереди: ");
-				cin >> sizeOfQueue;
+				EnterNumber("Введите размер очереди: ", sizeOfQueue);
 				if ((int)log2(sizeOfQueue) % 2 != 0)
 				{
 					printf("Размер буфера должен быть степенью 2\n");

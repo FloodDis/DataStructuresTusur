@@ -9,6 +9,8 @@ struct StructOfArray
 	int Capacity;
 };
 
+void ShowArray(StructOfArray* arrayUnit);
+
 int EnterNumber(string message, int variable);
 
 void CreateArray(StructOfArray* arrayUnit, int length, int capacity);
@@ -205,6 +207,12 @@ void PrintArray(StructOfArray* arrayUnit)
 	cout << endl;
 }
 
+void ShowArray(StructOfArray* arrayUnit)
+{
+	cout << "Your array:\n";
+	PrintArray(arrayUnit);
+}
+
 void Menu(StructOfArray* arrayUnit)
 {
 	int option;
@@ -226,7 +234,7 @@ void Menu(StructOfArray* arrayUnit)
 				cin >> index;
 			} while (index < 0 || index > arrayUnit->Length);
 			AddByIndex(arrayUnit, index);
-			PrintArray(arrayUnit);
+			ShowArray(arrayUnit);
 			break;
 		}
 
@@ -248,14 +256,14 @@ void Menu(StructOfArray* arrayUnit)
 			} while (index < 0 || index >= arrayUnit->Length);
 
 			DeleteByIndex(arrayUnit, index);
-			PrintArray(arrayUnit);
+			ShowArray(arrayUnit);
 			break;
 		}
 
 		case 3:
 		{
 			CountingSort(arrayUnit);
-			PrintArray(arrayUnit);
+			ShowArray(arrayUnit);
 			break;
 		}
 
@@ -278,13 +286,13 @@ void Menu(StructOfArray* arrayUnit)
 					BinarySearch(arrayUnit, searchingValue);
 				}
 			} while (option < 1 || option>2);
-			PrintArray(arrayUnit);
+			ShowArray(arrayUnit);
 			break;
 		}
 
 		case 5:
 		{
-			PrintArray(arrayUnit);
+			ShowArray(arrayUnit);
 			break;
 		}
 

@@ -17,11 +17,10 @@ void ShowList(Node* headNode)
 	PrintList(headNode);
 }
 
-int EnterNumber(string message, int variable)
+void EnterNumber(string message, int& variable)
 {
 	cout << message;
 	cin >> variable;
-	return variable;
 }
 
 Node* InitializationOfList(int dataOfHeadNode)
@@ -216,7 +215,7 @@ void Menu(Node* headNode)
 		{
 			Node* dev = headNode;
 			int index = 0;
-			index = EnterNumber("Enter index of the element to be deleted\n", index);
+			EnterNumber("Enter index of the element to be deleted\n", index);
 			if (index > ElementCount(headNode) - 1)
 			{
 				printf("There is no such element!\n");
@@ -250,7 +249,7 @@ void Menu(Node* headNode)
 		case 2:
 		{
 			int dataOfNewNode = 0;
-			dataOfNewNode = EnterNumber("Enter data of the new node:\n", dataOfNewNode);
+			EnterNumber("Enter data of the new node:\n", dataOfNewNode);
 			headNode = AddInTheBeginning(headNode, dataOfNewNode);
 			ShowList(headNode);
 			break;
@@ -259,7 +258,7 @@ void Menu(Node* headNode)
 		case 3:
 		{
 			int dataOfNewNode = 0;
-			dataOfNewNode = EnterNumber("Enter data of the new node:\n", dataOfNewNode);
+			EnterNumber("Enter data of the new node:\n", dataOfNewNode);
 			AddInTheEnd(headNode, dataOfNewNode);
 			ShowList(headNode);
 			break;
@@ -269,8 +268,8 @@ void Menu(Node* headNode)
 		{
 			int dataOfNewNode = 0;
 			int index = 0;
-			index = EnterNumber("Enter the index of the element after which you want to insert\n", index);
-			dataOfNewNode = EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
+			EnterNumber("Enter the index of the element after which you want to insert\n", index);
+			EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
 			AddAfter(headNode, dataOfNewNode, index);
 			ShowList(headNode);
 			break;
@@ -280,8 +279,8 @@ void Menu(Node* headNode)
 		{
 			int dataOfNewNode = 0;
 			int index = 0;
-			index = EnterNumber("Enter the index of the element before which you want to insert\n", index);
-			dataOfNewNode = EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
+			EnterNumber("Enter the index of the element before which you want to insert\n", index);
+			EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
 			if (index == 0)
 			{
 				headNode = AddBefore(headNode, dataOfNewNode, index);
@@ -304,7 +303,7 @@ void Menu(Node* headNode)
 		case 7:
 		{
 			int searchingValue = 0;
-			searchingValue = EnterNumber("Enter the searching value\n", searchingValue);
+			EnterNumber("Enter the searching value\n", searchingValue);
 			PrintFinded(LinearSearch(headNode, searchingValue), headNode);
 			break;
 		}

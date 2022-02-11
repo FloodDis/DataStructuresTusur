@@ -124,10 +124,7 @@ int ElementCount(Node* headNode);
 /// </summary>
 /// <param name="message">строка с сообщением</param>
 /// <param name="variable">значение переменной</param>
-/// <returns>
-/// значение переменной
-/// </returns>
-int EnterNumber(string message, int variable);
+void EnterNumber(string message, int& variable);
 
 ///<summary>
 /// Функция получения случайного числа

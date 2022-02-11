@@ -155,19 +155,19 @@ void PrintList(Node* headNode)
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
 	Node* indexes;
-	Node* pList;
+	Node* bufferList;
 	int index = 0;
-	pList = headNode;
+	bufferList = headNode;
 	indexes = InitializationOfList(0);
 	indexes->DataOfNode = NULL;
-	while (pList != nullptr)
+	while (bufferList != nullptr)
 	{
-		if (pList->DataOfNode == searchingValue)
+		if (bufferList->DataOfNode == searchingValue)
 		{
 			AddInTheEnd(indexes, index);
 		}
 		index++;
-		pList = pList->NextNode;
+		bufferList = bufferList->NextNode;
 	}
 	return indexes;
 }

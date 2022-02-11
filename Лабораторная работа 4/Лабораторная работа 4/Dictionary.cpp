@@ -52,3 +52,9 @@ void EnterNumber(string message, int& value)
 	cout << message;
 	cin >> value;
 }
+
+void EnterString(string message, string& value)
+{
+	cout << message;
+	cin >> value;
+}

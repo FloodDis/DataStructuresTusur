@@ -63,12 +63,11 @@ void DictionaryMenu()
 		{
 		case 1:
 		{
-			string value, key;
+			string value;
+			string key;
 			double size = dictionaryUnit->HashTable.size();
-			printf("Введите значение value: ");
-			cin >> value;
-			printf("Введите значение key: ");
-			cin >> key;
+			EnterString("Введите значение value: ", value);
+			EnterString("Введите значение key: ", key);
 			if (ElementCount(dictionaryUnit->HashTable) / size >= 1.5)
 			{
 				Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
@@ -81,8 +80,7 @@ void DictionaryMenu()
 		case 2:
 		{
 			string key;
-			printf("Введите key удаляемого элемента: ");
-			cin >> key;
+			EnterString("Введите key удаляемого элемента: ", key);
 			DeleteFromDictionary(dictionaryUnit->HashTable, key);
 			printf("\nВаш словарь:\n");
 			PrintTable(dictionaryUnit->HashTable);
@@ -92,8 +90,7 @@ void DictionaryMenu()
 		{
 			string key;
 			string answer;
-			printf("Введите key искомого элемента: ");
-			cin >> key;
+			EnterString("Введите key искомого элемента: ", key);
 			answer = SearchInDictionary(dictionaryUnit->HashTable, key);
 			cout << answer;
 			printf("\nВаш словарь:\n");
@@ -127,8 +124,7 @@ void HashTableMenu()
 	vector<KeyValueList*> hashTableUnit;
 	setlocale(LC_ALL, "ru");
 	int size;
-	printf("Введите размер хеш-таблицы:\n");
-	cin >> size;
+	EnterNumber("Введите размер хеш-таблицы:\n", size);
 	InitializationOfHashTable(hashTableUnit, size);
 	printf("\nВаша хеш-таблица:\n");
 	PrintTable(hashTableUnit);
@@ -145,10 +141,8 @@ void HashTableMenu()
 			size = hashTableUnit.size();
 			string value;
 			string key;
-			printf("Введите значение value: ");
-			cin >> value;
-			printf("Введите значение key: ");
-			cin >> key;
+			EnterString("Введите значение value: ", value);
+			EnterString("Введите значение key: ", key);
 			if (ElementCount(hashTableUnit) / size >= 1.5)
 			{
 				Rehashing(hashTableUnit, ElementCount(hashTableUnit));
@@ -161,8 +155,7 @@ void HashTableMenu()
 		case 2:
 		{
 			string key;
-			printf("Введите key удаляемого элемента: ");
-			cin >> key;
+			EnterString("Введите key удаляемого элемента: ", key);
 			DeleteElementInHashTable(hashTableUnit, key);
 			printf("\nВаша хеш-таблица:\n");
 			PrintTable(hashTableUnit);
@@ -172,8 +165,7 @@ void HashTableMenu()
 		{
 			string key;
 			string answer;
-			printf("Введите key искомого элемента: ");
-			cin >> key;
+			EnterString("Введите key искомого элемента: ",key);
 			answer = SearchInHashTable(key, hashTableUnit);
 			cout << answer << "\n";
 			printf("\nВаша хеш-таблица:\n");

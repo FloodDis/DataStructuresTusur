@@ -172,7 +172,8 @@ void LenearSearch(StructOfArray* arrayUnit, int searchingValue)
 
 void BinarySearch(StructOfArray* arrayUnit, int searchingValue)
 {
-	int first = 0, last = arrayUnit->Length;
+	int first = 0;
+	int last = arrayUnit->Length;
 	while (first < last)
 	{
 		int mid = (first + last) / 2;

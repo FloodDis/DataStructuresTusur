@@ -33,3 +33,9 @@ void EnterNumber(string message, int& value)
 	cout << message;
 	cin >> value;
 }
+
+void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
+{
+	cout << "Ваш буфер:\n";
+	PrintQueueRingBuffer(queueRingBufferUnit);
+}

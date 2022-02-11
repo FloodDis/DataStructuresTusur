@@ -51,3 +51,9 @@ void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit);
 /// <param name="message">строка с сообщением</param>
 /// <param name="value">переменна€, которой присваиваетс€ число</param>
 void EnterNumber(string message, int& value);
+
+/// <summary>
+/// ‘ункци€ вывода сообщени€ ¬аш буфер: и очереди на базе кольцевого буфера
+/// </summary>
+/// <param name="queueRingBufferUnit">экземпл€р очереди на базе кольцевого буфера</param>
+void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit);

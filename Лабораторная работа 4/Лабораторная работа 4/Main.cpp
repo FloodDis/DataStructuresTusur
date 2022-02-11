@@ -67,7 +67,7 @@ void DictionaryMenu()
 			double size = dictionaryUnit->HashTable.size();
 			EnterString("¬ведите значение value: ", value);
 			EnterString("¬ведите значение key: ", key);
-			if (ElementCount(dictionaryUnit->HashTable) / size >= 1.5)
+			if (ElementCount(dictionaryUnit->HashTable) / size >= 0.9)
 			{
 				Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
 			}

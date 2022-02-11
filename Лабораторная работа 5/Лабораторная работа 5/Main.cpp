@@ -58,7 +58,8 @@ void BinaryTreeMenu()
 	};
 	setlocale(LC_ALL, "ru");
 	int option;
-	int dataOfRoot, keyOfRoot;
+	int dataOfRoot;
+	int keyOfRoot;
 	cout << "Введите ключ корня бинарного дерева: ";
 	cin >> keyOfRoot;
 	cout << "Введите данные корня бинарного дерева: ";
@@ -75,7 +76,8 @@ void BinaryTreeMenu()
 		{
 		case Add:
 		{
-			int dataOfNewNode, keyOfNewNode;
+			int dataOfNewNode;
+			int keyOfNewNode;
 			cout << "Введите ключ нового элемента: ";
 			cin >> keyOfNewNode;
 			cout << "Введите данные нового элемента: ";
@@ -166,7 +168,9 @@ void TreapMenu()
 	};
 	srand(time(NULL));
 	setlocale(LC_ALL, "ru");
-	int keyOfRoot, dataOfRoot, priority;
+	int keyOfRoot; 
+	int dataOfRoot;
+	int priority;
 	int option;
 	cout << "Введите ключ корня декартового дерева: ";
 	cin >> keyOfRoot;
@@ -185,7 +189,8 @@ void TreapMenu()
 		{
 		case AddUnoptimized:
 		{
-			int key, priority;
+			int key;
+			int priority;
 			cout << "Введите ключ нового элемента: ";
 			cin >> key;
 			priority = rand() % 100;
@@ -196,7 +201,8 @@ void TreapMenu()
 		}
 		case AddOptimized:
 		{
-			int key, priority;
+			int key;
+			int priority;
 			cout << "Введите ключ нового элемента: ";
 			cin >> key;
 			priority = rand() % 100;
@@ -276,7 +282,9 @@ void TreapMenu()
 		{
 			DeleteTreap(rootNode->Root);
 			cout << "Ваше дерево удалено\n";
-			int keyOfRoot, dataOfRoot, priority;
+			int keyOfRoot;
+			int dataOfRoot;
+			int priority;
 			int option;
 			cout << "Введите ключ корня декартового дерева: ";
 			cin >> keyOfRoot;

@@ -62,8 +62,7 @@ void BinaryTreeMenu()
 	EnterNumber("Введите ключ корня бинарного дерева: ", keyOfRoot);
 	EnterNumber("Введите данные корня бинарного дерева: ", dataOfRoot);
 	BinaryTreeNode* rootNode = CreationOfBinaryTree(keyOfRoot, dataOfRoot);
-	cout << "Ваше бинарное дерево поиска:\n";
-	PrintBinaryTree(rootNode, 0);
+	ShowBinaryTree(rootNode);
 	while (true)
 	{
 		cout << "Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n";
@@ -78,8 +77,7 @@ void BinaryTreeMenu()
 			EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
 			EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
 			rootNode = AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
-			cout << "Ваше бинарное дерево поиска:\n";
-			PrintBinaryTree(rootNode, 0);
+			ShowBinaryTree(rootNode);
 			break;
 		}
 		case Delete:
@@ -92,8 +90,7 @@ void BinaryTreeMenu()
 			}
 			EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
 			rootNode = DeleteFromBinaryTree(rootNode, keyToDelete);
-			cout << "Ваше бинарное дерево поиска:\n";
-			PrintBinaryTree(rootNode, 0);
+			ShowBinaryTree(rootNode);
 			break;
 		}
 		case Find:
@@ -110,8 +107,7 @@ void BinaryTreeMenu()
 			{
 				cout << "Элемент с ключем " << answer->Key << " имеет данные " << answer->Data << "\n";
 			}
-			cout << "Ваше бинарное дерево поиска:\n";
-			PrintBinaryTree(rootNode, 0);
+			ShowBinaryTree(rootNode);
 			break;
 		}
 		case FindMax:
@@ -119,16 +115,14 @@ void BinaryTreeMenu()
 
 			cout << "Максимальный элемент вашего бинарного дерева поиска: ";
 			cout << "(" << MaximumBinaryTreeSearch(rootNode)->Key << ", " << MaximumBinaryTreeSearch(rootNode)->Data << ")";
-			cout << "\nВаше бинарное дерево поиска:\n";
-			PrintBinaryTree(rootNode, 0);
+			ShowBinaryTree(rootNode);
 			break;
 		}
 		case FindMin:
 		{
 			cout << "Миниимальный элемент вашего бинарного дерева поиска: ";
 			cout << "(" << MinimumBinaryTreeSearch(rootNode)->Key << ", " << MinimumBinaryTreeSearch(rootNode)->Data << ")";
-			cout << "\nВаше бинарное дерево поиска:\n";
-			PrintBinaryTree(rootNode, 0);
+			ShowBinaryTree(rootNode);
 			break;
 		}
 		case Exit:

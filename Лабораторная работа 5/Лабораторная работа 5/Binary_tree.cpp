@@ -171,3 +171,9 @@ void EnterNumber(string message, int& value)
 	cout << message;
 	cin >> value;
 }
+
+void ShowBinaryTree(BinaryTreeNode* rootNode)
+{
+	cout << "Ваше бинарное дерево поиска:\n";
+	PrintBinaryTree(rootNode, 0);
+}

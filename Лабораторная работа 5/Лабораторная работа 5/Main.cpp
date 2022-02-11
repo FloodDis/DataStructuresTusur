@@ -46,6 +46,9 @@ void MainMenu()
 
 void BinaryTreeMenu()
 {
+	/// <summary>
+	/// Действия, которые можно совершить с бинарным деревом поиска
+	/// </summary>
 	enum Actions
 	{
 		Add = 1,

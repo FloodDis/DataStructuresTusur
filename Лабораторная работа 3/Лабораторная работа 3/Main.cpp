@@ -60,8 +60,7 @@ void StackMenu()
 	setlocale(LC_ALL, "Russian");
 	int option;
 	int value;
-	printf("Введите значение первого элемента: ");
-	cin >> value;
+	EnterNumber("Введите значение первого элемента: ", value);
 	Node* stack = CreationOfStack();
 	stack->DataOfNode = value;
 	printf("Стек создан!\n");
@@ -76,8 +75,7 @@ void StackMenu()
 		case 1:
 		{
 			int dataOfNewElement;
-			printf("Введите значение нового элемента: \n");
-			cin >> dataOfNewElement;
+			EnterNumber("Введите значение нового элемента: \n", dataOfNewElement);
 			stack = PushInStack(stack, dataOfNewElement);
 			printf("Ваш стек:\n");
 			PrintStack(stack);
@@ -107,8 +105,7 @@ void StackMenu()
 			DeleteStack(stack);
 			printf("\nСтек удалён\n");
 			int value;
-			printf("Введите значение первого элемента: ");
-			cin >> value;
+			EnterNumber("Введите значение первого элемента: ", value);
 			Node* stack = CreationOfStack();
 			stack->DataOfNode = value;
 			printf("\nСтек создан!\n");
@@ -134,9 +131,8 @@ void RingBufferMenu()
 {
 	setlocale(LC_ALL, "Russian");
 	int option;
-	unsigned int sizeOfBuffer;
-	printf("Введите размер буфера: ");
-	cin >> sizeOfBuffer;
+	int sizeOfBuffer;
+	EnterNumber("Введите размер буфера: ", sizeOfBuffer);
 	if ((int)log2(sizeOfBuffer) % 2 != 0)
 	{
 		printf("Размер буфера должен быть степенью двойки!\n");
@@ -186,8 +182,7 @@ void RingBufferMenu()
 				if (IfThereSpaceToWrite(ringBuffer))
 				{
 					int newElement;
-					printf("Введите значение нового элемента: ");
-					cin >> newElement;
+					EnterNumber("Введите значение нового элемента: ", newElement);
 					PushInRingBuffer(ringBuffer, newElement);
 					printf("Ваш буфер:\n");
 					PrintBuffer(ringBuffer);

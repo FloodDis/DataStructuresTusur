@@ -49,5 +49,5 @@ void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit);
 /// Функция ввода числа и вывода сообщения
 /// </summary>
 /// <param name="message">строка с сообщением</param>
-/// <param name="value">значение числа</param>
+/// <param name="value">переменная, которой присваивается число</param>
 void EnterNumber(string message, int& value);

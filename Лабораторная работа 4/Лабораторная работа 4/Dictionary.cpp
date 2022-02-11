@@ -58,3 +58,9 @@ void EnterString(string message, string& value)
 	cout << message;
 	cin >> value;
 }
+
+void ShowDictionary(vector<KeyValueList*> hashTableUnit)
+{
+	cout << "Ваш словарь:\n";
+	PrintTable(hashTableUnit);
+}

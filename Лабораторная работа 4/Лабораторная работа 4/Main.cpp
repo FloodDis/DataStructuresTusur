@@ -52,8 +52,7 @@ void DictionaryMenu()
 	int size;
 	EnterNumber("Введите размер словаря:\n", size);
 	InitializationOfDictionary(dictionaryUnit->HashTable, size);
-	printf("\nВаш словарь:\n");
-	PrintTable(dictionaryUnit->HashTable);
+	ShowDictionary(dictionaryUnit->HashTable);
 	int option;
 	while (true)
 	{
@@ -73,8 +72,7 @@ void DictionaryMenu()
 				Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
 			}
 			AddInDictionary(dictionaryUnit->HashTable, value, key);
-			printf("\nВаш словарь:\n");
-			PrintTable(dictionaryUnit->HashTable);
+			ShowDictionary(dictionaryUnit->HashTable);
 			break;
 		}
 		case 2:
@@ -82,8 +80,7 @@ void DictionaryMenu()
 			string key;
 			EnterString("Введите key удаляемого элемента: ", key);
 			DeleteFromDictionary(dictionaryUnit->HashTable, key);
-			printf("\nВаш словарь:\n");
-			PrintTable(dictionaryUnit->HashTable);
+			ShowDictionary(dictionaryUnit->HashTable);
 			break;
 		}
 		case 3:
@@ -93,15 +90,13 @@ void DictionaryMenu()
 			EnterString("Введите key искомого элемента: ", key);
 			answer = SearchInDictionary(dictionaryUnit->HashTable, key);
 			cout << answer;
-			printf("\nВаш словарь:\n");
-			PrintTable(dictionaryUnit->HashTable);
+			ShowDictionary(dictionaryUnit->HashTable);
 			break;
 		}
 		case 4:
 		{
 			Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
-			printf("Ваш словарь:\n");
-			PrintTable(dictionaryUnit->HashTable);
+			ShowDictionary(dictionaryUnit->HashTable);
 			break;
 		}
 		case 5:

@@ -54,3 +54,9 @@ void EnterNumber(string message, int& value);
 /// <param name="message">строка с сообщением</param>
 /// <param name="value">переменная, которой присваивается строка</param>
 void EnterString(string message, string& value);
+
+/// <summary>
+/// Функция вывода сообщения Ваш словарь: и словаря 
+/// </summary>
+/// <param name="hashTableUnit">экземпляр хэш-таблицы</param>
+void ShowDictionary(vector<KeyValueList*> hashTableUnit);

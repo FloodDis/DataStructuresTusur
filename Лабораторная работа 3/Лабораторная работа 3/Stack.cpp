@@ -17,7 +17,6 @@ Node* PushInStack(Node* headNode, int dataOfNewElement)
 	return newHeadNode;
 }
 
-
 int PopFromStack(Node*& headNode)
 {
 	Node* pHeadNode;
@@ -55,4 +54,10 @@ void PrintStack(Node* headNode)
 	}
 
 	printf("\n");
+}
+
+void ShowStack(Node* headNode)
+{
+	cout << "Ваш стек:\n";
+	PrintStack(headNode);
 }

@@ -64,8 +64,7 @@ void StackMenu()
 	Node* stack = CreationOfStack();
 	stack->DataOfNode = value;
 	printf("Стек создан!\n");
-	printf("Ваш стек:\n");
-	PrintStack(stack);
+	ShowStack(stack);
 	while (true)
 	{
 		printf("Выберите вариант:\n1) Вставить\n2) Взять\n3) Удалить стек\n4) Выход\n");
@@ -77,8 +76,7 @@ void StackMenu()
 			int dataOfNewElement;
 			EnterNumber("Введите значение нового элемента: \n", dataOfNewElement);
 			stack = PushInStack(stack, dataOfNewElement);
-			printf("Ваш стек:\n");
-			PrintStack(stack);
+			ShowStack(stack);
 			break;
 		}
 		case 2:
@@ -86,16 +84,14 @@ void StackMenu()
 			if (stack == nullptr)
 			{
 				printf("\nСтек пуст\n");
-				printf("\nВаш стек:\n");
-				PrintStack(stack);
+				ShowStack(stack);
 			}
 			else
 			{
 				int valueFromStack;
 				valueFromStack = PopFromStack(stack);
 				printf("\nЗначение из стека: %i\n", valueFromStack);
-				printf("Ваш стек:\n");
-				PrintStack(stack);
+				ShowStack(stack);
 			}
 
 			break;
@@ -109,8 +105,7 @@ void StackMenu()
 			Node* stack = CreationOfStack();
 			stack->DataOfNode = value;
 			printf("\nСтек создан!\n");
-			printf("\nВаш стек\n");
-			PrintStack(stack);
+			ShowStack(stack);
 			break;
 		}
 		case 4:

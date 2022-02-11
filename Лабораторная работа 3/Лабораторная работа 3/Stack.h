@@ -50,3 +50,9 @@ void DeleteStack(Node*& headNode);
 /// </summary>
 /// <param name="headNode">укзатель на корень стека</param>
 void PrintStack(Node* headNode);
+
+/// <summary>
+/// Функция вывода сообщения Ваш стек: и стека на экран
+/// </summary>
+/// <param name="headNode">укзатель на корень стека</param>
+void ShowStack(Node* headNode);

@@ -19,20 +19,20 @@ Node* PushInStack(Node* headNode, int dataOfNewElement)
 
 int PopFromStack(Node*& headNode)
 {
-	Node* pHeadNode;
-	pHeadNode = headNode;
+	Node* bufferHeadNode;
+	bufferHeadNode = headNode;
 	headNode = headNode->PreviousNode;
-	return pHeadNode->DataOfNode;
+	return bufferHeadNode->DataOfNode;
 }
 
 void DeleteStack(Node*& headNode)
 {
 	while (headNode != nullptr)
 	{
-		Node* pStack = headNode;
+		Node* bufferHeadNode = headNode;
 		headNode = headNode->PreviousNode;
-		delete pStack;
-		pStack = nullptr;
+		delete bufferHeadNode;
+		bufferHeadNode = nullptr;
 	}
 }
 

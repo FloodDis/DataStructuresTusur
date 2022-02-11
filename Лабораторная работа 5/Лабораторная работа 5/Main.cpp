@@ -16,8 +16,7 @@ void MainMenu()
 	int option;
 	while (true)
 	{
-		cout << "Выберите структуру данных:\n1) Бинарное дерево\n2) Декартово дерево\n3) Выйти\n";
-		cin >> option;
+		EnterNumber("Выберите структуру данных:\n1) Бинарное дерево\n2) Декартово дерево\n3) Выйти\n", option);
 		switch (option)
 		{
 		case 1:
@@ -60,10 +59,8 @@ void BinaryTreeMenu()
 	int option;
 	int dataOfRoot;
 	int keyOfRoot;
-	cout << "Введите ключ корня бинарного дерева: ";
-	cin >> keyOfRoot;
-	cout << "Введите данные корня бинарного дерева: ";
-	cin >> dataOfRoot;
+	EnterNumber("Введите ключ корня бинарного дерева: ", keyOfRoot);
+	EnterNumber("Введите данные корня бинарного дерева: ", dataOfRoot);
 	BinaryTreeNode* rootNode = CreationOfBinaryTree(keyOfRoot, dataOfRoot);
 	cout << "Ваше бинарное дерево поиска:\n";
 	PrintBinaryTree(rootNode, 0);
@@ -78,10 +75,8 @@ void BinaryTreeMenu()
 		{
 			int dataOfNewNode;
 			int keyOfNewNode;
-			cout << "Введите ключ нового элемента: ";
-			cin >> keyOfNewNode;
-			cout << "Введите данные нового элемента: ";
-			cin >> dataOfNewNode;
+			EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
+			EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
 			rootNode = AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
 			cout << "Ваше бинарное дерево поиска:\n";
 			PrintBinaryTree(rootNode, 0);
@@ -95,8 +90,7 @@ void BinaryTreeMenu()
 				cout << "\nДерево пусто!\n";
 				break;
 			}
-			cout << "Введите ключ удаляемого элемента: ";
-			cin >> keyToDelete;
+			EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
 			rootNode = DeleteFromBinaryTree(rootNode, keyToDelete);
 			cout << "Ваше бинарное дерево поиска:\n";
 			PrintBinaryTree(rootNode, 0);
@@ -105,8 +99,7 @@ void BinaryTreeMenu()
 		case Find:
 		{
 			int searchingKey;
-			cout << "Введите ключ искомого элемента: ";
-			cin >> searchingKey;
+			EnterNumber("Введите ключ искомого элемента: ", searchingKey);
 			BinaryTreeNode* answer = nullptr;
 			answer = BinaryTreeElementSearch(rootNode, searchingKey);
 			if (answer == nullptr)

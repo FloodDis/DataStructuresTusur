@@ -165,3 +165,9 @@ bool IsBinaryTreeEmpty(BinaryTreeNode* rootNode)
 	}
 	return false;
 }
+
+void EnterNumber(string message, int& value)
+{
+	cout << message;
+	cin >> value;
+}

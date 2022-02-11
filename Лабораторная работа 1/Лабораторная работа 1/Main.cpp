@@ -12,7 +12,7 @@ struct StructOfArray
 
 void ShowArray(StructOfArray* arrayUnit);
 
-int EnterNumber(string message, int variable);
+void EnterNumber(string message, int& variable);
 
 void CreateArray(StructOfArray* arrayUnit, int length, int capacity);
 
@@ -40,11 +40,10 @@ void main()
 	Menu(&arrayUnit);
 }
 
-int EnterNumber(string message, int variable)
+void EnterNumber(string message, int& variable)
 {
 	cout << message;
 	cin >> variable;
-	return variable;
 }
 
 void CreateArray(StructOfArray* arrayUnit, int length, int capacity)
@@ -62,7 +61,7 @@ void CreateArray(StructOfArray* arrayUnit, int length, int capacity)
 void AddByIndex(StructOfArray* arrayUnit, int index)
 {
 	int temp = arrayUnit->Array[index];
-	arrayUnit->Array[index] = EnterNumber("Enter your element:\narray [" + to_string(index) + "] = ", arrayUnit->Array[index]);
+	EnterNumber("Enter your element:\narray [" + to_string(index) + "] = ", arrayUnit->Array[index]);
 
 	for (int i = index + 1; i < arrayUnit->Length; i++)
 	{

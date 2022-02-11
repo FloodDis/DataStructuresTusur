@@ -269,12 +269,12 @@ void Menu(StructOfArray* arrayUnit)
 
 		case 4:
 		{
-			int searchingValue;
-			searchingValue = EnterNumber("Enter searching value: ", searchingValue);
+			int searchingValue = 0;
+			EnterNumber("Enter searching value: ", searchingValue);
 
 			do
 			{
-				option = EnterNumber("Select search method:\n1) Lenear search\n2) Binary search\n", option);
+				EnterNumber("Select search method:\n1) Lenear search\n2) Binary search\n", option);
 
 				if (option == 1)
 				{

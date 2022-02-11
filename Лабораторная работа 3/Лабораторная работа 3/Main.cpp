@@ -292,9 +292,10 @@ void QueueRingBufferBasedMenu()
 	}
 	else
 	{
-		RingBuffer* queueRingBuffer = CreationOfQueue(sizeOfQueue);
+		QueueRingBufferBased* queueRingBuffer = new QueueRingBufferBased;
+		queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
 		printf("Очередь создана!\n");
-		ShowQueueRingBuffer(queueRingBuffer);
+		ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 		while (true)
 		{
 			printf("Выберете вариант:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n");
@@ -306,21 +307,21 @@ void QueueRingBufferBasedMenu()
 			{
 				int newElement;
 				EnterNumber("Введите новый элемент очереди\n", newElement);
-				EnqueueRingBuffer(queueRingBuffer, newElement);
-				ShowQueueRingBuffer(queueRingBuffer);
+				EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
+				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 				break;
 			}
 			case 2:
 			{
 				int elementFromQueue;
-				elementFromQueue = DequeueRingBuffer(queueRingBuffer);
+				elementFromQueue = DequeueRingBuffer(queueRingBuffer->ringBuffer);
 				printf("Извлеченный элемент: %i\n", elementFromQueue);
-				ShowQueueRingBuffer(queueRingBuffer);
+				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 				break;
 			}
 			case 3:
 			{
-				DeleteQueueRingBuffer(queueRingBuffer);
+				DeleteQueueRingBuffer(queueRingBuffer->ringBuffer);
 				printf("Ваша очередь удалена!\n");
 				int sizeOfQueue;
 				EnterNumber("Введите размер очереди: ", sizeOfQueue);
@@ -332,7 +333,7 @@ void QueueRingBufferBasedMenu()
 				}
 				else
 				{
-					RingBuffer* queueRingBuffer = CreationOfQueue(sizeOfQueue);
+					queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
 					printf("Очередь создана!\n");
 					break;
 				}

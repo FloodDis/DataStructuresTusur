@@ -9,7 +9,7 @@ struct QueueRingBufferBased
 	/// <summary>
 	/// Кольцевой буфер
 	/// </summary>
-	RingBuffer ringBuffer;
+	RingBuffer* ringBuffer;
 };
 
 /// <summary>

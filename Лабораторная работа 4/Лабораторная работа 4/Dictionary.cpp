@@ -41,3 +41,8 @@ string SearchInDictionary(vector<KeyValueList*>& hashTableUnit, string key)
 {
 	return SearchInHashTable(key, hashTableUnit);
 }
+
+void InitializationOfDictionary(vector<KeyValueList*>& hashTableUnit, int size)
+{
+	InitializationOfHashTable(hashTableUnit, size);
+}

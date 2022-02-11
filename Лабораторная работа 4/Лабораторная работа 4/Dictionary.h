@@ -2,6 +2,24 @@
 #include "HashTable.h"
 
 /// <summary>
+/// Словарь
+/// </summary>
+struct Dictionary
+{
+	/// <summary>
+	/// Хэш-таблица
+	/// </summary>
+	vector<KeyValueList*> HashTable;
+};
+
+/// <summary>
+/// Функция инициализации словаря
+/// </summary>
+/// <param name="hashTableUnit">ссылка на экземпляр хэш-таблицы</param>
+/// <param name="size">размер словаря</param>
+void InitializationOfDictionary(vector<KeyValueList*>& hashTableUnit, int size);
+
+/// <summary>
 /// Функция добавления пары ключ-значение в словарь
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>

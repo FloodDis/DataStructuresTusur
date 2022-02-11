@@ -92,3 +92,9 @@ string SearchInHashTable(string searchingKey, vector<KeyValueList*> hashTableUni
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <returns>количество элементов</returns>
 double ElementCount(vector<KeyValueList*> hashTableUnit);
+
+///<summary>
+/// Функция вывода строки Ваша хэш-таблица и хэш-таблицы
+/// </summary>
+/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
+void ShowHashTable(vector<KeyValueList*> hashTableUnit);

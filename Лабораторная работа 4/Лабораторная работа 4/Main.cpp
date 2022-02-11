@@ -121,8 +121,7 @@ void HashTableMenu()
 	int size;
 	EnterNumber("Введите размер хеш-таблицы:\n", size);
 	InitializationOfHashTable(hashTableUnit, size);
-	printf("\nВаша хеш-таблица:\n");
-	PrintTable(hashTableUnit);
+	ShowHashTable(hashTableUnit);
 	int option;
 	while (true)
 	{
@@ -143,8 +142,7 @@ void HashTableMenu()
 				Rehashing(hashTableUnit, ElementCount(hashTableUnit));
 			}
 			AddElementInHashTable(hashTableUnit, value, key);
-			printf("\nВаша хеш-таблица:\n");
-			PrintTable(hashTableUnit);
+			ShowHashTable(hashTableUnit);
 			break;
 		}
 		case 2:
@@ -152,8 +150,7 @@ void HashTableMenu()
 			string key;
 			EnterString("Введите key удаляемого элемента: ", key);
 			DeleteElementInHashTable(hashTableUnit, key);
-			printf("\nВаша хеш-таблица:\n");
-			PrintTable(hashTableUnit);
+			ShowHashTable(hashTableUnit);
 			break;
 		}
 		case 3:
@@ -163,15 +160,13 @@ void HashTableMenu()
 			EnterString("Введите key искомого элемента: ",key);
 			answer = SearchInHashTable(key, hashTableUnit);
 			cout << answer << "\n";
-			printf("\nВаша хеш-таблица:\n");
-			PrintTable(hashTableUnit);
+			ShowHashTable(hashTableUnit);
 			break;
 		}
 		case 4:
 		{
 			Rehashing(hashTableUnit, ElementCount(hashTableUnit));
-			printf("\nВаша хеш-таблица:\n");
-			PrintTable(hashTableUnit);
+			ShowHashTable(hashTableUnit);
 			break;
 		}
 		case 5:

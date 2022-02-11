@@ -149,3 +149,9 @@ double ElementCount(vector<KeyValueList*> hashTableUnit)
 	}
 	return count;
 }
+
+void ShowHashTable(vector<KeyValueList*> hashTableUnit)
+{
+	cout << "Ваша хэш-таблица:\n";
+	PrintTable(hashTableUnit);
+}

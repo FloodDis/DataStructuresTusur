@@ -40,3 +40,10 @@ void DeleteFromDictionary(vector<KeyValueList*>& hashTableUnit, string key);
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ искомого элемента</param>
 string SearchInDictionary(vector<KeyValueList*>& hashTableUnit, string key);
+
+/// <summary>
+/// Функция ввода числа и вывода сообщения
+/// </summary>
+/// <param name="message">строка с сообщением</param>
+/// <param name="value">переменная, которой присваивается число</param>
+void EnterNumber(string message, int& value);

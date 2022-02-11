@@ -50,8 +50,7 @@ void DictionaryMenu()
 	Dictionary* dictionaryUnit= new Dictionary;
 	setlocale(LC_ALL, "ru");
 	int size;
-	printf("¬ведите размер словар€:\n");
-	cin >> size;
+	EnterNumber("¬ведите размер словар€:\n", size);
 	InitializationOfDictionary(dictionaryUnit->HashTable, size);
 	printf("\n¬аш словарь:\n");
 	PrintTable(dictionaryUnit->HashTable);

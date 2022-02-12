@@ -31,27 +31,22 @@ void AVLTreeMenu()
 	int option;
 	int dataOfRoot;
 	int keyOfRoot;
-	cout << "Введите ключ корня AVL-дерева: ";
-	cin >> keyOfRoot;
-	cout << "Введите данные корня AVL-дерева: ";
-	cin >> dataOfRoot;
+	EnterNumber("Введите ключ корня AVL-дерева: ", keyOfRoot);
+	EnterNumber("Введите данные корня AVL-дерева: ", dataOfRoot);
 	AVLTreeNode* rootNode = CreationOfAVLTree(keyOfRoot, dataOfRoot);
 	cout << "Ваше AVL-дерево:\n";
 	PrintAVLTree(rootNode, 0);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n4) Выйти\n";
-		cin >> option;
+		EnterNumber("Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n4) Выйти\n", option);
 		switch (option)
 		{
 			case Add:
 			{
 				int dataOfNewNode;
 				int	keyOfNewNode;
-				cout << "Введите ключ нового элемента: ";
-				cin >> keyOfNewNode;
-				cout << "Введите данные нового элемента: ";
-				cin >> dataOfNewNode;
+				EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
+				EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
 				try
 				{
 					rootNode = AddInAVLTree(rootNode, keyOfNewNode, dataOfNewNode);
@@ -68,8 +63,7 @@ void AVLTreeMenu()
 			case Delete:
 			{
 				int keyToDelete;
-				cout << "Введите ключ удаляемого элемента: ";
-				cin >> keyToDelete;
+				EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
 				try
 				{
 					rootNode = DeleteFromAVLTree(rootNode, keyToDelete);
@@ -88,8 +82,7 @@ void AVLTreeMenu()
 			{
 				AVLTreeNode* answer = nullptr;
 				int searchingKey;
-				cout << "Введите ключ искомого элемента: ";
-				cin >> searchingKey;
+				EnterNumber("Введите ключ искомого элемента: ", searchingKey);
 				answer = ElementSearchAVL(rootNode, searchingKey);
 				if (answer == nullptr)
 				{

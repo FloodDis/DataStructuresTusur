@@ -1,4 +1,4 @@
-#include "AVL_Tree.h"
+ï»¿#include "AVL_Tree.h"
 #include <iostream>
 using namespace std;
 
@@ -96,7 +96,7 @@ AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int keyToAdd, int dataOfNewNode
 	}
 	else
 	{
-		throw "Ýëåìåíò ñ òàêèì êëþ÷îì óæå ñóùåñòâóåò!\n";
+		throw "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ñ Ñ‚Ð°ÐºÐ¸Ð¼ ÐºÐ»ÑŽÑ‡Ð¾Ð¼ ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚!\n";
 	}
 	return Balance(rootNode);
 }
@@ -118,7 +118,7 @@ AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete)
 {
 	if (rootNode == nullptr)
 	{
-		throw "Ýëåìåíò ñ òàêèì êëþ÷îì íå ñóùåñòâóåò!\n";
+		throw "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ñ Ñ‚Ð°ÐºÐ¸Ð¼ ÐºÐ»ÑŽÑ‡Ð¾Ð¼ Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚!\n";
 	}
 	if (rootNode->Key > keyToDelete)
 	{

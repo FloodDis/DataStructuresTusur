@@ -1,29 +1,29 @@
-#include "IO_AVL_Tree.h"
+п»ї#include "IO_AVL_Tree.h"
 
 void AVLTreeMenu()
 {
 	/// <summary>
-	/// Действия, которые можно совершить с АВЛ-деревом
+	/// Р”РµР№СЃС‚РІРёСЏ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ СЃРѕРІРµСЂС€РёС‚СЊ СЃ РђР’Р›-РґРµСЂРµРІРѕРј
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Add = 1,
 
 		/// <summary>
-		/// Удалить элемент
+		/// РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Delete = 2,
 
 		/// <summary>
-		/// Найти элемент
+		/// РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Find = 3,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit = 4
 	};
@@ -31,21 +31,21 @@ void AVLTreeMenu()
 	int option;
 	int dataOfRoot;
 	int keyOfRoot;
-	EnterNumber("Введите ключ корня AVL-дерева: ", keyOfRoot);
-	EnterNumber("Введите данные корня AVL-дерева: ", dataOfRoot);
+	EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РєРѕСЂРЅСЏ AVL-РґРµСЂРµРІР°: ", keyOfRoot);
+	EnterNumber("Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ РєРѕСЂРЅСЏ AVL-РґРµСЂРµРІР°: ", dataOfRoot);
 	AVLTreeNode* rootNode = CreationOfAVLTree(keyOfRoot, dataOfRoot);
 	ShowAVLTree(rootNode);
 	while (true)
 	{
-		EnterNumber("Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n4) Выйти\n", option);
+		EnterNumber("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n2) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚\n3) РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚\n4) Р’С‹Р№С‚Рё\n", option);
 		switch (option)
 		{
 			case Add:
 			{
 				int dataOfNewNode;
 				int	keyOfNewNode;
-				EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
-				EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", keyOfNewNode);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", dataOfNewNode);
 				try
 				{
 					rootNode = AddInAVLTree(rootNode, keyOfNewNode, dataOfNewNode);
@@ -61,11 +61,11 @@ void AVLTreeMenu()
 			case Delete:
 			{
 				int keyToDelete;
-				EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", keyToDelete);
 				try
 				{
 					rootNode = DeleteFromAVLTree(rootNode, keyToDelete);
-					cout << "Элемент был удален из дерева!\n";
+					cout << "Р­Р»РµРјРµРЅС‚ Р±С‹Р» СѓРґР°Р»РµРЅ РёР· РґРµСЂРµРІР°!\n";
 				}
 				catch (char const* error)
 				{
@@ -79,15 +79,15 @@ void AVLTreeMenu()
 			{
 				AVLTreeNode* answer = nullptr;
 				int searchingKey;
-				EnterNumber("Введите ключ искомого элемента: ", searchingKey);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", searchingKey);
 				answer = ElementSearchAVL(rootNode, searchingKey);
 				if (answer == nullptr)
 				{
-					cout << "Элемент не найден!\n";
+					cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ!\n";
 				}
 				else
 				{
-					cout << "Элемент с ключом " << answer->Key << " имеет данные " << answer->Data << "\n";
+					cout << "Р­Р»РµРјРµРЅС‚ СЃ РєР»СЋС‡РѕРј " << answer->Key << " РёРјРµРµС‚ РґР°РЅРЅС‹Рµ " << answer->Data << "\n";
 				}
 				ShowAVLTree(rootNode);
 				break;
@@ -101,7 +101,7 @@ void AVLTreeMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				break;
 			}
 		}
@@ -110,6 +110,6 @@ void AVLTreeMenu()
 
 void ShowAVLTree(AVLTreeNode* rootNode)
 {
-	cout << "Ваше АВЛ-дерево:\n";
+	cout << "Р’Р°С€Рµ РђР’Р›-РґРµСЂРµРІРѕ:\n";
 	PrintAVLTree(rootNode, 0);
 }

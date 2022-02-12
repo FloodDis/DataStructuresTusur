@@ -1,15 +1,15 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include "IO_Red_Black_Tree.h"
 #include "AVL_Tree.h"
 using namespace std;
 
 /// <summary>
-/// Функция вызова меню АВЛ-дерева
+/// Р¤СѓРЅРєС†РёСЏ РІС‹Р·РѕРІР° РјРµРЅСЋ РђР’Р›-РґРµСЂРµРІР°
 /// </summary>
 void AVLTreeMenu();
 
 /// <summary>
-/// Функция вывода сообщения Ваше АВЛ-дерево: и АВЛ-дерево
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ Р’Р°С€Рµ РђР’Р›-РґРµСЂРµРІРѕ: Рё РђР’Р›-РґРµСЂРµРІРѕ
 /// </summary>
 void ShowAVLTree(AVLTreeNode* rootNode);

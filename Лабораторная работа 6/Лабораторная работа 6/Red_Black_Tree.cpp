@@ -1,4 +1,4 @@
-#include "Red_Black_Tree.h"
+ï»¿#include "Red_Black_Tree.h"
 
 RBTree::RBTree()
 {
@@ -40,7 +40,7 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 {
 	if (!node)
 	{
-		throw "Ýëåìåíòà ñ òàêèì êëþ÷îì íå ñóùåñòâóåò!";
+		throw "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ñ Ñ‚Ð°ÐºÐ¸Ð¼ ÐºÐ»ÑŽÑ‡Ð¾Ð¼ Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚!";
 	}
 
 	if (node->Key == key)
@@ -248,7 +248,7 @@ RBTreeNode* RBTree::Insert(RBTreeNode* node, int key)
 
 	if (key == node->Key)
 	{
-		throw "Ýëåìåíò ñ òàêèì êëþ÷îì óæå ñóùåñòâóåò!";
+		throw "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ñ Ñ‚Ð°ÐºÐ¸Ð¼ ÐºÐ»ÑŽÑ‡Ð¾Ð¼ ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚!";
 	}
 
 	bool direction = key > node->Key;

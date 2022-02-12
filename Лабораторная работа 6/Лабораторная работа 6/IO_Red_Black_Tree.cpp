@@ -1,29 +1,29 @@
-#include "IO_Red_Black_Tree.h"
+п»ї#include "IO_Red_Black_Tree.h"
 
 void RBTreeMenu()
 {
 	/// <summary>
-	/// Действия, которые можно совершить с красно-черным деревом
+	/// Р”РµР№СЃС‚РІРёСЏ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ СЃРѕРІРµСЂС€РёС‚СЊ СЃ РєСЂР°СЃРЅРѕ-С‡РµСЂРЅС‹Рј РґРµСЂРµРІРѕРј
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Add = 1,
 
 		/// <summary>
-		/// Удалить элемент
+		/// РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Delete = 2,
 
 		/// <summary>
-		/// Найти элемент
+		/// РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Find = 3,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit = 4
 	};
@@ -34,14 +34,14 @@ void RBTreeMenu()
 	ShowRBTree(treeUnit);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n4) Выйти\n";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n2) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚\n3) РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚\n4) Р’С‹Р№С‚Рё\n";
 		cin >> option;
 		switch (option)
 		{
 			case Add:
 			{
 				int key;
-				EnterNumber("Введите ключ добавляемого элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				try
 				{
 					treeUnit->Insert(key);
@@ -57,11 +57,11 @@ void RBTreeMenu()
 			case Delete:
 			{
 				int key;
-				EnterNumber("Введите ключ удаляемого элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				try
 				{
 					treeUnit->Delete(key);
-					cout << "Элемент был удален!\n";
+					cout << "Р­Р»РµРјРµРЅС‚ Р±С‹Р» СѓРґР°Р»РµРЅ!\n";
 				}
 				catch (char const* error)
 				{
@@ -74,23 +74,23 @@ void RBTreeMenu()
 			case Find:
 			{
 				int key;
-				EnterNumber("Введите ключ искомого элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				RBTreeNode* result = treeUnit->Find(key);
 				if (result != nullptr)
 				{
-					cout << "Элемент с ключом " << result->Key << " имеет цвет: ";
+					cout << "Р­Р»РµРјРµРЅС‚ СЃ РєР»СЋС‡РѕРј " << result->Key << " РёРјРµРµС‚ С†РІРµС‚: ";
 					if (result->IsBlack)
 					{
-						cout << "Черный\n";
+						cout << "Р§РµСЂРЅС‹Р№\n";
 					}
 					else
 					{
-						cout << "Красный\n";
+						cout << "РљСЂР°СЃРЅС‹Р№\n";
 					}
 				}
 				else
 				{
-					cout << "Такого элемента нет в дереве!\n";
+					cout << "РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµС‚ РІ РґРµСЂРµРІРµ!\n";
 				}
 				ShowRBTree(treeUnit);
 				break;
@@ -104,7 +104,7 @@ void RBTreeMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				break;
 			}
 		}
@@ -119,6 +119,6 @@ void EnterNumber(string message, int& value)
 
 void ShowRBTree(RBTree* treeUnit)
 {
-	cout << "Ваше красно-черное дерево:\n";
+	cout << "Р’Р°С€Рµ РєСЂР°СЃРЅРѕ-С‡РµСЂРЅРѕРµ РґРµСЂРµРІРѕ:\n";
 	treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
 }

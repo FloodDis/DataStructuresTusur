@@ -1,4 +1,4 @@
-#include "IO_AVL_Tree.h"
+п»ї#include "IO_AVL_Tree.h"
 using namespace std;
 
 void MainMenu();
@@ -10,22 +10,22 @@ void main()
 void MainMenu()
 {
 	/// <summary>
-	/// Варианты выбора структуры данных
+	/// Р’Р°СЂРёР°РЅС‚С‹ РІС‹Р±РѕСЂР° СЃС‚СЂСѓРєС‚СѓСЂС‹ РґР°РЅРЅС‹С…
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// АВЛ-дерево
+		/// РђР’Р›-РґРµСЂРµРІРѕ
 		/// </summary>
 		AVLTree = 1,
 
 		/// <summary>
-		/// Красно-черное дерево
+		/// РљСЂР°СЃРЅРѕ-С‡РµСЂРЅРѕРµ РґРµСЂРµРІРѕ
 		/// </summary>
 		RedBlackTree = 2,
 
 		/// <summary>
-		/// Выход из программы
+		/// Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹
 		/// </summary>
 		Exit = 3
 	};
@@ -33,7 +33,7 @@ void MainMenu()
 	int option;
 	while (true)
 	{
-		EnterNumber("Выберите структуру данных:\n1) AVL-дерево\n2) Красно-черное дерево\n3) Выйти\n", option);
+		EnterNumber("Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂСѓРєС‚СѓСЂСѓ РґР°РЅРЅС‹С…:\n1) AVL-РґРµСЂРµРІРѕ\n2) РљСЂР°СЃРЅРѕ-С‡РµСЂРЅРѕРµ РґРµСЂРµРІРѕ\n3) Р’С‹Р№С‚Рё\n", option);
 		switch (option)
 		{
 			case AVLTree:
@@ -56,7 +56,7 @@ void MainMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				break;
 			}
 		}

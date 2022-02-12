@@ -1,141 +1,141 @@
-#pragma once
+п»ї#pragma once
 
 /// <summary>
-/// Узел АВЛ-дерева
+/// РЈР·РµР» РђР’Р›-РґРµСЂРµРІР°
 /// </summary>
 struct AVLTreeNode
 {
 	/// <summary>
-	/// Указатель на левый дочерний узел
+	/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° Р»РµРІС‹Р№ РґРѕС‡РµСЂРЅРёР№ СѓР·РµР»
 	/// </summary>
 	AVLTreeNode* Left = nullptr;
 
 	/// <summary>
-	/// Указатель на правый узел
+	/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїСЂР°РІС‹Р№ СѓР·РµР»
 	/// </summary>
 	AVLTreeNode* Right = nullptr;
 
 	/// <summary>
-	/// Ключ узла
+	/// РљР»СЋС‡ СѓР·Р»Р°
 	/// </summary>
 	int Key;
 
 	/// <summary>
-	/// Данные узла
+	/// Р”Р°РЅРЅС‹Рµ СѓР·Р»Р°
 	/// </summary>
 	int Data;
 
 	/// <summary>
-	/// Высота поддерева
+	/// Р’С‹СЃРѕС‚Р° РїРѕРґРґРµСЂРµРІР°
 	/// </summary>
 	int SubTreeHeight;
 };
 
 /// <summary>
-/// Функция создания узла АВЛ-дерева
+/// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ СѓР·Р»Р° РђР’Р›-РґРµСЂРµРІР°
 /// </summary>
-/// <param name="keyOfRoot">ключ создаваемого узла</param>
-/// <param name="dataOfRoot">данные создаваемого узла</param>
+/// <param name="keyOfRoot">РєР»СЋС‡ СЃРѕР·РґР°РІР°РµРјРѕРіРѕ СѓР·Р»Р°</param>
+/// <param name="dataOfRoot">РґР°РЅРЅС‹Рµ СЃРѕР·РґР°РІР°РµРјРѕРіРѕ СѓР·Р»Р°</param>
 /// <returns>
-/// созданный узел
+/// СЃРѕР·РґР°РЅРЅС‹Р№ СѓР·РµР»
 /// </returns>
 AVLTreeNode* CreationOfAVLTree(int keyOfRoot, int dataOfRoot);
 
 /// <summary>
-/// Функция получения высоты поддерева
+/// Р¤СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ РІС‹СЃРѕС‚С‹ РїРѕРґРґРµСЂРµРІР°
 /// </summary>
-/// <param name="node">корень поддерева</param>
+/// <param name="node">РєРѕСЂРµРЅСЊ РїРѕРґРґРµСЂРµРІР°</param>
 /// <returns>
-///  высота поддерева
+///  РІС‹СЃРѕС‚Р° РїРѕРґРґРµСЂРµРІР°
 /// </returns>
 int GetHeight(AVLTreeNode* node);
 
 /// <summary>
-/// Функция вычисления разницы высот поддеревьев
+/// Р¤СѓРЅРєС†РёСЏ РІС‹С‡РёСЃР»РµРЅРёСЏ СЂР°Р·РЅРёС†С‹ РІС‹СЃРѕС‚ РїРѕРґРґРµСЂРµРІСЊРµРІ
 /// </summary>
-/// <param name="node">корень дерева</param>
+/// <param name="node">РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°</param>
 /// <returns>
-/// разница высот поддеревьев
+/// СЂР°Р·РЅРёС†Р° РІС‹СЃРѕС‚ РїРѕРґРґРµСЂРµРІСЊРµРІ
 /// </returns>
 int BalanceFactor(AVLTreeNode* node);
 
 /// <summary>
-/// Функция исправления высоты дерева
+/// Р¤СѓРЅРєС†РёСЏ РёСЃРїСЂР°РІР»РµРЅРёСЏ РІС‹СЃРѕС‚С‹ РґРµСЂРµРІР°
 /// </summary>
-/// <param name="node">корень дерева</param>
+/// <param name="node">РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°</param>
 void FixHeight(AVLTreeNode* node);
 
 /// <summary>
-/// Функция правого поворота
+/// Р¤СѓРЅРєС†РёСЏ РїСЂР°РІРѕРіРѕ РїРѕРІРѕСЂРѕС‚Р°
 /// </summary>
-/// <param name="pNode">узел, вокруг которого производится поворот</param>
+/// <param name="pNode">СѓР·РµР», РІРѕРєСЂСѓРі РєРѕС‚РѕСЂРѕРіРѕ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РїРѕРІРѕСЂРѕС‚</param>
 /// <returns>
-/// новый корень поддерева
+/// РЅРѕРІС‹Р№ РєРѕСЂРµРЅСЊ РїРѕРґРґРµСЂРµРІР°
 /// </returns>
 AVLTreeNode* RotateRight(AVLTreeNode* pNode);
 
 /// <summary>
-/// Функция левого поворота
+/// Р¤СѓРЅРєС†РёСЏ Р»РµРІРѕРіРѕ РїРѕРІРѕСЂРѕС‚Р°
 /// </summary>
-/// <param name="qNode">узел, вокруг которого производится поворот</param>
+/// <param name="qNode">СѓР·РµР», РІРѕРєСЂСѓРі РєРѕС‚РѕСЂРѕРіРѕ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РїРѕРІРѕСЂРѕС‚</param>
 /// <returns>
-/// новый корень поддерева
+/// РЅРѕРІС‹Р№ РєРѕСЂРµРЅСЊ РїРѕРґРґРµСЂРµРІР°
 /// </returns>
 AVLTreeNode* RotateLeft(AVLTreeNode* qNode);
 
 /// <summary>
-/// Функция балансировки поддерева
+/// Р¤СѓРЅРєС†РёСЏ Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєРё РїРѕРґРґРµСЂРµРІР°
 /// </summary>
-/// <param name="node">балансируемый узел</param>
+/// <param name="node">Р±Р°Р»Р°РЅСЃРёСЂСѓРµРјС‹Р№ СѓР·РµР»</param>
 /// <returns>
-/// новый корень сбалансированного поддерева
+/// РЅРѕРІС‹Р№ РєРѕСЂРµРЅСЊ СЃР±Р°Р»Р°РЅСЃРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕРґРґРµСЂРµРІР°
 /// </returns>
 AVLTreeNode* Balance(AVLTreeNode* node);
 
 /// <summary>
-/// Функция добавления элемента в АВЛ-дерево
+/// Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІ РђР’Р›-РґРµСЂРµРІРѕ
 /// </summary>
-/// <param name="rootNode">корень дерева</param>
-/// <param name="keyToAdd">ключ добавляемого элемента</param>
-/// <param name="dataOfNewNode">данные добавляемого элемента</param>
+/// <param name="rootNode">РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°</param>
+/// <param name="keyToAdd">РєР»СЋС‡ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
+/// <param name="dataOfNewNode">РґР°РЅРЅС‹Рµ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 /// <returns>
-/// новый корень дерева
+/// РЅРѕРІС‹Р№ РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°
 /// </returns>
 AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int keyToAdd, int dataOfNewNode);
 
 /// <summary>
-/// Функция поиска минимального элемента
+/// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 /// </summary>
-/// <param name="rootNode">корень дерева или поддерева</param>
+/// <param name="rootNode">РєРѕСЂРµРЅСЊ РґРµСЂРµРІР° РёР»Рё РїРѕРґРґРµСЂРµРІР°</param>
 /// <returns>
-/// минимальный элемент АВЛ-дерева
+/// РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РђР’Р›-РґРµСЂРµРІР°
 /// </returns>
 AVLTreeNode* FindMinAVL(AVLTreeNode* rootNode);
 
 /// <summary>
-/// Функция удаления элемента из АВЛ-дерева
+/// Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РёР· РђР’Р›-РґРµСЂРµРІР°
 /// </summary>
-/// <param name="rootNode">корень дерева</param>
-/// <param name="keyToDelete">ключ удаляемого элемента</param>
+/// <param name="rootNode">РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°</param>
+/// <param name="keyToDelete">РєР»СЋС‡ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 /// <returns>
-/// узел сбалансированного АВЛ-дерева
+/// СѓР·РµР» СЃР±Р°Р»Р°РЅСЃРёСЂРѕРІР°РЅРЅРѕРіРѕ РђР’Р›-РґРµСЂРµРІР°
 /// </returns>
 AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete);
 
 /// <summary>
-/// Функция поиска элемента в АВЛ-дереве
+/// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° СЌР»РµРјРµРЅС‚Р° РІ РђР’Р›-РґРµСЂРµРІРµ
 /// </summary>
-/// <param name="rootNode">корень дерева</param>
-/// <param name="searchingKey">ключ искомого элемента</param>
+/// <param name="rootNode">РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°</param>
+/// <param name="searchingKey">РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 /// <returns>
-/// искомый узел
+/// РёСЃРєРѕРјС‹Р№ СѓР·РµР»
 /// </returns>
 AVLTreeNode* ElementSearchAVL(AVLTreeNode* rootNode, int searchingKey);
 
 /// <summary>
-/// Функция вывода АВЛ-дерева на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РђР’Р›-РґРµСЂРµРІР° РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="rootNode">корень дерева</param>
-/// <param name="tabCount">количество табуляций</param>
+/// <param name="rootNode">РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°</param>
+/// <param name="tabCount">РєРѕР»РёС‡РµСЃС‚РІРѕ С‚Р°Р±СѓР»СЏС†РёР№</param>
 void PrintAVLTree(AVLTreeNode* rootNode, int tabCount);
 

@@ -2,11 +2,29 @@
 
 void RBTreeMenu()
 {
+	/// <summary>
+	/// Действия, которые можно совершить с красно-черным деревом
+	/// </summary>
 	enum Actions
 	{
+		/// <summary>
+		/// Добавить элемент
+		/// </summary>
 		Add = 1,
+
+		/// <summary>
+		/// Удалить элемент
+		/// </summary>
 		Delete = 2,
+
+		/// <summary>
+		/// Найти элемент
+		/// </summary>
 		Find = 3,
+
+		/// <summary>
+		/// Выйти в главное меню
+		/// </summary>
 		Exit = 4
 	};
 	setlocale(LC_ALL, "ru");

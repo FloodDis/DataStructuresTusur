@@ -1,4 +1,4 @@
-#include "Binary_tree.h"
+ï»¿#include "Binary_tree.h"
 #include <cstdlib>
 #include <iostream>
 using namespace std;
@@ -174,6 +174,6 @@ void EnterNumber(string message, int& value)
 
 void ShowBinaryTree(BinaryTreeNode* rootNode)
 {
-	cout << "Âàøå áèíàðíîå äåðåâî ïîèñêà:\n";
+	cout << "Ð’Ð°ÑˆÐµ Ð±Ð¸Ð½Ð°Ñ€Ð½Ð¾Ðµ Ð´ÐµÑ€ÐµÐ²Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°:\n";
 	PrintBinaryTree(rootNode, 0);
 }

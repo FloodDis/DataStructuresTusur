@@ -1,4 +1,4 @@
-#include "Binary_tree.h"
+п»ї#include "Binary_tree.h"
 #include "Treap.h"
 #include <iostream>
 using namespace std;
@@ -16,7 +16,7 @@ void MainMenu()
 	int option;
 	while (true)
 	{
-		EnterNumber("Выберите структуру данных:\n1) Бинарное дерево\n2) Декартово дерево\n3) Выйти\n", option);
+		EnterNumber("Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂСѓРєС‚СѓСЂСѓ РґР°РЅРЅС‹С…:\n1) Р‘РёРЅР°СЂРЅРѕРµ РґРµСЂРµРІРѕ\n2) Р”РµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ\n3) Р’С‹Р№С‚Рё\n", option);
 		switch (option)
 		{
 			case 1:
@@ -36,7 +36,7 @@ void MainMenu()
 			}
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				break;
 			}
 		}
@@ -47,37 +47,37 @@ void MainMenu()
 void BinaryTreeMenu()
 {
 	/// <summary>
-	/// Действия, которые можно совершить с бинарным деревом поиска
+	/// Р”РµР№СЃС‚РІРёСЏ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ СЃРѕРІРµСЂС€РёС‚СЊ СЃ Р±РёРЅР°СЂРЅС‹Рј РґРµСЂРµРІРѕРј РїРѕРёСЃРєР°
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Add = 1,
 
 		/// <summary>
-		/// Удалить элемент 
+		/// РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ 
 		/// </summary>
 		Delete = 2,
 
 		/// <summary>
-		/// Найти элемент
+		/// РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Find = 3,
 
 		/// <summary>
-		/// Найти максимальный элемент
+		/// РќР°Р№С‚Рё РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		FindMax = 4,
 
 		/// <summary>
-		/// Найти минимальный элемент 
+		/// РќР°Р№С‚Рё РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ 
 		/// </summary>
 		FindMin = 5,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit = 6
 	};
@@ -85,14 +85,14 @@ void BinaryTreeMenu()
 	int option;
 	int dataOfRoot;
 	int keyOfRoot;
-	EnterNumber("Введите ключ корня бинарного дерева: ", keyOfRoot);
-	EnterNumber("Введите данные корня бинарного дерева: ", dataOfRoot);
+	EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РєРѕСЂРЅСЏ Р±РёРЅР°СЂРЅРѕРіРѕ РґРµСЂРµРІР°: ", keyOfRoot);
+	EnterNumber("Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ РєРѕСЂРЅСЏ Р±РёРЅР°СЂРЅРѕРіРѕ РґРµСЂРµРІР°: ", dataOfRoot);
 	BinaryTreeNode* rootNode = CreationOfBinaryTree(keyOfRoot, dataOfRoot);
 	ShowBinaryTree(rootNode);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n";
-		cout << "4) Найти максимум дерева\n5) Найти минимум дерева\n6) Выйти\n";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n2) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚\n3) РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚\n";
+		cout << "4) РќР°Р№С‚Рё РјР°РєСЃРёРјСѓРј РґРµСЂРµРІР°\n5) РќР°Р№С‚Рё РјРёРЅРёРјСѓРј РґРµСЂРµРІР°\n6) Р’С‹Р№С‚Рё\n";
 		cin >> option;
 		switch (option)
 		{
@@ -100,8 +100,8 @@ void BinaryTreeMenu()
 			{
 				int dataOfNewNode;
 				int keyOfNewNode;
-				EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
-				EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", keyOfNewNode);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", dataOfNewNode);
 				rootNode = AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
 				ShowBinaryTree(rootNode);
 				break;
@@ -112,10 +112,10 @@ void BinaryTreeMenu()
 				int keyToDelete;
 				if (IsBinaryTreeEmpty(rootNode))
 				{
-					cout << "\nДерево пусто!\n";
+					cout << "\nР”РµСЂРµРІРѕ РїСѓСЃС‚Рѕ!\n";
 					break;
 				}
-				EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", keyToDelete);
 				rootNode = DeleteFromBinaryTree(rootNode, keyToDelete);
 				ShowBinaryTree(rootNode);
 				break;
@@ -124,16 +124,16 @@ void BinaryTreeMenu()
 			case Find:
 			{
 				int searchingKey;
-				EnterNumber("Введите ключ искомого элемента: ", searchingKey);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", searchingKey);
 				BinaryTreeNode* answer = nullptr;
 				answer = BinaryTreeElementSearch(rootNode, searchingKey);
 				if (answer == nullptr)
 				{
-					cout << "Элемент не найден!\n";
+					cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ!\n";
 				}
 				else
 				{
-					cout << "Элемент с ключем " << answer->Key << " имеет данные " << answer->Data << "\n";
+					cout << "Р­Р»РµРјРµРЅС‚ СЃ РєР»СЋС‡РµРј " << answer->Key << " РёРјРµРµС‚ РґР°РЅРЅС‹Рµ " << answer->Data << "\n";
 				}
 				ShowBinaryTree(rootNode);
 				break;
@@ -142,7 +142,7 @@ void BinaryTreeMenu()
 			case FindMax:
 			{
 
-				cout << "Максимальный элемент вашего бинарного дерева поиска: ";
+				cout << "РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІР°С€РµРіРѕ Р±РёРЅР°СЂРЅРѕРіРѕ РґРµСЂРµРІР° РїРѕРёСЃРєР°: ";
 				cout << "(" << MaximumBinaryTreeSearch(rootNode)->Key << ", " << MaximumBinaryTreeSearch(rootNode)->Data << ")";
 				ShowBinaryTree(rootNode);
 				break;
@@ -150,7 +150,7 @@ void BinaryTreeMenu()
 
 			case FindMin:
 			{
-				cout << "Миниимальный элемент вашего бинарного дерева поиска: ";
+				cout << "РњРёРЅРёРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІР°С€РµРіРѕ Р±РёРЅР°СЂРЅРѕРіРѕ РґРµСЂРµРІР° РїРѕРёСЃРєР°: ";
 				cout << "(" << MinimumBinaryTreeSearch(rootNode)->Key << ", " << MinimumBinaryTreeSearch(rootNode)->Data << ")";
 				ShowBinaryTree(rootNode);
 				break;
@@ -164,7 +164,7 @@ void BinaryTreeMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				break;
 			}
 		}
@@ -174,52 +174,52 @@ void BinaryTreeMenu()
 void TreapMenu()
 {
 	/// <summary>
-	/// Действия, которые можно совершить с декартовым деревом
+	/// Р”РµР№СЃС‚РІРёСЏ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ СЃРѕРІРµСЂС€РёС‚СЊ СЃ РґРµРєР°СЂС‚РѕРІС‹Рј РґРµСЂРµРІРѕРј
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент (неоптимизированно)(1 split, 2 merge)
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ (РЅРµРѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅРЅРѕ)(1 split, 2 merge)
 		/// </summary>
 		AddUnoptimized = 1,
 
 		/// <summary>
-		/// Добавить элемент (оптимизированно)(1 merge)
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ (РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅРЅРѕ)(1 merge)
 		/// </summary>
 		AddOptimized = 2,
 
 		/// <summary>
-		/// Найти элемент 
+		/// РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚ 
 		/// </summary>
 		Find = 3,
 
 		/// <summary>
-		/// Удалить элемент (непотимизированно)(2 split, 1 merge)
+		/// РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ (РЅРµРїРѕС‚РёРјРёР·РёСЂРѕРІР°РЅРЅРѕ)(2 split, 1 merge)
 		/// </summary>
 		DeleteUnoptimized = 4,
 
 		/// <summary>
-		/// Удалить элемент (оптимизированно)(1 merge) 
+		/// РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ (РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅРЅРѕ)(1 merge) 
 		/// </summary>
 		DeleteOptimized = 5,
 
 		/// <summary>
-		/// Удалить дерево 
+		/// РЈРґР°Р»РёС‚СЊ РґРµСЂРµРІРѕ 
 		/// </summary>
 		DeleteTree = 6,
 
 		/// <summary>
-		/// Вывод разрезанных деревьев на экран
+		/// Р’С‹РІРѕРґ СЂР°Р·СЂРµР·Р°РЅРЅС‹С… РґРµСЂРµРІСЊРµРІ РЅР° СЌРєСЂР°РЅ
 		/// </summary>
 		PrintSplitTrees = 7,
 
 		/// <summary>
-		/// Вывод слитых деревьев на экран
+		/// Р’С‹РІРѕРґ СЃР»РёС‚С‹С… РґРµСЂРµРІСЊРµРІ РЅР° СЌРєСЂР°РЅ
 		/// </summary>
 		PrintMergedTree = 8,
 
 		/// <summary>
-		/// Выход в главное меню
+		/// Р’С‹С…РѕРґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit = 9
 	};
@@ -229,16 +229,16 @@ void TreapMenu()
 	int dataOfRoot;
 	int priority;
 	int option;
-	EnterNumber("Введите ключ корня декартового дерева: ", keyOfRoot);
+	EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РєРѕСЂРЅСЏ РґРµРєР°СЂС‚РѕРІРѕРіРѕ РґРµСЂРµРІР°: ", keyOfRoot);
 	priority = rand() % 100;
 	Treap* rootNode = new Treap;
 	rootNode->Root = CreationOfTreap(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
-	ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+	ShowTreap("Р’Р°С€Рµ РґРµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент (непотимизировано)\n2) Добавить элемент (оптимизировано)\n";
-		cout << "3) Найти элемент\n4) Удалить элемент (непотимизировано)\n5) Удалить элемент(оптимизировано)\n6) Удалить дерево\n";
-		cout << "7) Разрезать дерево\n8) Слить деревья\n9) Выйти\n";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ (РЅРµРїРѕС‚РёРјРёР·РёСЂРѕРІР°РЅРѕ)\n2) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ (РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅРѕ)\n";
+		cout << "3) РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚\n4) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ (РЅРµРїРѕС‚РёРјРёР·РёСЂРѕРІР°РЅРѕ)\n5) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚(РѕРїС‚РёРјРёР·РёСЂРѕРІР°РЅРѕ)\n6) РЈРґР°Р»РёС‚СЊ РґРµСЂРµРІРѕ\n";
+		cout << "7) Р Р°Р·СЂРµР·Р°С‚СЊ РґРµСЂРµРІРѕ\n8) РЎР»РёС‚СЊ РґРµСЂРµРІСЊСЏ\n9) Р’С‹Р№С‚Рё\n";
 		cin >> option;
 		switch (option)
 		{
@@ -246,95 +246,95 @@ void TreapMenu()
 			{
 				int key;
 				int priority;
-				EnterNumber("Введите ключ нового элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				priority = rand() % 100;
 				AddInTreapUnoptimised(rootNode, key, priority);
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				ShowTreap("Р’Р°С€Рµ РґРµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 				break;
 			}
 			case AddOptimized:
 			{
 				int key;
 				int priority;
-				EnterNumber("Введите ключ нового элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				priority = rand() % 100;
 				AddInTreapOptomised(rootNode, rootNode->Root, nullptr, key, priority);
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				ShowTreap("Р’Р°С€Рµ РґРµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 				break;
 			}
 			case Find:
 			{
 				int key;
-				EnterNumber("Введите ключ искомого элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				TreapNode* answer = nullptr;
 				answer = FindElementInTreap(rootNode->Root, key);
 				if (answer == nullptr)
 				{
-					cout << "Элемент не найден!\n";
+					cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ!\n";
 				}
 				else
 				{
-					cout << "Элемент с ключем " << answer->Key << " имеет приоритет " << answer->Priority << "\n";
+					cout << "Р­Р»РµРјРµРЅС‚ СЃ РєР»СЋС‡РµРј " << answer->Key << " РёРјРµРµС‚ РїСЂРёРѕСЂРёС‚РµС‚ " << answer->Priority << "\n";
 				}
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				ShowTreap("Р’Р°С€Рµ РґРµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 				break;
 			}
 			case DeleteUnoptimized:
 			{
 				if (IsTreapEmpty(rootNode))
 				{
-					cout << "\nДерево пусто!\n";
+					cout << "\nР”РµСЂРµРІРѕ РїСѓСЃС‚Рѕ!\n";
 					break;
 				}
 				int key;
-				EnterNumber("Введите ключ элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ СЌР»РµРјРµРЅС‚Р°: ", key);
 				TreapNode* answer = nullptr;
 				answer = FindElementInTreap(rootNode->Root, key);
 				if (answer == nullptr)
 				{
-					cout << "\nДанного элемента нет в дереве!\n";
+					cout << "\nР”Р°РЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµС‚ РІ РґРµСЂРµРІРµ!\n";
 				}
 				else
 				{
 					DeleteFromTreapUnoptimised(rootNode, key);
 				}
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				ShowTreap("Р’Р°С€Рµ РґРµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 				break;
 			}
 			case DeleteOptimized:
 			{
 				if (IsTreapEmpty(rootNode))
 				{
-					cout << "\nДерево пусто!\n";
+					cout << "\nР”РµСЂРµРІРѕ РїСѓСЃС‚Рѕ!\n";
 					break;
 				}
 				int key;
-				EnterNumber("Введите ключ удаляемого элемента: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				TreapNode* answer = nullptr;
 				answer = FindElementInTreap(rootNode->Root, key);
 				if (answer == nullptr)
 				{
-					cout << "\nДанного элемента нет в дереве!\n";
+					cout << "\nР”Р°РЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµС‚ РІ РґРµСЂРµРІРµ!\n";
 				}
 				else
 				{
 					DeleteFromTreapOptimised(rootNode, rootNode->Root, nullptr, key);
 				}
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				ShowTreap("Р’Р°С€Рµ РґРµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 				break;
 			}
 			case DeleteTree:
 			{
 				DeleteTreap(rootNode->Root);
-				cout << "Ваше дерево удалено\n";
+				cout << "Р’Р°С€Рµ РґРµСЂРµРІРѕ СѓРґР°Р»РµРЅРѕ\n";
 				int keyOfRoot;
 				int dataOfRoot;
 				int priority;
 				int option;
-				EnterNumber("Введите ключ корня декартового дерева: ", keyOfRoot);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РєРѕСЂРЅСЏ РґРµРєР°СЂС‚РѕРІРѕРіРѕ РґРµСЂРµРІР°: ", keyOfRoot);
 				priority = rand() % 100;
 				rootNode->Root = CreationOfTreap(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				ShowTreap("Р’Р°С€Рµ РґРµРєР°СЂС‚РѕРІРѕ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 				break;
 			}
 			case PrintSplitTrees:
@@ -342,23 +342,23 @@ void TreapMenu()
 				TreapNode* left;
 				TreapNode* right;
 				int key;
-				EnterNumber("Введите ключ разреразния дерева: ", key);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ СЂР°Р·СЂРµСЂР°Р·РЅРёСЏ РґРµСЂРµРІР°: ", key);
 				Split(rootNode->Root, key, left, right);
-				ShowTreap("Ваше левое дерево:\n", left);
-				ShowTreap("Ваше правое дерево:\n", right);
+				ShowTreap("Р’Р°С€Рµ Р»РµРІРѕРµ РґРµСЂРµРІРѕ:\n", left);
+				ShowTreap("Р’Р°С€Рµ РїСЂР°РІРѕРµ РґРµСЂРµРІРѕ:\n", right);
 				break;
 			}
 			case PrintMergedTree:
 			{
 				TreapNode* newTree = new TreapNode;
 				int keyOfNewElement;
-				EnterNumber("Введите ключ нового дерева: ", keyOfNewElement);
+				EnterNumber("Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РЅРѕРІРѕРіРѕ РґРµСЂРµРІР°: ", keyOfNewElement);
 				int priority = rand() % 100;
 				newTree = CreationOfTreap(newTree, keyOfNewElement, priority, nullptr, nullptr);
-				ShowTreap("Деревья для слияния:\n", rootNode->Root);
+				ShowTreap("Р”РµСЂРµРІСЊСЏ РґР»СЏ СЃР»РёСЏРЅРёСЏ:\n", rootNode->Root);
 				ShowTreap("\n", newTree);
 				rootNode->Root = Merge(rootNode->Root, newTree);
-				ShowTreap("Ваше слитое дерево:\n", rootNode->Root);
+				ShowTreap("Р’Р°С€Рµ СЃР»РёС‚РѕРµ РґРµСЂРµРІРѕ:\n", rootNode->Root);
 				break;
 			}
 			case Exit:
@@ -368,7 +368,7 @@ void TreapMenu()
 			}
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				break;
 			}
 		}

@@ -236,5 +236,5 @@ bool IsTreapEmpty(Treap* treap)
 void ShowTreap(string message, TreapNode* nodeToPrint)
 {
 	cout << message;
-	PrintTreap(nodeToPrint);
+	PrintTreap(nodeToPrint, 0);
 }

@@ -238,9 +238,3 @@ void ShowTreap(string message, TreapNode* nodeToPrint)
 	cout << message;
 	PrintTreap(nodeToPrint);
 }
-
-void EnterNumber(string message, int& varible)
-{
-	cout << message;
-	cin >> varible;
-}

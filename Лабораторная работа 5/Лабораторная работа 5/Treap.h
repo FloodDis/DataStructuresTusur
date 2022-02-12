@@ -133,10 +133,3 @@ void DeleteTreap(TreapNode* node);
 /// <param name=="message">сообщение,выводимое на экран</param>
 /// <param name=="nodeToPrint">корень поддерева</param>
 void ShowTreap(string message, TreapNode* nodeToPrint);
-
-/// <summary>
-/// Функция вывода сообщения и ввода числа
-/// </summary>
-/// <param name=="message">сообщение,выводимое на экран</param>
-/// <param name=="varible">переменная, которой присваивается вводимое значение</param>
-void EnterNumber(string message, int& varible);

@@ -31,8 +31,7 @@ void RBTreeMenu()
 	int option;
 	int key;
 	RBTree* treeUnit = new RBTree;
-	cout << "Ваше красно-черное дерево:\n";
-	treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+	ShowRBTree(treeUnit);
 	while (true)
 	{
 		cout << "Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n4) Выйти\n";
@@ -51,8 +50,7 @@ void RBTreeMenu()
 				{
 					cerr << error << '\n';
 				}
-				cout << "Ваше красно-черное дерево:\n";
-				treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+				ShowRBTree(treeUnit);
 				break;
 			}
 
@@ -69,8 +67,7 @@ void RBTreeMenu()
 				{
 					cerr << error << '\n';
 				}
-				cout << "Ваше красно-черное дерево:\n";
-				treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+				ShowRBTree(treeUnit);
 				break;
 			}
 
@@ -95,8 +92,7 @@ void RBTreeMenu()
 				{
 					cout << "Такого элемента нет в дереве!\n";
 				}
-				cout << "Ваше красно-черное дерево:\n";
-				treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+				ShowRBTree(treeUnit);
 				break;
 			}
 
@@ -119,4 +115,10 @@ void EnterNumber(string message, int& value)
 {
 	cout << message;
 	cin >> value;
+}
+
+void ShowRBTree(RBTree* treeUnit)
+{
+	cout << "Ваше красно-черное дерево:\n";
+	treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
 }

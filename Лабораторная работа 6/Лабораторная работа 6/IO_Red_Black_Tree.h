@@ -14,3 +14,9 @@ void RBTreeMenu();
 /// <param name="message">выводимое сообщение</param>
 /// <param name="value">переменна€, которой присваиваетс€ вводимое значение</param> 
 void EnterNumber(string message, int& value);
+
+/// <summary>
+/// ‘ункци€ вывода сообщени€ ¬аше красно-черное дерево: и красно-черного дерева
+/// </summary>
+/// <param name="treeUnit">экземпл€р красно-черного дерева</param>
+void ShowRBTree(RBTree* treeUnit);

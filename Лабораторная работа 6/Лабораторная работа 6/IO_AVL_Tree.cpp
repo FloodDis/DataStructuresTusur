@@ -34,8 +34,7 @@ void AVLTreeMenu()
 	EnterNumber("Введите ключ корня AVL-дерева: ", keyOfRoot);
 	EnterNumber("Введите данные корня AVL-дерева: ", dataOfRoot);
 	AVLTreeNode* rootNode = CreationOfAVLTree(keyOfRoot, dataOfRoot);
-	cout << "Ваше AVL-дерево:\n";
-	PrintAVLTree(rootNode, 0);
+	ShowAVLTree(rootNode);
 	while (true)
 	{
 		EnterNumber("Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n4) Выйти\n", option);
@@ -55,8 +54,7 @@ void AVLTreeMenu()
 				{
 					cerr << error << '\n';
 				}
-				cout << "Ваше AVL-дерево:\n";
-				PrintAVLTree(rootNode, 0);
+				ShowAVLTree(rootNode);
 				break;
 			}
 
@@ -73,8 +71,7 @@ void AVLTreeMenu()
 				{
 					cerr << error << '\n';
 				}
-				cout << "Ваше AVL-дерево:\n";
-				PrintAVLTree(rootNode, 0);
+				ShowAVLTree(rootNode);
 				break;
 			}
 
@@ -92,8 +89,7 @@ void AVLTreeMenu()
 				{
 					cout << "Элемент с ключом " << answer->Key << " имеет данные " << answer->Data << "\n";
 				}
-				cout << "Ваше AVL-дерево:\n";
-				PrintAVLTree(rootNode, 0);
+				ShowAVLTree(rootNode);
 				break;
 			}
 
@@ -110,4 +106,10 @@ void AVLTreeMenu()
 			}
 		}
 	}
+}
+
+void ShowAVLTree(AVLTreeNode* rootNode)
+{
+	cout << "Ваше АВЛ-дерево:\n";
+	PrintAVLTree(rootNode, 0);
 }

@@ -8,3 +8,8 @@ using namespace std;
 /// Функция вызова меню АВЛ-дерева
 /// </summary>
 void AVLTreeMenu();
+
+/// <summary>
+/// Функция вывода сообщения Ваше АВЛ-дерево: и АВЛ-дерево
+/// </summary>
+void ShowAVLTree(AVLTreeNode* rootNode);

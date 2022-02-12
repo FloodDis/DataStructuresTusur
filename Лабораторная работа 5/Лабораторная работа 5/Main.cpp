@@ -19,26 +19,26 @@ void MainMenu()
 		EnterNumber("Выберите структуру данных:\n1) Бинарное дерево\n2) Декартово дерево\n3) Выйти\n", option);
 		switch (option)
 		{
-		case 1:
-		{
-			BinaryTreeMenu();
-			break;
-		}
-		case 2:
-		{
-			TreapMenu();
-			break;
-		}
-		case 3:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			cout << "Попробуйте снова!\n";
-			break;
-		}
+			case 1:
+			{
+				BinaryTreeMenu();
+				break;
+			}
+			case 2:
+			{
+				TreapMenu();
+				break;
+			}
+			case 3:
+			{
+				return;
+				break;
+			}
+			default:
+			{
+				cout << "Попробуйте снова!\n";
+				break;
+			}
 		}
 	}
 
@@ -73,71 +73,71 @@ void BinaryTreeMenu()
 		cin >> option;
 		switch (option)
 		{
-		case Add:
-		{
-			int dataOfNewNode;
-			int keyOfNewNode;
-			EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
-			EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
-			rootNode = AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
-			ShowBinaryTree(rootNode);
-			break;
-		}
-		case Delete:
-		{
-			int keyToDelete;
-			if (IsBinaryTreeEmpty(rootNode))
+			case Add:
 			{
-				cout << "\nДерево пусто!\n";
+				int dataOfNewNode;
+				int keyOfNewNode;
+				EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
+				EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
+				rootNode = AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
+				ShowBinaryTree(rootNode);
 				break;
 			}
-			EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
-			rootNode = DeleteFromBinaryTree(rootNode, keyToDelete);
-			ShowBinaryTree(rootNode);
-			break;
-		}
-		case Find:
-		{
-			int searchingKey;
-			EnterNumber("Введите ключ искомого элемента: ", searchingKey);
-			BinaryTreeNode* answer = nullptr;
-			answer = BinaryTreeElementSearch(rootNode, searchingKey);
-			if (answer == nullptr)
+			case Delete:
 			{
-				cout << "Элемент не найден!\n";
+				int keyToDelete;
+				if (IsBinaryTreeEmpty(rootNode))
+				{
+					cout << "\nДерево пусто!\n";
+					break;
+				}
+				EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
+				rootNode = DeleteFromBinaryTree(rootNode, keyToDelete);
+				ShowBinaryTree(rootNode);
+				break;
 			}
-			else
+			case Find:
 			{
-				cout << "Элемент с ключем " << answer->Key << " имеет данные " << answer->Data << "\n";
+				int searchingKey;
+				EnterNumber("Введите ключ искомого элемента: ", searchingKey);
+				BinaryTreeNode* answer = nullptr;
+				answer = BinaryTreeElementSearch(rootNode, searchingKey);
+				if (answer == nullptr)
+				{
+					cout << "Элемент не найден!\n";
+				}
+				else
+				{
+					cout << "Элемент с ключем " << answer->Key << " имеет данные " << answer->Data << "\n";
+				}
+				ShowBinaryTree(rootNode);
+				break;
 			}
-			ShowBinaryTree(rootNode);
-			break;
-		}
-		case FindMax:
-		{
+			case FindMax:
+			{
 
-			cout << "Максимальный элемент вашего бинарного дерева поиска: ";
-			cout << "(" << MaximumBinaryTreeSearch(rootNode)->Key << ", " << MaximumBinaryTreeSearch(rootNode)->Data << ")";
-			ShowBinaryTree(rootNode);
-			break;
-		}
-		case FindMin:
-		{
-			cout << "Миниимальный элемент вашего бинарного дерева поиска: ";
-			cout << "(" << MinimumBinaryTreeSearch(rootNode)->Key << ", " << MinimumBinaryTreeSearch(rootNode)->Data << ")";
-			ShowBinaryTree(rootNode);
-			break;
-		}
-		case Exit:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			cout << "Попробуйте снова!\n";
-			break;
-		}
+				cout << "Максимальный элемент вашего бинарного дерева поиска: ";
+				cout << "(" << MaximumBinaryTreeSearch(rootNode)->Key << ", " << MaximumBinaryTreeSearch(rootNode)->Data << ")";
+				ShowBinaryTree(rootNode);
+				break;
+			}
+			case FindMin:
+			{
+				cout << "Миниимальный элемент вашего бинарного дерева поиска: ";
+				cout << "(" << MinimumBinaryTreeSearch(rootNode)->Key << ", " << MinimumBinaryTreeSearch(rootNode)->Data << ")";
+				ShowBinaryTree(rootNode);
+				break;
+			}
+			case Exit:
+			{
+				return;
+				break;
+			}
+			default:
+			{
+				cout << "Попробуйте снова!\n";
+				break;
+			}
 		}
 	}
 }

@@ -1,4 +1,4 @@
-#include "Queue_Ring_Buffer_based.h"
+п»ї#include "Queue_Ring_Buffer_based.h"
 #include "Queue_Stack_based.h"
 #include "RingBuffer.h"
 #include "Stack.h"
@@ -14,10 +14,10 @@ void MainMenu()
 	int option;
 	while (true)
 	{
-		printf("Выберите структуру данных:\n1) Стек\n2) Кольцевой Буфер\n");
-		printf("3) Очередь (на базе двух стеков)\n");
-		printf("4) Очередь (на базе кольцевого буфера)\n");
-		printf("5) Выйти\n");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂСѓРєС‚СѓСЂСѓ РґР°РЅРЅС‹С…:\n1) РЎС‚РµРє\n2) РљРѕР»СЊС†РµРІРѕР№ Р‘СѓС„РµСЂ\n");
+		printf("3) РћС‡РµСЂРµРґСЊ (РЅР° Р±Р°Р·Рµ РґРІСѓС… СЃС‚РµРєРѕРІ)\n");
+		printf("4) РћС‡РµСЂРµРґСЊ (РЅР° Р±Р°Р·Рµ РєРѕР»СЊС†РµРІРѕРіРѕ Р±СѓС„РµСЂР°)\n");
+		printf("5) Р’С‹Р№С‚Рё\n");
 		cin >> option;
 		switch (option)
 		{
@@ -53,7 +53,7 @@ void MainMenu()
 
 			default:
 			{
-				printf("Попробуйте снова!\n");
+				printf("РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n");
 				break;
 			}
 		}
@@ -65,21 +65,21 @@ void StackMenu()
 	setlocale(LC_ALL, "Russian");
 	int option;
 	int value;
-	EnterNumber("Введите значение первого элемента: ", value);
+	EnterNumber("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", value);
 	Node* stack = CreationOfStack();
 	stack->DataOfNode = value;
-	printf("Стек создан!\n");
+	printf("РЎС‚РµРє СЃРѕР·РґР°РЅ!\n");
 	ShowStack(stack);
 	while (true)
 	{
-		printf("Выберите вариант:\n1) Вставить\n2) Взять\n3) Удалить стек\n4) Выход\n");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ РІР°СЂРёР°РЅС‚:\n1) Р’СЃС‚Р°РІРёС‚СЊ\n2) Р’Р·СЏС‚СЊ\n3) РЈРґР°Р»РёС‚СЊ СЃС‚РµРє\n4) Р’С‹С…РѕРґ\n");
 		cin >> option;
 		switch (option)
 		{
 			case 1:
 			{
 				int dataOfNewElement;
-				EnterNumber("Введите значение нового элемента: \n", dataOfNewElement);
+				EnterNumber("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: \n", dataOfNewElement);
 				stack = PushInStack(stack, dataOfNewElement);
 				ShowStack(stack);
 				break;
@@ -89,14 +89,14 @@ void StackMenu()
 			{
 				if (stack == nullptr)
 				{
-					printf("\nСтек пуст\n");
+					printf("\nРЎС‚РµРє РїСѓСЃС‚\n");
 					ShowStack(stack);
 				}
 				else
 				{
 					int valueFromStack;
 					valueFromStack = PopFromStack(stack);
-					printf("\nЗначение из стека: %i\n", valueFromStack);
+					printf("\nР—РЅР°С‡РµРЅРёРµ РёР· СЃС‚РµРєР°: %i\n", valueFromStack);
 					ShowStack(stack);
 				}
 
@@ -106,12 +106,12 @@ void StackMenu()
 			case 3:
 			{
 				DeleteStack(stack);
-				printf("\nСтек удалён\n");
+				printf("\nРЎС‚РµРє СѓРґР°Р»С‘РЅ\n");
 				int value;
-				EnterNumber("Введите значение первого элемента: ", value);
+				EnterNumber("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", value);
 				Node* stack = CreationOfStack();
 				stack->DataOfNode = value;
-				printf("\nСтек создан!\n");
+				printf("\nРЎС‚РµРє СЃРѕР·РґР°РЅ!\n");
 				ShowStack(stack);
 				break;
 			}
@@ -124,7 +124,7 @@ void StackMenu()
 
 			default:
 			{
-				printf("Попробуйте снова!\n");
+				printf("РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n");
 				break;
 			}
 		}
@@ -136,20 +136,20 @@ void RingBufferMenu()
 	setlocale(LC_ALL, "Russian");
 	int option;
 	int sizeOfBuffer;
-	EnterNumber("Введите размер буфера: ", sizeOfBuffer);
+	EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ Р±СѓС„РµСЂР°: ", sizeOfBuffer);
 	if ((int)log2(sizeOfBuffer) % 2 != 0)
 	{
-		printf("Размер буфера должен быть степенью двойки!\n");
+		printf("Р Р°Р·РјРµСЂ Р±СѓС„РµСЂР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЃС‚РµРїРµРЅСЊСЋ РґРІРѕР№РєРё!\n");
 		return;
 	}
 	else
 	{
 		RingBuffer* ringBuffer = InitializationOfRingBuffer(sizeOfBuffer);
-		printf("Буфер создан!\n");
+		printf("Р‘СѓС„РµСЂ СЃРѕР·РґР°РЅ!\n");
 		while (true)
 		{
-			printf("Выберите вариант:\n1) Проверить, есть ли в буфере место для записи\n");
-			printf("2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n5) Выход\n");
+			printf("Р’С‹Р±РµСЂРёС‚Рµ РІР°СЂРёР°РЅС‚:\n1) РџСЂРѕРІРµСЂРёС‚СЊ, РµСЃС‚СЊ Р»Рё РІ Р±СѓС„РµСЂРµ РјРµСЃС‚Рѕ РґР»СЏ Р·Р°РїРёСЃРё\n");
+			printf("2) РџСЂРѕРІРµСЂРёС‚СЊ, РїСѓСЃС‚ Р»Рё Р±СѓС„РµСЂ\n3) Р’СЃС‚Р°РІРёС‚СЊ\n4) Р’Р·СЏС‚СЊ\n5) Р’С‹С…РѕРґ\n");
 			cin >> option;
 			switch (option)
 			{
@@ -158,11 +158,11 @@ void RingBufferMenu()
 					bool answer = IfThereSpaceToWrite(ringBuffer);
 					if (answer == true)
 					{
-						printf("В буфере есть место для записи!\n");
+						printf("Р’ Р±СѓС„РµСЂРµ РµСЃС‚СЊ РјРµСЃС‚Рѕ РґР»СЏ Р·Р°РїРёСЃРё!\n");
 					}
 					else
 					{
-						printf("В буфере нет места для записи!\n");
+						printf("Р’ Р±СѓС„РµСЂРµ РЅРµС‚ РјРµСЃС‚Р° РґР»СЏ Р·Р°РїРёСЃРё!\n");
 					}
 					break;
 				}
@@ -172,11 +172,11 @@ void RingBufferMenu()
 					bool answer = IsEmpty(ringBuffer);
 					if (answer == true)
 					{
-						printf("\nБуфер пуст!\n");
+						printf("\nР‘СѓС„РµСЂ РїСѓСЃС‚!\n");
 					}
 					else
 					{
-						printf("\nБуфер не пуст!\n");
+						printf("\nР‘СѓС„РµСЂ РЅРµ РїСѓСЃС‚!\n");
 						ShowRingBuffer(ringBuffer);
 					}
 					break;
@@ -187,14 +187,14 @@ void RingBufferMenu()
 					if (IfThereSpaceToWrite(ringBuffer))
 					{
 						int newElement;
-						EnterNumber("Введите значение нового элемента: ", newElement);
+						EnterNumber("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", newElement);
 						PushInRingBuffer(ringBuffer, newElement);
 						ShowRingBuffer(ringBuffer);
 						break;
 					}
 					else
 					{
-						printf("В буфере нет места для записи!\n");
+						printf("Р’ Р±СѓС„РµСЂРµ РЅРµС‚ РјРµСЃС‚Р° РґР»СЏ Р·Р°РїРёСЃРё!\n");
 						ShowRingBuffer(ringBuffer);
 						break;
 					}
@@ -204,7 +204,7 @@ void RingBufferMenu()
 				case 4:
 				{
 					int elementFromBuffer = PopFromRingBuffer(ringBuffer);
-					printf("Значение из буфера: %i\n", elementFromBuffer);
+					printf("Р—РЅР°С‡РµРЅРёРµ РёР· Р±СѓС„РµСЂР°: %i\n", elementFromBuffer);
 					ShowRingBuffer(ringBuffer);
 					break;
 				}
@@ -217,7 +217,7 @@ void RingBufferMenu()
 
 				default:
 				{
-					printf("Попробуйте снова!\n");
+					printf("РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n");
 					break;
 				}
 
@@ -236,15 +236,15 @@ void QueueStackBasedMenu()
 	PrintQueueStackBased(queueStackUnit);
 	while (true)
 	{
-		printf("Выберите действие:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n");
-		printf("3) Удалить очередь\n4) Выход\n");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РѕС‡РµСЂРµРґСЊ\n2) РР·РІР»РµС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РёР· РѕС‡РµСЂРµРґРё\n");
+		printf("3) РЈРґР°Р»РёС‚СЊ РѕС‡РµСЂРµРґСЊ\n4) Р’С‹С…РѕРґ\n");
 		cin >> option;
 		switch (option)
 		{
 			case 1:
 			{
 				int dataOfNewElement;
-				printf("Введите значение нового элемента: ");
+				printf("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 				cin >> dataOfNewElement;
 				EnqueueStackBased(queueStackUnit, dataOfNewElement);
 				PrintQueueStackBased(queueStackUnit);
@@ -253,7 +253,7 @@ void QueueStackBasedMenu()
 
 			case 2:
 			{
-				printf("\nИзвлеченный элемент: %i\n", DequeueStackBased(queueStackUnit));
+				printf("\nРР·РІР»РµС‡РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚: %i\n", DequeueStackBased(queueStackUnit));
 				if (queueStackUnit->IsStackInEmpty)
 				{
 					queueStackUnit->StackIn = CreationOfStack();
@@ -266,7 +266,7 @@ void QueueStackBasedMenu()
 			case 3:
 			{
 				DeleteQueueStackBased(queueStackUnit);
-				printf("\nВаша очередь удалена!\n");
+				printf("\nР’Р°С€Р° РѕС‡РµСЂРµРґСЊ СѓРґР°Р»РµРЅР°!\n");
 				QueueStackBased* queueStackUnit = new QueueStackBased;
 				CreationOfQueueStackBased(queueStackUnit);
 				PrintQueueStackBased(queueStackUnit);
@@ -281,7 +281,7 @@ void QueueStackBasedMenu()
 
 			default:
 			{
-				printf("Попробуйте снова!\n");
+				printf("РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n");
 				break;
 			}
 		}
@@ -293,30 +293,30 @@ void QueueRingBufferBasedMenu()
 	setlocale(LC_ALL, "Russian");
 	int option;
 	int sizeOfQueue;
-	cout << "Введите размер очереди: ";
+	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё: ";
 	cin >> sizeOfQueue;
 	if ((int)log2(sizeOfQueue) % 2 != 0)
 	{
-		cout << "Размер буфера должен степенью 2!\n";
+		cout << "Р Р°Р·РјРµСЂ Р±СѓС„РµСЂР° РґРѕР»Р¶РµРЅ СЃС‚РµРїРµРЅСЊСЋ 2!\n";
 		return;
 	}
 	else
 	{
 		QueueRingBufferBased* queueRingBuffer = new QueueRingBufferBased;
 		queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
-		cout << "Очередь создана!\n";
+		cout << "РћС‡РµСЂРµРґСЊ СЃРѕР·РґР°РЅР°!\n";
 		ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 		while (true)
 		{
-			cout << "Выберете вариант:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n";
-			cout << "3) Удалить очередь\n4) Выход\n";
+			cout << "Р’С‹Р±РµСЂРµС‚Рµ РІР°СЂРёР°РЅС‚:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РѕС‡РµСЂРµРґСЊ\n2) РР·РІР»РµС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РёР· РѕС‡РµСЂРµРґРё\n";
+			cout << "3) РЈРґР°Р»РёС‚СЊ РѕС‡РµСЂРµРґСЊ\n4) Р’С‹С…РѕРґ\n";
 			cin >> option;
 			switch (option)
 			{
 				case 1:
 				{
 					int newElement;
-					EnterNumber("Введите новый элемент очереди\n", newElement);
+					EnterNumber("Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё\n", newElement);
 					EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
 					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 					break;
@@ -326,7 +326,7 @@ void QueueRingBufferBasedMenu()
 				{
 					int elementFromQueue;
 					elementFromQueue = DequeueRingBuffer(queueRingBuffer->ringBuffer);
-					cout << "Извлеченный элемент: %i\n", elementFromQueue;
+					cout << "РР·РІР»РµС‡РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚: %i\n", elementFromQueue;
 					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 					break;
 				}
@@ -334,19 +334,19 @@ void QueueRingBufferBasedMenu()
 				case 3:
 				{
 					DeleteQueueRingBuffer(queueRingBuffer->ringBuffer);
-					cout << "Ваша очередь удалена!\n";
+					cout << "Р’Р°С€Р° РѕС‡РµСЂРµРґСЊ СѓРґР°Р»РµРЅР°!\n";
 					int sizeOfQueue;
-					EnterNumber("Введите размер очереди: ", sizeOfQueue);
+					EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё: ", sizeOfQueue);
 					if ((int)log2(sizeOfQueue) % 2 != 0)
 					{
-						printf("Размер буфера должен быть степенью 2\n");
+						printf("Р Р°Р·РјРµСЂ Р±СѓС„РµСЂР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЃС‚РµРїРµРЅСЊСЋ 2\n");
 						return;
 						break;
 					}
 					else
 					{
 						queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
-						cout << "Очередь создана!\n";
+						cout << "РћС‡РµСЂРµРґСЊ СЃРѕР·РґР°РЅР°!\n";
 						break;
 					}
 				}
@@ -359,7 +359,7 @@ void QueueRingBufferBasedMenu()
 
 				default:
 				{
-					cout << "Попробуйте ещё раз!\n";
+					cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰С‘ СЂР°Р·!\n";
 					break;
 				}
 			}

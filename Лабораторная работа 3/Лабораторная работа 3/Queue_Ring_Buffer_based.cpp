@@ -1,4 +1,4 @@
-#include "Queue_Ring_Buffer_based.h"
+ο»Ώ#include "Queue_Ring_Buffer_based.h"
 
 RingBuffer* CreationOfQueue(int sizeOfQueue)
 {
@@ -36,6 +36,6 @@ void EnterNumber(string message, int& value)
 
 void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
 {
-	cout << "Βΰψ αστεπ:\n";
+	cout << "Π’Π°Ρ Π±ΡƒΡ„ΠµΡ€:\n";
 	PrintQueueRingBuffer(queueRingBufferUnit);
 }

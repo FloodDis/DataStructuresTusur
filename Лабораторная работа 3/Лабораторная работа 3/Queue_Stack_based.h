@@ -1,60 +1,60 @@
-#pragma once
+п»ї#pragma once
 #include "Stack.h"
 
 /// <summary>
-/// Очередь на базе двух стеков
+/// РћС‡РµСЂРµРґСЊ РЅР° Р±Р°Р·Рµ РґРІСѓС… СЃС‚РµРєРѕРІ
 /// </summary>
 struct QueueStackBased
 {
 	/// <summary>
-	/// Стек, в который помещаются элементы  очереди
+	/// РЎС‚РµРє, РІ РєРѕС‚РѕСЂС‹Р№ РїРѕРјРµС‰Р°СЋС‚СЃСЏ СЌР»РµРјРµРЅС‚С‹  РѕС‡РµСЂРµРґРё
 	/// </summary>
 	Node* StackIn;
 
 	/// <summary>
-	/// Стек, из которого извлекаются элементы очереди
+	/// РЎС‚РµРє, РёР· РєРѕС‚РѕСЂРѕРіРѕ РёР·РІР»РµРєР°СЋС‚СЃСЏ СЌР»РµРјРµРЅС‚С‹ РѕС‡РµСЂРµРґРё
 	/// </summary>
 	Node* StackOut;
 
 	/// <summary>
-	/// true - StackIn пуст, false - StackIn не пуст
+	/// true - StackIn РїСѓСЃС‚, false - StackIn РЅРµ РїСѓСЃС‚
 	/// </summary>
 	bool IsStackInEmpty = true;
 
 	/// <summary>
-	/// true - StackOut пуст, false - StackOut не пуст
+	/// true - StackOut РїСѓСЃС‚, false - StackOut РЅРµ РїСѓСЃС‚
 	/// </summary>
 	bool IsStackOutEmpty = true;
 };
 
 /// <summary>
-/// Функция создания очереди на базе двух стеков
+/// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РѕС‡РµСЂРµРґРё РЅР° Р±Р°Р·Рµ РґРІСѓС… СЃС‚РµРєРѕРІ
 /// </summary>
-/// <param name="queueStackUnit">указатель на экземпляр создаваемой структуры</param>
+/// <param name="queueStackUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ СЃРѕР·РґР°РІР°РµРјРѕР№ СЃС‚СЂСѓРєС‚СѓСЂС‹</param>
 void CreationOfQueueStackBased(QueueStackBased*& queueStackUnit);
 
 /// <summary>
-/// Фукнция добавления элемента в очередь
+/// Р¤СѓРєРЅС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІ РѕС‡РµСЂРµРґСЊ
 /// </summary>
-/// <param name="queueStackUnit">указатель на экземпляр структуры</param>
-/// <param name="dataOfElement">значение нового элемента</param>
+/// <param name="queueStackUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹</param>
+/// <param name="dataOfElement">Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 void EnqueueStackBased(QueueStackBased*& queueStackUnit, int dataOfElement);
 
 /// <summary>
-/// Функция взятия элемента из очереди
+/// Р¤СѓРЅРєС†РёСЏ РІР·СЏС‚РёСЏ СЌР»РµРјРµРЅС‚Р° РёР· РѕС‡РµСЂРµРґРё
 /// </summary>
-/// <param name="queueStackUnit">указатель на экземпляр структуры</param>
-/// <returns>значение извлекаемого элемента</returns>
+/// <param name="queueStackUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹</param>
+/// <returns>Р·РЅР°С‡РµРЅРёРµ РёР·РІР»РµРєР°РµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</returns>
 int DequeueStackBased(QueueStackBased*& queueStackUnit);
 
 /// <summary>
-/// Функция удаления очереди
+/// Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ РѕС‡РµСЂРµРґРё
 /// </summary>
-/// <param name="queueStackUnit">указатель на экземпляр очереди</param>
+/// <param name="queueStackUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ РѕС‡РµСЂРµРґРё</param>
 void DeleteQueueStackBased(QueueStackBased*& queueStackUnit);
 
 /// <summary>
-/// Функция вывода очереди на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РѕС‡РµСЂРµРґРё РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="queueStackUnit">указатель на экземпляр очереди</param>
+/// <param name="queueStackUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ РѕС‡РµСЂРµРґРё</param>
 void PrintQueueStackBased(QueueStackBased* queueStackUnit);

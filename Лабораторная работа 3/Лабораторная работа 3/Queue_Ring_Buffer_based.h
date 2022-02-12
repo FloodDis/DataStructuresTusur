@@ -1,59 +1,59 @@
-#pragma once
+п»ї#pragma once
 #include "RingBuffer.h"
 
 /// <summary>
-/// Очередь на базе кольцевого буфера
+/// РћС‡РµСЂРµРґСЊ РЅР° Р±Р°Р·Рµ РєРѕР»СЊС†РµРІРѕРіРѕ Р±СѓС„РµСЂР°
 /// </summary>
 struct QueueRingBufferBased
 {
 	/// <summary>
-	/// Кольцевой буфер
+	/// РљРѕР»СЊС†РµРІРѕР№ Р±СѓС„РµСЂ
 	/// </summary>
 	RingBuffer* ringBuffer;
 };
 
 /// <summary>
-/// Функция создания очереди на базе кольцевого буфера
+/// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ РѕС‡РµСЂРµРґРё РЅР° Р±Р°Р·Рµ РєРѕР»СЊС†РµРІРѕРіРѕ Р±СѓС„РµСЂР°
 /// </summary>
-/// <param name="sizeOfQueue">размер очереди</param>
-/// <returns>экземпляр очереди</returns>
+/// <param name="sizeOfQueue">СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё</param>
+/// <returns>СЌРєР·РµРјРїР»СЏСЂ РѕС‡РµСЂРµРґРё</returns>
 RingBuffer* CreationOfQueue(int sizeOfQueue);
 
 /// <summary>
-/// Функция добавления элемента в очередь
+/// Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІ РѕС‡РµСЂРµРґСЊ
 /// </summary>
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
-/// <param name="value">значение нового элемента</param>
+/// <param name="queueRingBufferUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹</param>
+/// <param name="value">Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 void EnqueueRingBuffer(RingBuffer*& queueRingBufferUnit, int value);
 
 /// <summary>
-/// Функция удаления элемента из очереди
+/// Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РёР· РѕС‡РµСЂРµРґРё
 /// </summary>
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
-/// <returns>значение извлеченного элемента</returns>
+/// <param name="queueRingBufferUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹</param>
+/// <returns>Р·РЅР°С‡РµРЅРёРµ РёР·РІР»РµС‡РµРЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</returns>
 int DequeueRingBuffer(RingBuffer*& queueRingBufferUnit);
 
 /// <summary>
-/// Функция удаления очереди
+/// Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ РѕС‡РµСЂРµРґРё
 /// </summary>
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
+/// <param name="queueRingBufferUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹</param>
 void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit);
 
 /// <summary>
-/// Функция вывода очереди на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РѕС‡РµСЂРµРґРё РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
+/// <param name="queueRingBufferUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹</param>
 void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit);
 
 /// <summary>
-/// Функция ввода числа и вывода сообщения
+/// Р¤СѓРЅРєС†РёСЏ РІРІРѕРґР° С‡РёСЃР»Р° Рё РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ
 /// </summary>
-/// <param name="message">строка с сообщением</param>
-/// <param name="value">переменная, которой присваивается число</param>
+/// <param name="message">СЃС‚СЂРѕРєР° СЃ СЃРѕРѕР±С‰РµРЅРёРµРј</param>
+/// <param name="value">РїРµСЂРµРјРµРЅРЅР°СЏ, РєРѕС‚РѕСЂРѕР№ РїСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ С‡РёСЃР»Рѕ</param>
 void EnterNumber(string message, int& value);
 
 /// <summary>
-/// Функция вывода сообщения Ваш буфер: и очереди на базе кольцевого буфера
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ Р’Р°С€ Р±СѓС„РµСЂ: Рё РѕС‡РµСЂРµРґРё РЅР° Р±Р°Р·Рµ РєРѕР»СЊС†РµРІРѕРіРѕ Р±СѓС„РµСЂР°
 /// </summary>
-/// <param name="queueRingBufferUnit">экземпляр очереди на базе кольцевого буфера</param>
+/// <param name="queueRingBufferUnit">СЌРєР·РµРјРїР»СЏСЂ РѕС‡РµСЂРµРґРё РЅР° Р±Р°Р·Рµ РєРѕР»СЊС†РµРІРѕРіРѕ Р±СѓС„РµСЂР°</param>
 void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit);

@@ -1,4 +1,4 @@
-#include "Stack.h"
+ï»¿#include "Stack.h"
 
 Node* CreationOfStack()
 {
@@ -58,6 +58,6 @@ void PrintStack(Node* headNode)
 
 void ShowStack(Node* headNode)
 {
-	cout << "Âàø ñòåê:\n";
+	cout << "Ð’Ð°Ñˆ ÑÑ‚ÐµÐº:\n";
 	PrintStack(headNode);
 }

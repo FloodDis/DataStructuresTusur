@@ -1,4 +1,4 @@
-#include "RingBuffer.h"
+ο»Ώ#include "RingBuffer.h"
 
 
 RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
@@ -66,6 +66,6 @@ void PrintBuffer(RingBuffer* ringBuffer)
 
 void ShowRingBuffer(RingBuffer* ringBuffer)
 {
-	cout << "Βΰψ αστεπ:\n";
+	cout << "Π’Π°Ρ Π±ΡƒΡ„ΠµΡ€:\n";
 	PrintBuffer(ringBuffer);
 }

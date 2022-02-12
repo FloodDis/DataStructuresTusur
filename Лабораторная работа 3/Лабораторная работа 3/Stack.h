@@ -1,58 +1,58 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 using namespace std;
 
 /// <summary>
-/// Узел
+/// РЈР·РµР»
 /// </summary>
 struct Node
 {
 	/// <summary>
-	/// Данные узла
+	/// Р”Р°РЅРЅС‹Рµ СѓР·Р»Р°
 	/// </summary>
 	int DataOfNode;
 
 	/// <summary>
-	/// Указатель на предыдущий узел
+	/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ СѓР·РµР»
 	/// </summary>
 	Node* PreviousNode;
 };
 
 /// <summary>
-/// Функция создания стека
+/// Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ СЃС‚РµРєР°
 /// </summary>
-/// <returns>указатель на корень стека</returns>
+/// <returns>СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</returns>
 Node* CreationOfStack();
 
 /// <summary>
-/// Функция добавления элемента в стек
+/// Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІ СЃС‚РµРє
 /// </summary>
-/// <param name="headNode">укзатель на корень стека</param>
-/// <param name="dataOfNewElement">значение нового элемента</param>
-/// <returns>указатель на новый корень списка</returns>
+/// <param name="headNode">СѓРєР·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</param>
+/// <param name="dataOfNewElement">Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
+/// <returns>СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅРѕРІС‹Р№ РєРѕСЂРµРЅСЊ СЃРїРёСЃРєР°</returns>
 Node* PushInStack(Node* headNode, int dataOfNewElement);
 
 /// <summary>
-/// Функция извлечения элемента из стека
+/// Р¤СѓРЅРєС†РёСЏ РёР·РІР»РµС‡РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РёР· СЃС‚РµРєР°
 /// </summary>
-/// <param name="headNode">укзатель на корень стека</param>
-/// <returns>значение извлеченного элемента</returns>
+/// <param name="headNode">СѓРєР·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</param>
+/// <returns>Р·РЅР°С‡РµРЅРёРµ РёР·РІР»РµС‡РµРЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</returns>
 int PopFromStack(Node*& headNode);
 
 /// <summary>
-/// Функция удаления стека
+/// Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ СЃС‚РµРєР°
 /// </summary>
-/// <param name="headNode">укзатель на корень стека</param>
+/// <param name="headNode">СѓРєР·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</param>
 void DeleteStack(Node*& headNode);
 
 /// <summary>
-/// Функция вывода стека на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃС‚РµРєР° РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="headNode">укзатель на корень стека</param>
+/// <param name="headNode">СѓРєР·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</param>
 void PrintStack(Node* headNode);
 
 /// <summary>
-/// Функция вывода сообщения Ваш стек: и стека на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ Р’Р°С€ СЃС‚РµРє: Рё СЃС‚РµРєР° РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="headNode">укзатель на корень стека</param>
+/// <param name="headNode">СѓРєР·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</param>
 void ShowStack(Node* headNode);

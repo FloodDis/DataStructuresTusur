@@ -51,11 +51,34 @@ void BinaryTreeMenu()
 	/// </summary>
 	enum Actions
 	{
+		/// <summary>
+		/// Добавить элемент
+		/// </summary>
 		Add = 1,
+
+		/// <summary>
+		/// Удалить элемент 
+		/// </summary>
 		Delete = 2,
+
+		/// <summary>
+		/// Найти элемент
+		/// </summary>
 		Find = 3,
+
+		/// <summary>
+		/// Найти максимальный элемент
+		/// </summary>
 		FindMax = 4,
+
+		/// <summary>
+		/// Найти минимальный элемент 
+		/// </summary>
 		FindMin = 5,
+
+		/// <summary>
+		/// Выйти в главное меню
+		/// </summary>
 		Exit = 6
 	};
 	setlocale(LC_ALL, "ru");
@@ -144,16 +167,54 @@ void BinaryTreeMenu()
 
 void TreapMenu()
 {
+	/// <summary>
+	/// Действия, которые можно совершить с декартовым деревом
+	/// </summary>
 	enum Actions
 	{
+		/// <summary>
+		/// Добавить элемент (неоптимизированно)(1 split, 2 merge)
+		/// </summary>
 		AddUnoptimized = 1,
+
+		/// <summary>
+		/// Добавить элемент (оптимизированно)(1 merge)
+		/// </summary>
 		AddOptimized = 2,
+
+		/// <summary>
+		/// Найти элемент 
+		/// </summary>
 		Find = 3,
+
+		/// <summary>
+		/// Удалить элемент (непотимизированно)(2 split, 1 merge)
+		/// </summary>
 		DeleteUnoptimized = 4,
+
+		/// <summary>
+		/// Удалить элемент (оптимизированно)(1 merge) 
+		/// </summary>
 		DeleteOptimized = 5,
+
+		/// <summary>
+		/// Удалить дерево 
+		/// </summary>
 		DeleteTree = 6,
+
+		/// <summary>
+		/// Вывод разрезанных деревьев на экран
+		/// </summary>
 		PrintSplitTrees = 7,
+
+		/// <summary>
+		/// Вывод слитых деревьев на экран
+		/// </summary>
 		PrintMergedTree = 8,
+
+		/// <summary>
+		/// Выход в главное меню
+		/// </summary>
 		Exit = 9
 	};
 	srand(time(NULL));

@@ -106,6 +106,7 @@ void BinaryTreeMenu()
 				ShowBinaryTree(rootNode);
 				break;
 			}
+
 			case Delete:
 			{
 				int keyToDelete;
@@ -119,6 +120,7 @@ void BinaryTreeMenu()
 				ShowBinaryTree(rootNode);
 				break;
 			}
+
 			case Find:
 			{
 				int searchingKey;
@@ -136,6 +138,7 @@ void BinaryTreeMenu()
 				ShowBinaryTree(rootNode);
 				break;
 			}
+
 			case FindMax:
 			{
 
@@ -144,6 +147,7 @@ void BinaryTreeMenu()
 				ShowBinaryTree(rootNode);
 				break;
 			}
+
 			case FindMin:
 			{
 				cout << "Миниимальный элемент вашего бинарного дерева поиска: ";
@@ -151,11 +155,13 @@ void BinaryTreeMenu()
 				ShowBinaryTree(rootNode);
 				break;
 			}
+
 			case Exit:
 			{
 				return;
 				break;
 			}
+
 			default:
 			{
 				cout << "Попробуйте снова!\n";

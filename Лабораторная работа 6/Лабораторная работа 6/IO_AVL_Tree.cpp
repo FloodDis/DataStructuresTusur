@@ -26,73 +26,77 @@ void AVLTreeMenu()
 		cin >> option;
 		switch (option)
 		{
-		case Add:
-		{
-			int dataOfNewNode;
-			int	keyOfNewNode;
-			cout << "Введите ключ нового элемента: ";
-			cin >> keyOfNewNode;
-			cout << "Введите данные нового элемента: ";
-			cin >> dataOfNewNode;
-			try
+			case Add:
 			{
-				rootNode = AddInAVLTree(rootNode, keyOfNewNode, dataOfNewNode);
+				int dataOfNewNode;
+				int	keyOfNewNode;
+				cout << "Введите ключ нового элемента: ";
+				cin >> keyOfNewNode;
+				cout << "Введите данные нового элемента: ";
+				cin >> dataOfNewNode;
+				try
+				{
+					rootNode = AddInAVLTree(rootNode, keyOfNewNode, dataOfNewNode);
+				}
+				catch (char const* error)
+				{
+					cerr << error << '\n';
+				}
+				cout << "Ваше AVL-дерево:\n";
+				PrintAVLTree(rootNode, 0);
+				break;
 			}
-			catch (char const* error)
+
+			case Delete:
 			{
-				cerr << error << '\n';
+				int keyToDelete;
+				cout << "Введите ключ удаляемого элемента: ";
+				cin >> keyToDelete;
+				try
+				{
+					rootNode = DeleteFromAVLTree(rootNode, keyToDelete);
+					cout << "Элемент был удален из дерева!\n";
+				}
+				catch (char const* error)
+				{
+					cerr << error << '\n';
+				}
+				cout << "Ваше AVL-дерево:\n";
+				PrintAVLTree(rootNode, 0);
+				break;
 			}
-			cout << "Ваше AVL-дерево:\n";
-			PrintAVLTree(rootNode, 0);
-			break;
-		}
-		case Delete:
-		{
-			int keyToDelete;
-			cout << "Введите ключ удаляемого элемента: ";
-			cin >> keyToDelete;
-			try
+
+			case Find:
 			{
-				rootNode = DeleteFromAVLTree(rootNode, keyToDelete);
-				cout << "Элемент был удален из дерева!\n";
+				AVLTreeNode* answer = nullptr;
+				int searchingKey;
+				cout << "Введите ключ искомого элемента: ";
+				cin >> searchingKey;
+				answer = ElementSearchAVL(rootNode, searchingKey);
+				if (answer == nullptr)
+				{
+					cout << "Элемент не найден!\n";
+				}
+				else
+				{
+					cout << "Элемент с ключом " << answer->Key << " имеет данные " << answer->Data << "\n";
+				}
+				cout << "Ваше AVL-дерево:\n";
+				PrintAVLTree(rootNode, 0);
+				break;
 			}
-			catch (char const* error)
+
+			case Exit:
 			{
-				cerr << error << '\n';
+				return;
+				break;
 			}
-			cout << "Ваше AVL-дерево:\n";
-			PrintAVLTree(rootNode, 0);
-			break;
-		}
-		case Find:
-		{
-			AVLTreeNode* answer = nullptr;
-			int searchingKey;
-			cout << "Введите ключ искомого элемента: ";
-			cin >> searchingKey;
-			answer = ElementSearchAVL(rootNode, searchingKey);
-			if (answer == nullptr)
+
+			default:
 			{
-				cout << "Элемент не найден!\n";
+				cout << "Попробуйте снова!\n";
+				break;
 			}
-			else
-			{
-				cout << "Элемент с ключом " << answer->Key << " имеет данные " << answer->Data << "\n";
-			}
-			cout << "Ваше AVL-дерево:\n";
-			PrintAVLTree(rootNode, 0);
-			break;
-		}
-		case Exit:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			cout << "Попробуйте снова!\n";
-			break;
-		}
 		}
 	}
 }

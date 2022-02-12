@@ -21,82 +21,82 @@ void RBTreeMenu()
 		cin >> option;
 		switch (option)
 		{
-		case Add:
-		{
-			cout << "Введите ключ добавляемого элемента: ";
-			int key;
-			cin >> key;
-			try
+			case Add:
 			{
-				treeUnit->Insert(key);
-			}
-			catch (char const* error)
-			{
-				cerr << error << '\n';
-			}
-			cout << "Ваше красно-черное дерево:\n";
-			treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
-			break;
-		}
-
-		case Delete:
-		{
-			cout << "Введите ключ удаляемого элемента: ";
-			int key;
-			cin >> key;
-			try
-			{
-				treeUnit->Delete(key);
-				cout << "Элемент был удален!\n";
-			}
-			catch (char const* error)
-			{
-				cerr << error << '\n';
-			}
-			cout << "Ваше красно-черное дерево:\n";
-			treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
-			break;
-		}
-
-		case Find:
-		{
-			cout << "Введите ключ искомого элемента: ";
-			int key;
-			cin >> key;
-
-			RBTreeNode* result = treeUnit->Find(key);
-			if (result != nullptr)
-			{
-				cout << "Элемент с ключом " << result->Key << " имеет цвет: ";
-				if (result->IsBlack)
+				cout << "Введите ключ добавляемого элемента: ";
+				int key;
+				cin >> key;
+				try
 				{
-					cout << "Черный\n";
+					treeUnit->Insert(key);
+				}
+				catch (char const* error)
+				{
+					cerr << error << '\n';
+				}
+				cout << "Ваше красно-черное дерево:\n";
+				treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+				break;
+			}
+
+			case Delete:
+			{
+				cout << "Введите ключ удаляемого элемента: ";
+				int key;
+				cin >> key;
+				try
+				{
+					treeUnit->Delete(key);
+					cout << "Элемент был удален!\n";
+				}
+				catch (char const* error)
+				{
+					cerr << error << '\n';
+				}
+				cout << "Ваше красно-черное дерево:\n";
+				treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+				break;
+			}
+
+			case Find:
+			{
+				cout << "Введите ключ искомого элемента: ";
+				int key;
+				cin >> key;
+
+				RBTreeNode* result = treeUnit->Find(key);
+				if (result != nullptr)
+				{
+					cout << "Элемент с ключом " << result->Key << " имеет цвет: ";
+					if (result->IsBlack)
+					{
+						cout << "Черный\n";
+					}
+					else
+					{
+						cout << "Красный\n";
+					}
 				}
 				else
 				{
-					cout << "Красный\n";
+					cout << "Такого элемента нет в дереве!\n";
 				}
+				cout << "Ваше красно-черное дерево:\n";
+				treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+				break;
 			}
-			else
+
+			case Exit:
 			{
-				cout << "Такого элемента нет в дереве!\n";
+				return;
+				break;
 			}
-			cout << "Ваше красно-черное дерево:\n";
-			treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
-			break;
-		}
 
-		case Exit:
-		{
-			return;
-			break;
-		}
-
-		default:
-		{
-			cout << "Попробуйте снова!\n";
-			break;
-		}
+			default:
+			{
+				cout << "Попробуйте снова!\n";
+				break;
+			}
 		}
 	}
 }

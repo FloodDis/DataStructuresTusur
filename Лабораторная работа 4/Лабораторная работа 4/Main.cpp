@@ -21,26 +21,29 @@ void MainMenu()
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-		{
-			HashTableMenu();
-			break;
-		}
-		case 2:
-		{
-			DictionaryMenu();
-			break;
-		}
-		case 3:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			cout << "Попробуйте снова!" << endl;
-			break;
-		}
+			case 1:
+			{
+				HashTableMenu();
+				break;
+			}
+
+			case 2:
+			{
+				DictionaryMenu();
+				break;
+			}
+
+			case 3:
+			{
+				return;
+				break;
+			}
+
+			default:
+			{
+				cout << "Попробуйте снова!" << endl;
+				break;
+			}
 		}
 	}
 }
@@ -60,56 +63,61 @@ void DictionaryMenu()
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-		{
-			string value;
-			string key;
-			double size = dictionaryUnit->HashTable.size();
-			EnterString("Введите значение value: ", value);
-			EnterString("Введите значение key: ", key);
-			double fillFactor = ElementCount(dictionaryUnit->HashTable) / size;
-			if (fillFactor >= 0.9)
+			case 1:
+			{
+				string value;
+				string key;
+				double size = dictionaryUnit->HashTable.size();
+				EnterString("Введите значение value: ", value);
+				EnterString("Введите значение key: ", key);
+				double fillFactor = ElementCount(dictionaryUnit->HashTable) / size;
+				if (fillFactor >= 0.9)
+				{
+					Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
+				}
+				AddInDictionary(dictionaryUnit->HashTable, value, key);
+				ShowDictionary(dictionaryUnit->HashTable);
+				break;
+			}
+
+			case 2:
+			{
+				string key;
+				EnterString("Введите key удаляемого элемента: ", key);
+				DeleteFromDictionary(dictionaryUnit->HashTable, key);
+				ShowDictionary(dictionaryUnit->HashTable);
+				break;
+			}
+
+			case 3:
+			{
+				string key;
+				string answer;
+				EnterString("Введите key искомого элемента: ", key);
+				answer = SearchInDictionary(dictionaryUnit->HashTable, key);
+				cout << answer;
+				ShowDictionary(dictionaryUnit->HashTable);
+				break;
+			}
+
+			case 4:
 			{
 				Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
+				ShowDictionary(dictionaryUnit->HashTable);
+				break;
 			}
-			AddInDictionary(dictionaryUnit->HashTable, value, key);
-			ShowDictionary(dictionaryUnit->HashTable);
-			break;
-		}
-		case 2:
-		{
-			string key;
-			EnterString("Введите key удаляемого элемента: ", key);
-			DeleteFromDictionary(dictionaryUnit->HashTable, key);
-			ShowDictionary(dictionaryUnit->HashTable);
-			break;
-		}
-		case 3:
-		{
-			string key;
-			string answer;
-			EnterString("Введите key искомого элемента: ", key);
-			answer = SearchInDictionary(dictionaryUnit->HashTable, key);
-			cout << answer;
-			ShowDictionary(dictionaryUnit->HashTable);
-			break;
-		}
-		case 4:
-		{
-			Rehashing(dictionaryUnit->HashTable, ElementCount(dictionaryUnit->HashTable));
-			ShowDictionary(dictionaryUnit->HashTable);
-			break;
-		}
-		case 5:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			cout << "Попробуйте снова!" << endl;
-			break;
-		}
+
+			case 5:
+			{
+				return;
+				break;
+			}
+
+			default:
+			{
+				cout << "Попробуйте снова!" << endl;
+				break;
+			}
 		}
 	}
 
@@ -130,57 +138,62 @@ void HashTableMenu()
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-		{
-			double size;
-			size = hashTableUnit.size();
-			string value;
-			string key;
-			EnterString("Введите значение value: ", value);
-			EnterString("Введите значение key: ", key);
-			double fillFactor = ElementCount(hashTableUnit) / size;
-			if (fillFactor >= 0.9)
+			case 1:
+			{
+				double size;
+				size = hashTableUnit.size();
+				string value;
+				string key;
+				EnterString("Введите значение value: ", value);
+				EnterString("Введите значение key: ", key);
+				double fillFactor = ElementCount(hashTableUnit) / size;
+				if (fillFactor >= 0.9)
+				{
+					Rehashing(hashTableUnit, ElementCount(hashTableUnit));
+				}
+				AddElementInHashTable(hashTableUnit, value, key);
+				ShowHashTable(hashTableUnit);
+				break;
+			}
+
+			case 2:
+			{
+				string key;
+				EnterString("Введите key удаляемого элемента: ", key);
+				DeleteElementInHashTable(hashTableUnit, key);
+				ShowHashTable(hashTableUnit);
+				break;
+			}
+
+			case 3:
+			{
+				string key;
+				string answer;
+				EnterString("Введите key искомого элемента: ",key);
+				answer = SearchInHashTable(key, hashTableUnit);
+				cout << answer << "\n";
+				ShowHashTable(hashTableUnit);
+				break;
+			}
+
+			case 4:
 			{
 				Rehashing(hashTableUnit, ElementCount(hashTableUnit));
+				ShowHashTable(hashTableUnit);
+				break;
 			}
-			AddElementInHashTable(hashTableUnit, value, key);
-			ShowHashTable(hashTableUnit);
-			break;
-		}
-		case 2:
-		{
-			string key;
-			EnterString("Введите key удаляемого элемента: ", key);
-			DeleteElementInHashTable(hashTableUnit, key);
-			ShowHashTable(hashTableUnit);
-			break;
-		}
-		case 3:
-		{
-			string key;
-			string answer;
-			EnterString("Введите key искомого элемента: ",key);
-			answer = SearchInHashTable(key, hashTableUnit);
-			cout << answer << "\n";
-			ShowHashTable(hashTableUnit);
-			break;
-		}
-		case 4:
-		{
-			Rehashing(hashTableUnit, ElementCount(hashTableUnit));
-			ShowHashTable(hashTableUnit);
-			break;
-		}
-		case 5:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			cout << "Попробуйте снова!" << endl;
-			break;
-		}
+
+			case 5:
+			{
+				return;
+				break;
+			}
+
+			default:
+			{
+				cout << "Попробуйте снова!" << endl;
+				break;
+			}
 		}
 	}
 }

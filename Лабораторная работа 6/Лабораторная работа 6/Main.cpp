@@ -24,26 +24,29 @@ void MainMenu()
 		cin >> option;
 		switch (option)
 		{
-		case AVLTree:
-		{
-			AVLTreeMenu();
-			break;
-		}
-		case RedBlackTree:
-		{
-			RBTreeMenu();
-			break;
-		}
-		case Exit:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			cout << "Попробуйте снова!\n";
-			break;
-		}
+			case AVLTree:
+			{
+				AVLTreeMenu();
+				break;
+			}
+
+			case RedBlackTree:
+			{
+				RBTreeMenu();
+				break;
+			}
+
+			case Exit:
+			{
+				return;
+				break;
+			}
+
+			default:
+			{
+				cout << "Попробуйте снова!\n";
+				break;
+			}
 		}
 	}
 }

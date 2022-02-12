@@ -232,3 +232,9 @@ bool IsTreapEmpty(Treap* treap)
 	}
 	return false;
 }
+
+void ShowTreap(string message, TreapNode* nodeToPrint)
+{
+	cout << message;
+	PrintTreap(nodeToPrint);
+}

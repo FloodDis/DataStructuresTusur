@@ -126,3 +126,10 @@ bool IsTreapEmpty(Treap* treap);
 /// </summary>
 /// <param name=="node"> указатель на корень декартова дерева</param>
 void DeleteTreap(TreapNode* node);
+
+/// <summary>
+/// Функция вывода сообщения и декартова дерева
+/// </summary>
+/// <param name=="message">сообщение,выводимое на экран</param>
+/// <param name=="nodeToPrint">корень поддерева</param>
+void ShowTreap(string message, TreapNode* nodeToPrint);

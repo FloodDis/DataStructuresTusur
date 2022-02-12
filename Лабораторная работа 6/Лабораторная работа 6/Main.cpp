@@ -34,8 +34,7 @@ void MainMenu()
 	int option;
 	while (true)
 	{
-		cout << "Выберите структуру данных:\n1) AVL-дерево\n2) Красно-черное дерево\n3) Выйти\n";
-		cin >> option;
+		EnterNumber("Выберите структуру данных:\n1) AVL-дерево\n2) Красно-черное дерево\n3) Выйти\n", option);
 		switch (option)
 		{
 			case AVLTree:

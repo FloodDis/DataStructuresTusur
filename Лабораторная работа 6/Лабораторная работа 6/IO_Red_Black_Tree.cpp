@@ -23,9 +23,8 @@ void RBTreeMenu()
 		{
 			case Add:
 			{
-				cout << "Введите ключ добавляемого элемента: ";
 				int key;
-				cin >> key;
+				EnterNumber("Введите ключ добавляемого элемента: ", key);
 				try
 				{
 					treeUnit->Insert(key);
@@ -41,9 +40,8 @@ void RBTreeMenu()
 
 			case Delete:
 			{
-				cout << "Введите ключ удаляемого элемента: ";
 				int key;
-				cin >> key;
+				EnterNumber("Введите ключ удаляемого элемента: ", key);
 				try
 				{
 					treeUnit->Delete(key);
@@ -60,10 +58,8 @@ void RBTreeMenu()
 
 			case Find:
 			{
-				cout << "Введите ключ искомого элемента: ";
 				int key;
-				cin >> key;
-
+				EnterNumber("Введите ключ искомого элемента: ", key);
 				RBTreeNode* result = treeUnit->Find(key);
 				if (result != nullptr)
 				{
@@ -99,4 +95,10 @@ void RBTreeMenu()
 			}
 		}
 	}
+}
+
+void EnterNumber(string message, int& value)
+{
+	cout << message;
+	cin >> value;
 }

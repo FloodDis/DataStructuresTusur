@@ -1,4 +1,4 @@
-#include "Dictionary.h"
+ï»¿#include "Dictionary.h"
 #include "HashTable.h"
 
 void AddInDictionary(vector<KeyValueList*> hashTableUnit, string value, string key)
@@ -61,7 +61,7 @@ void EnterString(string message, string& value)
 
 void ShowDictionary(vector<KeyValueList*> hashTableUnit)
 {
-	cout << "Âàø ñëîâàðü:\n";
+	cout << "Ð’Ð°Ñˆ ÑÐ»Ð¾Ð²Ð°Ñ€ÑŒ:\n";
 	PrintDictionary(hashTableUnit);
 }
 

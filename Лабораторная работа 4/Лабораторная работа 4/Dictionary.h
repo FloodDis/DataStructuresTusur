@@ -1,68 +1,68 @@
-#pragma once
+п»ї#pragma once
 #include "HashTable.h"
 
 /// <summary>
-/// Словарь
+/// РЎР»РѕРІР°СЂСЊ
 /// </summary>
 struct Dictionary
 {
 	/// <summary>
-	/// Хэш-таблица
+	/// РҐСЌС€-С‚Р°Р±Р»РёС†Р°
 	/// </summary>
 	vector<KeyValueList*> HashTable;
 };
 
 /// <summary>
-/// Функция инициализации словаря
+/// Р¤СѓРЅРєС†РёСЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё СЃР»РѕРІР°СЂСЏ
 /// </summary>
-/// <param name="hashTableUnit">ссылка на экземпляр хэш-таблицы</param>
-/// <param name="size">размер словаря</param>
+/// <param name="hashTableUnit">СЃСЃС‹Р»РєР° РЅР° СЌРєР·РµРјРїР»СЏСЂ С…СЌС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <param name="size">СЂР°Р·РјРµСЂ СЃР»РѕРІР°СЂСЏ</param>
 void InitializationOfDictionary(vector<KeyValueList*>& hashTableUnit, int size);
 
 /// <summary>
-/// Функция добавления пары ключ-значение в словарь
+/// Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ РїР°СЂС‹ РєР»СЋС‡-Р·РЅР°С‡РµРЅРёРµ РІ СЃР»РѕРІР°СЂСЊ
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <param name="value">значение добавляемого элемента</param>
-/// <param name="key">ключ добавляемого элемента</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <param name="value">Р·РЅР°С‡РµРЅРёРµ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
+/// <param name="key">РєР»СЋС‡ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 void AddInDictionary(vector<KeyValueList*> hashTableUnit, string value, string key);
 
 /// <summary>
-/// Функция удаления пары ключ-значение из словаря
+/// Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ РїР°СЂС‹ РєР»СЋС‡-Р·РЅР°С‡РµРЅРёРµ РёР· СЃР»РѕРІР°СЂСЏ
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <param name="key">ключ удаляемого элемента</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <param name="key">РєР»СЋС‡ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 void DeleteFromDictionary(vector<KeyValueList*>& hashTableUnit, string key);
 
 /// <summary>
-/// Функция поиска пары ключ-значение в словаре
+/// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РїР°СЂС‹ РєР»СЋС‡-Р·РЅР°С‡РµРЅРёРµ РІ СЃР»РѕРІР°СЂРµ
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <param name="key">ключ искомого элемента</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <param name="key">РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 string SearchInDictionary(vector<KeyValueList*>& hashTableUnit, string key);
 
 /// <summary>
-/// Функция ввода числа и вывода сообщения
+/// Р¤СѓРЅРєС†РёСЏ РІРІРѕРґР° С‡РёСЃР»Р° Рё РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ
 /// </summary>
-/// <param name="message">строка с сообщением</param>
-/// <param name="value">переменная, которой присваивается число</param>
+/// <param name="message">СЃС‚СЂРѕРєР° СЃ СЃРѕРѕР±С‰РµРЅРёРµРј</param>
+/// <param name="value">РїРµСЂРµРјРµРЅРЅР°СЏ, РєРѕС‚РѕСЂРѕР№ РїСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ С‡РёСЃР»Рѕ</param>
 void EnterNumber(string message, int& value);
 
 /// <summary>
-/// Функция ввода строки и вывода сообщения
+/// Р¤СѓРЅРєС†РёСЏ РІРІРѕРґР° СЃС‚СЂРѕРєРё Рё РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ
 /// </summary>
-/// <param name="message">строка с сообщением</param>
-/// <param name="value">переменная, которой присваивается строка</param>
+/// <param name="message">СЃС‚СЂРѕРєР° СЃ СЃРѕРѕР±С‰РµРЅРёРµРј</param>
+/// <param name="value">РїРµСЂРµРјРµРЅРЅР°СЏ, РєРѕС‚РѕСЂРѕР№ РїСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ СЃС‚СЂРѕРєР°</param>
 void EnterString(string message, string& value);
 
 /// <summary>
-/// Функция вывода словаря
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃР»РѕРІР°СЂСЏ
 /// </summary>
-/// <param name="message">строка с сообщением</param>
+/// <param name="message">СЃС‚СЂРѕРєР° СЃ СЃРѕРѕР±С‰РµРЅРёРµРј</param>
 void PrintDictionary(vector<KeyValueList*> hashTableUnit);
 
 /// <summary>
-/// Функция вывода сообщения Ваш словарь: и словаря 
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ Р’Р°С€ СЃР»РѕРІР°СЂСЊ: Рё СЃР»РѕРІР°СЂСЏ 
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хэш-таблицы</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…СЌС€-С‚Р°Р±Р»РёС†С‹</param>
 void ShowDictionary(vector<KeyValueList*> hashTableUnit);

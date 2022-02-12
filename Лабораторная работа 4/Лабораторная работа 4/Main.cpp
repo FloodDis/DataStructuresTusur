@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "Dictionary.h"
 #include "HashTable.h"
 
@@ -17,7 +17,7 @@ void MainMenu()
 	int option;
 	while (true)
 	{
-		printf("Выберите структуру данных:\n1) Хеш-таблица\n2) Словарь\n3) Выйти\n");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂСѓРєС‚СѓСЂСѓ РґР°РЅРЅС‹С…:\n1) РҐРµС€-С‚Р°Р±Р»РёС†Р°\n2) РЎР»РѕРІР°СЂСЊ\n3) Р’С‹Р№С‚Рё\n");
 		cin >> option;
 		switch (option)
 		{
@@ -41,7 +41,7 @@ void MainMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!" << endl;
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!" << endl;
 				break;
 			}
 		}
@@ -53,13 +53,13 @@ void DictionaryMenu()
 	Dictionary* dictionaryUnit= new Dictionary;
 	setlocale(LC_ALL, "ru");
 	int size;
-	EnterNumber("Введите размер словаря:\n", size);
+	EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ СЃР»РѕРІР°СЂСЏ:\n", size);
 	InitializationOfDictionary(dictionaryUnit->HashTable, size);
 	ShowDictionary(dictionaryUnit->HashTable);
 	int option;
 	while (true)
 	{
-		printf("Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Поиск элемента\n4) Рехешинг\n5) Выйти\n");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n2) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚\n3) РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°\n4) Р РµС…РµС€РёРЅРі\n5) Р’С‹Р№С‚Рё\n");
 		cin >> option;
 		switch (option)
 		{
@@ -68,8 +68,8 @@ void DictionaryMenu()
 				string value;
 				string key;
 				double size = dictionaryUnit->HashTable.size();
-				EnterString("Введите значение value: ", value);
-				EnterString("Введите значение key: ", key);
+				EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ value: ", value);
+				EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ key: ", key);
 				double fillFactor = ElementCount(dictionaryUnit->HashTable) / size;
 				if (fillFactor >= 0.9)
 				{
@@ -83,7 +83,7 @@ void DictionaryMenu()
 			case 2:
 			{
 				string key;
-				EnterString("Введите key удаляемого элемента: ", key);
+				EnterString("Р’РІРµРґРёС‚Рµ key СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				DeleteFromDictionary(dictionaryUnit->HashTable, key);
 				ShowDictionary(dictionaryUnit->HashTable);
 				break;
@@ -93,7 +93,7 @@ void DictionaryMenu()
 			{
 				string key;
 				string answer;
-				EnterString("Введите key искомого элемента: ", key);
+				EnterString("Р’РІРµРґРёС‚Рµ key РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				answer = SearchInDictionary(dictionaryUnit->HashTable, key);
 				cout << answer;
 				ShowDictionary(dictionaryUnit->HashTable);
@@ -115,7 +115,7 @@ void DictionaryMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!" << endl;
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!" << endl;
 				break;
 			}
 		}
@@ -128,13 +128,13 @@ void HashTableMenu()
 	vector<KeyValueList*> hashTableUnit;
 	setlocale(LC_ALL, "ru");
 	int size;
-	EnterNumber("Введите размер хеш-таблицы:\n", size);
+	EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹:\n", size);
 	InitializationOfHashTable(hashTableUnit, size);
 	ShowHashTable(hashTableUnit);
 	int option;
 	while (true)
 	{
-		printf("Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Поиск элемента\n4) Рехешинг\n5) Выйти\n");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n2) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚\n3) РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°\n4) Р РµС…РµС€РёРЅРі\n5) Р’С‹Р№С‚Рё\n");
 		cin >> option;
 		switch (option)
 		{
@@ -144,8 +144,8 @@ void HashTableMenu()
 				size = hashTableUnit.size();
 				string value;
 				string key;
-				EnterString("Введите значение value: ", value);
-				EnterString("Введите значение key: ", key);
+				EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ value: ", value);
+				EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ key: ", key);
 				double fillFactor = ElementCount(hashTableUnit) / size;
 				if (fillFactor >= 0.9)
 				{
@@ -159,7 +159,7 @@ void HashTableMenu()
 			case 2:
 			{
 				string key;
-				EnterString("Введите key удаляемого элемента: ", key);
+				EnterString("Р’РІРµРґРёС‚Рµ key СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ", key);
 				DeleteElementInHashTable(hashTableUnit, key);
 				ShowHashTable(hashTableUnit);
 				break;
@@ -169,7 +169,7 @@ void HashTableMenu()
 			{
 				string key;
 				string answer;
-				EnterString("Введите key искомого элемента: ",key);
+				EnterString("Р’РІРµРґРёС‚Рµ key РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ",key);
 				answer = SearchInHashTable(key, hashTableUnit);
 				cout << answer << "\n";
 				ShowHashTable(hashTableUnit);
@@ -191,7 +191,7 @@ void HashTableMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!" << endl;
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!" << endl;
 				break;
 			}
 		}

@@ -1,4 +1,4 @@
-#include "HashTable.h"
+п»ї#include "HashTable.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -126,14 +126,14 @@ string SearchInHashTable(string searchingKey, vector<KeyValueList*> hashTableUni
 	{
 		if (hashTableUnit[hash]->Key == searchingKey)
 		{
-			return "Элемент Key = " + hashTableUnit[hash]->Key + " Value = " + hashTableUnit[hash]->Value + " найден с хешем " + to_string(hash);
+			return "Р­Р»РµРјРµРЅС‚ Key = " + hashTableUnit[hash]->Key + " Value = " + hashTableUnit[hash]->Value + " РЅР°Р№РґРµРЅ СЃ С…РµС€РµРј " + to_string(hash);
 		}
 		else
 		{
 			hashTableUnit[hash] = hashTableUnit[hash]->Next;
 		}
 	}
-	return "Данного значения нет в хеш-таблице";
+	return "Р”Р°РЅРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РЅРµС‚ РІ С…РµС€-С‚Р°Р±Р»РёС†Рµ";
 }
 
 double ElementCount(vector<KeyValueList*> hashTableUnit)
@@ -152,6 +152,6 @@ double ElementCount(vector<KeyValueList*> hashTableUnit)
 
 void ShowHashTable(vector<KeyValueList*> hashTableUnit)
 {
-	cout << "Ваша хэш-таблица:\n";
+	cout << "Р’Р°С€Р° С…СЌС€-С‚Р°Р±Р»РёС†Р°:\n";
 	PrintTable(hashTableUnit);
 }

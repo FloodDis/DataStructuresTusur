@@ -1,100 +1,100 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <vector>
 using namespace std;
 
 /// <summary>
-/// Узел списка коллизий
+/// РЈР·РµР» СЃРїРёСЃРєР° РєРѕР»Р»РёР·РёР№
 /// </summary>
 struct KeyValueList
 {
 	/// <summary>
-	/// Ключ
+	/// РљР»СЋС‡
 	/// </summary>
 	string Key = "";
 
 	/// <summary>
-	/// Значение
+	/// Р—РЅР°С‡РµРЅРёРµ
 	/// </summary>
 	string Value = "";
 
 	/// <summary>
-	/// Указатель на следующий узел
+	/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СѓР·РµР»
 	/// </summary>
 	KeyValueList* Next = nullptr;
 
 	/// <summary>
-	/// Указатель на предыдущий узел
+	/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ СѓР·РµР»
 	/// </summary>
 	KeyValueList* Previous = nullptr;
 };
 
 /// <summary>
-/// Функция инициализации хеш-таблицы
+/// Р¤СѓРЅРєС†РёСЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё С…РµС€-С‚Р°Р±Р»РёС†С‹
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <param name="size">размер хеш-таблицы</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <param name="size">СЂР°Р·РјРµСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
 void InitializationOfHashTable(vector<KeyValueList*>& hashTableUnit, int size);
 
 /// <summary>
-/// Функция добавления пары ключ-значение в хеш-таблицы
+/// Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ РїР°СЂС‹ РєР»СЋС‡-Р·РЅР°С‡РµРЅРёРµ РІ С…РµС€-С‚Р°Р±Р»РёС†С‹
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <param name="value">значение добавляемого элемента</param>
-/// <param name="key">ключ добавляемого элемента</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <param name="value">Р·РЅР°С‡РµРЅРёРµ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
+/// <param name="key">РєР»СЋС‡ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 void AddElementInHashTable(vector<KeyValueList*> hashTableUnit, string value, string key);
 
 /// <summary>
-/// Функция удаления пары ключ-значение из хеш-таблицы
+/// Р¤СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ РїР°СЂС‹ РєР»СЋС‡-Р·РЅР°С‡РµРЅРёРµ РёР· С…РµС€-С‚Р°Р±Р»РёС†С‹
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <param name="key">ключ удаляемой удаляемого элемента</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <param name="key">РєР»СЋС‡ СѓРґР°Р»СЏРµРјРѕР№ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
 void DeleteElementInHashTable(vector<KeyValueList*> hashTableUnit, string key);
 
 /// <summary>
-/// Функция рехешинга
+/// Р¤СѓРЅРєС†РёСЏ СЂРµС…РµС€РёРЅРіР°
 /// </summary>
-/// <param name="oldHashTable">экземпляр хеш-таблицы до рехешинга</param>
-/// <param name="countOfElements">количество элементов</param>
+/// <param name="oldHashTable">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹ РґРѕ СЂРµС…РµС€РёРЅРіР°</param>
+/// <param name="countOfElements">РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ</param>
 void Rehashing(vector<KeyValueList*>& oldHashTable, double countOfElements);
 
 /// <summary>
-/// Хеш-функция
+/// РҐРµС€-С„СѓРЅРєС†РёСЏ
 /// </summary>
-/// <param name="key">ключ</param>
-/// <param name="size">размер хеш-таблицы</param>
+/// <param name="key">РєР»СЋС‡</param>
+/// <param name="size">СЂР°Р·РјРµСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
 /// <returns></returns>
 int HashFunction(string key, int size);
 
 /// <summary>
-/// Функция вывода списка коллизий на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРїРёСЃРєР° РєРѕР»Р»РёР·РёР№ РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="listUnit">экзмепляр списка коллизий</param>
+/// <param name="listUnit">СЌРєР·РјРµРїР»СЏСЂ СЃРїРёСЃРєР° РєРѕР»Р»РёР·РёР№</param>
 void PrintKeyValueList(KeyValueList* listUnit);
 
 /// <summary>
-/// Функция вывода хеш-таблицы на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° С…РµС€-С‚Р°Р±Р»РёС†С‹ РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
 void PrintTable(vector<KeyValueList*> hashTableUnit);
 
 /// <summary>
-/// Функция поиска элемента в хеш-таблицы
+/// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° СЌР»РµРјРµРЅС‚Р° РІ С…РµС€-С‚Р°Р±Р»РёС†С‹
 /// </summary>
-/// <param name="searchingKey">ключ искомого элемента</param>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <returns>строка с ответом</returns>
+/// <param name="searchingKey">РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <returns>СЃС‚СЂРѕРєР° СЃ РѕС‚РІРµС‚РѕРј</returns>
 string SearchInHashTable(string searchingKey, vector<KeyValueList*> hashTableUnit);
 
 ///<summary>
-/// Функция подсчета элементов
+/// Р¤СѓРЅРєС†РёСЏ РїРѕРґСЃС‡РµС‚Р° СЌР»РµРјРµРЅС‚РѕРІ
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-/// <returns>количество элементов</returns>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
+/// <returns>РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ</returns>
 double ElementCount(vector<KeyValueList*> hashTableUnit);
 
 ///<summary>
-/// Функция вывода строки Ваша хэш-таблица и хэш-таблицы
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃС‚СЂРѕРєРё Р’Р°С€Р° С…СЌС€-С‚Р°Р±Р»РёС†Р° Рё С…СЌС€-С‚Р°Р±Р»РёС†С‹
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
 void ShowHashTable(vector<KeyValueList*> hashTableUnit);

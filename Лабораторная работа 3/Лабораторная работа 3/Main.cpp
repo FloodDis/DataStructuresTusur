@@ -21,36 +21,41 @@ void MainMenu()
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-		{
-			StackMenu();
-			break;
-		}
-		case 2:
-		{
-			RingBufferMenu();
-			break;
-		}
-		case 3:
-		{
-			QueueStackBasedMenu();
-			break;
-		}
-		case 4:
-		{
-			QueueRingBufferBasedMenu();
-			break;
-		}
-		case 5:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			printf("Попробуйте снова!\n");
-			break;
-		}
+			case 1:
+			{
+				StackMenu();
+				break;
+			}
+
+			case 2:
+			{
+				RingBufferMenu();
+				break;
+			}
+
+			case 3:
+			{
+				QueueStackBasedMenu();
+				break;
+			}
+
+			case 4:
+			{
+				QueueRingBufferBasedMenu();
+				break;
+			}
+
+			case 5:
+			{
+				return;
+				break;
+			}
+
+			default:
+			{
+				printf("Попробуйте снова!\n");
+				break;
+			}
 		}
 	}
 }
@@ -71,53 +76,57 @@ void StackMenu()
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-		{
-			int dataOfNewElement;
-			EnterNumber("Введите значение нового элемента: \n", dataOfNewElement);
-			stack = PushInStack(stack, dataOfNewElement);
-			ShowStack(stack);
-			break;
-		}
-		case 2:
-		{
-			if (stack == nullptr)
+			case 1:
 			{
-				printf("\nСтек пуст\n");
+				int dataOfNewElement;
+				EnterNumber("Введите значение нового элемента: \n", dataOfNewElement);
+				stack = PushInStack(stack, dataOfNewElement);
 				ShowStack(stack);
-			}
-			else
-			{
-				int valueFromStack;
-				valueFromStack = PopFromStack(stack);
-				printf("\nЗначение из стека: %i\n", valueFromStack);
-				ShowStack(stack);
+				break;
 			}
 
-			break;
-		}
-		case 3:
-		{
-			DeleteStack(stack);
-			printf("\nСтек удалён\n");
-			int value;
-			EnterNumber("Введите значение первого элемента: ", value);
-			Node* stack = CreationOfStack();
-			stack->DataOfNode = value;
-			printf("\nСтек создан!\n");
-			ShowStack(stack);
-			break;
-		}
-		case 4:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			printf("Попробуйте снова!\n");
-			break;
-		}
+			case 2:
+			{
+				if (stack == nullptr)
+				{
+					printf("\nСтек пуст\n");
+					ShowStack(stack);
+				}
+				else
+				{
+					int valueFromStack;
+					valueFromStack = PopFromStack(stack);
+					printf("\nЗначение из стека: %i\n", valueFromStack);
+					ShowStack(stack);
+				}
+
+				break;
+			}
+
+			case 3:
+			{
+				DeleteStack(stack);
+				printf("\nСтек удалён\n");
+				int value;
+				EnterNumber("Введите значение первого элемента: ", value);
+				Node* stack = CreationOfStack();
+				stack->DataOfNode = value;
+				printf("\nСтек создан!\n");
+				ShowStack(stack);
+				break;
+			}
+
+			case 4:
+			{
+				return;
+				break;
+			}
+
+			default:
+			{
+				printf("Попробуйте снова!\n");
+				break;
+			}
 		}
 	}
 }
@@ -144,68 +153,74 @@ void RingBufferMenu()
 			cin >> option;
 			switch (option)
 			{
-			case 1:
-			{
-				bool answer = IfThereSpaceToWrite(ringBuffer);
-				if (answer == true)
+				case 1:
 				{
-					printf("В буфере есть место для записи!\n");
-				}
-				else
-				{
-					printf("В буфере нет места для записи!\n");
-				}
-				break;
-			}
-			case 2:
-			{
-				bool answer = IsEmpty(ringBuffer);
-				if (answer == true)
-				{
-					printf("\nБуфер пуст!\n");
-				}
-				else
-				{
-					printf("\nБуфер не пуст!\n");
-					ShowRingBuffer(ringBuffer);
-				}
-				break;
-			}
-			case 3:
-			{
-				if (IfThereSpaceToWrite(ringBuffer))
-				{
-					int newElement;
-					EnterNumber("Введите значение нового элемента: ", newElement);
-					PushInRingBuffer(ringBuffer, newElement);
-					ShowRingBuffer(ringBuffer);
+					bool answer = IfThereSpaceToWrite(ringBuffer);
+					if (answer == true)
+					{
+						printf("В буфере есть место для записи!\n");
+					}
+					else
+					{
+						printf("В буфере нет места для записи!\n");
+					}
 					break;
 				}
-				else
+
+				case 2:
 				{
-					printf("В буфере нет места для записи!\n");
+					bool answer = IsEmpty(ringBuffer);
+					if (answer == true)
+					{
+						printf("\nБуфер пуст!\n");
+					}
+					else
+					{
+						printf("\nБуфер не пуст!\n");
+						ShowRingBuffer(ringBuffer);
+					}
+					break;
+				}
+
+				case 3:
+				{
+					if (IfThereSpaceToWrite(ringBuffer))
+					{
+						int newElement;
+						EnterNumber("Введите значение нового элемента: ", newElement);
+						PushInRingBuffer(ringBuffer, newElement);
+						ShowRingBuffer(ringBuffer);
+						break;
+					}
+					else
+					{
+						printf("В буфере нет места для записи!\n");
+						ShowRingBuffer(ringBuffer);
+						break;
+					}
+
+				}
+
+				case 4:
+				{
+					int elementFromBuffer = PopFromRingBuffer(ringBuffer);
+					printf("Значение из буфера: %i\n", elementFromBuffer);
 					ShowRingBuffer(ringBuffer);
 					break;
 				}
 
-			}
-			case 4:
-			{
-				int elementFromBuffer = PopFromRingBuffer(ringBuffer);
-				printf("Значение из буфера: %i\n", elementFromBuffer);
-				ShowRingBuffer(ringBuffer);
-				break;
-			}
-			case 5:
-			{
-				return;
-				break;
-			}
-			default:
-			{
-				printf("Попробуйте снова!\n");
-				break;
-			}
+				case 5:
+				{
+					return;
+					break;
+				}
+
+				default:
+				{
+					printf("Попробуйте снова!\n");
+					break;
+				}
+
 			}
 		}
 	}
@@ -226,45 +241,49 @@ void QueueStackBasedMenu()
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-		{
-			int dataOfNewElement;
-			printf("Введите значение нового элемента: ");
-			cin >> dataOfNewElement;
-			EnqueueStackBased(queueStackUnit, dataOfNewElement);
-			PrintQueueStackBased(queueStackUnit);
-			break;
-		}
-		case 2:
-		{
-			printf("\nИзвлеченный элемент: %i\n", DequeueStackBased(queueStackUnit));
-			if (queueStackUnit->IsStackInEmpty)
+			case 1:
 			{
-				queueStackUnit->StackIn = CreationOfStack();
-				queueStackUnit->StackIn->PreviousNode = nullptr;
+				int dataOfNewElement;
+				printf("Введите значение нового элемента: ");
+				cin >> dataOfNewElement;
+				EnqueueStackBased(queueStackUnit, dataOfNewElement);
+				PrintQueueStackBased(queueStackUnit);
+				break;
 			}
-			PrintQueueStackBased(queueStackUnit);
-			break;
-		}
-		case 3:
-		{
-			DeleteQueueStackBased(queueStackUnit);
-			printf("\nВаша очередь удалена!\n");
-			QueueStackBased* queueStackUnit = new QueueStackBased;
-			CreationOfQueueStackBased(queueStackUnit);
-			PrintQueueStackBased(queueStackUnit);
-			break;
-		}
-		case 4:
-		{
-			return;
-			break;
-		}
-		default:
-		{
-			printf("Попробуйте снова!\n");
-			break;
-		}
+
+			case 2:
+			{
+				printf("\nИзвлеченный элемент: %i\n", DequeueStackBased(queueStackUnit));
+				if (queueStackUnit->IsStackInEmpty)
+				{
+					queueStackUnit->StackIn = CreationOfStack();
+					queueStackUnit->StackIn->PreviousNode = nullptr;
+				}
+				PrintQueueStackBased(queueStackUnit);
+				break;
+			}
+
+			case 3:
+			{
+				DeleteQueueStackBased(queueStackUnit);
+				printf("\nВаша очередь удалена!\n");
+				QueueStackBased* queueStackUnit = new QueueStackBased;
+				CreationOfQueueStackBased(queueStackUnit);
+				PrintQueueStackBased(queueStackUnit);
+				break;
+			}
+
+			case 4:
+			{
+				return;
+				break;
+			}
+
+			default:
+			{
+				printf("Попробуйте снова!\n");
+				break;
+			}
 		}
 	}
 }
@@ -294,50 +313,55 @@ void QueueRingBufferBasedMenu()
 			cin >> option;
 			switch (option)
 			{
-			case 1:
-			{
-				int newElement;
-				EnterNumber("Введите новый элемент очереди\n", newElement);
-				EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
-				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
-				break;
-			}
-			case 2:
-			{
-				int elementFromQueue;
-				elementFromQueue = DequeueRingBuffer(queueRingBuffer->ringBuffer);
-				cout << "Извлеченный элемент: %i\n", elementFromQueue;
-				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
-				break;
-			}
-			case 3:
-			{
-				DeleteQueueRingBuffer(queueRingBuffer->ringBuffer);
-				cout << "Ваша очередь удалена!\n";
-				int sizeOfQueue;
-				EnterNumber("Введите размер очереди: ", sizeOfQueue);
-				if ((int)log2(sizeOfQueue) % 2 != 0)
+				case 1:
 				{
-					printf("Размер буфера должен быть степенью 2\n");
+					int newElement;
+					EnterNumber("Введите новый элемент очереди\n", newElement);
+					EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
+					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					break;
+				}
+
+				case 2:
+				{
+					int elementFromQueue;
+					elementFromQueue = DequeueRingBuffer(queueRingBuffer->ringBuffer);
+					cout << "Извлеченный элемент: %i\n", elementFromQueue;
+					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					break;
+				}
+
+				case 3:
+				{
+					DeleteQueueRingBuffer(queueRingBuffer->ringBuffer);
+					cout << "Ваша очередь удалена!\n";
+					int sizeOfQueue;
+					EnterNumber("Введите размер очереди: ", sizeOfQueue);
+					if ((int)log2(sizeOfQueue) % 2 != 0)
+					{
+						printf("Размер буфера должен быть степенью 2\n");
+						return;
+						break;
+					}
+					else
+					{
+						queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
+						cout << "Очередь создана!\n";
+						break;
+					}
+				}
+
+				case 4:
+				{
 					return;
 					break;
 				}
-				else
+
+				default:
 				{
-					queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
-					cout << "Очередь создана!\n";
+					cout << "Попробуйте ещё раз!\n";
 					break;
 				}
-			case 4:
-			{
-				return;
-				break;
-			}
-			default:
-			{
-				cout << "Попробуйте ещё раз!\n";
-				break;
-			}
 			}
 			}
 		}

@@ -80,19 +80,19 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance)
 	return nodeToBalance;
 }
 
-AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int keyToAdd, int dataOfNewNode)
+AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int key, int dataOfNewNode)
 {
 	if (!rootNode)
 	{
-		rootNode = CreationOfAVLTree(keyToAdd, dataOfNewNode);
+		rootNode = CreationOfAVLTree(key, dataOfNewNode);
 	}
-	else if (rootNode->Key > keyToAdd)
+	else if (rootNode->Key > key)
 	{
-		rootNode->Left = AddInAVLTree(rootNode->Left, keyToAdd, dataOfNewNode);
+		rootNode->Left = AddInAVLTree(rootNode->Left, key, dataOfNewNode);
 	}
-	else if (rootNode->Key < keyToAdd)
+	else if (rootNode->Key < key)
 	{
-		rootNode->Right = AddInAVLTree(rootNode->Right, keyToAdd, dataOfNewNode);
+		rootNode->Right = AddInAVLTree(rootNode->Right, key, dataOfNewNode);
 	}
 	else
 	{

@@ -72,7 +72,7 @@ void FixHeight(AVLTreeNode* node);
 /// <returns>
 /// новый корень поддерева
 /// </returns>
-AVLTreeNode* RotateRight(AVLTreeNode* pNode);
+AVLTreeNode* RotateRight(AVLTreeNode* nodeToRotate);
 
 /// <summary>
 /// Функция левого поворота

@@ -38,14 +38,14 @@ void FixHeight(AVLTreeNode* node)
 	}
 }
 
-AVLTreeNode* RotateRight(AVLTreeNode* pNode)
+AVLTreeNode* RotateRight(AVLTreeNode* nodeToRotate)
 {
-	AVLTreeNode* qNode = pNode->Left;
-	pNode->Left = qNode->Right;
-	qNode->Right = pNode;
-	FixHeight(pNode);
-	FixHeight(qNode);
-	return (qNode);
+	AVLTreeNode* bufferNode = nodeToRotate->Left;
+	nodeToRotate->Left = bufferNode->Right;
+	bufferNode->Right = nodeToRotate;
+	FixHeight(nodeToRotate);
+	FixHeight(bufferNode);
+	return (bufferNode);
 }
 
 AVLTreeNode* RotateLeft(AVLTreeNode* qNode)

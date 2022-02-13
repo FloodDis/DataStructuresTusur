@@ -58,26 +58,26 @@ AVLTreeNode* RotateLeft(AVLTreeNode* qNode)
 	return (pNode);
 }
 
-AVLTreeNode* Balance(AVLTreeNode* node)
+AVLTreeNode* Balance(AVLTreeNode* nodeToBalance)
 {
-	FixHeight(node);
-	if (BalanceFactor(node) == 2)
+	FixHeight(nodeToBalance);
+	if (BalanceFactor(nodeToBalance) == 2)
 	{
-		if (BalanceFactor(node->Right) < 0)
+		if (BalanceFactor(nodeToBalance->Right) < 0)
 		{
-			node->Right = RotateRight(node->Right);
+			nodeToBalance->Right = RotateRight(nodeToBalance->Right);
 		}
-		return RotateLeft(node);
+		return RotateLeft(nodeToBalance);
 	}
-	if (BalanceFactor(node) == -2)
+	if (BalanceFactor(nodeToBalance) == -2)
 	{
-		if (BalanceFactor(node->Left) > 0)
+		if (BalanceFactor(nodeToBalance->Left) > 0)
 		{
-			node->Left = RotateLeft(node->Left);
+			nodeToBalance->Left = RotateLeft(nodeToBalance->Left);
 		}
-		return RotateRight(node);
+		return RotateRight(nodeToBalance);
 	}
-	return node;
+	return nodeToBalance;
 }
 
 AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int keyToAdd, int dataOfNewNode)

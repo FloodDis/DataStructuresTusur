@@ -90,7 +90,7 @@ AVLTreeNode* RotateLeft(AVLTreeNode* qNode);
 /// <returns>
 /// новый корень сбалансированного поддерева
 /// </returns>
-AVLTreeNode* Balance(AVLTreeNode* node);
+AVLTreeNode* Balance(AVLTreeNode* nodeToBalance);
 
 /// <summary>
 /// Функция добавления элемента в АВЛ-дерево

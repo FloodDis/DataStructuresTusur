@@ -7,10 +7,10 @@ struct StructOfArray
 {
 	int* Array;
 	int Length;
-	int Capacity;
+	int Capacity; 
 };
 
-void ShowArray(StructOfArray* arrayUnit);
+void ShowArray(StructOfArray* arrayUnit);  
 
 void EnterNumber(string message, int& variable);
 

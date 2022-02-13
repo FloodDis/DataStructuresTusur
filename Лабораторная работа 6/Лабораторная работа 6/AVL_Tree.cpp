@@ -48,14 +48,14 @@ AVLTreeNode* RotateRight(AVLTreeNode* nodeToRotate)
 	return (bufferNode);
 }
 
-AVLTreeNode* RotateLeft(AVLTreeNode* qNode)
+AVLTreeNode* RotateLeft(AVLTreeNode* nodeToRotate)
 {
-	AVLTreeNode* pNode = qNode->Right;
-	qNode->Right = pNode->Left;
-	pNode->Left = qNode;
-	FixHeight(pNode);
-	FixHeight(qNode);
-	return (pNode);
+	AVLTreeNode* bufferNode = nodeToRotate->Right;
+	nodeToRotate->Right = bufferNode->Left;
+	bufferNode->Left = nodeToRotate;
+	FixHeight(bufferNode);
+	FixHeight(nodeToRotate);
+	return (bufferNode);
 }
 
 AVLTreeNode* Balance(AVLTreeNode* nodeToBalance)

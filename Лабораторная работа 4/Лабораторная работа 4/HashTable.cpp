@@ -57,6 +57,7 @@ void Rehashing(vector<KeyValueList*>& oldHashTable, double countOfElements)
 		}
 	}
 	oldHashTable.clear();
+	//TODO: to const
 	int newSize = (int)(1.5 * countOfElements);
 	InitializationOfHashTable(oldHashTable, newSize);
 	for (int i = 0; i < countOfElements; i++)

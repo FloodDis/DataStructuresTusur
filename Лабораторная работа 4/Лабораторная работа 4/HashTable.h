@@ -3,6 +3,8 @@
 #include <vector>
 using namespace std;
 
+//TODO: в отдельную HashTable
+
 /// <summary>
 /// Узел списка коллизий
 /// </summary>

@@ -2,13 +2,13 @@
 
 void Menu(Node* headNode)
 {
-	int option;
 	while (true)
 	{
 		printf("\nSelect an action:\n1) Delete element\n");
 		printf("2) Add element at the beginning\n3) Add element at the end\n4) Add after specific element\n");
 		printf("5) Add before specific element\n6) Sorting of list\n7) Leanear search of an element\n");
 		printf("8) Quit\n");
+		int option;
 		cin >> option;
 		switch (option)
 		{

@@ -82,12 +82,6 @@ void AddAfter(Node* headNode, int dataOfNewNode, int index);
 void BubbleSort(Node* headNode);
 
 /// <summary>
-/// Функция вывода списка на экран
-/// </summary>
-/// <param name="headNode">указатель на корень списка</param>
-void PrintList(Node* headNode);
-
-/// <summary>
 /// Функция линейного поиска
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
@@ -98,19 +92,6 @@ void PrintList(Node* headNode);
 Node* LinearSearch(Node* headNode, int searchingValue);
 
 /// <summary>
-/// Функция вывода на экран элементов, найденных с помощью линейного поиска
-/// </summary>
-/// <param name="indexes">указатель на корень списка индексов найденных элементов</param>
-/// <param name="headNode">>указатель на корень списка</param>
-void PrintFinded(Node* indexes, Node* headNode);
-
-/// <summary>
-/// Функция меню
-/// </summary>
-/// <param name="headNode">указатель на корень списка</param>
-void Menu(Node* headNode);
-
-/// <summary>
 /// Функция подсчета элементов списка
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
@@ -118,13 +99,6 @@ void Menu(Node* headNode);
 /// кол-во элементов списка
 /// </returns>
 int ElementCount(Node* headNode);
-
-/// <summary>
-/// Функция вывода сообщения и ввода значения переменной из консоли
-/// </summary>
-/// <param name="message">строка с сообщением</param>
-/// <param name="variable">значение переменной</param>
-void EnterNumber(string message, int& variable);
 
 ///<summary>
 /// Функция получения случайного числа
@@ -134,8 +108,3 @@ void EnterNumber(string message, int& variable);
 /// </returns>
 int Randomize();
 
-///<summary>
-/// Функция вывода сообщения Your list: и списка
-/// </summary>
-/// <param name="headNode">указатель на корень списка</param>
-void ShowList(Node* headNode);

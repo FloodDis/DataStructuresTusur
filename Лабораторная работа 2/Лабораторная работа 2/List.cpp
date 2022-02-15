@@ -47,8 +47,7 @@ void DeleteElement(Node* headNode, int index)
 Node* AddInTheBeginning(Node* headNode, int dataOfNewNode)
 {
 	//TODO: RSDN +
-	Node* newHeadNode;
-	newHeadNode = new Node;
+	Node* newHeadNode = new Node;
 	newHeadNode->PreviousNode = nullptr;
 	newHeadNode->NextNode = headNode;
 	headNode->PreviousNode = newHeadNode;

@@ -27,6 +27,7 @@ void AVLTreeMenu()
 		/// </summary>
 		Exit = 4
 	};
+
 	setlocale(LC_ALL, "ru");
 	int option;
 	int dataOfRoot;
@@ -96,7 +97,6 @@ void AVLTreeMenu()
 			case Exit:
 			{
 				return;
-				break;
 			}
 
 			default:

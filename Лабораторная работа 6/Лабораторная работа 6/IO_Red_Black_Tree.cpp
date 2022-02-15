@@ -27,6 +27,7 @@ void RBTreeMenu()
 		/// </summary>
 		Exit = 4
 	};
+
 	setlocale(LC_ALL, "ru");
 	int option;
 	int key;
@@ -99,7 +100,6 @@ void RBTreeMenu()
 			case Exit:
 			{
 				return;
-				break;
 			}
 
 			default:

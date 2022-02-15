@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+
 AVLTreeNode* CreationOfAVLTree(int keyOfRoot, int dataOfRoot)
 {
 	AVLTreeNode* rootNode = new AVLTreeNode;

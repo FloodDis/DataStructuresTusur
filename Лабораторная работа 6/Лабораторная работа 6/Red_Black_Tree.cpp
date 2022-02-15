@@ -125,7 +125,6 @@ RBTreeNode* RBTree::DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced
 			parent->IsBlack = true;
 			sibling->IsBlack = false;
 		}
-
 		else
 		{
 			bool parentColor = parent->IsBlack;

@@ -96,6 +96,7 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance);
 /// Функция добавления элемента в АВЛ-дерево
 /// </summary>
 /// <param name="rootNode">корень дерева</param>
+///	//TODO: Несоответствие XML-комментария сигнатуре метода 
 /// <param name="keyToAdd">ключ добавляемого элемента</param>
 /// <param name="dataOfNewNode">данные добавляемого элемента</param>
 /// <returns>

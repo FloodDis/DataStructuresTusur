@@ -167,7 +167,7 @@ void PrintList(Node* headNode)
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
 	//TODO: RSDN +
-	Node* indexes = InitializationOfList(0);
+	Node* indexes = InitializationOfList(1);
 	Node* bufferList = headNode;
 	int index = 0;
 	//TODO: nullptr +

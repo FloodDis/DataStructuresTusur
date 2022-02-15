@@ -33,5 +33,3 @@ void PrintList(Node* headNode);
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
 void ShowList(Node* headNode);
-
-

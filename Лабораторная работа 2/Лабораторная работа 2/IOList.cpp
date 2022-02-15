@@ -156,8 +156,9 @@ void ShowList(Node* headNode)
 	PrintList(headNode);
 }
 
-void EnterNumber(string message, int& variable)
+int EnterNumber(string message, int variable)
 {
 	cout << message;
 	cin >> variable;
+	return variable;
 }

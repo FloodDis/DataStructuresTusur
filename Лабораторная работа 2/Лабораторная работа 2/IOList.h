@@ -1,5 +1,6 @@
 #pragma once
 #include "List.h"
+#include <iostream>
 
 /// <summary>
 /// Функция вывода на экран элементов, найденных с помощью линейного поиска
@@ -19,7 +20,7 @@ void Menu(Node* headNode);
 /// </summary>
 /// <param name="message">строка с сообщением</param>
 /// <param name="variable">значение переменной</param>
-void EnterNumber(string message, int& variable);
+int EnterNumber(string message, int variable);
 
 /// <summary>
 /// Функция вывода списка на экран

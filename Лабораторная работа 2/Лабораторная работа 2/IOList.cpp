@@ -15,9 +15,8 @@ void Menu(Node* headNode)
 		case 1:
 		{
 			Node* dev = headNode;
-			int index = 0;
 			//TODO: RSDN +
-			index = EnterNumber("Enter index of the element to be deleted\n", index);
+			int index = EnterNumber("Enter index of the element to be deleted\n", index);
 			if (index > ElementCount(headNode) - 1)
 			{
 				cout << "There is no such element!\n";
@@ -50,8 +49,7 @@ void Menu(Node* headNode)
 
 		case 2:
 		{
-			int dataOfNewNode = 0;
-			dataOfNewNode = EnterNumber(
+			int dataOfNewNode = EnterNumber(
 				"Enter data of the new node:\n", dataOfNewNode);
 			headNode = AddInTheBeginning(headNode, dataOfNewNode);
 			ShowList(headNode);
@@ -60,8 +58,7 @@ void Menu(Node* headNode)
 
 		case 3:
 		{
-			int dataOfNewNode = 0;
-			dataOfNewNode = EnterNumber(
+			int dataOfNewNode = EnterNumber(
 				"Enter data of the new node:\n", dataOfNewNode);
 			AddInTheEnd(headNode, dataOfNewNode);
 			ShowList(headNode);
@@ -70,12 +67,10 @@ void Menu(Node* headNode)
 
 		case 4:
 		{
-			int dataOfNewNode = 0;
-			int index = 0;
 			//TODO: RSDN +
-			index = EnterNumber(
+			int index = EnterNumber(
 				"Enter the index of the element to insert after\n", index);
-			dataOfNewNode = EnterNumber(
+			int dataOfNewNode = EnterNumber(
 				"Enter the data of the element to be added\n", dataOfNewNode);
 			AddAfter(headNode, dataOfNewNode, index);
 			ShowList(headNode);
@@ -84,12 +79,10 @@ void Menu(Node* headNode)
 
 		case 5:
 		{
-			int dataOfNewNode = 0;
-			int index = 0;
 			//TODO: RSDN +
-			index = EnterNumber(
+			int index = EnterNumber(
 				"Enter the index of the element to insert before\n", index);
-			dataOfNewNode = EnterNumber(
+			int dataOfNewNode = EnterNumber(
 				"Enter the data of the element to be added\n", dataOfNewNode);
 			if (index == 0)
 			{
@@ -112,8 +105,7 @@ void Menu(Node* headNode)
 
 		case 7:
 		{
-			int searchingValue = 0;
-			searchingValue = EnterNumber(
+			int searchingValue = EnterNumber(
 				"Enter the searching value\n", searchingValue);
 			PrintFinded(LinearSearch(headNode, searchingValue), headNode);
 			break;

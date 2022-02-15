@@ -5,11 +5,10 @@ using namespace std;
 
 int Randomize()
 {
-	//TODO: RSDN
-	int randomNumber;
-	//TODO: nullptr
-	srand(time(NULL));
-	randomNumber = rand() % 100 - 50;
+	//TODO: RSDN +
+	//TODO: nullptr +
+	srand(time(nullptr));
+	int randomNumber = rand() % 100 - 50;
 	return randomNumber;
 }
 
@@ -27,8 +26,8 @@ void EnterNumber(string message, int& variable)
 
 Node* InitializationOfList(int dataOfHeadNode)
 {
-	//TODO: new?
-	Node* headNode = (struct Node*)malloc(sizeof(struct Node));
+	//TODO: new? +
+	Node* headNode = new Node;
 	headNode->DataOfNode = dataOfHeadNode;
 	headNode->NextNode = nullptr;
 	headNode->PreviousNode = nullptr;
@@ -37,29 +36,31 @@ Node* InitializationOfList(int dataOfHeadNode)
 
 void DeleteElement(Node* headNode, int index)
 {
-	//TODO: RSDN
-	Node* previous;
-	Node* next;
+	//TODO: RSDN +
 	for (int i = 0; i < index; i++)
 	{
 		headNode = headNode->NextNode;
 	}
-	previous = headNode->PreviousNode;
-	next = headNode->NextNode;
+	Node* previous = headNode->PreviousNode;
+	Node* next = headNode->NextNode;
 
-	//TODO:
+	//TODO:+
 	if (previous != nullptr)
+	{
 		previous->NextNode = headNode->NextNode;
+	}
 	if (next != nullptr)
+	{
 		next->PreviousNode = headNode->PreviousNode;
+	}
 	free(headNode);
 }
 
 Node* AddInTheBeginning(Node* headNode, int dataOfNewNode)
 {
-	//TODO: RSDN
+	//TODO: RSDN +
 	Node* newHeadNode;
-	newHeadNode = (struct Node*)malloc(sizeof(Node));
+	newHeadNode = new Node;
 	newHeadNode->PreviousNode = nullptr;
 	newHeadNode->NextNode = headNode;
 	headNode->PreviousNode = newHeadNode;
@@ -69,10 +70,9 @@ Node* AddInTheBeginning(Node* headNode, int dataOfNewNode)
 
 void AddInTheEnd(Node* headNode, int dataOfNewNode)
 {
-	//TODO: RSDN
-	Node* newEndNode;
-	//TODO: new
-	newEndNode = (struct Node*)malloc(sizeof(Node));
+	//TODO: RSDN +
+	Node* newEndNode = new Node;
+	//TODO: new +
 	while (headNode->NextNode != nullptr)
 	{
 		headNode = headNode->NextNode;
@@ -96,18 +96,18 @@ Node* AddBefore(Node* headNode, int dataOfNewNode, int index)
 		{
 			headNode = headNode->NextNode;
 		}
-		//TODO: RSDN
-		Node* newNode;
-		Node* buffer;
-		newNode = (struct Node*)malloc(sizeof(Node));
-		buffer = headNode->NextNode;
+		//TODO: RSDN +
+		Node* newNode = new Node;
+		Node* buffer = headNode->NextNode;
 		headNode->NextNode = newNode;
 		newNode->DataOfNode = dataOfNewNode;
 		newNode->NextNode = buffer;
 		newNode->PreviousNode = headNode;
-		//TODO:
+		//TODO: +
 		if (buffer != nullptr)
+		{
 			buffer->PreviousNode = newNode;
+		}
 	}
 }
 
@@ -117,12 +117,10 @@ void AddAfter(Node* headNode, int dataOfNewNode, int index)
 	{
 		headNode = headNode->NextNode;
 	}
-	//TODO: RSDN
-	Node* newNode;
-	Node* buffer;
-	//TODO: new
-	newNode = (struct Node*)malloc(sizeof(Node));
-	buffer = headNode->NextNode;
+	//TODO: RSDN +
+	Node* newNode = new Node;
+	Node* buffer = headNode->NextNode;
+	//TODO: new +
 	headNode->NextNode = newNode;
 	newNode->DataOfNode = dataOfNewNode;
 	newNode->NextNode = buffer;
@@ -135,21 +133,21 @@ void AddAfter(Node* headNode, int dataOfNewNode, int index)
 
 void BubbleSort(Node* headNode)
 {
-	//TODO: RSDN
-	Node* i = headNode;
-	Node* j = headNode;
-	while (i != nullptr)
+	//TODO: RSDN +
+	Node* firstNode = headNode;
+	Node* secondNode = headNode;
+	while (firstNode != nullptr)
 	{
-		while (j != nullptr)
+		while (secondNode != nullptr)
 		{
-			if (i->DataOfNode < j->DataOfNode)
+			if (firstNode->DataOfNode < secondNode->DataOfNode)
 			{
-				swap(i->DataOfNode, j->DataOfNode);
+				swap(firstNode->DataOfNode, secondNode->DataOfNode);
 			}
-			j = j->NextNode;
+			secondNode = secondNode->NextNode;
 		}
-		i = i->NextNode;
-		j = headNode;
+		firstNode = firstNode->NextNode;
+		secondNode = headNode;
 	}
 }
 
@@ -159,8 +157,8 @@ void PrintList(Node* headNode)
 	int i = 0;
 	while (headNode != nullptr)
 	{
-		//TODO:
-		printf("list[%i]=%i\n", i, headNode->DataOfNode);
+		//TODO: +
+		cout << "list[" << i << "] =" << headNode->DataOfNode << "\n";
 		headNode = headNode->NextNode;
 		i++;
 	}
@@ -168,14 +166,11 @@ void PrintList(Node* headNode)
 
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
-	//TODO: RSDN
-	Node* indexes;
-	Node* bufferList;
+	//TODO: RSDN +
+	Node* indexes = InitializationOfList(0);
+	Node* bufferList = headNode;
 	int index = 0;
-	bufferList = headNode;
-	indexes = InitializationOfList(0);
-	//TODO: nullptr
-	indexes->DataOfNode = NULL;
+	//TODO: nullptr +
 	while (bufferList != nullptr)
 	{
 		if (bufferList->DataOfNode == searchingValue)
@@ -191,20 +186,19 @@ Node* LinearSearch(Node* headNode, int searchingValue)
 
 void PrintFinded(Node* indexes, Node* headNode)
 {
-	//TODO:
-	Node* bufferList;
+	//TODO: +
 	indexes = indexes->NextNode;
 	while (indexes != nullptr)
 	{
-		bufferList = headNode;
+		Node* bufferList = headNode;
 		for (int i = 0; i < indexes->DataOfNode; i++)
 		{
 			bufferList = bufferList->NextNode;
 		}
-		printf("\nlist[%i] = %i", indexes->DataOfNode, bufferList->DataOfNode);
+		cout << "\nlist[" << indexes->DataOfNode << "] = " << bufferList->DataOfNode;
 		indexes = indexes->NextNode;
 	}
-	printf("\n\n");
+	cout << "\n\n";
 }
 
 int ElementCount(Node* headNode)
@@ -230,110 +224,110 @@ void Menu(Node* headNode)
 		cin >> option;
 		switch (option)
 		{
-			case 1:
+		case 1:
+		{
+			Node* dev = headNode;
+			int index = 0;
+			//TODO: RSDN
+			EnterNumber("Enter index of the element to be deleted\n", index);
+			if (index > ElementCount(headNode) - 1)
 			{
-				Node* dev = headNode;
-				int index = 0;
-					//TODO: RSDN
-				EnterNumber("Enter index of the element to be deleted\n", index);
-				if (index > ElementCount(headNode) - 1)
+				printf("There is no such element!\n");
+				ShowList(headNode);
+				break;
+			}
+			if (index == 0)
+			{
+				if (headNode->NextNode == nullptr)
 				{
-					printf("There is no such element!\n");
+					int dataOfTheNode = Randomize();
+					free(headNode);
+					headNode = InitializationOfList(dataOfTheNode);
 					ShowList(headNode);
-					break;
-				}
-				if (index == 0)
-				{
-					if (headNode->NextNode == nullptr)
-					{
-						int dataOfTheNode = Randomize();
-						free(headNode);
-						headNode = InitializationOfList(dataOfTheNode);
-						ShowList(headNode);
-					}
-					else
-					{
-						Node* buffer = headNode;
-						headNode = headNode->NextNode;
-						headNode->PreviousNode = nullptr;
-						free(buffer);
-						ShowList(headNode);
-					}
-					break;
-				}
-				DeleteElement(dev, index);
-				ShowList(headNode);
-				break;
-			}
-
-			case 2:
-			{
-				int dataOfNewNode = 0;
-				EnterNumber("Enter data of the new node:\n", dataOfNewNode);
-				headNode = AddInTheBeginning(headNode, dataOfNewNode);
-				ShowList(headNode);
-				break;
-			}
-
-			case 3:
-			{
-				int dataOfNewNode = 0;
-				EnterNumber("Enter data of the new node:\n", dataOfNewNode);
-				AddInTheEnd(headNode, dataOfNewNode);
-				ShowList(headNode);
-				break;
-			}
-
-			case 4:
-			{
-				int dataOfNewNode = 0;
-				int index = 0;
-					//TODO: RSDN
-				EnterNumber("Enter the index of the element after which you want to insert\n", index);
-				EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
-				AddAfter(headNode, dataOfNewNode, index);
-				ShowList(headNode);
-				break;
-			}
-
-			case 5:
-			{
-				int dataOfNewNode = 0;
-				int index = 0;
-					//TODO: RSDN
-				EnterNumber("Enter the index of the element before which you want to insert\n", index);
-				EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
-				if (index == 0)
-				{
-					headNode = AddBefore(headNode, dataOfNewNode, index);
 				}
 				else
 				{
-					AddBefore(headNode, dataOfNewNode, index);
+					Node* buffer = headNode;
+					headNode = headNode->NextNode;
+					headNode->PreviousNode = nullptr;
+					free(buffer);
+					ShowList(headNode);
 				}
-				ShowList(headNode);
 				break;
 			}
+			DeleteElement(dev, index);
+			ShowList(headNode);
+			break;
+		}
 
-			case 6:
-			{
-				BubbleSort(headNode);
-				ShowList(headNode);
-				break;
-			}
+		case 2:
+		{
+			int dataOfNewNode = 0;
+			EnterNumber("Enter data of the new node:\n", dataOfNewNode);
+			headNode = AddInTheBeginning(headNode, dataOfNewNode);
+			ShowList(headNode);
+			break;
+		}
 
-			case 7:
-			{
-				int searchingValue = 0;
-				EnterNumber("Enter the searching value\n", searchingValue);
-				PrintFinded(LinearSearch(headNode, searchingValue), headNode);
-				break;
-			}
+		case 3:
+		{
+			int dataOfNewNode = 0;
+			EnterNumber("Enter data of the new node:\n", dataOfNewNode);
+			AddInTheEnd(headNode, dataOfNewNode);
+			ShowList(headNode);
+			break;
+		}
 
-			case 8:
+		case 4:
+		{
+			int dataOfNewNode = 0;
+			int index = 0;
+			//TODO: RSDN
+			EnterNumber("Enter the index of the element after which you want to insert\n", index);
+			EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
+			AddAfter(headNode, dataOfNewNode, index);
+			ShowList(headNode);
+			break;
+		}
+
+		case 5:
+		{
+			int dataOfNewNode = 0;
+			int index = 0;
+			//TODO: RSDN
+			EnterNumber("Enter the index of the element before which you want to insert\n", index);
+			EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
+			if (index == 0)
 			{
-				return;
+				headNode = AddBefore(headNode, dataOfNewNode, index);
 			}
+			else
+			{
+				AddBefore(headNode, dataOfNewNode, index);
+			}
+			ShowList(headNode);
+			break;
+		}
+
+		case 6:
+		{
+			BubbleSort(headNode);
+			ShowList(headNode);
+			break;
+		}
+
+		case 7:
+		{
+			int searchingValue = 0;
+			EnterNumber("Enter the searching value\n", searchingValue);
+			PrintFinded(LinearSearch(headNode, searchingValue), headNode);
+			break;
+		}
+
+		case 8:
+		{
+			return;
+		}
 		}
 	}
 }

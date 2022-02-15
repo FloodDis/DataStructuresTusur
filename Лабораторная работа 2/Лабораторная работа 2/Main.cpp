@@ -1,6 +1,7 @@
 #include <iostream>
 #include "List.h"
 using namespace std;
+
 void main()
 {
 	int dataOfTheNode = Randomize();

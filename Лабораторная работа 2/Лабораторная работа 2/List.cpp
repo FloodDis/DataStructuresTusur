@@ -1,13 +1,15 @@
-#include "List.h"
+﻿#include "List.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;
 
 int Randomize()
 {
+	//TODO: RSDN
 	int randomNumber;
+	//TODO: nullptr
 	srand(time(NULL));
-	randomNumber = rand() % 100 - 50;;
+	randomNumber = rand() % 100 - 50;
 	return randomNumber;
 }
 
@@ -25,8 +27,8 @@ void EnterNumber(string message, int& variable)
 
 Node* InitializationOfList(int dataOfHeadNode)
 {
-	Node* headNode;
-	headNode = (struct Node*)malloc(sizeof(struct Node));
+	//TODO: new?
+	Node* headNode = (struct Node*)malloc(sizeof(struct Node));
 	headNode->DataOfNode = dataOfHeadNode;
 	headNode->NextNode = nullptr;
 	headNode->PreviousNode = nullptr;
@@ -35,6 +37,7 @@ Node* InitializationOfList(int dataOfHeadNode)
 
 void DeleteElement(Node* headNode, int index)
 {
+	//TODO: RSDN
 	Node* previous;
 	Node* next;
 	for (int i = 0; i < index; i++)
@@ -43,6 +46,8 @@ void DeleteElement(Node* headNode, int index)
 	}
 	previous = headNode->PreviousNode;
 	next = headNode->NextNode;
+
+	//TODO:
 	if (previous != nullptr)
 		previous->NextNode = headNode->NextNode;
 	if (next != nullptr)
@@ -52,6 +57,7 @@ void DeleteElement(Node* headNode, int index)
 
 Node* AddInTheBeginning(Node* headNode, int dataOfNewNode)
 {
+	//TODO: RSDN
 	Node* newHeadNode;
 	newHeadNode = (struct Node*)malloc(sizeof(Node));
 	newHeadNode->PreviousNode = nullptr;
@@ -63,7 +69,9 @@ Node* AddInTheBeginning(Node* headNode, int dataOfNewNode)
 
 void AddInTheEnd(Node* headNode, int dataOfNewNode)
 {
+	//TODO: RSDN
 	Node* newEndNode;
+	//TODO: new
 	newEndNode = (struct Node*)malloc(sizeof(Node));
 	while (headNode->NextNode != nullptr)
 	{
@@ -88,6 +96,7 @@ Node* AddBefore(Node* headNode, int dataOfNewNode, int index)
 		{
 			headNode = headNode->NextNode;
 		}
+		//TODO: RSDN
 		Node* newNode;
 		Node* buffer;
 		newNode = (struct Node*)malloc(sizeof(Node));
@@ -96,6 +105,7 @@ Node* AddBefore(Node* headNode, int dataOfNewNode, int index)
 		newNode->DataOfNode = dataOfNewNode;
 		newNode->NextNode = buffer;
 		newNode->PreviousNode = headNode;
+		//TODO:
 		if (buffer != nullptr)
 			buffer->PreviousNode = newNode;
 	}
@@ -107,8 +117,10 @@ void AddAfter(Node* headNode, int dataOfNewNode, int index)
 	{
 		headNode = headNode->NextNode;
 	}
+	//TODO: RSDN
 	Node* newNode;
 	Node* buffer;
+	//TODO: new
 	newNode = (struct Node*)malloc(sizeof(Node));
 	buffer = headNode->NextNode;
 	headNode->NextNode = newNode;
@@ -123,6 +135,7 @@ void AddAfter(Node* headNode, int dataOfNewNode, int index)
 
 void BubbleSort(Node* headNode)
 {
+	//TODO: RSDN
 	Node* i = headNode;
 	Node* j = headNode;
 	while (i != nullptr)
@@ -140,11 +153,13 @@ void BubbleSort(Node* headNode)
 	}
 }
 
+//TODO: не должно быть в структуре данных
 void PrintList(Node* headNode)
 {
 	int i = 0;
 	while (headNode != nullptr)
 	{
+		//TODO:
 		printf("list[%i]=%i\n", i, headNode->DataOfNode);
 		headNode = headNode->NextNode;
 		i++;
@@ -153,11 +168,13 @@ void PrintList(Node* headNode)
 
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
+	//TODO: RSDN
 	Node* indexes;
 	Node* bufferList;
 	int index = 0;
 	bufferList = headNode;
 	indexes = InitializationOfList(0);
+	//TODO: nullptr
 	indexes->DataOfNode = NULL;
 	while (bufferList != nullptr)
 	{
@@ -171,8 +188,10 @@ Node* LinearSearch(Node* headNode, int searchingValue)
 	return indexes;
 }
 
+
 void PrintFinded(Node* indexes, Node* headNode)
 {
+	//TODO:
 	Node* bufferList;
 	indexes = indexes->NextNode;
 	while (indexes != nullptr)
@@ -215,6 +234,7 @@ void Menu(Node* headNode)
 			{
 				Node* dev = headNode;
 				int index = 0;
+					//TODO: RSDN
 				EnterNumber("Enter index of the element to be deleted\n", index);
 				if (index > ElementCount(headNode) - 1)
 				{
@@ -268,6 +288,7 @@ void Menu(Node* headNode)
 			{
 				int dataOfNewNode = 0;
 				int index = 0;
+					//TODO: RSDN
 				EnterNumber("Enter the index of the element after which you want to insert\n", index);
 				EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
 				AddAfter(headNode, dataOfNewNode, index);
@@ -279,6 +300,7 @@ void Menu(Node* headNode)
 			{
 				int dataOfNewNode = 0;
 				int index = 0;
+					//TODO: RSDN
 				EnterNumber("Enter the index of the element before which you want to insert\n", index);
 				EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
 				if (index == 0)
@@ -311,7 +333,6 @@ void Menu(Node* headNode)
 			case 8:
 			{
 				return;
-				break;
 			}
 		}
 	}

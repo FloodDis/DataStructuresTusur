@@ -4,10 +4,10 @@ void Menu(Node* headNode)
 {
 	while (true)
 	{
-		printf("\nSelect an action:\n1) Delete element\n");
-		printf("2) Add element at the beginning\n3) Add element at the end\n4) Add after specific element\n");
-		printf("5) Add before specific element\n6) Sorting of list\n7) Leanear search of an element\n");
-		printf("8) Quit\n");
+		cout << "\nSelect an action:\n1) Delete element\n";
+		cout << "2) Add element at the beginning\n3) Add element at the end\n";
+		cout << "4) Add after specific element\n5) Add before specific element\n";
+		cout << "6) Sorting of list\n7) Leanear search of an element\n8) Quit\n";
 		int option;
 		cin >> option;
 		switch (option)
@@ -16,11 +16,11 @@ void Menu(Node* headNode)
 		{
 			Node* dev = headNode;
 			int index = 0;
-			//TODO: RSDN
-			EnterNumber("Enter index of the element to be deleted\n", index);
+			//TODO: RSDN +
+			index = EnterNumber("Enter index of the element to be deleted\n", index);
 			if (index > ElementCount(headNode) - 1)
 			{
-				printf("There is no such element!\n");
+				cout << "There is no such element!\n";
 				ShowList(headNode);
 				break;
 			}
@@ -51,7 +51,8 @@ void Menu(Node* headNode)
 		case 2:
 		{
 			int dataOfNewNode = 0;
-			EnterNumber("Enter data of the new node:\n", dataOfNewNode);
+			dataOfNewNode = EnterNumber(
+				"Enter data of the new node:\n", dataOfNewNode);
 			headNode = AddInTheBeginning(headNode, dataOfNewNode);
 			ShowList(headNode);
 			break;
@@ -60,7 +61,8 @@ void Menu(Node* headNode)
 		case 3:
 		{
 			int dataOfNewNode = 0;
-			EnterNumber("Enter data of the new node:\n", dataOfNewNode);
+			dataOfNewNode = EnterNumber(
+				"Enter data of the new node:\n", dataOfNewNode);
 			AddInTheEnd(headNode, dataOfNewNode);
 			ShowList(headNode);
 			break;
@@ -70,9 +72,11 @@ void Menu(Node* headNode)
 		{
 			int dataOfNewNode = 0;
 			int index = 0;
-			//TODO: RSDN
-			EnterNumber("Enter the index of the element after which you want to insert\n", index);
-			EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
+			//TODO: RSDN +
+			index = EnterNumber(
+				"Enter the index of the element to insert after\n", index);
+			dataOfNewNode = EnterNumber(
+				"Enter the data of the element to be added\n", dataOfNewNode);
 			AddAfter(headNode, dataOfNewNode, index);
 			ShowList(headNode);
 			break;
@@ -82,9 +86,11 @@ void Menu(Node* headNode)
 		{
 			int dataOfNewNode = 0;
 			int index = 0;
-			//TODO: RSDN
-			EnterNumber("Enter the index of the element before which you want to insert\n", index);
-			EnterNumber("Enter the data of the element to be added\n", dataOfNewNode);
+			//TODO: RSDN +
+			index = EnterNumber(
+				"Enter the index of the element to insert before\n", index);
+			dataOfNewNode = EnterNumber(
+				"Enter the data of the element to be added\n", dataOfNewNode);
 			if (index == 0)
 			{
 				headNode = AddBefore(headNode, dataOfNewNode, index);
@@ -107,7 +113,8 @@ void Menu(Node* headNode)
 		case 7:
 		{
 			int searchingValue = 0;
-			EnterNumber("Enter the searching value\n", searchingValue);
+			searchingValue = EnterNumber(
+				"Enter the searching value\n", searchingValue);
 			PrintFinded(LinearSearch(headNode, searchingValue), headNode);
 			break;
 		}

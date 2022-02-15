@@ -12,10 +12,6 @@ int Randomize()
 	return randomNumber;
 }
 
-
-
-
-
 Node* InitializationOfList(int dataOfHeadNode)
 {
 	//TODO: new? +
@@ -143,8 +139,6 @@ void BubbleSort(Node* headNode)
 	}
 }
 
-
-
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
 	//TODO: RSDN +
@@ -164,9 +158,6 @@ Node* LinearSearch(Node* headNode, int searchingValue)
 	return indexes;
 }
 
-
-
-
 int ElementCount(Node* headNode)
 {
 	int i = 0;
@@ -177,4 +168,3 @@ int ElementCount(Node* headNode)
 	}
 	return i;
 }
-

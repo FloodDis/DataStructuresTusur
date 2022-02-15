@@ -17,6 +17,7 @@ struct RingBuffer
 	/// </summary>
 	int* Data;
 
+	//TODO:
 	/// <summary>
 	/// Количество прочтенных элементов
 	/// </summary>

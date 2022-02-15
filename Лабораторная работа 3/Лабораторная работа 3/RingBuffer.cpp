@@ -14,18 +14,12 @@ RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
 
 bool IfThereSpaceToWrite(RingBuffer* ringBuffer)
 {
-	if (ringBuffer->WriteCount - ringBuffer->ReadCount < ringBuffer->Size)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return (ringBuffer->WriteCount - ringBuffer->ReadCount) < ringBuffer->Size;
 }
 
 bool IsEmpty(RingBuffer* ringBuffer)
 {
+	//TODO:
 	if (ringBuffer->ReadCount == ringBuffer->WriteCount)
 	{
 		return true;

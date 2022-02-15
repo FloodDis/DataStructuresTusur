@@ -6,6 +6,7 @@
 /// </summary>
 struct QueueRingBufferBased
 {
+	//TODO: RSDN
 	/// <summary>
 	/// Кольцевой буфер
 	/// </summary>

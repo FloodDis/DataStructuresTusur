@@ -10,8 +10,6 @@ struct StructOfArray
 	int Capacity;
 };
 
-void ShowArray(StructOfArray* arrayUnit);
-
 void CreateArray(StructOfArray* arrayUnit, int length, int capacity);
 
 void AddByIndex(StructOfArray* arrayUnit, int index);

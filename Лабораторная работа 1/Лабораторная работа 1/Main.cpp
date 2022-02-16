@@ -30,7 +30,7 @@ void ShowArray(StructOfArray* arrayUnit);
 
 void main()
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 	StructOfArray arrayUnit;
 	CreateArray(&arrayUnit, 6, 9);
 	ShowArray(&arrayUnit);

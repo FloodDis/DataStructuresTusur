@@ -229,8 +229,10 @@ void Menu(DinamicArray* arrayUnit)
 				int index = arrayUnit->Length;
 				do
 				{
-					cout << "Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
-					cout << "0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
+					cout << 
+						"Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
+					cout << 
+						"0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
 					cin >> index;
 				} while (index < 0 || index > arrayUnit->Length);
 				AddByIndex(arrayUnit, index);

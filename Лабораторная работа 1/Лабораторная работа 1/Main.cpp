@@ -231,88 +231,88 @@ void Menu(StructOfArray* arrayUnit)
 
 		switch (option)
 		{
-		case 1:
-		{
-			int index = arrayUnit->Length;
-			do
+			case 1:
 			{
-				cout << "Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
-				cout << "0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
-				cin >> index;
-			} while (index < 0 || index > arrayUnit->Length);
-			AddByIndex(arrayUnit, index);
-			ShowArray(arrayUnit);
-			break;
-		}
-
-		case 2:
-		{
-			if (arrayUnit->Length == 0)
-			{
-				cout << "Array is already empty\n\n";
+				int index = arrayUnit->Length;
+				do
+				{
+					cout << "Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
+					cout << "0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
+					cin >> index;
+				} while (index < 0 || index > arrayUnit->Length);
+				AddByIndex(arrayUnit, index);
+				ShowArray(arrayUnit);
 				break;
 			}
 
-			int index = arrayUnit->Length;
-			do
+			case 2:
 			{
-				cout << "Enter the index of deleteing element (0 - " << arrayUnit->Length - 1 << ")\n";
-				cout << "0 - delete the first element\t ";
-				cout << arrayUnit->Length - 1 << " - delete the last element\n";
-				cin >> index;
-			} while (index < 0 || index >= arrayUnit->Length);
+				if (arrayUnit->Length == 0)
+				{
+					cout << "Array is already empty\n\n";
+					break;
+				}
 
-			DeleteByIndex(arrayUnit, index);
-			ShowArray(arrayUnit);
-			break;
-		}
+				int index = arrayUnit->Length;
+				do
+				{
+					cout << "Enter the index of deleteing element (0 - " << arrayUnit->Length - 1 << ")\n";
+					cout << "0 - delete the first element\t ";
+					cout << arrayUnit->Length - 1 << " - delete the last element\n";
+					cin >> index;
+				} while (index < 0 || index >= arrayUnit->Length);
 
-		case 3:
-		{
-			CountingSort(arrayUnit);
-			ShowArray(arrayUnit);
-			break;
-		}
+				DeleteByIndex(arrayUnit, index);
+				ShowArray(arrayUnit);
+				break;
+			}
 
-		case 4:
-		{
-			int searchingValue = EnterNumber("Enter searching value: ", searchingValue);
-
-			do
+			case 3:
 			{
-				option = EnterNumber(
-					"Select search method:\n1) Lenear search\n2) Binary search\n", option);
+				CountingSort(arrayUnit);
+				ShowArray(arrayUnit);
+				break;
+			}
 
-				if (option == 1)
+			case 4:
+			{
+				int searchingValue = EnterNumber("Enter searching value: ", searchingValue);
+
+				do
 				{
-					LenearSearch(arrayUnit, searchingValue);
-				}
-				else if (option == 2)
-				{
-					CountingSort(arrayUnit);
-					BinarySearch(arrayUnit, searchingValue);
-				}
-			} while (option < 1 || option>2);
-			ShowArray(arrayUnit);
-			break;
-		}
+					option = EnterNumber(
+						"Select search method:\n1) Lenear search\n2) Binary search\n", option);
 
-		case 5:
-		{
-			ShowArray(arrayUnit);
-			break;
-		}
+					if (option == 1)
+					{
+						LenearSearch(arrayUnit, searchingValue);
+					}
+					else if (option == 2)
+					{
+						CountingSort(arrayUnit);
+						BinarySearch(arrayUnit, searchingValue);
+					}
+				} while (option < 1 || option>2);
+				ShowArray(arrayUnit);
+				break;
+			}
 
-		case 6:
-		{
-			return;
-		}
+			case 5:
+			{
+				ShowArray(arrayUnit);
+				break;
+			}
 
-		default:
-		{
-			cout << "Try again" << endl;
-			break;
-		}
+			case 6:
+			{
+				return;
+			}
+
+			default:
+			{
+				cout << "Try again" << endl;
+				break;
+			}
 
 		}
 	}

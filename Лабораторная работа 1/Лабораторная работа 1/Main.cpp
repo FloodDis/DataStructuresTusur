@@ -35,8 +35,7 @@ void main()
 	srand(time(NULL));
 	StructOfArray arrayUnit;
 	CreateArray(&arrayUnit, 6, 9);
-	printf("Your array:\n");
-	PrintArray(&arrayUnit);
+	ShowArray(&arrayUnit);
 	Menu(&arrayUnit);
 }
 
@@ -307,7 +306,6 @@ void Menu(StructOfArray* arrayUnit)
 		case 6:
 		{
 			return;
-			break;
 		}
 
 		default:

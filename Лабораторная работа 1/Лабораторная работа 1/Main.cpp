@@ -73,7 +73,6 @@ void AddByIndex(StructOfArray* arrayUnit, int index)
 	}
 	arrayUnit->Length++;
 
-
 	if (arrayUnit->Length == arrayUnit->Capacity)
 	{
 		StructOfArray tempArray;

@@ -44,12 +44,6 @@ int EnterNumber(string message, int variable)
 	return variable;
 }
 
-void ShowArray(StructOfArray* arrayUnit)
-{
-	cout << "Your array:\n";
-	PrintArray(arrayUnit);
-}
-
 void CreateArray(StructOfArray* arrayUnit, int length, int capacity)
 {
 	arrayUnit->Length = length;

@@ -38,11 +38,19 @@ void main()
 	Menu(&arrayUnit);
 }
 
-int EnterNumber(string message, int variable)
+int EnterNumber(string message)
 {
+	int inputValue;
 	cout << message;
-	cin >> variable;
-	return variable;
+	cin >> inputValue;
+	if (cin.fail())
+	{
+		cin.clear();
+		string garbage;
+		cin >> garbage;
+		throw "Error: incorrect input data!\n";
+	}
+	return inputValue;
 }
 
 void CreateArray(DinamicArray* arrayUnit, int length, int capacity)
@@ -59,9 +67,21 @@ void CreateArray(DinamicArray* arrayUnit, int length, int capacity)
 
 void AddByIndex(DinamicArray* arrayUnit, int index)
 {
+	bool tryAgain = true;
 	int temp = arrayUnit->Array[index];
-	arrayUnit->Array[index] = EnterNumber(
-		"Enter your element:\narray [" + to_string(index) + "] = ", arrayUnit->Array[index]);
+	while (tryAgain)
+	{
+		try
+		{
+			arrayUnit->Array[index] = EnterNumber(
+				"Enter your element:\narray [" + to_string(index) + "] = ");
+			tryAgain = false;
+		}
+		catch (const char* error)
+		{
+			cout << "\nTry again!\n";
+		}
+	}
 
 	for (int i = index + 1; i < arrayUnit->Length; i++)
 	{
@@ -229,9 +249,9 @@ void Menu(DinamicArray* arrayUnit)
 				int index = arrayUnit->Length;
 				do
 				{
-					cout << 
+					cout <<
 						"Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
-					cout << 
+					cout <<
 						"0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
 					cin >> index;
 				} while (index < 0 || index > arrayUnit->Length);
@@ -251,7 +271,7 @@ void Menu(DinamicArray* arrayUnit)
 				int index = arrayUnit->Length;
 				do
 				{
-					cout << 
+					cout <<
 						"Enter the index of deleteing element (0 - " << arrayUnit->Length - 1 << ")\n";
 					cout << "0 - delete the first element\t ";
 					cout << arrayUnit->Length - 1 << " - delete the last element\n";
@@ -273,12 +293,25 @@ void Menu(DinamicArray* arrayUnit)
 			case 4:
 			{
 				int searchingValue = 0;
-				searchingValue = EnterNumber("Enter searching value: ", searchingValue);
-
+				bool tryAgain = true;
+				while (tryAgain)
+				{
+					try 
+					{
+						searchingValue = EnterNumber("Enter searching value: ");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nTry again!\n";
+					}
+					
+				}
+				
 				do
 				{
 					option = EnterNumber(
-						"Select search method:\n1) Lenear search\n2) Binary search\n", option);
+						"Select search method:\n1) Lenear search\n2) Binary search\n");
 
 					if (option == 1)
 					{

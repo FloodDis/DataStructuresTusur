@@ -46,8 +46,8 @@ int EnterNumber(string message)
 	if (cin.fail())
 	{
 		cin.clear();
-		string garbage;
-		cin >> garbage;
+		string streamToDelete;
+		cin >> streamToDelete;
 		throw "Error: incorrect input data!\n";
 	}
 	return inputValue;

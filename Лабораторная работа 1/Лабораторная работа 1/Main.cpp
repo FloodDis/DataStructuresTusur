@@ -270,7 +270,8 @@ void Menu(StructOfArray* arrayUnit)
 
 			case 4:
 			{
-				int searchingValue = EnterNumber("Enter searching value: ", searchingValue);
+				int searchingValue = 0;
+				searchingValue = EnterNumber("Enter searching value: ", searchingValue);
 
 				do
 				{

@@ -86,7 +86,7 @@ void AddByIndex(DinamicArray* arrayUnit, int index)
 		delete[] arrayUnit->Array;
 		arrayUnit->Array = nullptr;
 
-		CreateArray(arrayUnit, arrayUnit->Length, arrayUnit->Length + 8);
+		CreateArray(arrayUnit, arrayUnit->Length, arrayUnit->Length + arrayUnit->GrowthFactor);
 		for (int i = 0; i < arrayUnit->Length; i++)
 		{
 			arrayUnit->Array[i] = tempArray.Array[i];

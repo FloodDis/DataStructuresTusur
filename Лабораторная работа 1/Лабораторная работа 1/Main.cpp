@@ -30,6 +30,8 @@ void PrintArray(StructOfArray* arrayUnit);
 
 void Menu(StructOfArray* arrayUnit);
 
+void ShowArray(StructOfArray* arrayUnit);
+
 void main()
 {
 	srand(time(NULL));
@@ -44,6 +46,12 @@ void EnterNumber(string message, int& variable)
 {
 	cout << message;
 	cin >> variable;
+}
+
+void ShowArray(StructOfArray* arrayUnit)
+{
+	cout << "Your array:\n";
+	PrintArray(arrayUnit);
 }
 
 void CreateArray(StructOfArray* arrayUnit, int length, int capacity)

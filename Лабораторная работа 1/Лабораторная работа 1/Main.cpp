@@ -222,9 +222,9 @@ void ShowArray(StructOfArray* arrayUnit)
 
 void Menu(StructOfArray* arrayUnit)
 {
-	int option;
 	while (true)
 	{
+		int option;
 		cout << "Select an action:\n1) Add element\n2) Delete element\n";
 		cout << "3) Sort the array\n4) Search element\n5) Print the array\n";
 		cout << "6) Quit\n";

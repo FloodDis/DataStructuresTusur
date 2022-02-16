@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-struct StructOfArray
+struct DinamicArray
 {
 	int* Array;
 	int Length;
@@ -11,28 +11,28 @@ struct StructOfArray
 	const int GrowthFactor = 8;
 };
 
-void CreateArray(StructOfArray* arrayUnit, int length, int capacity);
+void CreateArray(DinamicArray* arrayUnit, int length, int capacity);
 
-void AddByIndex(StructOfArray* arrayUnit, int index);
+void AddByIndex(DinamicArray* arrayUnit, int index);
 
-void DeleteByIndex(StructOfArray* arrayUnit, int index);
+void DeleteByIndex(DinamicArray* arrayUnit, int index);
 
-void CountingSort(StructOfArray* arrayUnit);
+void CountingSort(DinamicArray* arrayUnit);
 
-void LenearSearch(StructOfArray* arrayUnit, int searchingValue);
+void LenearSearch(DinamicArray* arrayUnit, int searchingValue);
 
-void BinarySearch(StructOfArray* arrayUnit, int searchingValue);
+void BinarySearch(DinamicArray* arrayUnit, int searchingValue);
 
-void PrintArray(StructOfArray* arrayUnit);
+void PrintArray(DinamicArray* arrayUnit);
 
-void Menu(StructOfArray* arrayUnit);
+void Menu(DinamicArray* arrayUnit);
 
-void ShowArray(StructOfArray* arrayUnit);
+void ShowArray(DinamicArray* arrayUnit);
 
 void main()
 {
 	srand(time(nullptr));
-	StructOfArray arrayUnit;
+	DinamicArray arrayUnit;
 	CreateArray(&arrayUnit, 6, 9);
 	ShowArray(&arrayUnit);
 	Menu(&arrayUnit);
@@ -45,7 +45,7 @@ int EnterNumber(string message, int variable)
 	return variable;
 }
 
-void CreateArray(StructOfArray* arrayUnit, int length, int capacity)
+void CreateArray(DinamicArray* arrayUnit, int length, int capacity)
 {
 	arrayUnit->Length = length;
 	arrayUnit->Capacity = capacity;
@@ -57,7 +57,7 @@ void CreateArray(StructOfArray* arrayUnit, int length, int capacity)
 	}
 }
 
-void AddByIndex(StructOfArray* arrayUnit, int index)
+void AddByIndex(DinamicArray* arrayUnit, int index)
 {
 	int temp = arrayUnit->Array[index];
 	arrayUnit->Array[index] = EnterNumber(
@@ -76,7 +76,7 @@ void AddByIndex(StructOfArray* arrayUnit, int index)
 
 	if (arrayUnit->Length == arrayUnit->Capacity)
 	{
-		StructOfArray tempArray;
+		DinamicArray tempArray;
 		CreateArray(&tempArray, arrayUnit->Length, arrayUnit->Capacity);
 
 		for (int i = 0; i < arrayUnit->Length; i++)
@@ -96,7 +96,7 @@ void AddByIndex(StructOfArray* arrayUnit, int index)
 	}
 }
 
-void DeleteByIndex(StructOfArray* arrayUnit, int index)
+void DeleteByIndex(DinamicArray* arrayUnit, int index)
 {
 	for (int i = index; i < arrayUnit->Length - 1; i++)
 	{
@@ -106,7 +106,7 @@ void DeleteByIndex(StructOfArray* arrayUnit, int index)
 	arrayUnit->Array[arrayUnit->Length] = NULL;
 }
 
-void CountingSort(StructOfArray* arrayUnit)
+void CountingSort(DinamicArray* arrayUnit)
 {
 	int max = *max_element(arrayUnit->Array, arrayUnit->Array + arrayUnit->Length);
 	int min = *min_element(arrayUnit->Array, arrayUnit->Array + arrayUnit->Length);
@@ -146,7 +146,7 @@ void CountingSort(StructOfArray* arrayUnit)
 	output = nullptr;
 }
 
-void LenearSearch(StructOfArray* arrayUnit, int searchingValue)
+void LenearSearch(DinamicArray* arrayUnit, int searchingValue)
 {
 	int index = -1;
 	for (int i = 0; i < arrayUnit->Length; i++)
@@ -168,7 +168,7 @@ void LenearSearch(StructOfArray* arrayUnit, int searchingValue)
 	}
 }
 
-void BinarySearch(StructOfArray* arrayUnit, int searchingValue)
+void BinarySearch(DinamicArray* arrayUnit, int searchingValue)
 {
 	int first = 0;
 	int last = arrayUnit->Length;
@@ -196,7 +196,7 @@ void BinarySearch(StructOfArray* arrayUnit, int searchingValue)
 
 }
 
-void PrintArray(StructOfArray* arrayUnit)
+void PrintArray(DinamicArray* arrayUnit)
 {
 	cout << endl;
 	for (int i = 0; i < arrayUnit->Length; i++)
@@ -206,13 +206,13 @@ void PrintArray(StructOfArray* arrayUnit)
 	cout << endl;
 }
 
-void ShowArray(StructOfArray* arrayUnit)
+void ShowArray(DinamicArray* arrayUnit)
 {
 	cout << "Your array:\n";
 	PrintArray(arrayUnit);
 }
 
-void Menu(StructOfArray* arrayUnit)
+void Menu(DinamicArray* arrayUnit)
 {
 	while (true)
 	{

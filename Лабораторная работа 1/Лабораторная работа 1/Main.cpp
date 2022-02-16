@@ -8,6 +8,7 @@ struct StructOfArray
 	int* Array;
 	int Length;
 	int Capacity;
+	const int GrowthFactor = 8;
 };
 
 void CreateArray(StructOfArray* arrayUnit, int length, int capacity);

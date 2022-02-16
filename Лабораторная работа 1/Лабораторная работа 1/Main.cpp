@@ -42,10 +42,11 @@ void main()
 	Menu(&arrayUnit);
 }
 
-void EnterNumber(string message, int& variable)
+int EnterNumber(string message, int variable)
 {
 	cout << message;
 	cin >> variable;
+	return variable;
 }
 
 void ShowArray(StructOfArray* arrayUnit)

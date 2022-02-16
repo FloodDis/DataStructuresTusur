@@ -257,7 +257,8 @@ void Menu(StructOfArray* arrayUnit)
 				int index = arrayUnit->Length;
 				do
 				{
-					cout << "Enter the index of deleteing element (0 - " << arrayUnit->Length - 1 << ")\n";
+					cout << 
+						"Enter the index of deleteing element (0 - " << arrayUnit->Length - 1 << ")\n";
 					cout << "0 - delete the first element\t ";
 					cout << arrayUnit->Length - 1 << " - delete the last element\n";
 					cin >> index;

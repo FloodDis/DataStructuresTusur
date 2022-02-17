@@ -1,6 +1,5 @@
 ﻿#include "RingBuffer.h"
 
-
 RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
 {
 	RingBuffer* ringBuffer = new RingBuffer;

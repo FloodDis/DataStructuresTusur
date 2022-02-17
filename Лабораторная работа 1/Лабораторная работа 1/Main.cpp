@@ -305,7 +305,7 @@ void Menu(DinamicArray* arrayUnit)
 
 			case 4:
 			{
-				int searchingValue = 0;
+				int searchingValue;
 				bool tryAgain = true;
 				while (tryAgain)
 				{

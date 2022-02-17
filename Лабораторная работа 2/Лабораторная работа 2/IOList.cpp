@@ -63,13 +63,13 @@ void Menu(Node* headNode)
 
 			case 2:
 			{
-				int dataNode = 0;
+				int dataOfNode = 0;
 				bool tryAgain = true;
 				while (tryAgain)
 				{
 					try
 					{
-						dataNode = EnterNumber("Enter data of the new node:\n");
+						dataOfNode = EnterNumber("Enter data of the new node:\n");
 						tryAgain = false;
 					}
 					catch (const char* error)
@@ -77,7 +77,7 @@ void Menu(Node* headNode)
 						cout << "\nTry again\n";
 					}
 				}
-				headNode = AddInTheBeginning(headNode, dataNode);
+				headNode = AddInTheBeginning(headNode, dataOfNode);
 				ShowList(headNode);
 				break;
 			}

@@ -18,20 +18,9 @@ struct RingBuffer
 	int* Data;
 
 	//TODO:
-	/// <summary>
-	/// Количество прочтенных элементов
-	/// </summary>
-	int ReadCount;
-
-	/// <summary>
-	/// Количество записанных элементов
-	/// </summary>
-	int WriteCount;
-
-	/// <summary>
-	/// Маска
-	/// </summary>
-	int Mask;
+	int ElementToRead = 0;
+	
+	int ElementToWrite = 0;
 };
 
 /// <summary>

@@ -10,7 +10,9 @@ RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
 
 bool IfThereSpaceToWrite(RingBuffer* ringBuffer)
 {
-	return (ringBuffer->WriteCount - ringBuffer->ReadCount) < ringBuffer->Size;
+	int elementToWrite = ringBuffer->ElementToWrite;
+	int size = ringBuffer->Size;
+	return elementToWrite < size;
 }
 
 bool IsEmpty(RingBuffer* ringBuffer)

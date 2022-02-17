@@ -64,7 +64,6 @@ void StackMenu()
 {
 	setlocale(LC_ALL, "Russian");
 	//TODO: внести в while
-	int option;
 	int value;
 	EnterNumber("Введите значение первого элемента: ", value);
 	Node* stack = CreationOfStack();
@@ -76,6 +75,7 @@ void StackMenu()
 		printf("Выберите вариант:\n1) Вставить\n2) Взять\n3) Удалить стек\n4) Выход\n");
 		cout << "Выберите вариант:\n1) Вставить\n"
 			<< "2) Взять\n3) Удалить стек\n4) Выход\n";
+		int option;
 		cin >> option;
 		switch (option)
 		{

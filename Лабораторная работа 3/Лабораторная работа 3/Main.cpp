@@ -348,7 +348,6 @@ void QueueRingBufferBasedMenu()
 				case 4:
 				{
 					return;
-					break;
 				}
 
 				default:

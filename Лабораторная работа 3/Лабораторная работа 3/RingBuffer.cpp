@@ -5,9 +5,6 @@ RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
 	RingBuffer* ringBuffer = new RingBuffer;
 	ringBuffer->Data = new int[sizeOfRingBuffer];
 	ringBuffer->Size = sizeOfRingBuffer;
-	ringBuffer->WriteCount = 0;
-	ringBuffer->ReadCount = 0;
-	ringBuffer->Mask = sizeOfRingBuffer - 1;
 	return ringBuffer;
 }
 

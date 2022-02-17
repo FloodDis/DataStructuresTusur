@@ -253,7 +253,20 @@ void Menu(DinamicArray* arrayUnit)
 						"Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
 					cout <<
 						"0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
-					cin >> index;
+					bool tryAgain = true;
+					while (tryAgain)
+					{
+						try
+						{
+							index = EnterNumber("");
+							tryAgain = false;
+						}
+						catch (const char* error)
+						{
+							cout << "Index must be a number!\n";
+						}
+					}
+
 				} while (index < 0 || index > arrayUnit->Length);
 				AddByIndex(arrayUnit, index);
 				ShowArray(arrayUnit);
@@ -309,7 +322,7 @@ void Menu(DinamicArray* arrayUnit)
 				bool tryAgain = true;
 				while (tryAgain)
 				{
-					try 
+					try
 					{
 						searchingValue = EnterNumber("Enter searching value: ");
 						tryAgain = false;
@@ -318,9 +331,9 @@ void Menu(DinamicArray* arrayUnit)
 					{
 						cout << "\nTry again!\n";
 					}
-					
+
 				}
-				
+
 				do
 				{
 					tryAgain = true;

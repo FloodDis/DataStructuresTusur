@@ -90,7 +90,8 @@ void Menu(Node* headNode)
 				{
 					try
 					{
-						dataOfNewNode = EnterNumber("Enter data of the new node:\n");
+						dataOfNewNode = EnterNumber(
+							"Enter data of the new node:\n");
 						tryAgain = false;
 					}
 					catch (const char* error)
@@ -107,11 +108,55 @@ void Menu(Node* headNode)
 			case 4:
 			{
 				//TODO: RSDN +
-				int index = EnterNumber(
-					"Enter the index of the element to insert after\n");
-				int dataOfNewNode = EnterNumber(
-					"Enter the data of the element to be added\n");
-				AddAfter(headNode, dataOfNewNode, index);
+				bool tryAgain = true;
+				int index;
+				int dataOfNode;
+				while (tryAgain)
+				{
+					try
+					{
+						index = EnterNumber(
+							"Enter the index of the element to insert after\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nTry again\n";
+					}
+				}
+
+				tryAgain = true;
+				while (tryAgain)
+				{
+					try
+					{
+						dataOfNode = EnterNumber(
+							"Enter the data of the element to be added\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nTry again\n";
+					}
+				}
+
+				if (index > ElementCount(headNode) - 1)
+				{
+					bool tryAgain = true;
+					while (tryAgain)
+					{
+						try
+						{
+							index = EnterNumber("Element dosen't exist!\n");
+							tryAgain = false;
+						}
+						catch (const char* error)
+						{
+							cout << "Try again!\n";
+						}
+					}
+				}
+				AddAfter(headNode, dataOfNode, index);
 				ShowList(headNode);
 				break;
 			}
@@ -119,10 +164,77 @@ void Menu(Node* headNode)
 			case 5:
 			{
 				//TODO: RSDN +
-				int index = EnterNumber(
-					"Enter the index of the element to insert before\n");
-				int dataOfNewNode = EnterNumber(
-					"Enter the data of the element to be added\n");
+				int index;
+				
+
+				int tryAgain = true;
+				
+				while (tryAgain)
+				{
+					try
+					{
+						index = EnterNumber(
+							"Enter the index of the element to insert before\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "Element dosen't exist!\n";
+					}
+				}
+
+				tryAgain = true;
+				if (index > ElementCount(headNode) - 1)
+				{
+					bool tryAgain = true;
+					while (tryAgain)
+					{
+						try
+						{
+							index = EnterNumber("Element dosen't exist!\n");
+							tryAgain = false;
+						}
+						catch (const char* error)
+						{
+							cout << "Try again!\n";
+						}
+					}
+				}
+
+				tryAgain = true;
+				int dataOfNewNode;
+				while (tryAgain)
+				{
+					try
+					{
+						dataOfNewNode = EnterNumber(
+							"Enter the data of the element to be added\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nWrong input data!\n";
+					}
+				}
+
+				if (index < 0)
+				{
+					tryAgain = true;
+					while (tryAgain)
+					{
+						try
+						{
+							index = EnterNumber(
+								"Index cannot be less than 0!\n");
+							tryAgain = false;
+						}
+						catch (const char* error)
+						{
+							cout << "Try again!\n";
+						}
+					}
+				}
+
 				if (index == 0)
 				{
 					headNode = AddBefore(headNode, dataOfNewNode, index);
@@ -144,8 +256,22 @@ void Menu(Node* headNode)
 
 			case 7:
 			{
-				int searchingValue = EnterNumber(
-					"Enter the searching value\n");
+				bool tryAgain = true;
+				int searchingValue;
+				while (tryAgain)
+				{
+					try
+					{
+						searchingValue = EnterNumber(
+							"Enter the searching value\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nTry again\n";
+					}
+				}
+
 				PrintFinded(LinearSearch(headNode, searchingValue), headNode);
 				break;
 			}

@@ -65,7 +65,7 @@ void Menu(Node* headNode)
 
 			case 2:
 			{
-				int dataOfNode = 0;
+				int dataOfNode;
 				bool tryAgain = true;
 				while (tryAgain)
 				{
@@ -142,22 +142,13 @@ void Menu(Node* headNode)
 					}
 				}
 
-				if (index > ElementCount(headNode) - 1)
+				if (index > ElementCount(headNode) - 1 || index < 0)
 				{
-					bool tryAgain = true;
-					while (tryAgain)
-					{
-						try
-						{
-							index = EnterNumber("Element dosen't exist!\n");
-							tryAgain = false;
-						}
-						catch (const char* error)
-						{
-							cout << "Try again!\n";
-						}
-					}
+					cout << "There is no such element!\n";
+					ShowList(headNode);
+					break;
 				}
+
 				AddAfter(headNode, dataOfNode, index);
 				ShowList(headNode);
 				break;
@@ -167,8 +158,6 @@ void Menu(Node* headNode)
 			{
 				//TODO: RSDN +
 				int index;
-
-
 				int tryAgain = true;
 
 				while (tryAgain)
@@ -185,22 +174,11 @@ void Menu(Node* headNode)
 					}
 				}
 
-				tryAgain = true;
-				if (index > ElementCount(headNode) - 1)
+				if (index > ElementCount(headNode) - 1 || index < 0)
 				{
-					bool tryAgain = true;
-					while (tryAgain)
-					{
-						try
-						{
-							index = EnterNumber("Element dosen't exist!\n");
-							tryAgain = false;
-						}
-						catch (const char* error)
-						{
-							cout << "Try again!\n";
-						}
-					}
+					cout << "There is no such element!\n";
+					ShowList(headNode);
+					break;
 				}
 
 				tryAgain = true;
@@ -216,24 +194,6 @@ void Menu(Node* headNode)
 					catch (const char* error)
 					{
 						cout << "\nWrong input data!\n";
-					}
-				}
-
-				if (index < 0)
-				{
-					tryAgain = true;
-					while (tryAgain)
-					{
-						try
-						{
-							index = EnterNumber(
-								"Index cannot be less than 0!\n");
-							tryAgain = false;
-						}
-						catch (const char* error)
-						{
-							cout << "Try again!\n";
-						}
 					}
 				}
 

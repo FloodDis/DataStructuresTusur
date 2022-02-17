@@ -1,5 +1,5 @@
 #include "IOList.h"
-#include "..\..\FrequentlyUsed\FrequentlyUsed\ValueInput.h"
+
 void Menu(Node* headNode)
 {
 	while (true)
@@ -194,7 +194,7 @@ void ShowList(Node* headNode)
 	PrintList(headNode);
 }
 
-/*int EnterNumber(string message)
+int EnterNumber(string message)
 {
 	int inputValue;
 	cout << message;
@@ -207,4 +207,4 @@ void ShowList(Node* headNode)
 		throw "Error: incorrect input data!\n";
 	}
 	return inputValue;
-}*/
+}

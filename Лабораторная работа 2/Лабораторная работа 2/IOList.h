@@ -20,7 +20,7 @@ void Menu(Node* headNode);
 /// </summary>
 /// <param name="message">строка с сообщением</param>
 /// <param name="variable">значение переменной</param>
-int EnterNumber(string message);
+//int EnterNumber(string message);
 
 /// <summary>
 /// Функция вывода списка на экран

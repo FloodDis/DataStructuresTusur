@@ -1,5 +1,5 @@
 #include "IOList.h"
-
+#include "..\..\FrequentlyUsed\FrequentlyUsed\ValueInput.h"
 void Menu(Node* headNode)
 {
 	while (true)
@@ -16,7 +16,21 @@ void Menu(Node* headNode)
 			{
 				Node* dev = headNode;
 				//TODO: RSDN +
-				int index = EnterNumber("Enter index of the element to be deleted\n");
+				int index;
+				bool tryAgain = true;
+				while (tryAgain)
+				{
+					try
+					{
+						index = EnterNumber("Enter index of the element to be deleted\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nTry again\n";
+					}
+				}
+
 				if (index > ElementCount(headNode) - 1)
 				{
 					cout << "There is no such element!\n";
@@ -49,17 +63,42 @@ void Menu(Node* headNode)
 
 			case 2:
 			{
-				int dataOfNewNode = EnterNumber(
-					"Enter data of the new node:\n");
-				headNode = AddInTheBeginning(headNode, dataOfNewNode);
+				int dataNode = 0;
+				bool tryAgain = true;
+				while (tryAgain)
+				{
+					try
+					{
+						dataNode = EnterNumber("Enter data of the new node:\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nTry again\n";
+					}
+				}
+				headNode = AddInTheBeginning(headNode, dataNode);
 				ShowList(headNode);
 				break;
 			}
 
 			case 3:
 			{
-				int dataOfNewNode = EnterNumber(
-					"Enter data of the new node:\n");
+				int dataOfNewNode;
+				bool tryAgain = true;
+				while (tryAgain)
+				{
+					try
+					{
+						dataOfNewNode = EnterNumber("Enter data of the new node:\n");
+						tryAgain = false;
+					}
+					catch (const char* error)
+					{
+						cout << "\nTry again\n";
+					}
+				}
+
 				AddInTheEnd(headNode, dataOfNewNode);
 				ShowList(headNode);
 				break;
@@ -155,7 +194,7 @@ void ShowList(Node* headNode)
 	PrintList(headNode);
 }
 
-int EnterNumber(string message)
+/*int EnterNumber(string message)
 {
 	int inputValue;
 	cout << message;
@@ -168,4 +207,4 @@ int EnterNumber(string message)
 		throw "Error: incorrect input data!\n";
 	}
 	return inputValue;
-}
+}*/

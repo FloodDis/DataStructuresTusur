@@ -12,109 +12,109 @@ void Menu(Node* headNode)
 		cin >> option;
 		switch (option)
 		{
-		case 1:
-		{
-			Node* dev = headNode;
-			//TODO: RSDN +
-			int index = EnterNumber("Enter index of the element to be deleted\n");
-			if (index > ElementCount(headNode) - 1)
+			case 1:
 			{
-				cout << "There is no such element!\n";
+				Node* dev = headNode;
+				//TODO: RSDN +
+				int index = EnterNumber("Enter index of the element to be deleted\n");
+				if (index > ElementCount(headNode) - 1)
+				{
+					cout << "There is no such element!\n";
+					ShowList(headNode);
+					break;
+				}
+				if (index == 0)
+				{
+					if (headNode->NextNode == nullptr)
+					{
+						int dataOfTheNode = Randomize();
+						free(headNode);
+						headNode = InitializationOfList(dataOfTheNode);
+						ShowList(headNode);
+					}
+					else
+					{
+						Node* buffer = headNode;
+						headNode = headNode->NextNode;
+						headNode->PreviousNode = nullptr;
+						free(buffer);
+						ShowList(headNode);
+					}
+					break;
+				}
+				DeleteElement(dev, index);
 				ShowList(headNode);
 				break;
 			}
-			if (index == 0)
+
+			case 2:
 			{
-				if (headNode->NextNode == nullptr)
+				int dataOfNewNode = EnterNumber(
+					"Enter data of the new node:\n");
+				headNode = AddInTheBeginning(headNode, dataOfNewNode);
+				ShowList(headNode);
+				break;
+			}
+
+			case 3:
+			{
+				int dataOfNewNode = EnterNumber(
+					"Enter data of the new node:\n");
+				AddInTheEnd(headNode, dataOfNewNode);
+				ShowList(headNode);
+				break;
+			}
+
+			case 4:
+			{
+				//TODO: RSDN +
+				int index = EnterNumber(
+					"Enter the index of the element to insert after\n");
+				int dataOfNewNode = EnterNumber(
+					"Enter the data of the element to be added\n");
+				AddAfter(headNode, dataOfNewNode, index);
+				ShowList(headNode);
+				break;
+			}
+
+			case 5:
+			{
+				//TODO: RSDN +
+				int index = EnterNumber(
+					"Enter the index of the element to insert before\n");
+				int dataOfNewNode = EnterNumber(
+					"Enter the data of the element to be added\n");
+				if (index == 0)
 				{
-					int dataOfTheNode = Randomize();
-					free(headNode);
-					headNode = InitializationOfList(dataOfTheNode);
-					ShowList(headNode);
+					headNode = AddBefore(headNode, dataOfNewNode, index);
 				}
 				else
 				{
-					Node* buffer = headNode;
-					headNode = headNode->NextNode;
-					headNode->PreviousNode = nullptr;
-					free(buffer);
-					ShowList(headNode);
+					AddBefore(headNode, dataOfNewNode, index);
 				}
+				ShowList(headNode);
 				break;
 			}
-			DeleteElement(dev, index);
-			ShowList(headNode);
-			break;
-		}
 
-		case 2:
-		{
-			int dataOfNewNode = EnterNumber(
-				"Enter data of the new node:\n");
-			headNode = AddInTheBeginning(headNode, dataOfNewNode);
-			ShowList(headNode);
-			break;
-		}
-
-		case 3:
-		{
-			int dataOfNewNode = EnterNumber(
-				"Enter data of the new node:\n");
-			AddInTheEnd(headNode, dataOfNewNode);
-			ShowList(headNode);
-			break;
-		}
-
-		case 4:
-		{
-			//TODO: RSDN +
-			int index = EnterNumber(
-				"Enter the index of the element to insert after\n");
-			int dataOfNewNode = EnterNumber(
-				"Enter the data of the element to be added\n");
-			AddAfter(headNode, dataOfNewNode, index);
-			ShowList(headNode);
-			break;
-		}
-
-		case 5:
-		{
-			//TODO: RSDN +
-			int index = EnterNumber(
-				"Enter the index of the element to insert before\n");
-			int dataOfNewNode = EnterNumber(
-				"Enter the data of the element to be added\n");
-			if (index == 0)
+			case 6:
 			{
-				headNode = AddBefore(headNode, dataOfNewNode, index);
+				BubbleSort(headNode);
+				ShowList(headNode);
+				break;
 			}
-			else
+
+			case 7:
 			{
-				AddBefore(headNode, dataOfNewNode, index);
+				int searchingValue = EnterNumber(
+					"Enter the searching value\n");
+				PrintFinded(LinearSearch(headNode, searchingValue), headNode);
+				break;
 			}
-			ShowList(headNode);
-			break;
-		}
 
-		case 6:
-		{
-			BubbleSort(headNode);
-			ShowList(headNode);
-			break;
-		}
-
-		case 7:
-		{
-			int searchingValue = EnterNumber(
-				"Enter the searching value\n");
-			PrintFinded(LinearSearch(headNode, searchingValue), headNode);
-			break;
-		}
-
-		case 8:
-		{
-			return;
-		}
+			case 8:
+			{
+				return;
+			}
 		}
 	}
 }

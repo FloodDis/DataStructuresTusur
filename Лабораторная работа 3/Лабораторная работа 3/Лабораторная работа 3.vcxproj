@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IOQueueRingBuffer.cpp" />
     <ClCompile Include="IORingBuffer.cpp" />
     <ClCompile Include="IOStack.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IOQueueRingBuffer.h" />
     <ClInclude Include="IORingBuffer.h" />
     <ClInclude Include="IOStack.h" />
     <ClInclude Include="Queue_Ring_Buffer_based.h" />

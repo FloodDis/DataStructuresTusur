@@ -25,8 +25,8 @@ bool IsEmpty(RingBuffer* ringBuffer)
 
 void PushInRingBuffer(RingBuffer*& ringBuffer, int value)
 {
-	ringBuffer->Data[ringBuffer->WriteCount & ringBuffer->Mask] = value;
-	ringBuffer->WriteCount++;
+	ringBuffer->Data[ringBuffer->ElementToWrite] = value;
+	ringBuffer->ElementToWrite++;
 }
 
 int PopFromRingBuffer(RingBuffer*& ringBuffer)
@@ -35,9 +35,8 @@ int PopFromRingBuffer(RingBuffer*& ringBuffer)
 	{
 		return -1;
 	}
-	int value;
-	value = ringBuffer->Data[ringBuffer->ReadCount & ringBuffer->Mask];
-	ringBuffer->ReadCount++;
+	int value= ringBuffer->Data[ringBuffer->ElementToRead];
+	ringBuffer->ElementToRead++;
 	return value;
 }
 

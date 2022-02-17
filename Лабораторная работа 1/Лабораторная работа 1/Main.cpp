@@ -276,7 +276,19 @@ void Menu(DinamicArray* arrayUnit)
 						")\n";
 					cout << "0 - delete the first element\t ";
 					cout << arrayUnit->Length - 1 << " - delete the last element\n";
-					cin >> index;
+					bool tryAgain = true;
+					while (tryAgain)
+					{
+						try
+						{
+							index = EnterNumber("");
+							tryAgain = false;
+						}
+						catch (const char*)
+						{
+							cout << "Index must be a number!\n";
+						}
+					}
 				} while (index < 0 || index >= arrayUnit->Length);
 
 				DeleteByIndex(arrayUnit, index);
@@ -311,8 +323,19 @@ void Menu(DinamicArray* arrayUnit)
 				
 				do
 				{
-					option = EnterNumber(
-						"Select search method:\n1) Lenear search\n2) Binary search\n");
+					tryAgain = true;
+					while (tryAgain)
+					{
+						try
+						{
+							option = EnterNumber(
+								"Select search method:\n1) Lenear search\n2) Binary search\n");
+						}
+						catch (const char* error)
+						{
+							cout << "Option must be 1 or 2!\n";
+						}
+					}
 
 					if (option == 1)
 					{

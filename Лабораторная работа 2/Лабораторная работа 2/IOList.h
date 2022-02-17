@@ -19,7 +19,6 @@ void Menu(Node* headNode);
 /// Функция вывода сообщения и ввода значения переменной из консоли
 /// </summary>
 /// <param name="message">строка с сообщением</param>
-/// <param name="variable">значение переменной</param>
 int EnterNumber(string message);
 
 /// <summary>

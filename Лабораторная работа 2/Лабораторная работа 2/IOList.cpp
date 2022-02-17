@@ -22,7 +22,8 @@ void Menu(Node* headNode)
 				{
 					try
 					{
-						index = EnterNumber("Enter index of the element to be deleted\n");
+						index = EnterNumber(
+							"Enter index of the element to be deleted\n");
 						tryAgain = false;
 					}
 					catch (const char* error)
@@ -31,12 +32,13 @@ void Menu(Node* headNode)
 					}
 				}
 
-				if (index > ElementCount(headNode) - 1)
+				if (index > ElementCount(headNode) - 1 || index < 0)
 				{
 					cout << "There is no such element!\n";
 					ShowList(headNode);
 					break;
 				}
+
 				if (index == 0)
 				{
 					if (headNode->NextNode == nullptr)
@@ -165,10 +167,10 @@ void Menu(Node* headNode)
 			{
 				//TODO: RSDN +
 				int index;
-				
+
 
 				int tryAgain = true;
-				
+
 				while (tryAgain)
 				{
 					try

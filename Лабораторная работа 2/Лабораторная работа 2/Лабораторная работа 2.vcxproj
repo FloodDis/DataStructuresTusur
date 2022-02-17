@@ -147,11 +147,6 @@
     <ClInclude Include="IOList.h" />
     <ClInclude Include="List.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\FrequentlyUsed\FrequentlyUsed\FrequentlyUsed.vcxproj">
-      <Project>{5806c2ab-d523-4192-bf79-a94f4edf474b}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

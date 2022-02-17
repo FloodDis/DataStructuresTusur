@@ -16,7 +16,7 @@ void Menu(Node* headNode)
 		{
 			Node* dev = headNode;
 			//TODO: RSDN +
-			int index = EnterNumber("Enter index of the element to be deleted\n", index);
+			int index = EnterNumber("Enter index of the element to be deleted\n");
 			if (index > ElementCount(headNode) - 1)
 			{
 				cout << "There is no such element!\n";
@@ -50,7 +50,7 @@ void Menu(Node* headNode)
 		case 2:
 		{
 			int dataOfNewNode = EnterNumber(
-				"Enter data of the new node:\n", dataOfNewNode);
+				"Enter data of the new node:\n");
 			headNode = AddInTheBeginning(headNode, dataOfNewNode);
 			ShowList(headNode);
 			break;
@@ -59,7 +59,7 @@ void Menu(Node* headNode)
 		case 3:
 		{
 			int dataOfNewNode = EnterNumber(
-				"Enter data of the new node:\n", dataOfNewNode);
+				"Enter data of the new node:\n");
 			AddInTheEnd(headNode, dataOfNewNode);
 			ShowList(headNode);
 			break;
@@ -69,9 +69,9 @@ void Menu(Node* headNode)
 		{
 			//TODO: RSDN +
 			int index = EnterNumber(
-				"Enter the index of the element to insert after\n", index);
+				"Enter the index of the element to insert after\n");
 			int dataOfNewNode = EnterNumber(
-				"Enter the data of the element to be added\n", dataOfNewNode);
+				"Enter the data of the element to be added\n");
 			AddAfter(headNode, dataOfNewNode, index);
 			ShowList(headNode);
 			break;
@@ -81,9 +81,9 @@ void Menu(Node* headNode)
 		{
 			//TODO: RSDN +
 			int index = EnterNumber(
-				"Enter the index of the element to insert before\n", index);
+				"Enter the index of the element to insert before\n");
 			int dataOfNewNode = EnterNumber(
-				"Enter the data of the element to be added\n", dataOfNewNode);
+				"Enter the data of the element to be added\n");
 			if (index == 0)
 			{
 				headNode = AddBefore(headNode, dataOfNewNode, index);
@@ -106,7 +106,7 @@ void Menu(Node* headNode)
 		case 7:
 		{
 			int searchingValue = EnterNumber(
-				"Enter the searching value\n", searchingValue);
+				"Enter the searching value\n");
 			PrintFinded(LinearSearch(headNode, searchingValue), headNode);
 			break;
 		}

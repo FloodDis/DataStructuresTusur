@@ -42,12 +42,10 @@ int PopFromRingBuffer(RingBuffer*& ringBuffer)
 
 void PrintBuffer(RingBuffer* ringBuffer)
 {
-
 	for (int i = 0; i < ringBuffer->Size; i++)
 	{
-		printf("%i\n", ringBuffer->Data[i]);
+		cout << "[" << i << "] " << ringBuffer->Data[i] << "\n";
 	}
-
 }
 
 void ShowRingBuffer(RingBuffer* ringBuffer)

@@ -17,9 +17,16 @@ struct RingBuffer
 	/// </summary>
 	int* Data;
 
-	//TODO:
+	//TODO:+
+
+	/// <summary>
+	/// Индекс элемента, который будет извлечен из очереди
+	/// </summary>
 	int ElementToRead = 0;
 	
+	/// <summary>
+	/// Индекс элемента, в который будет помещен новый элемент
+	/// </summary>
 	int ElementToWrite = 0;
 };
 

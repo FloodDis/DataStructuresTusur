@@ -17,15 +17,10 @@ bool IfThereSpaceToWrite(RingBuffer* ringBuffer)
 
 bool IsEmpty(RingBuffer* ringBuffer)
 {
-	//TODO:
-	if (ringBuffer->ReadCount == ringBuffer->WriteCount)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	//TODO: +
+	int elementToWrite = ringBuffer->ElementToWrite;
+	int elementToRead = ringBuffer->ElementToRead;
+	return elementToWrite == elementToRead;
 }
 
 void PushInRingBuffer(RingBuffer*& ringBuffer, int value)

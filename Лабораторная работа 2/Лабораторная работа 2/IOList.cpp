@@ -125,6 +125,7 @@ void Menu(Node* headNode)
 			default:
 			{
 				cout << "Try again!\n";
+				ShowList(headNode);
 				break;
 			}
 		}
@@ -142,7 +143,8 @@ void PrintFinded(Node* indexes, Node* headNode)
 		{
 			bufferList = bufferList->NextNode;
 		}
-		cout << "\nlist[" << indexes->DataOfNode << "] = " << bufferList->DataOfNode;
+		cout << "\nlist[" << indexes->DataOfNode << "] = " << 
+			bufferList->DataOfNode;
 		indexes = indexes->NextNode;
 	}
 	cout << "\n\n";

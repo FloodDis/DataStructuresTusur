@@ -26,7 +26,26 @@ void QueueRingBufferBasedMenu()
 		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n";
 		cout << "3) Удалить очередь\n4) Выход\n";
 		int option;
-		option = EnterNumber("");
+		bool tryAgain = true;
+		while (tryAgain)
+		{
+			try
+			{
+				option = EnterNumber("");
+				tryAgain = false;
+			}
+			catch (const char* error)
+			{
+				cout << "Option must be a number!\n";
+			}
+		}
+		
+		while (option < 1 || option>4)
+		{
+			cout << "Option must be 1-4!\n";
+			cin >> option;
+		}
+
 		switch (option)
 		{
 			case 1:

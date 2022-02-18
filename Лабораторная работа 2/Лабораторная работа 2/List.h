@@ -40,7 +40,7 @@ Node* InitializationOfList(int dataOfHeadNode);
 void DeleteElement(Node* headNode, int index);
 
 /// <summary>
-/// Функция добавления элемента в начало списока
+/// Функция добавления элемента в начало списка
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
 /// <param name="dataOfNewNode">данные нового элемента</param>

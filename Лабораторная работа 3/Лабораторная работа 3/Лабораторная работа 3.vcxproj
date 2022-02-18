@@ -142,6 +142,7 @@
     <ClCompile Include="IOQueueRingBuffer.cpp" />
     <ClCompile Include="IORingBuffer.cpp" />
     <ClCompile Include="IOStack.cpp" />
+    <ClCompile Include="IOStackBased.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Queue_Ring_Buffer_based.cpp" />
     <ClCompile Include="Queue_Stack_based.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="IOQueueRingBuffer.h" />
     <ClInclude Include="IORingBuffer.h" />
     <ClInclude Include="IOStack.h" />
+    <ClInclude Include="IOStackBased.h" />
     <ClInclude Include="Queue_Ring_Buffer_based.h" />
     <ClInclude Include="Queue_Stack_based.h" />
     <ClInclude Include="RingBuffer.h" />

@@ -48,7 +48,8 @@ void Menu(Node* headNode)
 
 			case 2:
 			{
-				int dataOfNode = EnterNumber("Enter data of the new node:\n");
+				int dataOfNode = EnterNumber(
+					"Enter data of the new node:\n");
 				headNode = AddInTheBeginning(headNode, dataOfNode);
 				ShowList(headNode);
 				break;
@@ -114,7 +115,8 @@ void Menu(Node* headNode)
 			{
 				int searchingValue = EnterNumber(
 					"Enter the searching value\n");
-				PrintFinded(LinearSearch(headNode, searchingValue), headNode);
+				Node* searchResult = LinearSearch(headNode, searchingValue);
+				PrintFinded(searchResult, headNode);
 				break;
 			}
 

@@ -50,8 +50,20 @@ void QueueRingBufferBasedMenu()
 		{
 			case 1:
 			{
-				int newElement = EnterNumber(
-					"¬ведите новый элемент очереди\n");
+				int newElement;
+				bool tryAgain = true;
+				while (tryAgain)
+				{
+					try
+					{
+						newElement = EnterNumber(
+							"¬ведите новый элемент очереди\n");
+					}
+					catch (const char* error)
+					{
+						cout << "Element must be a number!\n";
+					}
+				}
 				EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
 				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 				break;

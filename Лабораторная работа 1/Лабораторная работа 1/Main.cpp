@@ -234,8 +234,8 @@ void Menu(DinamicArray* arrayUnit)
 	{
 		int option;
 		cout << "Select an action:\n1) Add element\n2) Delete element\n";
-		cout << "3) Sort the array\n4) Search element\n5) Print the array\n";
-		cout << "6) Quit\n";
+		cout << "3) Sort the array\n4) Search element\n";
+		cout << "5) Print the array\n6) Quit\n";
 		option = EnterNumber("");
 
 		switch (option)
@@ -246,9 +246,11 @@ void Menu(DinamicArray* arrayUnit)
 				do
 				{
 					cout <<
-						"Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
+						"Enter the index of adding element (0 - " << 
+						arrayUnit->Length << ")\n";
 					cout <<
-						"0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
+						"0 - add to the beginning " << arrayUnit->Length <<
+						" - add to the end\n";
 					index = EnterNumber("");
 				} while (index < 0 || index > arrayUnit->Length);
 				AddByIndex(arrayUnit, index);
@@ -268,10 +270,12 @@ void Menu(DinamicArray* arrayUnit)
 				do
 				{
 					cout <<
-						"Enter the index of deleteing element (0 - " << arrayUnit->Length - 1 <<
+						"Enter the index of deleteing element (0 - " << 
+						arrayUnit->Length - 1 <<
 						")\n";
 					cout << "0 - delete the first element\t ";
-					cout << arrayUnit->Length - 1 << " - delete the last element\n";
+					cout << arrayUnit->Length - 1 << 
+						" - delete the last element\n";
 					index = EnterNumber("");
 				} while (index < 0 || index >= arrayUnit->Length);
 

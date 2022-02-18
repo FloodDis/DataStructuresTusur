@@ -21,26 +21,26 @@ void Menu(Node* headNode)
 				{
 					index = EnterNumber(
 						"Enter index of the element to be deleted\n");
-					if (index == 0)
-					{
-						if (headNode->NextNode == nullptr)
-						{
-							int dataOfTheNode = Randomize();
-							free(headNode);
-							headNode = InitializationOfList(dataOfTheNode);
-							ShowList(headNode);
-						}
-						else
-						{
-							Node* buffer = headNode;
-							headNode = headNode->NextNode;
-							headNode->PreviousNode = nullptr;
-							free(buffer);
-							ShowList(headNode);
-						}
-						break;
-					}
 				} while (index > ElementCount(headNode) - 1 || index < 0);
+				if (index == 0)
+				{
+					if (headNode->NextNode == nullptr)
+					{
+						int dataOfTheNode = Randomize();
+						free(headNode);
+						headNode = InitializationOfList(dataOfTheNode);
+						ShowList(headNode);
+					}
+					else
+					{
+						Node* buffer = headNode;
+						headNode = headNode->NextNode;
+						headNode->PreviousNode = nullptr;
+						free(buffer);
+						ShowList(headNode);
+					}
+					break;
+				}
 				DeleteElement(dev, index);
 				ShowList(headNode);
 				break;

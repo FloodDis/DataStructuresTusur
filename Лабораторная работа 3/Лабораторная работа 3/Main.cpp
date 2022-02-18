@@ -6,13 +6,13 @@
 void MainMenu()
 {
 	setlocale(LC_ALL, "Russian");
-	int option;
 	while (true)
 	{
 		printf("Выберите структуру данных:\n1) Стек\n2) Кольцевой Буфер\n");
 		printf("3) Очередь (на базе двух стеков)\n");
 		printf("4) Очередь (на базе кольцевого буфера)\n");
 		printf("5) Выйти\n");
+		int option;
 		cin >> option;
 		switch (option)
 		{

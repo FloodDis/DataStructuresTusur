@@ -71,9 +71,9 @@ void QueueRingBufferBasedMenu()
 
 			case 2:
 			{
-				int elementFromQueue;
-				elementFromQueue = DequeueRingBuffer(queueRingBuffer->ringBuffer);
-				cout << "Извлеченный элемент: %i\n", elementFromQueue;
+				int elementFromQueue = 
+					DequeueRingBuffer(queueRingBuffer->ringBuffer);
+				cout << "Извлеченный элемент:" << elementFromQueue << "\n";
 				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 				break;
 			}

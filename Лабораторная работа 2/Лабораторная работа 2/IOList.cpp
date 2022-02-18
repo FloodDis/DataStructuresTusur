@@ -117,6 +117,7 @@ void Menu(Node* headNode)
 					"Enter the searching value\n");
 				Node* searchResult = LinearSearch(headNode, searchingValue);
 				PrintFinded(searchResult, headNode);
+				ShowList(headNode);
 				break;
 			}
 

@@ -28,13 +28,6 @@ void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit)
 	PrintBuffer(queueRingBufferUnit);
 }
 
-//TODO: Переделать на вариант с возвращением из функции
-void EnterNumber(string message, int& value)
-{
-	cout << message;
-	cin >> value;
-}
-
 void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
 {
 	cout << "Ваш буфер:\n";

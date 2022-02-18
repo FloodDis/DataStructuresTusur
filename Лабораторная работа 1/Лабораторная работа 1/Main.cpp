@@ -11,6 +11,8 @@ struct DinamicArray
 	const int GrowthFactor = 8;
 };
 
+int EnterNumber(string message);
+
 void CreateArray(DinamicArray* arrayUnit, int length, int capacity);
 
 void AddByIndex(DinamicArray* arrayUnit, int index);
@@ -38,21 +40,6 @@ void main()
 	Menu(&arrayUnit);
 }
 
-int EnterNumber(string message)
-{
-	int inputValue;
-	cout << message;
-	cin >> inputValue;
-	if (cin.fail())
-	{
-		cin.clear();
-		string streamToDelete;
-		cin >> streamToDelete;
-		throw "Error: incorrect input data!\n";
-	}
-	return inputValue;
-}
-
 void CreateArray(DinamicArray* arrayUnit, int length, int capacity)
 {
 	arrayUnit->Length = length;
@@ -69,19 +56,8 @@ void AddByIndex(DinamicArray* arrayUnit, int index)
 {
 	bool tryAgain = true;
 	int temp = arrayUnit->Array[index];
-	while (tryAgain)
-	{
-		try
-		{
-			arrayUnit->Array[index] = EnterNumber(
-				"Enter your element:\narray [" + to_string(index) + "] = ");
-			tryAgain = false;
-		}
-		catch (const char* error)
-		{
-			cout << "\nTry again!\n";
-		}
-	}
+	arrayUnit->Array[index] = EnterNumber(
+		"Enter your element : \narray[" + to_string(index) + "] = ");
 
 	for (int i = index + 1; i < arrayUnit->Length; i++)
 	{
@@ -232,6 +208,26 @@ void ShowArray(DinamicArray* arrayUnit)
 	PrintArray(arrayUnit);
 }
 
+int EnterNumber(string message)
+{
+	cout << message;
+	int value;
+	char input;
+	while (cin >> input)
+	{
+		if (isdigit(input) || input == '-')
+		{
+			cin.unget();
+			cin >> value;
+			return value;
+		}
+		else
+		{
+			cout << "Incorrect input!\n";
+		}
+	}
+}
+
 void Menu(DinamicArray* arrayUnit)
 {
 	while (true)
@@ -240,7 +236,7 @@ void Menu(DinamicArray* arrayUnit)
 		cout << "Select an action:\n1) Add element\n2) Delete element\n";
 		cout << "3) Sort the array\n4) Search element\n5) Print the array\n";
 		cout << "6) Quit\n";
-		cin >> option;
+		option = EnterNumber("");
 
 		switch (option)
 		{
@@ -253,20 +249,7 @@ void Menu(DinamicArray* arrayUnit)
 						"Enter the index of adding element (0 - " << arrayUnit->Length << ")\n";
 					cout <<
 						"0 - add to the beginning " << arrayUnit->Length << " - add to the end\n";
-					bool tryAgain = true;
-					while (tryAgain)
-					{
-						try
-						{
-							index = EnterNumber("");
-							tryAgain = false;
-						}
-						catch (const char* error)
-						{
-							cout << "Index must be a number!\n";
-						}
-					}
-
+					index = EnterNumber("");
 				} while (index < 0 || index > arrayUnit->Length);
 				AddByIndex(arrayUnit, index);
 				ShowArray(arrayUnit);
@@ -289,19 +272,7 @@ void Menu(DinamicArray* arrayUnit)
 						")\n";
 					cout << "0 - delete the first element\t ";
 					cout << arrayUnit->Length - 1 << " - delete the last element\n";
-					bool tryAgain = true;
-					while (tryAgain)
-					{
-						try
-						{
-							index = EnterNumber("");
-							tryAgain = false;
-						}
-						catch (const char*)
-						{
-							cout << "Index must be a number!\n";
-						}
-					}
+					index = EnterNumber("");
 				} while (index < 0 || index >= arrayUnit->Length);
 
 				DeleteByIndex(arrayUnit, index);
@@ -318,37 +289,11 @@ void Menu(DinamicArray* arrayUnit)
 
 			case 4:
 			{
-				int searchingValue;
-				bool tryAgain = true;
-				while (tryAgain)
-				{
-					try
-					{
-						searchingValue = EnterNumber("Enter searching value: ");
-						tryAgain = false;
-					}
-					catch (const char* error)
-					{
-						cout << "\nTry again!\n";
-					}
-
-				}
-
+				int searchingValue = EnterNumber("Enter searching value: ");
 				do
 				{
-					tryAgain = true;
-					while (tryAgain)
-					{
-						try
-						{
-							option = EnterNumber(
-								"Select search method:\n1) Lenear search\n2) Binary search\n");
-						}
-						catch (const char* error)
-						{
-							cout << "Option must be 1 or 2!\n";
-						}
-					}
+					option = EnterNumber(
+						"Select search method:\n1) Lenear search\n2) Binary search\n");
 
 					if (option == 1)
 					{

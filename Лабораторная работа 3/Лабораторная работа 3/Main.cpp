@@ -26,7 +26,7 @@ void MainMenu()
 				cout << "Option must be a number!\n";
 			}
 		}
-		
+
 		while (option < 1 || option>5)
 		{
 			cout << "Option must be 1-5!\n";
@@ -62,12 +62,11 @@ void MainMenu()
 			case 5:
 			{
 				return;
-				break;
 			}
 
 			default:
 			{
-				printf("Попробуйте снова!\n");
+				cout << "Попробуйте снова!\n";
 				break;
 			}
 		}

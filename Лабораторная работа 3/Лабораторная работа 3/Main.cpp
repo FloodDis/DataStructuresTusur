@@ -13,7 +13,26 @@ void MainMenu()
 		cout << "4) Очередь (на базе кольцевого буфера)\n";
 		cout << "5) Выйти\n";
 		int option;
-		cin >> option;
+		bool tryAgain = true;
+		while (tryAgain)
+		{
+			try
+			{
+				option = EnterNumber("");
+				tryAgain = false;
+			}
+			catch (const char* error)
+			{
+				cout << "Option must be a number!\n";
+			}
+		}
+		
+		while (option < 1 || option>5)
+		{
+			cout << "Option must be 1-5!\n";
+			cin >> option;
+		}
+
 		switch (option)
 		{
 			case 1:

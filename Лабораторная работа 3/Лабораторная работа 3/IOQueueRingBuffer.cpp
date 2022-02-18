@@ -22,13 +22,13 @@ void QueueRingBufferBasedMenu()
 		{
 			cout << "Выберете вариант:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n";
 			cout << "3) Удалить очередь\n4) Выход\n";
-			cin >> option;
+			option = EnterNumber("");
 			switch (option)
 			{
 				case 1:
 				{
-					int newElement;
-					EnterNumber("Введите новый элемент очереди\n", newElement);
+					int newElement = EnterNumber(
+						"Введите новый элемент очереди\n");
 					EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
 					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 					break;

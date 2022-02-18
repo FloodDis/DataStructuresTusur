@@ -121,6 +121,12 @@ void Menu(Node* headNode)
 			{
 				return;
 			}
+
+			default:
+			{
+				cout << "Try again!\n";
+				break;
+			}
 		}
 	}
 }

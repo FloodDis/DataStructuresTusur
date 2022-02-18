@@ -5,9 +5,10 @@ void Menu(Node* headNode)
 	while (true)
 	{
 		cout << "\nSelect an action:\n1) Delete element\n";
-		cout << "2) Add element at the beginning\n3) Add element at the end\n";
-		cout << "4) Add after specific element\n5) Add before specific element\n";
-		cout << "6) Sorting of list\n7) Leanear search of an element\n8) Quit\n";
+		cout << "2) Add element at the beginning\n";
+		cout << "3) Add element at the end\n4) Add after specific element\n";
+		cout << "5) Add before specific element\n6) Sorting of list\n";
+		cout << "7) Leanear search of an element\n8) Quit\n";
 		int option = EnterNumber("");
 		switch (option)
 		{

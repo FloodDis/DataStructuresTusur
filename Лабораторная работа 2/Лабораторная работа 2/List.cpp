@@ -159,11 +159,11 @@ Node* LinearSearch(Node* headNode, int searchingValue)
 
 int ElementCount(Node* headNode)
 {
-	int i = 0;
+	int elementCount = 0;
 	while (headNode != nullptr)
 	{
-		i++;
+		elementCount++;
 		headNode = headNode->NextNode;
 	}
-	return i;
+	return elementCount;
 }

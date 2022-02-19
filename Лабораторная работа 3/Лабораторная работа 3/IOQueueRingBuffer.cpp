@@ -10,8 +10,9 @@ void QueueRingBufferBasedMenu()
 	ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 	while (true)
 	{
-		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n";
-		cout << "3) Удалить очередь\n4) Выход\n";
+		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n";
+		cout << "2) Извлечение элемента из очереди\n3) Удалить очередь\n";
+		cout << "4) Выход\n";
 		int option;
 		do
 		{

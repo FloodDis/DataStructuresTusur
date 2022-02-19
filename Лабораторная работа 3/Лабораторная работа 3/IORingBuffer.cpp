@@ -11,11 +11,7 @@ void RingBufferMenu()
 		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n";
 		cout << "2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n";
 		cout << "5) Выход\n";
-		int option;
-		do
-		{
-			option = EnterNumber("");
-		} while (option < 1 || option>5);
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case 1:

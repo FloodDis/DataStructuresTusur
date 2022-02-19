@@ -16,8 +16,7 @@ void RingBufferMenu()
 		{
 			case 1:
 			{
-				bool answer = IfThereSpaceToWrite(ringBuffer);
-				if (answer == true)
+				if (IfThereSpaceToWrite(ringBuffer))
 				{
 					cout << "В буфере есть место для записи!\n";
 				}
@@ -30,8 +29,7 @@ void RingBufferMenu()
 
 			case 2:
 			{
-				bool answer = IsEmpty(ringBuffer);
-				if (answer == true)
+				if (IsEmpty(ringBuffer))
 				{
 					cout << "\nБуфер пуст!\n";
 				}

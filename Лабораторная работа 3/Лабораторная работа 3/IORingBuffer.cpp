@@ -5,11 +5,12 @@ void RingBufferMenu()
 	setlocale(LC_ALL, "Russian");
 	int sizeOfBuffer = EnterNumber("Введите размер буфера: ");
 	RingBuffer* ringBuffer = InitializationOfRingBuffer(sizeOfBuffer);
-	printf("Буфер создан!\n");
+	cout << "Буфер создан!\n";
 	while (true)
 	{
-		printf("Выберите вариант:\n1) Проверить, есть ли в буфере место для записи\n");
-		printf("2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n5) Выход\n");
+		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n";
+		cout << "2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n";
+		cout << "5) Выход\n";
 		int option;
 		do
 		{
@@ -22,11 +23,11 @@ void RingBufferMenu()
 				bool answer = IfThereSpaceToWrite(ringBuffer);
 				if (answer == true)
 				{
-					printf("В буфере есть место для записи!\n");
+					cout << "В буфере есть место для записи!\n";
 				}
 				else
 				{
-					printf("В буфере нет места для записи!\n");
+					cout << "В буфере нет места для записи!\n";
 				}
 				break;
 			}
@@ -36,11 +37,11 @@ void RingBufferMenu()
 				bool answer = IsEmpty(ringBuffer);
 				if (answer == true)
 				{
-					printf("\nБуфер пуст!\n");
+					cout << "\nБуфер пуст!\n";
 				}
 				else
 				{
-					printf("\nБуфер не пуст!\n");
+					cout << "\nБуфер не пуст!\n";
 					ShowRingBuffer(ringBuffer);
 				}
 				break;
@@ -58,7 +59,7 @@ void RingBufferMenu()
 				}
 				else
 				{
-					printf("В буфере нет места для записи!\n");
+					cout << "В буфере нет места для записи!\n";
 					ShowRingBuffer(ringBuffer);
 					break;
 				}
@@ -68,7 +69,7 @@ void RingBufferMenu()
 			case 4:
 			{
 				int elementFromBuffer = PopFromRingBuffer(ringBuffer);
-				printf("Значение из буфера: %i\n", elementFromBuffer);
+				cout << "Значение из буфера:  "<< elementFromBuffer<<"\n";
 				ShowRingBuffer(ringBuffer);
 				break;
 			}
@@ -80,7 +81,7 @@ void RingBufferMenu()
 
 			default:
 			{
-				printf("Попробуйте снова!\n");
+				cout << "Попробуйте снова!\n";
 				break;
 			}
 

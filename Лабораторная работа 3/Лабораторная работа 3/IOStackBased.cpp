@@ -3,7 +3,7 @@
 void QueueStackBasedMenu()
 {
 	setlocale(LC_ALL, "Russian");
-	int option;
+	
 	QueueStackBased* queueStackUnit = new QueueStackBased;
 	CreationOfQueueStackBased(queueStackUnit);
 	PrintQueueStackBased(queueStackUnit);
@@ -11,6 +11,7 @@ void QueueStackBasedMenu()
 	{
 		printf("Выберите действие:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n");
 		printf("3) Удалить очередь\n4) Выход\n");
+		int option;
 		cin >> option;
 		switch (option)
 		{

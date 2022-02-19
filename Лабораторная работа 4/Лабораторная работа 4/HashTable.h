@@ -3,7 +3,28 @@
 #include <vector>
 using namespace std;
 
-//TODO: в отдельную HashTable
+//TODO: в отдельную HashTable +
+
+/// <summary>
+/// Хеш-таблица
+/// </summary>
+struct HashTable
+{
+	/// <summary>
+	/// Вектор, состоящий из списков коллизий
+	/// </summary>
+	vector<KeyValueList*> arrayOfLists;
+
+	/// <summary>
+	/// Фактор роста хеш-таблицы
+	/// </summary>
+	const float GrowthFactor = 1.5;
+
+	/// <summary>
+	/// Максимальный коэффициент заполнения
+	/// </summary>
+	const float MaxFillFactor = 0.9;
+};
 
 /// <summary>
 /// Узел списка коллизий

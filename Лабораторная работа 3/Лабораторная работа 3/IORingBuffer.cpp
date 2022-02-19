@@ -6,6 +6,7 @@ void RingBufferMenu()
 	int sizeOfBuffer = EnterNumber("Введите размер буфера: ");
 	RingBuffer* ringBuffer = InitializationOfRingBuffer(sizeOfBuffer);
 	cout << "Буфер создан!\n";
+	ShowRingBuffer(ringBuffer);
 	while (true)
 	{
 		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n";
@@ -88,6 +89,7 @@ void RingBufferMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
+				ShowRingBuffer(ringBuffer);
 				break;
 			}
 

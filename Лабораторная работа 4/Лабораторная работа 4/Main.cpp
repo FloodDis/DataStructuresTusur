@@ -36,7 +36,6 @@ void MainMenu()
 			case 3:
 			{
 				return;
-				break;
 			}
 
 			default:

@@ -107,4 +107,3 @@ int ElementCount(Node* headNode);
 /// случайное число
 /// </returns>
 int Randomize();
-

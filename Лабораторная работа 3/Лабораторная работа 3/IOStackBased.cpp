@@ -53,7 +53,7 @@ void QueueStackBasedMenu()
 
 			default:
 			{
-				printf("Попробуйте снова!\n");
+				cout << "Попробуйте снова!\n";
 				break;
 			}
 		}

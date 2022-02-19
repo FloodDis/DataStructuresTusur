@@ -9,8 +9,9 @@ void QueueStackBasedMenu()
 	PrintQueueStackBased(queueStackUnit);
 	while (true)
 	{
-		printf("Выберите действие:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n");
-		printf("3) Удалить очередь\n4) Выход\n");
+		cout << "Выберите действие:\n1) Добавить элемент в очередь\n";
+		cout << "2) Извлечение элемента из очереди\n3) Удалить очередь\n";
+		cout << "4) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
 		{

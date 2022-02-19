@@ -4,7 +4,6 @@ void QueueStackBasedMenu()
 {
 	setlocale(LC_ALL, "Russian");
 	int option;
-	int dataOfFirstElement;
 	QueueStackBased* queueStackUnit = new QueueStackBased;
 	CreationOfQueueStackBased(queueStackUnit);
 	PrintQueueStackBased(queueStackUnit);

@@ -60,6 +60,7 @@ void StackMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
+				ShowStack(stack);
 				break;
 			}
 		}

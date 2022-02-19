@@ -39,7 +39,7 @@
     <ClCompile Include="IOQueueRingBuffer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="IOStackBased.cpp">
+    <ClCompile Include="IOQueueStack.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="FrequentlyUsed.cpp">
@@ -68,7 +68,7 @@
     <ClInclude Include="IOQueueRingBuffer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="IOStackBased.h">
+    <ClInclude Include="IOQueueStack.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="FrequentlyUsed.h">

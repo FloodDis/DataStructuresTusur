@@ -3,8 +3,7 @@
 void RingBufferMenu()
 {
 	setlocale(LC_ALL, "Russian");
-	int sizeOfBuffer;
-	EnterNumber("Введите размер буфера: ", sizeOfBuffer);
+	int sizeOfBuffer = EnterNumber("Введите размер буфера: ");
 	RingBuffer* ringBuffer = InitializationOfRingBuffer(sizeOfBuffer);
 	printf("Буфер создан!\n");
 	while (true)
@@ -12,7 +11,10 @@ void RingBufferMenu()
 		printf("Выберите вариант:\n1) Проверить, есть ли в буфере место для записи\n");
 		printf("2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n5) Выход\n");
 		int option;
-		cin >> option;
+		do
+		{
+			option = EnterNumber("");
+		} while (option < 1 || option>5);
 		switch (option)
 		{
 			case 1:
@@ -48,8 +50,8 @@ void RingBufferMenu()
 			{
 				if (IfThereSpaceToWrite(ringBuffer))
 				{
-					int newElement;
-					EnterNumber("Введите значение нового элемента: ", newElement);
+					int newElement = EnterNumber(
+						"Введите значение нового элемента: ");
 					PushInRingBuffer(ringBuffer, newElement);
 					ShowRingBuffer(ringBuffer);
 					break;
@@ -74,7 +76,6 @@ void RingBufferMenu()
 			case 5:
 			{
 				return;
-				break;
 			}
 
 			default:

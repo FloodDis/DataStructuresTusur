@@ -3,7 +3,7 @@
 void QueueStackBasedMenu()
 {
 	setlocale(LC_ALL, "Russian");
-	
+
 	QueueStackBased* queueStackUnit = new QueueStackBased;
 	CreationOfQueueStackBased(queueStackUnit);
 	PrintQueueStackBased(queueStackUnit);
@@ -11,15 +11,13 @@ void QueueStackBasedMenu()
 	{
 		printf("Выберите действие:\n1) Добавить элемент в очередь\n2) Извлечение элемента из очереди\n");
 		printf("3) Удалить очередь\n4) Выход\n");
-		int option;
-		cin >> option;
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case 1:
 			{
-				int dataOfNewElement;
-				printf("Введите значение нового элемента: ");
-				cin >> dataOfNewElement;
+				int dataOfNewElement = EnterNumber(
+					"Введите значение нового элемента: ");
 				EnqueueStackBased(queueStackUnit, dataOfNewElement);
 				PrintQueueStackBased(queueStackUnit);
 				break;
@@ -27,7 +25,8 @@ void QueueStackBasedMenu()
 
 			case 2:
 			{
-				printf("\nИзвлеченный элемент: %i\n", DequeueStackBased(queueStackUnit));
+				cout << "\nИзвлеченный элемент:" <<
+					DequeueStackBased(queueStackUnit) << "\n";
 				if (queueStackUnit->IsStackInEmpty)
 				{
 					queueStackUnit->StackIn = CreationOfStack();
@@ -40,7 +39,7 @@ void QueueStackBasedMenu()
 			case 3:
 			{
 				DeleteQueueStackBased(queueStackUnit);
-				printf("\nВаша очередь удалена!\n");
+				cout << "\nВаша очередь удалена!\n";
 				QueueStackBased* queueStackUnit = new QueueStackBased;
 				CreationOfQueueStackBased(queueStackUnit);
 				PrintQueueStackBased(queueStackUnit);

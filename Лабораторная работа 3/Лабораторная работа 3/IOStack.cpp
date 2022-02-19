@@ -46,9 +46,7 @@ void StackMenu()
 			{
 				DeleteStack(stack);
 				cout << "\nСтек удалён\n";
-				int value = EnterNumber("Введите значение первого элемента: ");
 				Node* stack = CreationOfStack();
-				stack->DataOfNode = value;
 				cout << "\nСтек создан!\n";
 				ShowStack(stack);
 				break;

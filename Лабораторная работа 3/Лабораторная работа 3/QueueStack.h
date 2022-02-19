@@ -53,8 +53,4 @@ int DequeueStackBased(QueueStackBased*& queueStackUnit);
 /// <param name="queueStackUnit">указатель на экземпляр очереди</param>
 void DeleteQueueStackBased(QueueStackBased*& queueStackUnit);
 
-/// <summary>
-/// Функция вывода очереди на экран
-/// </summary>
-/// <param name="queueStackUnit">указатель на экземпляр очереди</param>
-void PrintQueueStackBased(QueueStackBased* queueStackUnit);
+

@@ -60,3 +60,28 @@ void QueueStackBasedMenu()
 		}
 	}
 }
+
+void PrintQueueStackBased(QueueStackBased* queueStackUnit)
+{
+	setlocale(LC_ALL, "Russian");
+	printf("\nStackIn:");
+	if (queueStackUnit->IsStackInEmpty)
+	{
+		printf("\n{ }\n");
+	}
+	else
+	{
+		PrintStack(queueStackUnit->StackIn);
+	}
+
+	printf("\nStackOut:");
+	if (queueStackUnit->IsStackOutEmpty)
+	{
+		printf("\n{ }\n");
+	}
+	else
+	{
+		PrintStack(queueStackUnit->StackOut);
+	}
+
+}

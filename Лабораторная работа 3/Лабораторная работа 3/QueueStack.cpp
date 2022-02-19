@@ -18,7 +18,8 @@ void EnqueueStackBased(QueueStackBased*& queueStackUnit, int dataOfElement)
 	}
 	else
 	{
-		queueStackUnit->StackIn = PushInStack(queueStackUnit->StackIn, dataOfElement);
+		queueStackUnit->StackIn = 
+			PushInStack(queueStackUnit->StackIn, dataOfElement);
 	}
 }
 
@@ -30,12 +31,14 @@ int DequeueStackBased(QueueStackBased*& queueStackUnit)
 		{
 			queueStackUnit->StackOut = CreationOfStack();
 		}
-		queueStackUnit->StackOut->DataOfNode = PopFromStack(queueStackUnit->StackIn);
+		queueStackUnit->StackOut->DataOfNode = 
+			PopFromStack(queueStackUnit->StackIn);
 		queueStackUnit->StackOut->PreviousNode = nullptr;
 		queueStackUnit->IsStackOutEmpty = false;
 		while (queueStackUnit->StackIn != nullptr)
 		{
-			queueStackUnit->StackOut = PushInStack(queueStackUnit->StackOut, PopFromStack(queueStackUnit->StackIn));
+			queueStackUnit->StackOut = 
+				PushInStack(queueStackUnit->StackOut, PopFromStack(queueStackUnit->StackIn));
 		}
 		queueStackUnit->IsStackInEmpty = true;
 	}
@@ -56,27 +59,3 @@ void DeleteQueueStackBased(QueueStackBased*& queueStackUnit)
 	queueStackUnit = nullptr;
 }
 
-void PrintQueueStackBased(QueueStackBased* queueStackUnit)
-{
-	setlocale(LC_ALL, "Russian");
-	printf("\nStackIn:");
-	if (queueStackUnit->IsStackInEmpty)
-	{
-		printf("\n{ }\n");
-	}
-	else
-	{
-		PrintStack(queueStackUnit->StackIn);
-	}
-
-	printf("\nStackOut:");
-	if (queueStackUnit->IsStackOutEmpty)
-	{
-		printf("\n{ }\n");
-	}
-	else
-	{
-		PrintStack(queueStackUnit->StackOut);
-	}
-
-}

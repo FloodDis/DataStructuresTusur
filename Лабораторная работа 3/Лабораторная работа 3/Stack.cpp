@@ -3,7 +3,7 @@
 Node* CreationOfStack()
 {
 	Node* headNode;
-	headNode = (struct Node*)malloc(sizeof(struct Node));
+	headNode = new Node;
 	headNode->PreviousNode = nullptr;
 	return headNode;
 }
@@ -34,7 +34,4 @@ void DeleteStack(Node*& headNode)
 		delete bufferHeadNode;
 		bufferHeadNode = nullptr;
 	}
-}
-
-
 }

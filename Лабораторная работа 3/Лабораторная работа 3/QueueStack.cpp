@@ -18,7 +18,7 @@ void EnqueueStackBased(QueueStackBased*& queueStackUnit, int dataOfElement)
 	}
 	else
 	{
-		queueStackUnit->StackIn = 
+		queueStackUnit->StackIn =
 			PushInStack(queueStackUnit->StackIn, dataOfElement);
 	}
 }
@@ -31,14 +31,16 @@ int DequeueStackBased(QueueStackBased*& queueStackUnit)
 		{
 			queueStackUnit->StackOut = CreationOfStack();
 		}
-		queueStackUnit->StackOut->DataOfNode = 
+		queueStackUnit->StackOut->DataOfNode =
 			PopFromStack(queueStackUnit->StackIn);
 		queueStackUnit->StackOut->PreviousNode = nullptr;
 		queueStackUnit->IsStackOutEmpty = false;
 		while (queueStackUnit->StackIn != nullptr)
 		{
+			Node* stackOut = queueStackUnit->StackOut;
+			int valueFromStackIn = PopFromStack(queueStackUnit->StackIn);
 			queueStackUnit->StackOut = 
-				PushInStack(queueStackUnit->StackOut, PopFromStack(queueStackUnit->StackIn));
+				PushInStack(stackOut, valueFromStackIn);
 		}
 		queueStackUnit->IsStackInEmpty = true;
 	}

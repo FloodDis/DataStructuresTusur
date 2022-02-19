@@ -26,7 +26,15 @@ void QueueStackBasedMenu()
 
 			case 2:
 			{
-				cout << "\nИзвлеченный элемент:" <<
+				bool isStackInEmpty = queueStackUnit->IsStackInEmpty;
+				bool isStackOutEmpty = queueStackUnit->IsStackOutEmpty;
+				if (isStackInEmpty && isStackOutEmpty)
+				{
+					cout << "Очередь пуста.\n";
+					PrintQueueStackBased(queueStackUnit);
+					break;
+				}
+					cout << "\nИзвлеченный элемент:" <<
 					DequeueStackBased(queueStackUnit) << "\n";
 				if (queueStackUnit->IsStackInEmpty)
 				{
@@ -55,6 +63,7 @@ void QueueStackBasedMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
+				PrintQueueStackBased(queueStackUnit);
 				break;
 			}
 		}

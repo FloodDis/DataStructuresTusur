@@ -11,6 +11,7 @@ RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
 
 bool IsFull(RingBuffer* ringBuffer)
 {
+	//TODO: RSDN +
 	int freeSpace = ringBuffer->FreeSpace;
 	return freeSpace == 0;
 }

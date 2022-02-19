@@ -40,20 +40,20 @@ void PrintStack(Node* headNode)
 {
 	if (headNode == nullptr)
 	{
-		printf("\n{ }\n");
+		cout << "\n{ }\n";
 		return;
 	}
 
-	printf("\n{%i}", headNode->DataOfNode);
+	cout << "\n{" << headNode->DataOfNode << " }";
 	headNode = headNode->PreviousNode;
 
 	while (headNode != nullptr)
 	{
-		printf(" %i", headNode->DataOfNode);
+		cout << " " << headNode->DataOfNode;
 		headNode = headNode->PreviousNode;
 	}
 
-	printf("\n");
+	cout << "\n";
 }
 
 void ShowStack(Node* headNode)

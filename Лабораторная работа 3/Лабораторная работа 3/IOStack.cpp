@@ -4,8 +4,7 @@ void StackMenu()
 {
 	setlocale(LC_ALL, "Russian");
 	//TODO: внести в while
-	int value;
-	EnterNumber("Введите значение первого элемента: ", value);
+	int value = EnterNumber("Введите значение первого элемента: ");
 	Node* stack = CreationOfStack();
 	stack->DataOfNode = value;
 	printf("Стек создан!\n");
@@ -15,14 +14,13 @@ void StackMenu()
 		printf("Выберите вариант:\n1) Вставить\n2) Взять\n3) Удалить стек\n4) Выход\n");
 		cout << "Выберите вариант:\n1) Вставить\n"
 			<< "2) Взять\n3) Удалить стек\n4) Выход\n";
-		int option;
-		cin >> option;
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case 1:
 			{
-				int dataOfNewElement;
-				EnterNumber("Введите значение нового элемента: \n", dataOfNewElement);
+				int dataOfNewElement = EnterNumber(
+					"Введите значение нового элемента: \n");
 				stack = PushInStack(stack, dataOfNewElement);
 				ShowStack(stack);
 				break;
@@ -37,8 +35,7 @@ void StackMenu()
 				}
 				else
 				{
-					int valueFromStack;
-					valueFromStack = PopFromStack(stack);
+					int valueFromStack = PopFromStack(stack);
 					printf("\nЗначение из стека: %i\n", valueFromStack);
 					ShowStack(stack);
 				}
@@ -50,8 +47,7 @@ void StackMenu()
 			{
 				DeleteStack(stack);
 				printf("\nСтек удалён\n");
-				int value;
-				EnterNumber("Введите значение первого элемента: ", value);
+				int value = EnterNumber("Введите значение первого элемента: ");
 				Node* stack = CreationOfStack();
 				stack->DataOfNode = value;
 				printf("\nСтек создан!\n");

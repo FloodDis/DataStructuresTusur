@@ -4,7 +4,7 @@
 /// <summary>
 /// Очередь на базе кольцевого буфера
 /// </summary>
-struct QueueRingBufferBased
+struct QueueRingBuffer
 {
 	//TODO: RSDN
 	/// <summary>
@@ -47,14 +47,25 @@ void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit);
 void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit);
 
 /// <summary>
-/// Функция ввода числа и вывода сообщения
-/// </summary>
-/// <param name="message">строка с сообщением</param>
-/// <param name="value">переменная, которой присваивается число</param>
-void EnterNumber(string message, int& value);
-
-/// <summary>
 /// Функция вывода сообщения Ваш буфер: и очереди на базе кольцевого буфера
 /// </summary>
 /// <param name="queueRingBufferUnit">экземпляр очереди на базе кольцевого буфера</param>
 void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit);
+
+/// <summary>
+/// Функция проверки очреди на пустоту
+/// </summary>
+/// <param name="queueRingBufferUnit">экземпляр очереди на базе кольцевого буфера</param>
+/// <returns>
+/// true - очередь пуста, false - очередь не пуста
+/// </returns>
+bool IsQueueRingBufferEmpty(RingBuffer* queueRingBufferUnit);
+
+///<summary>
+///Функция проверки очереди на заполненность
+/// </summary>
+/// <param name="queueRingBufferUnit">экземпляр очереди на базе кольцевого буфера</param>
+/// <returns>
+/// true - очередь заполнена, false - очередь не заполнена
+/// </returns>
+bool IsQueueRingBufferFull(RingBuffer* queueRingBufferUnit);

@@ -2,4 +2,4 @@
 #include "QueueRingBuffer.h"
 #include "FrequentlyUsed.h"
 
-void QueueRingBufferBasedMenu();
+void QueueRingBufferMenu();

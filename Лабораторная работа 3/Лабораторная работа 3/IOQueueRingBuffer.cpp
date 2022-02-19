@@ -1,10 +1,10 @@
 #include "IOQueueRingBuffer.h"
 
-void QueueRingBufferBasedMenu()
+void QueueRingBufferMenu()
 {
 	setlocale(LC_ALL, "Russian");
 	int sizeOfQueue = EnterNumber("Введите размер очереди: ");
-	QueueRingBufferBased* queueRingBuffer = new QueueRingBufferBased;
+	QueueRingBuffer* queueRingBuffer = new QueueRingBuffer;
 	queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
 	cout << "Очередь создана!\n";
 	ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
@@ -14,28 +14,43 @@ void QueueRingBufferBasedMenu()
 		cout << "2) Извлечение элемента из очереди\n3) Удалить очередь\n";
 		cout << "4) Выход\n";
 		int option;
-		do
-		{
-			option = EnterNumber("");
-		} while (option < 1 || option>4);
+		option = EnterNumber("");
 		switch (option)
 		{
 			case 1:
 			{
-				int newElement = EnterNumber(
-					"Введите новый элемент очереди\n");
-				EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
-				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
-				break;
+				if (IsQueueRingBufferFull(queueRingBuffer->ringBuffer))
+				{
+					cout << "Очередь заполнена.\n";
+					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					break;
+				}
+				else
+				{
+					int newElement = EnterNumber(
+						"Введите новый элемент очереди\n");
+					EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
+					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					break;
+				}
 			}
 
 			case 2:
 			{
-				int elementFromQueue =
-					DequeueRingBuffer(queueRingBuffer->ringBuffer);
-				cout << "Извлеченный элемент:" << elementFromQueue << "\n";
-				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
-				break;
+				if (IsQueueRingBufferEmpty(queueRingBuffer->ringBuffer))
+				{
+					cout << "Очередь пуста.\n";
+					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					break;
+				}
+				else
+				{
+					int elementFromQueue =
+						DequeueRingBuffer(queueRingBuffer->ringBuffer);
+					cout << "Извлеченный элемент:" << elementFromQueue << "\n";
+					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					break;
+				}
 			}
 
 			case 3:

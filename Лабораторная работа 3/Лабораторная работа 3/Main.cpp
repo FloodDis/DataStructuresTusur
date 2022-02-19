@@ -35,7 +35,7 @@ void MainMenu()
 
 			case 4:
 			{
-				QueueRingBufferBasedMenu();
+				QueueRingBufferMenu();
 				break;
 			}
 

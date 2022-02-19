@@ -67,3 +67,29 @@ void StackMenu()
 		}
 	}
 }
+
+void PrintStack(Node* headNode)
+{
+	if (headNode == nullptr)
+	{
+		cout << "\n{ }\n";
+		return;
+	}
+
+	cout << "\n{" << headNode->DataOfNode << "}";
+	headNode = headNode->PreviousNode;
+
+	while (headNode != nullptr)
+	{
+		cout << " " << headNode->DataOfNode;
+		headNode = headNode->PreviousNode;
+	}
+
+	cout << "\n";
+}
+
+void ShowStack(Node* headNode)
+{
+	cout << "Ваш стек:\n";
+	PrintStack(headNode);
+}

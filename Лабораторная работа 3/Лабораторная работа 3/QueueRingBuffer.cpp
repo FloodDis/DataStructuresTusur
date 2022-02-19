@@ -33,3 +33,13 @@ void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
 	cout << "Ваш буфер:\n";
 	PrintQueueRingBuffer(queueRingBufferUnit);
 }
+
+bool IsQueueRingBufferEmpty(RingBuffer* queueRingBufferUnit)
+{
+	return IsEmpty(queueRingBufferUnit);
+}
+
+bool IsQueueRingBufferFull(RingBuffer* queueRingBufferUnit)
+{
+	return IsFull(queueRingBufferUnit);
+}

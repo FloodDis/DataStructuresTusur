@@ -61,6 +61,7 @@ void QueueRingBufferMenu()
 				int sizeOfQueue = EnterNumber("Введите размер очереди: ");
 				queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
 				cout << "Очередь создана!\n";
+				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 				break;
 			}
 
@@ -72,6 +73,7 @@ void QueueRingBufferMenu()
 			default:
 			{
 				cout << "Попробуйте ещё раз!\n";
+				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 				break;
 			}
 		}

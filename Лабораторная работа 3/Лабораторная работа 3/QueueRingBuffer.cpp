@@ -1,4 +1,4 @@
-﻿#include "Queue_Ring_Buffer_based.h"
+﻿#include "QueueRingBuffer.h"
 
 RingBuffer* CreationOfQueue(int sizeOfQueue)
 {

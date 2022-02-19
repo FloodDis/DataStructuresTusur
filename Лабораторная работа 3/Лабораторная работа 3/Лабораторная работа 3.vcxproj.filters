@@ -18,7 +18,7 @@
     <ClCompile Include="Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Queue_Ring_Buffer_based.cpp">
+    <ClCompile Include="QueueRingBuffer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Queue_Stack_based.cpp">
@@ -47,7 +47,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Queue_Ring_Buffer_based.h">
+    <ClInclude Include="QueueRingBuffer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Queue_Stack_based.h">

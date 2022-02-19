@@ -1,5 +1,5 @@
 #pragma once
-#include "Queue_Ring_Buffer_based.h"
+#include "QueueRingBuffer.h"
 #include "FrequentlyUsed.h"
 
 void QueueRingBufferBasedMenu();

@@ -3,7 +3,6 @@
 void RingBufferMenu()
 {
 	setlocale(LC_ALL, "Russian");
-	int option;
 	int sizeOfBuffer;
 	EnterNumber("Введите размер буфера: ", sizeOfBuffer);
 	RingBuffer* ringBuffer = InitializationOfRingBuffer(sizeOfBuffer);
@@ -12,6 +11,7 @@ void RingBufferMenu()
 	{
 		printf("Выберите вариант:\n1) Проверить, есть ли в буфере место для записи\n");
 		printf("2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n5) Выход\n");
+		int option;
 		cin >> option;
 		switch (option)
 		{

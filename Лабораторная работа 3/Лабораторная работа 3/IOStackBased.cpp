@@ -49,7 +49,6 @@ void QueueStackBasedMenu()
 			case 4:
 			{
 				return;
-				break;
 			}
 
 			default:

@@ -141,11 +141,15 @@
   <ItemGroup>
     <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="HashTable.cpp" />
+    <ClCompile Include="IODictionary.cpp" />
+    <ClCompile Include="IOHashTable.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dictionary.h" />
     <ClInclude Include="HashTable.h" />
+    <ClInclude Include="IODictionary.h" />
+    <ClInclude Include="IOHashTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

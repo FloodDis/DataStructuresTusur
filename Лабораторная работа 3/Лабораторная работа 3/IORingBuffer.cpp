@@ -16,13 +16,15 @@ void RingBufferMenu()
 		{
 			case 1:
 			{
-				if (IfThereSpaceToWrite(ringBuffer))
+				if (IsFull(ringBuffer))
 				{
-					cout << "В буфере есть место для записи!\n";
+					cout << "Буфер полон.\n";
+					ShowRingBuffer(ringBuffer);
 				}
 				else
 				{
-					cout << "В буфере нет места для записи!\n";
+					cout << "Буфер не полон.\n";
+					ShowRingBuffer(ringBuffer);
 				}
 				break;
 			}
@@ -31,11 +33,12 @@ void RingBufferMenu()
 			{
 				if (IsEmpty(ringBuffer))
 				{
-					cout << "\nБуфер пуст!\n";
+					cout << "\nБуфер пуст.\n";
+					ShowRingBuffer(ringBuffer);
 				}
 				else
 				{
-					cout << "\nБуфер не пуст!\n";
+					cout << "\nБуфер не пуст.\n";
 					ShowRingBuffer(ringBuffer);
 				}
 				break;
@@ -43,7 +46,7 @@ void RingBufferMenu()
 
 			case 3:
 			{
-				if (IfThereSpaceToWrite(ringBuffer))
+				if (!IsFull(ringBuffer))
 				{
 					int newElement = EnterNumber(
 						"Введите значение нового элемента: ");
@@ -62,10 +65,19 @@ void RingBufferMenu()
 
 			case 4:
 			{
-				int elementFromBuffer = PopFromRingBuffer(ringBuffer);
-				cout << "Значение из буфера:  "<< elementFromBuffer<<"\n";
-				ShowRingBuffer(ringBuffer);
-				break;
+				if (IsEmpty(ringBuffer))
+				{
+					cout << "Буфер пуст.\n";
+					ShowRingBuffer(ringBuffer);
+					break;
+				}
+				else
+				{
+					int elementFromBuffer = PopFromRingBuffer(ringBuffer);
+					cout << "Значение из буфера:  " << elementFromBuffer << "\n";
+					ShowRingBuffer(ringBuffer);
+					break;
+				}
 			}
 
 			case 5:

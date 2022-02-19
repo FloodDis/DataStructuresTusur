@@ -23,25 +23,34 @@ struct RingBuffer
 	/// Индекс элемента, который будет извлечен из очереди
 	/// </summary>
 	int ElementToRead = 0;
-	
+
 	/// <summary>
 	/// Индекс элемента, в который будет помещен новый элемент
 	/// </summary>
 	int ElementToWrite = 0;
+
+	/// <summary>
+	/// Кол-во незанятых элементов буфера
+	/// </summary>
+	int FreeSpace = Size;
 };
 
 /// <summary>
-/// Функция проверки кольцевого буфера на заполненность
+/// Функция проверки буфера на заполненность
 /// </summary>
 /// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
-/// <returns>true - кольцевой буфер не заполнен, false - кольцевой буфер заполнен</returns>
-bool IfThereSpaceToWrite(RingBuffer* ringBuffer);
+/// <returns>
+/// true - буфер полон, false - буфер не полон
+/// </returns>
+bool IsFull(RingBuffer* ringBuffer);
 
 /// <summary>
-/// Функция проверки кольцевого буфера на пустоту
+/// Функция проверки буфера на пустоту
 /// </summary>
 /// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
-/// <returns>true - кольцевой буфер пуст, false - кольцевой буфер не пуст</returns>
+/// <returns>
+/// true - буфер пуст, false - буфер не пуст
+/// </returns>
 bool IsEmpty(RingBuffer* ringBuffer);
 
 /// <summary>

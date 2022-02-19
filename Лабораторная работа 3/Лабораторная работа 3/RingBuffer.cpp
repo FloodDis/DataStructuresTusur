@@ -5,38 +5,53 @@ RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
 	RingBuffer* ringBuffer = new RingBuffer;
 	ringBuffer->Data = new int[sizeOfRingBuffer];
 	ringBuffer->Size = sizeOfRingBuffer;
+	ringBuffer->FreeSpace = sizeOfRingBuffer;
 	return ringBuffer;
 }
 
-bool IfThereSpaceToWrite(RingBuffer* ringBuffer)
+bool IsFull(RingBuffer* ringBuffer)
 {
-	int elementToWrite = ringBuffer->ElementToWrite;
-	int size = ringBuffer->Size;
-	return elementToWrite < size;
+	int freeSpace = ringBuffer->FreeSpace;
+	return freeSpace == 0;
 }
 
 bool IsEmpty(RingBuffer* ringBuffer)
 {
-	//TODO: +
-	int elementToWrite = ringBuffer->ElementToWrite;
-	int elementToRead = ringBuffer->ElementToRead;
-	return elementToWrite == elementToRead;
+	int freeSpace = ringBuffer->FreeSpace;
+	int size = ringBuffer->Size;
+	return freeSpace == size;
 }
 
 void PushInRingBuffer(RingBuffer*& ringBuffer, int value)
 {
 	ringBuffer->Data[ringBuffer->ElementToWrite] = value;
-	ringBuffer->ElementToWrite++;
+	int elementToWrite = ringBuffer->ElementToWrite;
+	int size = ringBuffer->Size;
+	if (elementToWrite == size - 1)
+	{
+		ringBuffer->ElementToWrite = 0;
+	}
+	else
+	{
+		ringBuffer->ElementToWrite++;
+	}
+	ringBuffer->FreeSpace--;
 }
 
 int PopFromRingBuffer(RingBuffer*& ringBuffer)
 {
-	if (IsEmpty(ringBuffer))
+	int elementToRead = ringBuffer->ElementToRead;
+	int size = ringBuffer->Size;
+	int value = ringBuffer->Data[ringBuffer->ElementToRead];
+	if (elementToRead == size - 1)
 	{
-		return -1;
+		ringBuffer->ElementToRead = 0;
 	}
-	int value= ringBuffer->Data[ringBuffer->ElementToRead];
-	ringBuffer->ElementToRead++;
+	else
+	{
+		ringBuffer->ElementToRead++;
+	}
+	ringBuffer->FreeSpace++;
 	return value;
 }
 

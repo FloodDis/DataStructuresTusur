@@ -1,5 +1,5 @@
 #pragma once
-#include "Queue_Stack_based.h"
+#include "QueueStack.h"
 #include "FrequentlyUsed.h"
 
 ///<summary>

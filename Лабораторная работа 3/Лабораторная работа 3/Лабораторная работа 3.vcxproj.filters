@@ -21,7 +21,7 @@
     <ClCompile Include="QueueRingBuffer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Queue_Stack_based.cpp">
+    <ClCompile Include="QueueStack.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="RingBuffer.cpp">

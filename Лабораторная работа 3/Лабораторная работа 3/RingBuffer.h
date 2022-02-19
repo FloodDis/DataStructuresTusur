@@ -74,14 +74,3 @@ int PopFromRingBuffer(RingBuffer*& ringBuffer);
 /// <returns>экземпляр кольцевого буфера</returns>
 RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer);
 
-/// <summary>
-/// Функция вывода кольцевого буфера на экран
-/// </summary>
-/// <param name="ringBuffer">указатель на экземпляр структуры</param>
-void PrintBuffer(RingBuffer* ringBuffer);
-
-/// <summary>
-/// Функция вывода сообщение Ваш буфер: и кольцевого буфера на экран
-/// </summary>
-/// <param name="ringBuffer">указатель на экземпляр структуры</param>
-void ShowRingBuffer(RingBuffer* ringBuffer);

@@ -1,4 +1,5 @@
 #include "IOQueueRingBuffer.h"
+#include "IORingBuffer.h"
 
 void QueueRingBufferMenu()
 {
@@ -75,4 +76,15 @@ void QueueRingBufferMenu()
 			}
 		}
 	}
+}
+
+void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit)
+{
+	PrintBuffer(queueRingBufferUnit);
+}
+
+void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
+{
+	cout << "Ваш буфер:\n";
+	PrintQueueRingBuffer(queueRingBufferUnit);
 }

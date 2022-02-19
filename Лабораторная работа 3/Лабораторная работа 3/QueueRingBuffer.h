@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "RingBuffer.h"
 
+
 /// <summary>
 /// Очередь на базе кольцевого буфера
 /// </summary>
@@ -40,17 +41,7 @@ int DequeueRingBuffer(RingBuffer*& queueRingBufferUnit);
 /// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
 void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit);
 
-/// <summary>
-/// Функция вывода очереди на экран
-/// </summary>
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
-void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit);
 
-/// <summary>
-/// Функция вывода сообщения Ваш буфер: и очереди на базе кольцевого буфера
-/// </summary>
-/// <param name="queueRingBufferUnit">экземпляр очереди на базе кольцевого буфера</param>
-void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit);
 
 /// <summary>
 /// Функция проверки очреди на пустоту

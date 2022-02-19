@@ -23,16 +23,7 @@ void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit)
 	queueRingBufferUnit = nullptr;
 }
 
-void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit)
-{
-	PrintBuffer(queueRingBufferUnit);
-}
 
-void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
-{
-	cout << "Ваш буфер:\n";
-	PrintQueueRingBuffer(queueRingBufferUnit);
-}
 
 bool IsQueueRingBufferEmpty(RingBuffer* queueRingBufferUnit)
 {

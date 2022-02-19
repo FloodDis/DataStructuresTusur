@@ -55,16 +55,3 @@ int PopFromRingBuffer(RingBuffer*& ringBuffer)
 	return value;
 }
 
-void PrintBuffer(RingBuffer* ringBuffer)
-{
-	for (int i = 0; i < ringBuffer->Size; i++)
-	{
-		cout << "[" << i << "] " << ringBuffer->Data[i] << "\n";
-	}
-}
-
-void ShowRingBuffer(RingBuffer* ringBuffer)
-{
-	cout << "Ваш буфер:\n";
-	PrintBuffer(ringBuffer);
-}

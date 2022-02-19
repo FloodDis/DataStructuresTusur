@@ -3,15 +3,20 @@
 //TODO: Переделать на вариант с возвращением из функции +
 int EnterNumber(string message)
 {
-	int inputValue;
 	cout << message;
-	cin >> inputValue;
-	if (cin.fail())
+	int value;
+	char input;
+	while (cin >> input)
 	{
-		cin.clear();
-		string streamToDelete;
-		cin >> streamToDelete;
-		throw "Error: incorrect input data!\n";
+		if (isdigit(input) || input == '-')
+		{
+			cin.unget();
+			cin >> value;
+			return value;
+		}
+		else
+		{
+			cout << "Incorrect input!\n";
+		}
 	}
-	return inputValue;
 }

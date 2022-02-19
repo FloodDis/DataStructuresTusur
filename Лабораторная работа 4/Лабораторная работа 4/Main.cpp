@@ -17,7 +17,8 @@ void MainMenu()
 	int option;
 	while (true)
 	{
-		printf("Выберите структуру данных:\n1) Хеш-таблица\n2) Словарь\n3) Выйти\n");
+		cout << "Выберите структуру данных:\n1) Хеш-таблица\n";
+		cout << "2) Словарь\n3) Выйти\n";
 		cin >> option;
 		switch (option)
 		{
@@ -49,7 +50,7 @@ void MainMenu()
 
 void DictionaryMenu()
 {
-	Dictionary* dictionaryUnit= new Dictionary;
+	Dictionary* dictionaryUnit = new Dictionary;
 	setlocale(LC_ALL, "ru");
 	int size;
 	EnterNumber("Введите размер словаря:\n", size);
@@ -168,7 +169,7 @@ void HashTableMenu()
 			{
 				string key;
 				string answer;
-				EnterString("Введите key искомого элемента: ",key);
+				EnterString("Введите key искомого элемента: ", key);
 				answer = SearchInHashTable(key, hashTableUnit);
 				cout << answer << "\n";
 				ShowHashTable(hashTableUnit);

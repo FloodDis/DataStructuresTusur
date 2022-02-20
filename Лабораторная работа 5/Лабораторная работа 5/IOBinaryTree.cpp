@@ -38,7 +38,8 @@ void BinaryTreeMenu()
 		Exit = 6
 	};
 	setlocale(LC_ALL, "ru");
-	int dataOfRoot = EnterNumber("¬ведите данные корн€ бинарного дерева: ");
+	int dataOfRoot = 
+		EnterNumber("¬ведите данные корн€ бинарного дерева: ");
 	int keyOfRoot = EnterNumber("¬ведите ключ корн€ бинарного дерева: ");
 	BinaryTreeNode* rootNode = CreationOfBinaryTree(keyOfRoot, dataOfRoot);
 	ShowBinaryTree(rootNode);

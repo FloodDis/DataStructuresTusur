@@ -1,59 +1,60 @@
 ﻿#include "Dictionary.h"
 #include "HashTable.h"
 
-void AddInDictionary(vector<KeyValueList*> hashTableUnit, string value, string key)
+void AddInDictionary(HashTable* hashTableUnit, string value, string key)
 {
-	int hash = HashFunction(key, hashTableUnit.size());
+	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
 	bool match = false;
-	KeyValueList* pHead = hashTableUnit[hash];
-	while (pHead != nullptr)
+	KeyValueList* bufferHead = hashTableUnit->arrayOfLists[hash];
+	while (bufferHead != nullptr)
 	{
-		if (pHead->Key == key)
+		if (bufferHead->Key == key)
 		{
 			match = true;
-			pHead = pHead->Next;
+			bufferHead = bufferHead->Next;
 		}
 		else
 		{
-			pHead = pHead->Next;
+			bufferHead = bufferHead->Next;
 		}
 	}
-	if (match == false)
+	if (!match)
 	{
 		AddElementInHashTable(hashTableUnit, value, key);
 	}
 	else
 	{
-		while (hashTableUnit[hash]->Key != key)
+		while (hashTableUnit->arrayOfLists[hash]->Key != key)
 		{
-			hashTableUnit[hash] = hashTableUnit[hash]->Next;
+			hashTableUnit->arrayOfLists[hash] = 
+				hashTableUnit->arrayOfLists[hash]->Next;
 		}
-		hashTableUnit[hash]->Value = value;
+		hashTableUnit->arrayOfLists[hash]->Value = value;
 	}
 }
 
-void DeleteFromDictionary(vector<KeyValueList*>& hashTableUnit, string key)
+void DeleteFromDictionary(HashTable*& hashTableUnit, string key)
 {
 	DeleteElementInHashTable(hashTableUnit, key);
 }
 
-string SearchInDictionary(vector<KeyValueList*>& hashTableUnit, string key)
+string SearchInDictionary(HashTable*& hashTableUnit, string key)
 {
 	return SearchInHashTable(key, hashTableUnit);
 }
 
-void InitializationOfDictionary(vector<KeyValueList*>& hashTableUnit, int size)
+void InitializationOfDictionary(HashTable*& hashTableUnit, int size)
 {
 	InitializationOfHashTable(hashTableUnit, size);
 }
 
-void ShowDictionary(vector<KeyValueList*> hashTableUnit)
+void ShowDictionary(HashTable* hashTableUnit)
 {
 	cout << "Ваш словарь:\n";
 	PrintDictionary(hashTableUnit);
 }
 
-void PrintDictionary(vector<KeyValueList*> hashTableUnit)
+void PrintDictionary(HashTable* hashTableUnit)
 {
 	PrintTable(hashTableUnit);
 }

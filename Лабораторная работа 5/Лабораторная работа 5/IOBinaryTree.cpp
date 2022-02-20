@@ -103,7 +103,7 @@ void BinaryTreeMenu()
 				cout << "Максимальный элемент бинарного дерева поиска: ";
 				int maximumKey = MaximumBinaryTreeSearch(rootNode)->Key;
 				int maximumData = MaximumBinaryTreeSearch(rootNode)->Data;
-				cout << "(" << maximumKey << ", " << maximumData << ")";
+				cout << "(" << maximumKey << ", " << maximumData << ")\n";
 				ShowBinaryTree(rootNode);
 				break;
 			}
@@ -113,7 +113,7 @@ void BinaryTreeMenu()
 				cout << "Минимальный элемент бинарного дерева поиска: ";
 				int minimumKey = MinimumBinaryTreeSearch(rootNode)->Key;
 				int minimumData = MinimumBinaryTreeSearch(rootNode)->Data;
-				cout << "(" << minimumKey << ", " << minimumData << ")";
+				cout << "(" << minimumKey << ", " << minimumData << ")\n";
 				ShowBinaryTree(rootNode);
 				break;
 			}

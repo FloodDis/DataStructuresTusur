@@ -17,8 +17,7 @@ void MainMenu()
 	{
 		cout << "Выберите структуру данных:\n1) Хеш-таблица\n";
 		cout << "2) Словарь\n3) Выйти\n";
-		int option;
-		cin >> option;
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case 1:

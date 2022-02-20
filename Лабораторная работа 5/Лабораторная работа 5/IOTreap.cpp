@@ -203,3 +203,39 @@ void TreapMenu()
 		}
 	}
 }
+
+void PrintTreap(TreapNode* nodeToPrint, int tabCount)
+{
+	if (nodeToPrint != nullptr)
+	{
+		PrintTreap(nodeToPrint->Right, tabCount + 1);
+		for (int i = 0; i < tabCount; i++)
+		{
+			cout << "\t";
+		}
+		cout << "(" << nodeToPrint->Key << "; " << nodeToPrint->Priority << ")";
+		if (nodeToPrint->Left != nullptr && nodeToPrint->Right != nullptr)
+		{
+			cout << "|\n";
+		}
+		if (nodeToPrint->Left == nullptr && nodeToPrint->Right != nullptr)
+		{
+			cout << "/\n";
+		}
+		if (nodeToPrint->Left != nullptr && nodeToPrint->Right == nullptr)
+		{
+			cout << "\\\n";
+		}
+		if (nodeToPrint->Left == nullptr && nodeToPrint->Right == nullptr)
+		{
+			cout << "\n";
+		}
+		PrintTreap(nodeToPrint->Left, tabCount + 1);
+	}
+}
+
+void ShowTreap(string message, TreapNode* nodeToPrint)
+{
+	cout << message;
+	PrintTreap(nodeToPrint, 0);
+}

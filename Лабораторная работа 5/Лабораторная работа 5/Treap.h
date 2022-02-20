@@ -108,13 +108,6 @@ void DeleteFromTreapUnoptimised(Treap* treap, int key);
 void DeleteFromTreapOptimised(Treap* treap, TreapNode* node, TreapNode* parent, int key);
 
 /// <summary>
-/// Функция вывода декартова дерева на экран
-/// </summary>
-/// <param name="nodeToPrint">указатель на корень дерева</param>
-/// <param name="lndent">кол-во табуляций</param>
-void PrintTreap(TreapNode* nodeToPrint, int lndent = 0);
-
-/// <summary>
 /// Функция проверки декартова дерева на пустоту
 /// </summary>
 /// <param name="treap">указатель на экземпляр дерева</param>
@@ -126,10 +119,3 @@ bool IsTreapEmpty(Treap* treap);
 /// </summary>
 /// <param name=="node">указатель на корень декартова дерева</param>
 void DeleteTreap(TreapNode* node);
-
-/// <summary>
-/// Функция вывода сообщения и декартова дерева
-/// </summary>
-/// <param name=="message">сообщение,выводимое на экран</param>
-/// <param name=="nodeToPrint">корень поддерева</param>
-void ShowTreap(string message, TreapNode* nodeToPrint);

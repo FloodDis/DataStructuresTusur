@@ -74,21 +74,7 @@ BinaryTreeNode* MaximumBinaryTreeSearch(BinaryTreeNode* rootNode);
 BinaryTreeNode* MinimumBinaryTreeSearch(BinaryTreeNode* rootNode);
 
 /// <summary>
-/// Функция вывода бинарного дерева на экран
-/// </summary>
-/// <param name="rootNode">указатель на корень бинарного дерева</param>
-/// <param name="tabCount">номер выводимого слоя бинарного дерева</param>
-void PrintBinaryTree(BinaryTreeNode* rootNode, int tabCount);
-
-/// <summary>
 /// Функция проверки бинарного дерева на пустоту
 /// </summary>
 /// <param name="rootNode">указатель на корень бинарного дерева</param>
 bool IsBinaryTreeEmpty(BinaryTreeNode* rootNode);
-
-/// <summary>
-/// Функция вывода сообщения Ваше бинарное дерево: и бинарного дерева
-/// </summary>
-/// <param name="rootNode">указатель на корень бинарного дерева</param>
-/// <param name="tabCount">номер выводимого слоя бинарного дерева</param>
-void ShowBinaryTree(BinaryTreeNode* rootNode);

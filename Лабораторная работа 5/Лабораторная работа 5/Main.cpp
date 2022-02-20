@@ -1,5 +1,5 @@
 ﻿#include "IOBinaryTree.h"
-#include "Treap.h"
+#include "IOTreap.h"
 #include <iostream>
 using namespace std;
 

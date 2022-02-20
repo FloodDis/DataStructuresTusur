@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinaryTree.cpp" />
+    <ClCompile Include="FrequentlyUsed.cpp" />
     <ClCompile Include="IOBinaryTree.cpp" />
     <ClCompile Include="IOTreap.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="FrequentlyUsed.h" />
     <ClInclude Include="IOBinaryTree.h" />
     <ClInclude Include="IOTreap.h" />
     <ClInclude Include="Treap.h" />

@@ -66,14 +66,7 @@ void Rehashing(vector<KeyValueList*>& oldHashTable, double countOfElements)
 	}
 }
 
-void PrintTable(vector<KeyValueList*> hashTableUnit)
-{
-	for (int i = 0; i < hashTableUnit.size(); i++)
-	{
-		cout << i;
-		PrintKeyValueList(hashTableUnit[i]);
-	}
-}
+
 
 void PrintKeyValueList(KeyValueList* listUnit)
 {
@@ -151,8 +144,3 @@ double ElementCount(vector<KeyValueList*> hashTableUnit)
 	return count;
 }
 
-void ShowHashTable(vector<KeyValueList*> hashTableUnit)
-{
-	cout << "Ваша хэш-таблица:\n";
-	PrintTable(hashTableUnit);
-}

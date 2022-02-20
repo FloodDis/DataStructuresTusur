@@ -73,3 +73,18 @@ void HashTableMenu()
 		}
 	}
 }
+
+void PrintTable(vector<KeyValueList*> hashTableUnit)
+{
+	for (int i = 0; i < hashTableUnit.size(); i++)
+	{
+		cout << i;
+		PrintKeyValueList(hashTableUnit[i]);
+	}
+}
+
+void ShowHashTable(vector<KeyValueList*> hashTableUnit)
+{
+	cout << "Ваша хеш-таблица:\n";
+	PrintTable(hashTableUnit);
+}

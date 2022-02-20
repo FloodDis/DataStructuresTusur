@@ -95,11 +95,7 @@ int HashFunction(string key, int size);
 /// <param name="listUnit">экзмепляр списка коллизий</param>
 void PrintKeyValueList(KeyValueList* listUnit);
 
-/// <summary>
-/// Функция вывода хеш-таблицы на экран
-/// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-void PrintTable(vector<KeyValueList*> hashTableUnit);
+
 
 /// <summary>
 /// Функция поиска элемента в хеш-таблицы
@@ -116,8 +112,3 @@ string SearchInHashTable(string searchingKey, vector<KeyValueList*> hashTableUni
 /// <returns>количество элементов</returns>
 double ElementCount(vector<KeyValueList*> hashTableUnit);
 
-///<summary>
-/// Функция вывода строки Ваша хеш-таблица и хеш-таблицы
-/// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
-void ShowHashTable(vector<KeyValueList*> hashTableUnit);

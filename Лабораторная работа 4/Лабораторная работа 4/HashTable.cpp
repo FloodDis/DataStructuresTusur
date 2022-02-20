@@ -16,57 +16,77 @@ void InitializationOfHashTable(HashTable*& hashTableUnit, int size)
 void DeleteElementInHashTable(HashTable* hashTableUnit, string key)
 {
 	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
-	int index = 0;
-	while (hashTableUnit->arrayOfLists[hash]->Key != key && 
-		hashTableUnit->arrayOfLists[hash] != nullptr)
+	KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
+	while (buffer->Key != key && buffer != nullptr)
 	{
-		hashTableUnit->arrayOfLists[hash] = 
-			hashTableUnit->arrayOfLists[hash]->Next;
-		index++;
+		buffer = buffer->Next;
 	}
-	if (index == 0)
+
+	if (buffer->Previous == nullptr)
 	{
-		hashTableUnit->arrayOfLists[hash]->Key = "";
-		hashTableUnit->arrayOfLists[hash]->Value = "";
+		KeyValueList* tempBuffer = buffer;
+		buffer = buffer->Next;
+		delete tempBuffer;
+		tempBuffer = nullptr;
+		if (buffer == nullptr)
+		{
+			hashTableUnit->arrayOfLists[hash] = new KeyValueList;
+		}
+		else
+		{
+			hashTableUnit->arrayOfLists[hash] = buffer;
+			buffer = nullptr;
+		}
 	}
 	else
 	{
 		KeyValueList* next;
 		KeyValueList* previous;
-		previous = hashTableUnit->arrayOfLists[hash]->Previous;
-		next = hashTableUnit->arrayOfLists[hash]->Next;
+		previous = buffer->Previous;
+		next = buffer->Next;
 		if (previous != nullptr)
-			previous->Next = hashTableUnit->arrayOfLists[hash]->Next;
+		{
+			previous->Next = buffer->Next;
+		}
 		if (next != nullptr)
-			next->Previous = hashTableUnit->arrayOfLists[hash]->Previous;
-		free(hashTableUnit->arrayOfLists[hash]);
+		{
+			next->Previous = buffer->Previous;
+		}
+		free(buffer);
 	}
 }
 
 void Rehashing(HashTable*& tableToRehash, double countOfElements)
 {
-	HashTable* temp;
-	InitializationOfHashTable(temp, countOfElements);
+	vector<KeyValueList> temp;
 	int j = 0;
 	for (int i = 0; i < tableToRehash->arrayOfLists.size(); i++)
 	{
-		KeyValueList* keyValueCopy = new KeyValueList;
-		keyValueCopy = tableToRehash->arrayOfLists[i];
+		KeyValueList* keyValueCopy = tableToRehash->arrayOfLists[i];
 		while (keyValueCopy != nullptr)
 		{
-			temp->arrayOfLists[j] = keyValueCopy;
-			j++;
+			if (keyValueCopy->Key != "")
+			{
+				temp.resize(j + 1);
+				temp[j].Key = keyValueCopy->Key;
+				temp[j].Value = keyValueCopy->Value;
+				j++;
+			}
 			keyValueCopy = keyValueCopy->Next;
 		}
+		delete keyValueCopy;
+		keyValueCopy = nullptr;
 	}
-	tableToRehash->arrayOfLists.clear();
 	//TODO: to const +
-	int newSize = (int)(tableToRehash->GrowthFactor * countOfElements);
+	int oldSize = tableToRehash->Size;
+	int newSize = (int)(tableToRehash->GrowthFactor * oldSize);
+	tableToRehash->arrayOfLists.clear();
+	tableToRehash->Size = 0;
 	InitializationOfHashTable(tableToRehash, newSize);
 	for (int i = 0; i < countOfElements; i++)
 	{
-		string value = temp->arrayOfLists[i]->Value;
-		string key = temp->arrayOfLists[i]->Key;
+		string value = temp[i].Value;
+		string key = temp[i].Key;
 		AddElementInHashTable(tableToRehash, value, key);
 	}
 }
@@ -93,42 +113,43 @@ void AddElementInHashTable(HashTable* hashTableUnit, string value, string key)
 	}
 	else
 	{
-		while (hashTableUnit->arrayOfLists[hash]->Next != nullptr)
+		KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
+		while (buffer->Next != nullptr)
 		{
-			hashTableUnit->arrayOfLists[hash] = 
-				hashTableUnit->arrayOfLists[hash]->Next;
+			buffer = buffer->Next;
 		}
 		newEndNode->Next = nullptr;
-		newEndNode->Previous = hashTableUnit->arrayOfLists[hash];
+		newEndNode->Previous = buffer;
 		newEndNode->Key = key;
 		newEndNode->Value = value;
-		hashTableUnit->arrayOfLists[hash]->Next = newEndNode;
+		buffer->Next = newEndNode;
 	}
 }
 
 string SearchInHashTable(string searchingKey, HashTable* hashTableUnit)
 {
-	int hash = 
+	int hash =
 		HashFunction(searchingKey, hashTableUnit->arrayOfLists.size());
-	while (hashTableUnit->arrayOfLists[hash] != nullptr)
+	KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
+	string message = "";
+	while (buffer != nullptr)
 	{
-		if (hashTableUnit->arrayOfLists[hash]->Key == searchingKey)
+		if (buffer->Key == searchingKey)
 		{
-			string message = "Элемент Key = ";
-			message += hashTableUnit->arrayOfLists[hash]->Key;
+			message += "Элемент Key = ";
+			message += buffer->Key;
 			message += " Value = ";
-			message += hashTableUnit->arrayOfLists[hash]->Value;
+			message += buffer->Value;
 			message += " найден с хешем ";
-			message += to_string(hash);
-			return message;
+			message += to_string(hash) + "\n";
+			buffer = buffer->Next;
 		}
 		else
 		{
-			hashTableUnit->arrayOfLists[hash] = 
-				hashTableUnit->arrayOfLists[hash]->Next;
+			buffer = buffer->Next;
 		}
 	}
-	return "Данного значения нет в хеш-таблице";
+	return message;
 }
 
 double ElementCount(HashTable* hashTableUnit)
@@ -136,11 +157,14 @@ double ElementCount(HashTable* hashTableUnit)
 	double count = 0;
 	for (int i = 0; i < hashTableUnit->arrayOfLists.size(); i++)
 	{
-		while (hashTableUnit->arrayOfLists[i] != nullptr)
+		KeyValueList* buffer = hashTableUnit->arrayOfLists[i];
+		while (buffer != nullptr)
 		{
-			count++;
-			hashTableUnit->arrayOfLists[i] = 
-				hashTableUnit->arrayOfLists[i]->Next;
+			if (buffer->Key != "")
+			{
+				count++;
+			}
+			buffer = buffer->Next;
 		}
 	}
 	return count;

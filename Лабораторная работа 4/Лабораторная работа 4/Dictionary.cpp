@@ -47,4 +47,3 @@ void InitializationOfDictionary(HashTable*& hashTableUnit, int size)
 {
 	InitializationOfHashTable(hashTableUnit, size);
 }
-

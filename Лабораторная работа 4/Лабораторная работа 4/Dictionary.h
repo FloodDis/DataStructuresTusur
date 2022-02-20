@@ -40,4 +40,3 @@ void DeleteFromDictionary(HashTable*& hashTableUnit, string key);
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ искомого элемента</param>
 string SearchInDictionary(HashTable*& hashTableUnit, string key);
-

@@ -3,6 +3,7 @@
 void DictionaryMenu()
 {
 	Dictionary* dictionaryUnit = new Dictionary;
+	dictionaryUnit->HashTable = new HashTable;
 	setlocale(LC_ALL, "ru");
 	int size = EnterNumber("Введите размер словаря:\n");
 	InitializationOfDictionary(dictionaryUnit->HashTable, size);
@@ -10,8 +11,9 @@ void DictionaryMenu()
 
 	while (true)
 	{
-		printf("Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Поиск элемента\n4) Рехешинг\n5) Выйти\n");
-
+		cout << "Выберите действие:\n1) Добавить элемент\n"
+			<< "2) Удалить элемент\n3) Поиск элемента\n"
+			<< "4) Рехешинг\n5) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -38,6 +40,14 @@ void DictionaryMenu()
 			{
 				string key =
 					EnterString("Введите key удаляемого элемента: ");
+				string answer = 
+					SearchInDictionary(dictionaryUnit->HashTable, key);
+				if (answer == "")
+				{
+					cout << "Элемент не найден.\n";
+					ShowDictionary(dictionaryUnit->HashTable);
+					break;
+				}
 				DeleteFromDictionary(dictionaryUnit->HashTable, key);
 				ShowDictionary(dictionaryUnit->HashTable);
 				break;
@@ -45,10 +55,10 @@ void DictionaryMenu()
 
 			case 3:
 			{
-				string key = 
+				string key =
 					EnterString("Введите key искомого элемента: ");
 				string answer = "";
-				answer = 
+				answer =
 					SearchInDictionary(dictionaryUnit->HashTable, key);
 				if (answer == "")
 				{

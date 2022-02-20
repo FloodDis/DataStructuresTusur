@@ -20,7 +20,9 @@ void HashTableMenu()
 				double size = hashTableUnit->arrayOfLists.size();
 				string value = EnterString("¬ведите значение value: ");
 				string key = EnterString("¬ведите значение key: ");
-				double fillFactor = ElementCount(hashTableUnit) / size;
+				double fillFactor;
+				int elementCount = ElementCount(hashTableUnit);
+				fillFactor = ElementCount(hashTableUnit) / size;
 				if (fillFactor >= hashTableUnit->MaxFillFactor)
 				{
 					Rehashing(hashTableUnit, ElementCount(hashTableUnit));
@@ -34,6 +36,13 @@ void HashTableMenu()
 			{
 				string key = 
 					EnterString("¬ведите key удал€емого элемента: ");
+				string answer = SearchInHashTable(key, hashTableUnit);
+				if (answer == "")
+				{
+					cout << "Ёлемент не найден.\n";
+					ShowHashTable(hashTableUnit);
+					break;
+				}
 				DeleteElementInHashTable(hashTableUnit, key);
 				ShowHashTable(hashTableUnit);
 				break;
@@ -43,8 +52,7 @@ void HashTableMenu()
 			{
 				string key = 
 					EnterString("¬ведите key искомого элемента: ");
-				string answer = "";
-				answer = SearchInHashTable(key, hashTableUnit);
+				string answer = SearchInHashTable(key, hashTableUnit);
 				if (answer == "")
 				{
 					cout << "Ёлемент не найден.\n";

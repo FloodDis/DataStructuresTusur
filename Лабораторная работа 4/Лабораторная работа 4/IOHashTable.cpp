@@ -2,23 +2,22 @@
 
 void HashTableMenu()
 {
-	vector<KeyValueList*> hashTableUnit;
 	setlocale(LC_ALL, "ru");
-	int size;
-	EnterNumber("Введите размер хеш-таблицы:\n", size);
+	vector<KeyValueList*> hashTableUnit;
+	int size = EnterNumber("Введите размер хеш-таблицы:\n");
 	InitializationOfHashTable(hashTableUnit, size);
 	ShowHashTable(hashTableUnit);
-	int option;
 	while (true)
 	{
-		printf("Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Поиск элемента\n4) Рехешинг\n5) Выйти\n");
-		cin >> option;
+		cout << "Выберите действие:\n1) Добавить элемент\n";
+		cout << "2) Удалить элемент\n3) Поиск элемента\n";
+		cout << "4) Рехешинг\n5) Выйти\n";
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case 1:
 			{
-				double size;
-				size = hashTableUnit.size();
+				double size = hashTableUnit.size();
 				string value;
 				string key;
 				EnterString("Введите значение value: ", value);

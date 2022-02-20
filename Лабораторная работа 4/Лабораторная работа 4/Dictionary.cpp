@@ -47,18 +47,6 @@ void InitializationOfDictionary(vector<KeyValueList*>& hashTableUnit, int size)
 	InitializationOfHashTable(hashTableUnit, size);
 }
 
-void EnterNumber(string message, int& value)
-{
-	cout << message;
-	cin >> value;
-}
-
-void EnterString(string message, string& value)
-{
-	cout << message;
-	cin >> value;
-}
-
 void ShowDictionary(vector<KeyValueList*> hashTableUnit)
 {
 	cout << "Ваш словарь:\n";

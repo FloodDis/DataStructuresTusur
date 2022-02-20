@@ -30,7 +30,7 @@
     <ClCompile Include="IOHashTable.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Лабораторная работа 3\Лабораторная работа 3\FrequentlyUsed.cpp">
+    <ClCompile Include="FrequentlyUsed.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClInclude Include="IOHashTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Лабораторная работа 3\Лабораторная работа 3\FrequentlyUsed.h">
+    <ClInclude Include="FrequentlyUsed.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

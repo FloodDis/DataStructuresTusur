@@ -18,10 +18,8 @@ void HashTableMenu()
 			case 1:
 			{
 				double size = hashTableUnit.size();
-				string value;
-				string key;
-				EnterString("Введите значение value: ", value);
-				EnterString("Введите значение key: ", key);
+				string value = EnterString("Введите значение value: ");
+				string key = EnterString("Введите значение key: ");
 				double fillFactor = ElementCount(hashTableUnit) / size;
 				if (fillFactor >= 0.9)
 				{
@@ -34,8 +32,7 @@ void HashTableMenu()
 
 			case 2:
 			{
-				string key;
-				EnterString("Введите key удаляемого элемента: ", key);
+				string key = EnterString("Введите key удаляемого элемента: ");
 				DeleteElementInHashTable(hashTableUnit, key);
 				ShowHashTable(hashTableUnit);
 				break;
@@ -43,10 +40,15 @@ void HashTableMenu()
 
 			case 3:
 			{
-				string key;
-				string answer;
-				EnterString("Введите key искомого элемента: ", key);
+				string key = EnterString("Введите key искомого элемента: ");
+				string answer = "";
 				answer = SearchInHashTable(key, hashTableUnit);
+				if (answer == "")
+				{
+					cout << "Элемент не найден.\n";
+					ShowHashTable(hashTableUnit);
+					break;
+				}
 				cout << answer << "\n";
 				ShowHashTable(hashTableUnit);
 				break;
@@ -62,12 +64,12 @@ void HashTableMenu()
 			case 5:
 			{
 				return;
-				break;
 			}
 
 			default:
 			{
-				cout << "Попробуйте снова!" << endl;
+				cout << "Попробуйте снова\n";
+				ShowHashTable(hashTableUnit);
 				break;
 			}
 		}
@@ -87,4 +89,14 @@ void ShowHashTable(vector<KeyValueList*> hashTableUnit)
 {
 	cout << "Ваша хеш-таблица:\n";
 	PrintTable(hashTableUnit);
+}
+
+void PrintKeyValueList(KeyValueList* listUnit)
+{
+	while (listUnit != nullptr)
+	{
+		cout << " -> " << listUnit->Value << " " << listUnit->Key;
+		listUnit = listUnit->Next;
+	}
+	cout << "\n";
 }

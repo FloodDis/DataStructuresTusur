@@ -42,20 +42,6 @@ void DeleteFromDictionary(vector<KeyValueList*>& hashTableUnit, string key);
 string SearchInDictionary(vector<KeyValueList*>& hashTableUnit, string key);
 
 /// <summary>
-/// Функция ввода числа и вывода сообщения
-/// </summary>
-/// <param name="message">строка с сообщением</param>
-/// <param name="value">переменная, которой присваивается число</param>
-void EnterNumber(string message, int& value);
-
-/// <summary>
-/// Функция ввода строки и вывода сообщения
-/// </summary>
-/// <param name="message">строка с сообщением</param>
-/// <param name="value">переменная, которой присваивается строка</param>
-void EnterString(string message, string& value);
-
-/// <summary>
 /// Функция вывода словаря
 /// </summary>
 /// <param name="message">строка с сообщением</param>

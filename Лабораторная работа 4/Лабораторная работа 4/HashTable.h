@@ -90,14 +90,6 @@ void Rehashing(vector<KeyValueList*>& oldHashTable, double countOfElements);
 int HashFunction(string key, int size);
 
 /// <summary>
-/// Функция вывода списка коллизий на экран
-/// </summary>
-/// <param name="listUnit">экзмепляр списка коллизий</param>
-void PrintKeyValueList(KeyValueList* listUnit);
-
-
-
-/// <summary>
 /// Функция поиска элемента в хеш-таблицы
 /// </summary>
 /// <param name="searchingKey">ключ искомого элемента</param>
@@ -111,4 +103,3 @@ string SearchInHashTable(string searchingKey, vector<KeyValueList*> hashTableUni
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <returns>количество элементов</returns>
 double ElementCount(vector<KeyValueList*> hashTableUnit);
-

@@ -18,3 +18,9 @@ void PrintTable(vector<KeyValueList*> hashTableUnit);
 /// </summary>
 /// <param name="hashTableUnit">экземпл€р хеш-таблицы</param>
 void ShowHashTable(vector<KeyValueList*> hashTableUnit);
+
+/// <summary>
+/// ‘ункци€ вывода списка коллизий на экран
+/// </summary>
+/// <param name="listUnit">экзмепл€р списка коллизий</param>
+void PrintKeyValueList(KeyValueList* listUnit);

@@ -66,18 +66,6 @@ void Rehashing(vector<KeyValueList*>& oldHashTable, double countOfElements)
 	}
 }
 
-
-
-void PrintKeyValueList(KeyValueList* listUnit)
-{
-	while (listUnit != nullptr)
-	{
-		cout << " -> " << listUnit->Value << " " << listUnit->Key;
-		listUnit = listUnit->Next;
-	}
-	cout << "\n";
-}
-
 int HashFunction(string key, int size)
 {
 	int hash = 0;

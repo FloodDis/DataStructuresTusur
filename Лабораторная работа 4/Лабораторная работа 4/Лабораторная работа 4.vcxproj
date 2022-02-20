@@ -139,16 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Лабораторная работа 3\Лабораторная работа 3\FrequentlyUsed.cpp" />
     <ClCompile Include="Dictionary.cpp" />
+    <ClCompile Include="FrequentlyUsed.cpp" />
     <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="IODictionary.cpp" />
     <ClCompile Include="IOHashTable.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Лабораторная работа 3\Лабораторная работа 3\FrequentlyUsed.h" />
     <ClInclude Include="Dictionary.h" />
+    <ClInclude Include="FrequentlyUsed.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="IODictionary.h" />
     <ClInclude Include="IOHashTable.h" />

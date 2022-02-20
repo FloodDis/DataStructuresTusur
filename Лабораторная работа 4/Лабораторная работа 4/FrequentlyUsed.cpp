@@ -20,3 +20,11 @@ int EnterNumber(string message)
 		}
 	}
 }
+
+string EnterString(string message)
+{
+	cout << message;
+	string value;
+	cin >> value;
+	return value;
+}

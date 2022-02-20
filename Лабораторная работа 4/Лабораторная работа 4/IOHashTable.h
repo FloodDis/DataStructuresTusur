@@ -23,4 +23,4 @@ void ShowHashTable(HashTable* hashTableUnit);
 /// ‘ункци€ вывода списка коллизий на экран
 /// </summary>
 /// <param name="listUnit">экзмепл€р списка коллизий</param>
-void PrintKeyValueList(HashTable* listUnit);
+void PrintKeyValueList(KeyValueList* listUnit);

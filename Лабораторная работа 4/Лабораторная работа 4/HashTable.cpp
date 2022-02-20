@@ -6,6 +6,7 @@ using namespace std;
 void InitializationOfHashTable(HashTable*& hashTableUnit, int size)
 {
 	hashTableUnit->arrayOfLists.resize(size);
+	hashTableUnit->Size = size;
 	for (int i = 0; i < size; i++)
 	{
 		hashTableUnit->arrayOfLists[i] = new KeyValueList;

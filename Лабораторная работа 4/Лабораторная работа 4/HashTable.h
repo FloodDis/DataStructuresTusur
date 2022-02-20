@@ -3,6 +3,32 @@
 #include <vector>
 using namespace std;
 
+/// <summary>
+/// Узел списка коллизий
+/// </summary>
+struct KeyValueList
+{
+	/// <summary>
+	/// Ключ
+	/// </summary>
+	string Key = "";
+
+	/// <summary>
+	/// Значение
+	/// </summary>
+	string Value = "";
+
+	/// <summary>
+	/// Указатель на следующий узел
+	/// </summary>
+	KeyValueList* Next = nullptr;
+
+	/// <summary>
+	/// Указатель на предыдущий узел
+	/// </summary>
+	KeyValueList* Previous = nullptr;
+};
+
 //TODO: в отдельную HashTable +
 
 /// <summary>
@@ -29,32 +55,6 @@ struct HashTable
 	/// Размер хеш-таблицы
 	/// </summary>
 	int Size = 0;
-};
-
-/// <summary>
-/// Узел списка коллизий
-/// </summary>
-struct KeyValueList
-{
-	/// <summary>
-	/// Ключ
-	/// </summary>
-	string Key = "";
-
-	/// <summary>
-	/// Значение
-	/// </summary>
-	string Value = "";
-
-	/// <summary>
-	/// Указатель на следующий узел
-	/// </summary>
-	KeyValueList* Next = nullptr;
-
-	/// <summary>
-	/// Указатель на предыдущий узел
-	/// </summary>
-	KeyValueList* Previous = nullptr;
 };
 
 /// <summary>

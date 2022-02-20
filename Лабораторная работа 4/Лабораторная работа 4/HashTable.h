@@ -24,6 +24,11 @@ struct HashTable
 	/// Максимальный коэффициент заполнения
 	/// </summary>
 	const float MaxFillFactor = 0.9;
+
+	/// <summary>
+	/// Размер хеш-таблицы
+	/// </summary>
+	int Size = arrayOfLists.size();
 };
 
 /// <summary>

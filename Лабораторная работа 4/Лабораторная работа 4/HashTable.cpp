@@ -16,9 +16,11 @@ void DeleteElementInHashTable(HashTable* hashTableUnit, string key)
 {
 	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
 	int index = 0;
-	while (hashTableUnit->arrayOfLists[hash]->Key != key && hashTableUnit->arrayOfLists[hash] != nullptr)
+	while (hashTableUnit->arrayOfLists[hash]->Key != key && 
+		hashTableUnit->arrayOfLists[hash] != nullptr)
 	{
-		hashTableUnit->arrayOfLists[hash] = hashTableUnit->arrayOfLists[hash]->Next;
+		hashTableUnit->arrayOfLists[hash] = 
+			hashTableUnit->arrayOfLists[hash]->Next;
 		index++;
 	}
 	if (index == 0)
@@ -78,57 +80,66 @@ int HashFunction(string key, int size)
 	return hash % size;
 }
 
-void AddElementInHashTable(vector<KeyValueList*> hashTableUnit, string value, string key)
+void AddElementInHashTable(HashTable* hashTableUnit, string value, string key)
 {
 	KeyValueList* newEndNode;
 	newEndNode = new KeyValueList;
-	int hash = HashFunction(key, hashTableUnit.size());
-	if (hashTableUnit[hash]->Key == "")
+	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
+	if (hashTableUnit->arrayOfLists[hash]->Key == "")
 	{
-		hashTableUnit[hash]->Key = key;
-		hashTableUnit[hash]->Value = value;
+		hashTableUnit->arrayOfLists[hash]->Key = key;
+		hashTableUnit->arrayOfLists[hash]->Value = value;
 	}
 	else
 	{
-		while (hashTableUnit[hash]->Next != nullptr)
+		while (hashTableUnit->arrayOfLists[hash]->Next != nullptr)
 		{
-			hashTableUnit[hash] = hashTableUnit[hash]->Next;
+			hashTableUnit->arrayOfLists[hash] = 
+				hashTableUnit->arrayOfLists[hash]->Next;
 		}
 		newEndNode->Next = nullptr;
-		newEndNode->Previous = hashTableUnit[hash];
+		newEndNode->Previous = hashTableUnit->arrayOfLists[hash];
 		newEndNode->Key = key;
 		newEndNode->Value = value;
-		hashTableUnit[hash]->Next = newEndNode;
+		hashTableUnit->arrayOfLists[hash]->Next = newEndNode;
 	}
 }
 
-string SearchInHashTable(string searchingKey, vector<KeyValueList*> hashTableUnit)
+string SearchInHashTable(string searchingKey, HashTable* hashTableUnit)
 {
-	string value;
-	int hash = HashFunction(searchingKey, hashTableUnit.size());
-	while (hashTableUnit[hash] != nullptr)
+	int hash = 
+		HashFunction(searchingKey, hashTableUnit->arrayOfLists.size());
+	while (hashTableUnit->arrayOfLists[hash] != nullptr)
 	{
-		if (hashTableUnit[hash]->Key == searchingKey)
+		if (hashTableUnit->arrayOfLists[hash]->Key == searchingKey)
 		{
-			return "Элемент Key = " + hashTableUnit[hash]->Key + " Value = " + hashTableUnit[hash]->Value + " найден с хешем " + to_string(hash);
+			string message = "Элемент Key = ";
+			message += hashTableUnit->arrayOfLists[hash]->Key;
+			message += " Value = ";
+			message += hashTableUnit->arrayOfLists[hash]->Value;
+			message += " найден с хешем ";
+			message += to_string(hash);
+			return message;
 		}
 		else
 		{
-			hashTableUnit[hash] = hashTableUnit[hash]->Next;
+			hashTableUnit->arrayOfLists[hash] = 
+				hashTableUnit->arrayOfLists[hash]->Next;
 		}
 	}
 	return "Данного значения нет в хеш-таблице";
 }
 
-double ElementCount(vector<KeyValueList*> hashTableUnit)
+double ElementCount(HashTable* hashTableUnit)
 {
 	double count = 0;
-	for (int i = 0; i < hashTableUnit.size(); i++)
+	for (int i = 0; i < hashTableUnit->arrayOfLists.size(); i++)
 	{
-		while (hashTableUnit[i] != nullptr)
+		while (hashTableUnit->arrayOfLists[i] != nullptr)
 		{
 			count++;
-			hashTableUnit[i] = hashTableUnit[i]->Next;
+			hashTableUnit->arrayOfLists[i] = 
+				hashTableUnit->arrayOfLists[i]->Next;
 		}
 	}
 	return count;

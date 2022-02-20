@@ -100,11 +100,11 @@ int HashFunction(string key, int size);
 /// <param name="searchingKey">ключ искомого элемента</param>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <returns>строка с ответом</returns>
-string SearchInHashTable(string searchingKey, vector<KeyValueList*> hashTableUnit);
+string SearchInHashTable(string searchingKey, HashTable* hashTableUnit);
 
 ///<summary>
 /// Функция подсчета элементов
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <returns>количество элементов</returns>
-double ElementCount(vector<KeyValueList*> hashTableUnit);
+double ElementCount(HashTable* hashTableUnit);

@@ -28,7 +28,7 @@ struct HashTable
 	/// <summary>
 	/// Размер хеш-таблицы
 	/// </summary>
-	int Size = arrayOfLists.size();
+	int Size = 0;
 };
 
 /// <summary>

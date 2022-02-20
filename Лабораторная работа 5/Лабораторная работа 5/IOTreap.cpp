@@ -182,7 +182,7 @@ void TreapMenu()
 			case PrintMergedTree:
 			{
 				TreapNode* newTree = new TreapNode;
-				int keyOfNewElement = EnterNumber("Введите ключ нового дерева: ";
+				int keyOfNewElement = EnterNumber("Введите ключ нового дерева: ");
 				int priority = rand() % 100;
 				newTree = 
 					CreationOfTreap

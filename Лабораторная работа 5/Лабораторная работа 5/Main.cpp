@@ -16,7 +16,7 @@ void MainMenu()
 	while (true)
 	{
 		cout << "Выберите структуру данных:\n1) Бинарное дерево"
-			<< "2) Декартово дерево\n3) Выйти\n";
+			<< "\n2) Декартово дерево\n3) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{

@@ -38,19 +38,9 @@ void TreapMenu()
 		DeleteTree = 6,
 
 		/// <summary>
-		/// Вывод разрезанных деревьев на экран
-		/// </summary>
-		PrintSplitTrees = 7,
-
-		/// <summary>
-		/// Вывод слитых деревьев на экран
-		/// </summary>
-		PrintMergedTree = 8,
-
-		/// <summary>
 		/// Выход в главное меню
 		/// </summary>
-		Exit = 9
+		Exit = 7
 	};
 	srand(time(nullptr));
 	setlocale(LC_ALL, "ru");
@@ -68,7 +58,7 @@ void TreapMenu()
 			<< "2) Добавить элемент (оптимизировано)\n3) Найти элемент\n"
 			<< "4) Удалить элемент (непотимизировано)\n"
 			<< "5) Удалить элемент(оптимизировано)\n6) Удалить дерево\n"
-			<< "7) Разрезать дерево\n8) Слить деревья\n9) Выйти\n";
+			<< "7) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -165,32 +155,6 @@ void TreapMenu()
 					CreationOfTreap
 					(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
 				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
-				break;
-			}
-
-			case PrintSplitTrees:
-			{
-				TreapNode* left;
-				TreapNode* right;
-				int key = EnterNumber("Введите ключ разреразния дерева: ");
-				Split(rootNode->Root, key, left, right);
-				ShowTreap("Ваше левое дерево:\n", left);
-				ShowTreap("Ваше правое дерево:\n", right);
-				break;
-			}
-
-			case PrintMergedTree:
-			{
-				TreapNode* newTree = new TreapNode;
-				int keyOfNewElement = EnterNumber("Введите ключ нового дерева: ");
-				int priority = rand() % 100;
-				newTree = 
-					CreationOfTreap
-					(newTree, keyOfNewElement, priority, nullptr, nullptr);
-				ShowTreap("Деревья для слияния:\n", rootNode->Root);
-				ShowTreap("\n", newTree);
-				rootNode->Root = Merge(rootNode->Root, newTree);
-				ShowTreap("Ваше слитое дерево:\n", rootNode->Root);
 				break;
 			}
 

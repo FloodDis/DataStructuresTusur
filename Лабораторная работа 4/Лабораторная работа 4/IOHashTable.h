@@ -11,16 +11,16 @@ void HashTableMenu();
 /// ‘ункци€ вывода хеш-таблицы на экран
 /// </summary>
 /// <param name="hashTableUnit">экземпл€р хеш-таблицы</param>
-void PrintTable(vector<KeyValueList*> hashTableUnit);
+void PrintTable(HashTable* hashTableUnit);
 
 ///<summary>
 /// ‘ункци€ вывода строки ¬аша хеш-таблица и хеш-таблицы
 /// </summary>
 /// <param name="hashTableUnit">экземпл€р хеш-таблицы</param>
-void ShowHashTable(vector<KeyValueList*> hashTableUnit);
+void ShowHashTable(HashTable* hashTableUnit);
 
 /// <summary>
 /// ‘ункци€ вывода списка коллизий на экран
 /// </summary>
 /// <param name="listUnit">экзмепл€р списка коллизий</param>
-void PrintKeyValueList(KeyValueList* listUnit);
+void PrintKeyValueList(HashTable* listUnit);

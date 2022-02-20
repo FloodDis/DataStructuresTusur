@@ -5,8 +5,8 @@ void HashTableMenu()
 	setlocale(LC_ALL, "ru");
 	HashTable* hashTableUnit = new HashTable;
 	int size = EnterNumber("Введите размер хеш-таблицы:\n");
-	InitializationOfHashTable(hashTableUnit->arrayOfLists, size);
-	ShowHashTable(hashTableUnit->arrayOfLists);
+	InitializationOfHashTable(hashTableUnit, size);
+	ShowHashTable(hashTableUnit);
 	while (true)
 	{
 		cout << "Выберите действие:\n1) Добавить элемент\n";
@@ -17,11 +17,11 @@ void HashTableMenu()
 		{
 			case 1:
 			{
-				double size = hashTableUnit.size();
+				double size = hashTableUnit->arrayOfLists.size();
 				string value = EnterString("Введите значение value: ");
 				string key = EnterString("Введите значение key: ");
 				double fillFactor = ElementCount(hashTableUnit) / size;
-				if (fillFactor >= 0.9)
+				if (fillFactor >= hashTableUnit->MaxFillFactor)
 				{
 					Rehashing(hashTableUnit, ElementCount(hashTableUnit));
 				}
@@ -32,7 +32,8 @@ void HashTableMenu()
 
 			case 2:
 			{
-				string key = EnterString("Введите key удаляемого элемента: ");
+				string key = 
+					EnterString("Введите key удаляемого элемента: ");
 				DeleteElementInHashTable(hashTableUnit, key);
 				ShowHashTable(hashTableUnit);
 				break;
@@ -40,7 +41,8 @@ void HashTableMenu()
 
 			case 3:
 			{
-				string key = EnterString("Введите key искомого элемента: ");
+				string key = 
+					EnterString("Введите key искомого элемента: ");
 				string answer = "";
 				answer = SearchInHashTable(key, hashTableUnit);
 				if (answer == "")
@@ -76,16 +78,16 @@ void HashTableMenu()
 	}
 }
 
-void PrintTable(vector<KeyValueList*> hashTableUnit)
+void PrintTable(HashTable* hashTableUnit)
 {
-	for (int i = 0; i < hashTableUnit.size(); i++)
+	for (int i = 0; i < hashTableUnit->arrayOfLists.size(); i++)
 	{
 		cout << i;
-		PrintKeyValueList(hashTableUnit[i]);
+		PrintKeyValueList(hashTableUnit->arrayOfLists[i]);
 	}
 }
 
-void ShowHashTable(vector<KeyValueList*> hashTableUnit)
+void ShowHashTable(HashTable* hashTableUnit)
 {
 	cout << "Ваша хеш-таблица:\n";
 	PrintTable(hashTableUnit);

@@ -1,10 +1,9 @@
 ﻿#include <iostream>
-#include "Dictionary.h"
-#include "HashTable.h"
+#include "IODictionary.h"
+#include "IOHashTable.h"
 
 void MainMenu();
-void DictionaryMenu();
-void HashTableMenu();
+
 int main()
 {
 	MainMenu();

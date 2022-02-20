@@ -13,11 +13,11 @@ int main()
 void MainMenu()
 {
 	setlocale(LC_ALL, "ru");
-	int option;
 	while (true)
 	{
 		cout << "Выберите структуру данных:\n1) Хеш-таблица\n";
 		cout << "2) Словарь\n3) Выйти\n";
+		int option;
 		cin >> option;
 		switch (option)
 		{

@@ -131,3 +131,39 @@ void BinaryTreeMenu()
 		}
 	}
 }
+
+void PrintBinaryTree(BinaryTreeNode* rootNode, int tabCount)
+{
+	if (rootNode != nullptr)
+	{
+		PrintBinaryTree(rootNode->Right, tabCount + 1);
+		for (int i = 0; i < tabCount; i++)
+		{
+			cout << "\t";
+		}
+		cout << "(" << rootNode->Key << "; " << rootNode->Data << ")";
+		if (rootNode->Left != nullptr && rootNode->Right != nullptr)
+		{
+			cout << "|\n";
+		}
+		if (rootNode->Left == nullptr && rootNode->Right != nullptr)
+		{
+			cout << "/\n";
+		}
+		if (rootNode->Left != nullptr && rootNode->Right == nullptr)
+		{
+			cout << "\\\n";
+		}
+		if (rootNode->Left == nullptr && rootNode->Right == nullptr)
+		{
+			cout << "\n";
+		}
+		PrintBinaryTree(rootNode->Left, tabCount + 1);
+	}
+}
+
+void ShowBinaryTree(BinaryTreeNode* rootNode)
+{
+	cout << "Ваше бинарное дерево поиска:\n";
+	PrintBinaryTree(rootNode, 0);
+}

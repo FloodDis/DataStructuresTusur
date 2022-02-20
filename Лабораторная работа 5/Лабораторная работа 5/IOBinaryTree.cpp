@@ -38,40 +38,40 @@ void BinaryTreeMenu()
 		Exit = 6
 	};
 	setlocale(LC_ALL, "ru");
-	int option;
-	int dataOfRoot;
-	int keyOfRoot;
-	EnterNumber("Введите ключ корня бинарного дерева: ", keyOfRoot);
-	EnterNumber("Введите данные корня бинарного дерева: ", dataOfRoot);
+	int dataOfRoot = EnterNumber("Введите данные корня бинарного дерева: ");
+	int keyOfRoot = EnterNumber("Введите ключ корня бинарного дерева: ");
 	BinaryTreeNode* rootNode = CreationOfBinaryTree(keyOfRoot, dataOfRoot);
 	ShowBinaryTree(rootNode);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n";
-		cout << "4) Найти максимум дерева\n5) Найти минимум дерева\n6) Выйти\n";
-		cin >> option;
+		cout << "Выберите действие:\n1) Добавить элемент\n"
+			<< "2) Удалить элемент\n3) Найти элемент\n"
+			<< "4) Найти максимум дерева\n5) Найти минимум дерева\n"
+			<< "6) Выйти\n";
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case Add:
 			{
-				int dataOfNewNode;
-				int keyOfNewNode;
-				EnterNumber("Введите ключ нового элемента: ", keyOfNewNode);
-				EnterNumber("Введите данные нового элемента: ", dataOfNewNode);
-				rootNode = AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
+				int dataOfNewNode =
+					EnterNumber("Введите данные нового элемента: ");
+				int keyOfNewNode =
+					EnterNumber("Введите ключ нового элемента: ");
+				rootNode =
+					AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
 				ShowBinaryTree(rootNode);
 				break;
 			}
 
 			case Delete:
 			{
-				int keyToDelete;
+				int keyToDelete =
+					EnterNumber("Введите ключ удаляемого элемента: ");
 				if (IsBinaryTreeEmpty(rootNode))
 				{
 					cout << "\nДерево пусто!\n";
 					break;
 				}
-				EnterNumber("Введите ключ удаляемого элемента: ", keyToDelete);
 				rootNode = DeleteFromBinaryTree(rootNode, keyToDelete);
 				ShowBinaryTree(rootNode);
 				break;
@@ -79,8 +79,8 @@ void BinaryTreeMenu()
 
 			case Find:
 			{
-				int searchingKey;
-				EnterNumber("Введите ключ искомого элемента: ", searchingKey);
+				int searchingKey =
+					EnterNumber("Введите ключ искомого элемента: ");
 				BinaryTreeNode* answer = nullptr;
 				answer = BinaryTreeElementSearch(rootNode, searchingKey);
 				if (answer == nullptr)
@@ -89,7 +89,9 @@ void BinaryTreeMenu()
 				}
 				else
 				{
-					cout << "Элемент с ключем " << answer->Key << " имеет данные " << answer->Data << "\n";
+					cout << "Элемент с ключем " << answer->Key
+						<< " имеет данные " <<
+						answer->Data << "\n";
 				}
 				ShowBinaryTree(rootNode);
 				break;
@@ -97,17 +99,20 @@ void BinaryTreeMenu()
 
 			case FindMax:
 			{
-
-				cout << "Максимальный элемент вашего бинарного дерева поиска: ";
-				cout << "(" << MaximumBinaryTreeSearch(rootNode)->Key << ", " << MaximumBinaryTreeSearch(rootNode)->Data << ")";
+				cout << "Максимальный элемент бинарного дерева поиска: ";
+				int maximumKey = MaximumBinaryTreeSearch(rootNode)->Key;
+				int maximumData = MaximumBinaryTreeSearch(rootNode)->Data;
+				cout << "(" << maximumKey << ", " << maximumData << ")";
 				ShowBinaryTree(rootNode);
 				break;
 			}
 
 			case FindMin:
 			{
-				cout << "Миниимальный элемент вашего бинарного дерева поиска: ";
-				cout << "(" << MinimumBinaryTreeSearch(rootNode)->Key << ", " << MinimumBinaryTreeSearch(rootNode)->Data << ")";
+				cout << "Минимальный элемент бинарного дерева поиска: ";
+				int minimumKey = MinimumBinaryTreeSearch(rootNode)->Key;
+				int minimumData = MinimumBinaryTreeSearch(rootNode)->Data;
+				cout << "(" << minimumKey << ", " << minimumData << ")";
 				ShowBinaryTree(rootNode);
 				break;
 			}
@@ -115,12 +120,12 @@ void BinaryTreeMenu()
 			case Exit:
 			{
 				return;
-				break;
 			}
 
 			default:
 			{
 				cout << "Попробуйте снова!\n";
+				ShowBinaryTree(rootNode);
 				break;
 			}
 		}

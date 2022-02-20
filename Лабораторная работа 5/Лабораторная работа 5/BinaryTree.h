@@ -87,13 +87,6 @@ void PrintBinaryTree(BinaryTreeNode* rootNode, int tabCount);
 bool IsBinaryTreeEmpty(BinaryTreeNode* rootNode);
 
 /// <summary>
-/// Функция вывода сообщения и ввода числа
-/// </summary>
-/// <param name="message">строка, которую нужно вывести</param>
-/// <param name="value">переменная, которой присваивается новое число</param>
-void EnterNumber(string message, int& value);
-
-/// <summary>
 /// Функция вывода сообщения Ваше бинарное дерево: и бинарного дерева
 /// </summary>
 /// <param name="rootNode">указатель на корень бинарного дерева</param>

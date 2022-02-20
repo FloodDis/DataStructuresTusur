@@ -72,5 +72,15 @@ void DictionaryMenu()
 			}
 		}
 	}
+}
 
+void ShowDictionary(HashTable* hashTableUnit)
+{
+	cout << "Ваш словарь:\n";
+	PrintDictionary(hashTableUnit);
+}
+
+void PrintDictionary(HashTable* hashTableUnit)
+{
+	PrintTable(hashTableUnit);
 }

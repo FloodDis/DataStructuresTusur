@@ -41,14 +41,3 @@ void DeleteFromDictionary(HashTable*& hashTableUnit, string key);
 /// <param name="key">ключ искомого элемента</param>
 string SearchInDictionary(HashTable*& hashTableUnit, string key);
 
-/// <summary>
-/// Функция вывода словаря
-/// </summary>
-/// <param name="message">строка с сообщением</param>
-void PrintDictionary(HashTable* hashTableUnit);
-
-/// <summary>
-/// Функция вывода сообщения Ваш словарь: и словаря 
-/// </summary>
-/// <param name="hashTableUnit">экземпляр хэш-таблицы</param>
-void ShowDictionary(HashTable* hashTableUnit);

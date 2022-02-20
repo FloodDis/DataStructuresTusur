@@ -54,14 +54,12 @@ void TreapMenu()
 	};
 	srand(time(nullptr));
 	setlocale(LC_ALL, "ru");
-	int keyOfRoot;
-	int dataOfRoot;
-	int priority;
-	int option;
-	EnterNumber("Введите ключ корня декартового дерева: ", keyOfRoot);
-	priority = rand() % 100;
+	int keyOfRoot = EnterNumber("Введите ключ корня декартового дерева: ");
+	int priority = rand() % 100;
 	Treap* rootNode = new Treap;
-	rootNode->Root = CreationOfTreap(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
+	rootNode->Root =
+		CreationOfTreap
+		(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
 	ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 	while (true)
 	{
@@ -71,33 +69,31 @@ void TreapMenu()
 			<< "4) Удалить элемент (непотимизировано)\n"
 			<< "5) Удалить элемент(оптимизировано)\n6) Удалить дерево\n"
 			<< "7) Разрезать дерево\n8) Слить деревья\n9) Выйти\n";
-		cin >> option;
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case AddUnoptimized:
 			{
-				int key;
-				int priority;
-				EnterNumber("Введите ключ нового элемента: ", key);
-				priority = rand() % 100;
+				int key = EnterNumber("Введите ключ нового элемента: ");
+				int priority = rand() % 100;
 				AddInTreapUnoptimised(rootNode, key, priority);
 				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
+
 			case AddOptimized:
 			{
-				int key;
-				int priority;
-				EnterNumber("Введите ключ нового элемента: ", key);
-				priority = rand() % 100;
-				AddInTreapOptomised(rootNode, rootNode->Root, nullptr, key, priority);
+				int key = EnterNumber("Введите ключ нового элемента: ");
+				int priority = rand() % 100;
+				AddInTreapOptomised
+				(rootNode, rootNode->Root, nullptr, key, priority);
 				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
+
 			case Find:
 			{
-				int key;
-				EnterNumber("Введите ключ искомого элемента: ", key);
+				int key = EnterNumber("Введите ключ искомого элемента: ");
 				TreapNode* answer = nullptr;
 				answer = FindElementInTreap(rootNode->Root, key);
 				if (answer == nullptr)
@@ -106,12 +102,13 @@ void TreapMenu()
 				}
 				else
 				{
-					cout << "Элемент с ключом " << answer->Key << 
+					cout << "Элемент с ключом " << answer->Key <<
 						" имеет приоритет " << answer->Priority << "\n";
 				}
 				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
+
 			case DeleteUnoptimized:
 			{
 				if (IsTreapEmpty(rootNode))
@@ -119,8 +116,7 @@ void TreapMenu()
 					cout << "\nДерево пусто!\n";
 					break;
 				}
-				int key;
-				EnterNumber("Введите ключ элемента: ", key);
+				int key = EnterNumber("Введите ключ элемента: ");
 				TreapNode* answer = nullptr;
 				answer = FindElementInTreap(rootNode->Root, key);
 				if (answer == nullptr)
@@ -134,6 +130,7 @@ void TreapMenu()
 				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
+
 			case DeleteOptimized:
 			{
 				if (IsTreapEmpty(rootNode))
@@ -141,8 +138,7 @@ void TreapMenu()
 					cout << "\nДерево пусто!\n";
 					break;
 				}
-				int key;
-				EnterNumber("Введите ключ удаляемого элемента: ", key);
+				int key = EnterNumber("Введите ключ элемента: ");
 				TreapNode* answer = nullptr;
 				answer = FindElementInTreap(rootNode->Root, key);
 				if (answer == nullptr)
@@ -151,56 +147,62 @@ void TreapMenu()
 				}
 				else
 				{
-					DeleteFromTreapOptimised(rootNode, rootNode->Root, nullptr, key);
+					DeleteFromTreapOptimised
+					(rootNode, rootNode->Root, nullptr, key);
 				}
 				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
+
 			case DeleteTree:
 			{
 				DeleteTreap(rootNode->Root);
 				cout << "Ваше дерево удалено\n";
-				int keyOfRoot;
-				int dataOfRoot;
-				int priority;
-				int option;
-				EnterNumber("Введите ключ корня декартового дерева: ", keyOfRoot);
-				priority = rand() % 100;
-				rootNode->Root = CreationOfTreap(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
+				int keyOfRoot =
+					EnterNumber("Введите ключ корня декартового дерева: ");
+				int priority = rand() % 100;
+				rootNode->Root =
+					CreationOfTreap
+					(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
 				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
+
 			case PrintSplitTrees:
 			{
 				TreapNode* left;
 				TreapNode* right;
-				int key;
-				EnterNumber("Введите ключ разреразния дерева: ", key);
+				int key = EnterNumber("Введите ключ разреразния дерева: ");
 				Split(rootNode->Root, key, left, right);
 				ShowTreap("Ваше левое дерево:\n", left);
 				ShowTreap("Ваше правое дерево:\n", right);
 				break;
 			}
+
 			case PrintMergedTree:
 			{
 				TreapNode* newTree = new TreapNode;
-				int keyOfNewElement;
-				EnterNumber("Введите ключ нового дерева: ", keyOfNewElement);
+				int keyOfNewElement = EnterNumber("Введите ключ нового дерева: ";
 				int priority = rand() % 100;
-				newTree = CreationOfTreap(newTree, keyOfNewElement, priority, nullptr, nullptr);
+				newTree = 
+					CreationOfTreap
+					(newTree, keyOfNewElement, priority, nullptr, nullptr);
 				ShowTreap("Деревья для слияния:\n", rootNode->Root);
 				ShowTreap("\n", newTree);
 				rootNode->Root = Merge(rootNode->Root, newTree);
 				ShowTreap("Ваше слитое дерево:\n", rootNode->Root);
 				break;
 			}
+
 			case Exit:
 			{
 				return;
 			}
+
 			default:
 			{
 				cout << "Попробуйте снова!\n";
+				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 		}

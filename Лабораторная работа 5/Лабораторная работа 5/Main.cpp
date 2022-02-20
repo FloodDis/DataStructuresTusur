@@ -13,10 +13,11 @@ void main()
 void MainMenu()
 {
 	setlocale(LC_ALL, "ru");
-	int option;
 	while (true)
 	{
-		EnterNumber("Выберите структуру данных:\n1) Бинарное дерево\n2) Декартово дерево\n3) Выйти\n", option);
+		cout << "Выберите структуру данных:\n1) Бинарное дерево"
+			<< "2) Декартово дерево\n3) Выйти\n";
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case 1:
@@ -32,7 +33,6 @@ void MainMenu()
 			case 3:
 			{
 				return;
-				break;
 			}
 			default:
 			{
@@ -41,7 +41,6 @@ void MainMenu()
 			}
 		}
 	}
-
 }
 
 

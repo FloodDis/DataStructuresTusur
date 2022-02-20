@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 void MainMenu();
-
 void TreapMenu();
 void main()
 {

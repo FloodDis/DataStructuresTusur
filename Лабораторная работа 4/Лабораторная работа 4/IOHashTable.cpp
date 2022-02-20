@@ -3,10 +3,10 @@
 void HashTableMenu()
 {
 	setlocale(LC_ALL, "ru");
-	vector<KeyValueList*> hashTableUnit;
+	HashTable* hashTableUnit = new HashTable;
 	int size = EnterNumber("Введите размер хеш-таблицы:\n");
-	InitializationOfHashTable(hashTableUnit, size);
-	ShowHashTable(hashTableUnit);
+	InitializationOfHashTable(hashTableUnit->arrayOfLists, size);
+	ShowHashTable(hashTableUnit->arrayOfLists);
 	while (true)
 	{
 		cout << "Выберите действие:\n1) Добавить элемент\n";

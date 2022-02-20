@@ -3,66 +3,68 @@
 #include <string>
 using namespace std;
 
-void InitializationOfHashTable(vector<KeyValueList*>& hashTableUnit, int size)
+void InitializationOfHashTable(HashTable*& hashTableUnit, int size)
 {
-	hashTableUnit.resize(size);
+	hashTableUnit->arrayOfLists.resize(size);
 	for (int i = 0; i < size; i++)
 	{
-		hashTableUnit[i] = new KeyValueList;
+		hashTableUnit->arrayOfLists[i] = new KeyValueList;
 	}
 }
 
-void DeleteElementInHashTable(vector<KeyValueList*> hashTableUnit, string key)
+void DeleteElementInHashTable(HashTable* hashTableUnit, string key)
 {
-	int hash = HashFunction(key, hashTableUnit.size());
+	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
 	int index = 0;
-	while (hashTableUnit[hash]->Key != key && hashTableUnit[hash] != nullptr)
+	while (hashTableUnit->arrayOfLists[hash]->Key != key && hashTableUnit->arrayOfLists[hash] != nullptr)
 	{
-		hashTableUnit[hash] = hashTableUnit[hash]->Next;
+		hashTableUnit->arrayOfLists[hash] = hashTableUnit->arrayOfLists[hash]->Next;
 		index++;
 	}
 	if (index == 0)
 	{
-		hashTableUnit[hash]->Key = "";
-		hashTableUnit[hash]->Value = "";
+		hashTableUnit->arrayOfLists[hash]->Key = "";
+		hashTableUnit->arrayOfLists[hash]->Value = "";
 	}
 	else
 	{
 		KeyValueList* next;
 		KeyValueList* previous;
-		previous = hashTableUnit[hash]->Previous;
-		next = hashTableUnit[hash]->Next;
+		previous = hashTableUnit->arrayOfLists[hash]->Previous;
+		next = hashTableUnit->arrayOfLists[hash]->Next;
 		if (previous != nullptr)
-			previous->Next = hashTableUnit[hash]->Next;
+			previous->Next = hashTableUnit->arrayOfLists[hash]->Next;
 		if (next != nullptr)
-			next->Previous = hashTableUnit[hash]->Previous;
-		free(hashTableUnit[hash]);
+			next->Previous = hashTableUnit->arrayOfLists[hash]->Previous;
+		free(hashTableUnit->arrayOfLists[hash]);
 	}
 }
 
-void Rehashing(vector<KeyValueList*>& oldHashTable, double countOfElements)
+void Rehashing(HashTable*& tableToRehash, double countOfElements)
 {
-	vector<KeyValueList*> temp;
+	HashTable* temp;
 	InitializationOfHashTable(temp, countOfElements);
 	int j = 0;
-	for (int i = 0; i < oldHashTable.size(); i++)
+	for (int i = 0; i < tableToRehash->arrayOfLists.size(); i++)
 	{
 		KeyValueList* keyValueCopy = new KeyValueList;
-		keyValueCopy = oldHashTable[i];
+		keyValueCopy = tableToRehash->arrayOfLists[i];
 		while (keyValueCopy != nullptr)
 		{
-			temp[j] = keyValueCopy;
+			temp->arrayOfLists[j] = keyValueCopy;
 			j++;
 			keyValueCopy = keyValueCopy->Next;
 		}
 	}
-	oldHashTable.clear();
-	//TODO: to const
-	int newSize = (int)(1.5 * countOfElements);
-	InitializationOfHashTable(oldHashTable, newSize);
+	tableToRehash->arrayOfLists.clear();
+	//TODO: to const +
+	int newSize = (int)(tableToRehash->GrowthFactor * countOfElements);
+	InitializationOfHashTable(tableToRehash, newSize);
 	for (int i = 0; i < countOfElements; i++)
 	{
-		AddElementInHashTable(oldHashTable, temp[i]->Value, temp[i]->Key);
+		string value = temp->arrayOfLists[i]->Value;
+		string key = temp->arrayOfLists[i]->Key;
+		AddElementInHashTable(tableToRehash, value, key);
 	}
 }
 

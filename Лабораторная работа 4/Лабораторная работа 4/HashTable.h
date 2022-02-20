@@ -62,7 +62,7 @@ struct KeyValueList
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="size">размер хеш-таблицы</param>
-void InitializationOfHashTable(vector<KeyValueList*>& hashTableUnit, int size);
+void InitializationOfHashTable(HashTable*& hashTableUnit, int size);
 
 /// <summary>
 /// Функция добавления пары ключ-значение в хеш-таблицы
@@ -70,21 +70,21 @@ void InitializationOfHashTable(vector<KeyValueList*>& hashTableUnit, int size);
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="value">значение добавляемого элемента</param>
 /// <param name="key">ключ добавляемого элемента</param>
-void AddElementInHashTable(vector<KeyValueList*> hashTableUnit, string value, string key);
+void AddElementInHashTable(HashTable* hashTableUnit, string value, string key);
 
 /// <summary>
 /// Функция удаления пары ключ-значение из хеш-таблицы
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ удаляемой удаляемого элемента</param>
-void DeleteElementInHashTable(vector<KeyValueList*> hashTableUnit, string key);
+void DeleteElementInHashTable(HashTable* hashTableUnit, string key);
 
 /// <summary>
 /// Функция рехешинга
 /// </summary>
 /// <param name="oldHashTable">экземпляр хеш-таблицы до рехешинга</param>
 /// <param name="countOfElements">количество элементов</param>
-void Rehashing(vector<KeyValueList*>& oldHashTable, double countOfElements);
+void Rehashing(HashTable*& tableToRehash, double countOfElements);
 
 /// <summary>
 /// Хеш-функция

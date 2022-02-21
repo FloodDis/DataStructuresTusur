@@ -18,16 +18,16 @@
     <ClCompile Include="Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="AVL_Tree.cpp">
+    <ClCompile Include="AVLTree.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Red_Black_Tree.cpp">
+    <ClCompile Include="RedBlackTree.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="IO_AVL_Tree.cpp">
+    <ClCompile Include="IOAVLTree.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="IO_Red_Black_Tree.cpp">
+    <ClCompile Include="IORedBlackTree.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="FrequentlyUsed.cpp">
@@ -35,16 +35,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AVL_Tree.h">
+    <ClInclude Include="AVLTree.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Red_Black_Tree.h">
+    <ClInclude Include="RedBlackTree.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="IO_AVL_Tree.h">
+    <ClInclude Include="IOAVLTree.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="IO_Red_Black_Tree.h">
+    <ClInclude Include="IORedBlackTree.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="FrequentlyUsed.h">

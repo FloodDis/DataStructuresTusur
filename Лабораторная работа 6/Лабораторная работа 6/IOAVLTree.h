@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <iostream>
-#include "AVL_Tree.h"
+#include "AVLTree.h"
 #include "FrequentlyUsed.h"
 using namespace std;
 

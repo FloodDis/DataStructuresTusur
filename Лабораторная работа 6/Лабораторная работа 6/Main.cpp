@@ -1,5 +1,5 @@
-﻿#include "IO_AVL_Tree.h"
-#include "IO_Red_Black_Tree.h"
+﻿#include "IOAVLTree.h"
+#include "IORedBlackTree.h"
 using namespace std;
 
 void MainMenu();

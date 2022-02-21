@@ -111,7 +111,6 @@ void RBTreeMenu()
 	}
 }
 
-//TODO: консольный вывод вывести в main, он не относится к СД
 void PrintRBTree(RBTreeNode* rootNode, int tabCount)
 {
 	if (rootNode != nullptr)

@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 
-//TODO: длина во всём файле
 AVLTreeNode* CreationOfAVLTree(int keyOfRoot, int dataOfRoot)
 {
 	AVLTreeNode* rootNode = new AVLTreeNode;
@@ -88,7 +87,9 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance)
 	return nodeToBalance;
 }
 
-AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int key, int dataOfNewNode)
+AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, 
+	int key, 
+	int dataOfNewNode)
 {
 	if (!rootNode)
 	{
@@ -100,7 +101,8 @@ AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int key, int dataOfNewNode)
 	}
 	else if (rootNode->Key < key)
 	{
-		rootNode->Right = AddInAVLTree(rootNode->Right, key, dataOfNewNode);
+		rootNode->Right = 
+			AddInAVLTree(rootNode->Right, key, dataOfNewNode);
 	}
 	else
 	{
@@ -131,11 +133,13 @@ AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete)
 	}
 	if (bufferNode->Key > keyToDelete)
 	{
-		bufferNode->Left = DeleteFromAVLTree(bufferNode->Left, keyToDelete);
+		bufferNode->Left = 
+			DeleteFromAVLTree(bufferNode->Left, keyToDelete);
 	}
 	else if (bufferNode->Key < keyToDelete)
 	{
-		bufferNode->Right = DeleteFromAVLTree(bufferNode->Right, keyToDelete);
+		bufferNode->Right = 
+			DeleteFromAVLTree(bufferNode->Right, keyToDelete);
 	}
 	else if (bufferNode->Key = keyToDelete)
 	{
@@ -144,26 +148,30 @@ AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete)
 			delete bufferNode;
 			bufferNode = nullptr;
 		}
-		else if (bufferNode->Left == nullptr && bufferNode->Right != nullptr)
+		else if (bufferNode->Left == nullptr && 
+			bufferNode->Right != nullptr)
 		{
 			AVLTreeNode* nodeToDelete = bufferNode;
 			bufferNode = bufferNode->Right;
 			delete nodeToDelete;
 			nodeToDelete = nullptr;
 		}
-		else if (bufferNode->Left != nullptr && bufferNode->Right == nullptr)
+		else if (bufferNode->Left != nullptr && 
+			bufferNode->Right == nullptr)
 		{
 			AVLTreeNode* nodeToDelete = bufferNode;
 			bufferNode = bufferNode->Left;
 			delete nodeToDelete;
 			nodeToDelete = nullptr;
 		}
-		else if (bufferNode->Left != nullptr && bufferNode->Right != nullptr)
+		else if (bufferNode->Left != nullptr && 
+			bufferNode->Right != nullptr)
 		{
 			AVLTreeNode* min = FindMinAVL(bufferNode->Right);
 			bufferNode->Key = min->Key;
 			bufferNode->Data = min->Data;
-			bufferNode->Right = DeleteFromAVLTree(bufferNode->Right, min->Key);
+			bufferNode->Right = 
+				DeleteFromAVLTree(bufferNode->Right, min->Key);
 		}
 	}
 	return Balance(bufferNode);

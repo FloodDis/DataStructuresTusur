@@ -1,6 +1,5 @@
 ﻿#include "RedBlackTree.h"
 
-//TODO: длина во всём файле
 RBTree::RBTree()
 {
 	_root = nullptr;

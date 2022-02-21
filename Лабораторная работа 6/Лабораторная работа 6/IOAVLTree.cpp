@@ -49,7 +49,8 @@ void AVLTreeMenu()
 				try
 				{
 					rootNode =
-						AddInAVLTree(rootNode, keyOfNewNode, dataOfNewNode);
+						AddInAVLTree(rootNode, 
+							keyOfNewNode, dataOfNewNode);
 				}
 				catch (char const* error)
 				{

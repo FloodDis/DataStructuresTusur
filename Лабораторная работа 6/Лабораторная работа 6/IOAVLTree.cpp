@@ -35,8 +35,11 @@ void AVLTreeMenu()
 	Show(rootNode);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n"
-			<< "2) Удалить элемент\n3) Найти элемент\n4) Выйти\n";
+		cout << "Выберите действие:\n"
+			<< "1) Добавить элемент\n"
+			<< "2) Удалить элемент\n"
+			<< "3) Найти элемент\n"
+			<< "4) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -48,7 +51,8 @@ void AVLTreeMenu()
 					EnterNumber("Введите ключ нового элемента: ");
 				try
 				{
-					rootNode = Insert(rootNode, keyOfNewNode, dataOfNewNode);
+					rootNode =
+						Insert(rootNode, keyOfNewNode, dataOfNewNode);
 				}
 				catch (char const* error)
 				{

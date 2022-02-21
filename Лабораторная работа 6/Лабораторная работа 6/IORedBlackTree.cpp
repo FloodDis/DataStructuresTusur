@@ -33,8 +33,11 @@ void RBTreeMenu()
 	Show(treeUnit);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n"
-			<<"2) Удалить элемент\n3) Найти элемент\n4) Выйти\n";
+		cout << "Выберите действие:"
+			<< "\n1) Добавить элемент"
+			<< "\n2) Удалить элемент"
+			<< "\n3) Найти элемент"
+			<< "\n4) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -77,7 +80,7 @@ void RBTreeMenu()
 				RBTreeNode* result = treeUnit->Find(key);
 				if (result != nullptr)
 				{
-					cout << "Элемент с ключом " << result->Key 
+					cout << "Элемент с ключом " << result->Key
 						<< " имеет цвет: ";
 					if (result->IsBlack)
 					{
@@ -129,19 +132,23 @@ void Print(RBTreeNode* rootNode, int tabCount)
 		{
 			cout << "Red)";
 		}
-		if (rootNode->Child[Left] != nullptr && rootNode->Child[Right] != nullptr)
+		if (rootNode->Child[Left] != nullptr && 
+			rootNode->Child[Right] != nullptr)
 		{
 			cout << "|\n";
 		}
-		if (rootNode->Child[Left] == nullptr && rootNode->Child[Right] != nullptr)
+		if (rootNode->Child[Left] == nullptr && 
+			rootNode->Child[Right] != nullptr)
 		{
 			cout << "/\n";
 		}
-		if (rootNode->Child[Left] != nullptr && rootNode->Child[Right] == nullptr)
+		if (rootNode->Child[Left] != nullptr && 
+			rootNode->Child[Right] == nullptr)
 		{
 			cout << "\\\n";
 		}
-		if (rootNode->Child[Left] == nullptr && rootNode->Child[Right] == nullptr)
+		if (rootNode->Child[Left] == nullptr && 
+			rootNode->Child[Right] == nullptr)
 		{
 			cout << "\n";
 		}
@@ -149,7 +156,6 @@ void Print(RBTreeNode* rootNode, int tabCount)
 	}
 }
 
-//TODO: именование, см. лаб 3
 void Show(RBTree* treeUnit)
 {
 	cout << "Ваше красно-черное дерево:\n";

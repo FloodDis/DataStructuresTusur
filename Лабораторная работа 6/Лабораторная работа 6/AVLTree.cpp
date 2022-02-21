@@ -171,7 +171,7 @@ AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete)
 			bufferNode->Key = min->Key;
 			bufferNode->Data = min->Data;
 			bufferNode->Right =
-				Delete(bufferNode->Right, min->Key);
+			Delete(bufferNode->Right, min->Key);
 		}
 	}
 	return Balance(bufferNode);

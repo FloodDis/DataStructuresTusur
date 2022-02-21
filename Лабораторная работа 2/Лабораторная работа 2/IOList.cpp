@@ -59,15 +59,11 @@ void Menu(Node* headNode)
 		int option = EnterNumber("");
 		switch (option)
 		{
-			//TODO: для кейсов ввести enum +
 			case Delete:
 			{
-				//TODO: сокращения в названиях переменных запрещены +
 				Node* bufferNode = headNode;
-				//TODO: RSDN +
 				int index = EnterNumber(
 					"Enter index of the element to be deleted\n");
-				//TODO: длина строки +
 				if (index == 0)
 				{
 					if (headNode->NextNode == nullptr)
@@ -116,11 +112,9 @@ void Menu(Node* headNode)
 				int index;
 				do
 				{
-					//TODO: длинная строка +
 					index = EnterNumber(
 						"Enter the index to insert after\n");
 				} while (index > ElementCount(headNode) - 1 || index < 0);
-				//TODO: длинная строка +
 				int dataOfNode = EnterNumber(
 					"Enter the data of the element to be added\n");
 				AddAfter(headNode, dataOfNode, index);
@@ -134,11 +128,9 @@ void Menu(Node* headNode)
 				int index;
 				do
 				{
-					//TODO: длина +
 					index = EnterNumber(
 						"Enter the index to insert before\n");
 				} while (index > ElementCount(headNode) - 1 || index < 0);
-				//TODO: длина +
 				int dataOfNewNode = EnterNumber(
 					"Enter the data of the element to be added\n");
 				if (index == 0)
@@ -164,7 +156,6 @@ void Menu(Node* headNode)
 			{
 				int searchingValue = EnterNumber(
 					"Enter the searching value\n");
-				//TODO: длина +
 				Node* searchResult =
 					LinearSearch(headNode, searchingValue);
 				PrintFinded(searchResult, headNode);

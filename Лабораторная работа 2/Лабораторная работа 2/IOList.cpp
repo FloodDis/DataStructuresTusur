@@ -59,7 +59,7 @@ void Menu(Node* headNode)
 		int option = EnterNumber("");
 		switch (option)
 		{
-			//TODO: для кейсов ввести enum
+			//TODO: для кейсов ввести enum +
 			case Delete:
 			{
 				//TODO: сокращения в названиях переменных запрещены +

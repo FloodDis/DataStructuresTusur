@@ -2,6 +2,36 @@
 
 void HashTableMenu()
 {
+	/// <summary>
+	/// Действия над хеш-таблицей
+	/// </summary>
+	enum Actions
+	{
+		/// <summary>
+		/// Добавить элемент
+		/// </summary>
+		Add=1,
+
+		/// <summary>
+		/// Удалить элемент
+		/// </summary>
+		Delete,
+
+		/// <summary>
+		/// Найти элемент
+		/// </summary>
+		Find,
+
+		/// <summary>
+		/// Перехешировать таблицу
+		/// </summary>
+		Rehash,
+
+		/// <summary>
+		/// Выйти в главное меню
+		/// </summary>
+		Exit
+	};
 	setlocale(LC_ALL, "ru");
 	HashTable* hashTableUnit = new HashTable;
 	int size = EnterNumber("Введите размер хеш-таблицы:\n");
@@ -15,7 +45,7 @@ void HashTableMenu()
 		int option = EnterNumber("");
 		switch (option)
 		{
-			case 1:
+			case Add:
 			{
 				double size = hashTableUnit->arrayOfLists.size();
 				string value = EnterString("Введите значение value: ");
@@ -31,7 +61,7 @@ void HashTableMenu()
 				break;
 			}
 
-			case 2:
+			case Delete:
 			{
 				string key =
 					EnterString("Введите key удаляемого элемента: ");
@@ -47,7 +77,7 @@ void HashTableMenu()
 				break;
 			}
 
-			case 3:
+			case Find:
 			{
 				string key =
 					EnterString("Введите key искомого элемента: ");
@@ -63,14 +93,14 @@ void HashTableMenu()
 				break;
 			}
 
-			case 4:
+			case Rehash:
 			{
 				Rehashing(hashTableUnit, ElementCount(hashTableUnit));
 				ShowHashTable(hashTableUnit);
 				break;
 			}
 
-			case 5:
+			case Exit:
 			{
 				return;
 			}

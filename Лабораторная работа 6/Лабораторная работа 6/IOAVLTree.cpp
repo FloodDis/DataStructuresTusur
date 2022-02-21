@@ -10,17 +10,17 @@ void AVLTreeMenu()
 		/// <summary>
 		/// Добавить элемент
 		/// </summary>
-		Add = 1,
+		AddElement = 1,
 
 		/// <summary>
 		/// Удалить элемент
 		/// </summary>
-		Delete = 2,
+		DeleteElement = 2,
 
 		/// <summary>
 		/// Найти элемент
 		/// </summary>
-		Find = 3,
+		FindElement = 3,
 
 		/// <summary>
 		/// Выйти в главное меню
@@ -31,7 +31,7 @@ void AVLTreeMenu()
 	setlocale(LC_ALL, "ru");
 	int dataOfRoot = EnterNumber("Введите данные корня AVL-дерева: ");
 	int keyOfRoot = EnterNumber("Введите ключ корня AVL-дерева: ");
-	AVLTreeNode* rootNode = CreationOfAVLTree(keyOfRoot, dataOfRoot);
+	AVLTreeNode* rootNode = CreateTree(keyOfRoot, dataOfRoot);
 	Show(rootNode);
 	while (true)
 	{
@@ -40,7 +40,7 @@ void AVLTreeMenu()
 		int option = EnterNumber("");
 		switch (option)
 		{
-			case Add:
+			case AddElement:
 			{
 				int dataOfNewNode =
 					EnterNumber("Введите данные нового элемента: ");
@@ -48,9 +48,7 @@ void AVLTreeMenu()
 					EnterNumber("Введите ключ нового элемента: ");
 				try
 				{
-					rootNode =
-						AddInAVLTree(rootNode, 
-							keyOfNewNode, dataOfNewNode);
+					rootNode = Insert(rootNode, keyOfNewNode, dataOfNewNode);
 				}
 				catch (char const* error)
 				{
@@ -60,13 +58,13 @@ void AVLTreeMenu()
 				break;
 			}
 
-			case Delete:
+			case DeleteElement:
 			{
 				int keyToDelete =
 					EnterNumber("Введите ключ удаляемого элемента: ");
 				try
 				{
-					rootNode = DeleteFromAVLTree(rootNode, keyToDelete);
+					rootNode = Delete(rootNode, keyToDelete);
 					cout << "Элемент был удален из дерева!\n";
 				}
 				catch (char const* error)
@@ -77,19 +75,19 @@ void AVLTreeMenu()
 				break;
 			}
 
-			case Find:
+			case FindElement:
 			{
 				AVLTreeNode* answer = nullptr;
-				int searchingKey = 
+				int searchingKey =
 					EnterNumber("Введите ключ искомого элемента: ");
-				answer = ElementSearchAVL(rootNode, searchingKey);
+				answer = Find(rootNode, searchingKey);
 				if (answer == nullptr)
 				{
 					cout << "Элемент не найден!\n";
 				}
 				else
 				{
-					cout << "Элемент с ключом " << answer->Key 
+					cout << "Элемент с ключом " << answer->Key
 						<< " имеет данные " << answer->Data << "\n";
 				}
 				Show(rootNode);
@@ -104,13 +102,13 @@ void AVLTreeMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
+				Show(rootNode);
 				break;
 			}
 		}
 	}
 }
 
-//TODO: именование, см. лаб 3
 void Show(AVLTreeNode* rootNode)
 {
 	cout << "Ваше АВЛ-дерево:\n";

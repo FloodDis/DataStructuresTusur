@@ -103,7 +103,7 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance);
 /// <returns>
 /// новый корень дерева
 /// </returns>
-AVLTreeNode* Add(AVLTreeNode* rootNode,
+AVLTreeNode* Insert(AVLTreeNode* rootNode,
 	int key,
 	int dataOfNewNode);
 

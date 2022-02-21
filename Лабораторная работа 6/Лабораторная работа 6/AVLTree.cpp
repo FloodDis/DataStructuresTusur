@@ -87,8 +87,8 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance)
 	return nodeToBalance;
 }
 
-AVLTreeNode* Add(AVLTreeNode* rootNode, 
-	int key, 
+AVLTreeNode* Insert(AVLTreeNode* rootNode,
+	int key,
 	int dataOfNewNode)
 {
 	if (!rootNode)
@@ -97,12 +97,12 @@ AVLTreeNode* Add(AVLTreeNode* rootNode,
 	}
 	else if (rootNode->Key > key)
 	{
-		rootNode->Left = Add(rootNode->Left, key, dataOfNewNode);
+		rootNode->Left = Insert(rootNode->Left, key, dataOfNewNode);
 	}
 	else if (rootNode->Key < key)
 	{
-		rootNode->Right = 
-			Add(rootNode->Right, key, dataOfNewNode);
+		rootNode->Right =
+			Insert(rootNode->Right, key, dataOfNewNode);
 	}
 	else
 	{
@@ -133,12 +133,12 @@ AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete)
 	}
 	if (bufferNode->Key > keyToDelete)
 	{
-		bufferNode->Left = 
+		bufferNode->Left =
 			Delete(bufferNode->Left, keyToDelete);
 	}
 	else if (bufferNode->Key < keyToDelete)
 	{
-		bufferNode->Right = 
+		bufferNode->Right =
 			Delete(bufferNode->Right, keyToDelete);
 	}
 	else if (bufferNode->Key = keyToDelete)
@@ -148,7 +148,7 @@ AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete)
 			delete bufferNode;
 			bufferNode = nullptr;
 		}
-		else if (bufferNode->Left == nullptr && 
+		else if (bufferNode->Left == nullptr &&
 			bufferNode->Right != nullptr)
 		{
 			AVLTreeNode* nodeToDelete = bufferNode;
@@ -156,7 +156,7 @@ AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete)
 			delete nodeToDelete;
 			nodeToDelete = nullptr;
 		}
-		else if (bufferNode->Left != nullptr && 
+		else if (bufferNode->Left != nullptr &&
 			bufferNode->Right == nullptr)
 		{
 			AVLTreeNode* nodeToDelete = bufferNode;
@@ -164,13 +164,13 @@ AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete)
 			delete nodeToDelete;
 			nodeToDelete = nullptr;
 		}
-		else if (bufferNode->Left != nullptr && 
+		else if (bufferNode->Left != nullptr &&
 			bufferNode->Right != nullptr)
 		{
 			AVLTreeNode* min = FindMin(bufferNode->Right);
 			bufferNode->Key = min->Key;
 			bufferNode->Data = min->Data;
-			bufferNode->Right = 
+			bufferNode->Right =
 				Delete(bufferNode->Right, min->Key);
 		}
 	}
@@ -179,19 +179,21 @@ AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete)
 
 AVLTreeNode* Find(AVLTreeNode* rootNode, int searchingKey)
 {
-	if (rootNode != nullptr)
+	AVLTreeNode* bufferNode = rootNode;
+	while (bufferNode != nullptr)
 	{
-		while (rootNode->Key != searchingKey)
+		if (searchingKey == bufferNode->Key)
 		{
-			if (searchingKey > rootNode->Key)
-			{
-				rootNode = rootNode->Right;
-			}
-			else
-			{
-				rootNode = rootNode->Left;
-			}
+			return bufferNode;
+		}
+		else if (searchingKey > bufferNode->Key)
+		{
+			bufferNode = bufferNode->Right;
+		}
+		else
+		{
+			bufferNode = bufferNode->Left;
 		}
 	}
-	return rootNode;
+	return bufferNode;
 }

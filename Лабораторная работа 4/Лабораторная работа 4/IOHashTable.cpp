@@ -20,9 +20,8 @@ void HashTableMenu()
 				double size = hashTableUnit->arrayOfLists.size();
 				string value = EnterString("¬ведите значение value: ");
 				string key = EnterString("¬ведите значение key: ");
-				double fillFactor;
+				double fillFactor = ElementCount(hashTableUnit) / size;
 				int elementCount = ElementCount(hashTableUnit);
-				fillFactor = ElementCount(hashTableUnit) / size;
 				if (fillFactor >= hashTableUnit->MaxFillFactor)
 				{
 					Rehashing(hashTableUnit, ElementCount(hashTableUnit));

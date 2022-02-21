@@ -49,7 +49,6 @@ void DictionaryMenu()
 		{
 			case AddElement:
 			{
-				//TODO: см лаб3
 				string value = EnterString("¬ведите значение value: ");
 				string key = EnterString("¬ведите значение key: ");
 				double size =

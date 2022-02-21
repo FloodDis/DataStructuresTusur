@@ -83,7 +83,7 @@ AVLTreeNode* RotateRight(AVLTreeNode* nodeToRotate);
 /// <returns>
 /// новый корень поддерева
 /// </returns>
-AVLTreeNode* RotateLeft(AVLTreeNode* qNode);
+AVLTreeNode* RotateLeft(AVLTreeNode* nodeToRotate);
 
 /// <summary>
 /// Функция балансировки поддерева
@@ -138,4 +138,3 @@ AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete);
 /// </returns>
 //TODO: именование, см. лаб 3
 AVLTreeNode* ElementSearchAVL(AVLTreeNode* rootNode, int searchingKey);
-

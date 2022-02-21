@@ -10,7 +10,8 @@ using namespace std;
 void RBTreeMenu();
 
 /// <summary>
-/// Функция вывода сообщения Ваше красно-черное дерево: и красно-черного дерева
+/// Функция вывода сообщения Ваше красно-черное дерево: 
+/// и красно-черного дерева
 /// </summary>
 /// <param name="treeUnit">экземпляр красно-черного дерева</param>
 void ShowRBTree(RBTree* treeUnit);

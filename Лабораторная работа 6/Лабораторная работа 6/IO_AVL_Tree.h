@@ -10,6 +10,6 @@ using namespace std;
 void AVLTreeMenu();
 
 /// <summary>
-/// Функция вывода сообщения Ваше АВЛ-дерево: и АВЛ-дерево
+/// Функция вывода сообщения Ваше АВЛ-дерево: и АВЛ-дерева
 /// </summary>
 void ShowAVLTree(AVLTreeNode* rootNode);

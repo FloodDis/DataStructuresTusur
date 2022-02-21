@@ -28,7 +28,10 @@ int BalanceFactor(AVLTreeNode* node)
 
 void FixHeight(AVLTreeNode* node)
 {
-
+	if (node == nullptr)
+	{
+		return;
+	}
 	if (GetHeight(node->Left) > GetHeight(node->Right))
 	{
 		node->SubTreeHeight = GetHeight(node->Left) + 1;
@@ -61,6 +64,10 @@ AVLTreeNode* RotateLeft(AVLTreeNode* nodeToRotate)
 
 AVLTreeNode* Balance(AVLTreeNode* nodeToBalance)
 {
+	if (nodeToBalance == nullptr)
+	{
+		return nullptr;
+	}
 	FixHeight(nodeToBalance);
 	if (BalanceFactor(nodeToBalance) == 2)
 	{
@@ -117,48 +124,49 @@ AVLTreeNode* FindMinAVL(AVLTreeNode* rootNode)
 
 AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete)
 {
-	if (rootNode == nullptr)
+	AVLTreeNode* bufferNode = rootNode;
+	if (bufferNode == nullptr)
 	{
 		throw "Элемент с таким ключом не существует!\n";
 	}
-	if (rootNode->Key > keyToDelete)
+	if (bufferNode->Key > keyToDelete)
 	{
-		rootNode->Left = DeleteFromAVLTree(rootNode->Left, keyToDelete);
+		bufferNode->Left = DeleteFromAVLTree(bufferNode->Left, keyToDelete);
 	}
-	else if (rootNode->Key < keyToDelete)
+	else if (bufferNode->Key < keyToDelete)
 	{
-		rootNode->Right = DeleteFromAVLTree(rootNode->Right, keyToDelete);
+		bufferNode->Right = DeleteFromAVLTree(bufferNode->Right, keyToDelete);
 	}
-	else if (rootNode->Key = keyToDelete)
+	else if (bufferNode->Key = keyToDelete)
 	{
-		if (rootNode->Left == nullptr && rootNode->Right == nullptr)
+		if (bufferNode->Left == nullptr && bufferNode->Right == nullptr)
 		{
-			delete rootNode;
-			rootNode = nullptr;
+			delete bufferNode;
+			bufferNode = nullptr;
 		}
-		else if (rootNode->Left == nullptr && rootNode->Right != nullptr)
+		else if (bufferNode->Left == nullptr && bufferNode->Right != nullptr)
 		{
-			AVLTreeNode* pDel = rootNode;
-			rootNode = rootNode->Right;
+			AVLTreeNode* pDel = bufferNode;
+			bufferNode = bufferNode->Right;
 			delete pDel;
 			pDel = nullptr;
 		}
-		else if (rootNode->Left != nullptr && rootNode->Right == nullptr)
+		else if (bufferNode->Left != nullptr && bufferNode->Right == nullptr)
 		{
-			AVLTreeNode* pDel = rootNode;
-			rootNode = rootNode->Left;
+			AVLTreeNode* pDel = bufferNode;
+			bufferNode = bufferNode->Left;
 			delete pDel;
 			pDel = nullptr;
 		}
-		else if (rootNode->Left != nullptr && rootNode->Right != nullptr)
+		else if (bufferNode->Left != nullptr && bufferNode->Right != nullptr)
 		{
-			AVLTreeNode* min = FindMinAVL(rootNode->Right);
-			rootNode->Key = min->Key;
-			rootNode->Data = min->Data;
-			rootNode->Right = DeleteFromAVLTree(rootNode->Right, min->Key);
+			AVLTreeNode* min = FindMinAVL(bufferNode->Right);
+			bufferNode->Key = min->Key;
+			bufferNode->Data = min->Data;
+			bufferNode->Right = DeleteFromAVLTree(bufferNode->Right, min->Key);
 		}
 	}
-	return Balance(rootNode);
+	return Balance(bufferNode);
 }
 
 AVLTreeNode* ElementSearchAVL(AVLTreeNode* rootNode, int searchingKey)

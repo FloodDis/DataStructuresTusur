@@ -7,6 +7,6 @@ void main()
 {
 	int dataOfTheNode = Randomize();
 	Node* listUnit = InitializationOfList(dataOfTheNode);
-	ShowList(listUnit);
+	Show(listUnit);
 	Menu(listUnit);
 }

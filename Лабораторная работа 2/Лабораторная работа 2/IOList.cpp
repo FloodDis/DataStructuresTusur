@@ -4,28 +4,70 @@ void Menu(Node* headNode)
 {
 	while (true)
 	{
-		cout << "\nSelect an action:\n1) Delete element\n";
-		cout << "2) Add element at the beginning\n";
-		//TODO: длина строки
-		cout << "3) Add element at the end\n4) Add after specific element\n";
-		cout << "5) Add before specific element\n6) Sorting of list\n";
-		cout << "7) Leanear search of an element\n8) Quit\n";
+		/// <summary>
+		/// Действия над списком
+		/// </summary>
+		enum Actions
+		{
+			/// <summary>
+			/// Удалить элемент
+			/// </summary>
+			Delete = 1,
+
+			/// <summary>
+			/// Добавить в начало
+			/// </summary>
+			InsertToTop,
+
+			/// <summary>
+			/// Добавить в конец
+			/// </summary>
+			InsertToEnd,
+
+			/// <summary>
+			/// Добавить после элемента
+			/// </summary>
+			/// <param name="headNode"></param>
+			InsertAfter,
+
+			/// <summary>
+			/// Добавить до элемента
+			/// </summary>
+			InsertBefore,
+
+			/// <summary>
+			/// Отсортировать список
+			/// </summary>
+			Sort,
+
+			/// <summary>
+			/// Найти элемент в списке
+			/// </summary>
+			Find,
+
+			/// <summary>
+			/// Выход из программы
+			/// </summary>
+			Quit
+		};
+		cout << "\nSelect an action:\n1) Delete element\n"
+			<< "2) Add element at the beginning\n"
+			<< "3) Add element at the end\n"
+			<< "4) Add after specific element\n"
+			<< "5) Add before specific element\n6) Sorting of list\n"
+			<< "7) Leanear search of an element\n8) Quit\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
 			//TODO: для кейсов ввести enum
-			case 1:
+			case Delete:
 			{
-				//TODO: сокращения в названиях переменных запрещены
-				Node* dev = headNode;
+				//TODO: сокращения в названиях переменных запрещены +
+				Node* bufferNode = headNode;
 				//TODO: RSDN +
-				int index;
-				do
-				{
-					//TODO: длина строки
-					index = EnterNumber(
-						"Enter index of the element to be deleted\n");
-				} while (index > ElementCount(headNode) - 1 || index < 0);
+				int index = EnterNumber(
+					"Enter index of the element to be deleted\n");
+				//TODO: длина строки +
 				if (index == 0)
 				{
 					if (headNode->NextNode == nullptr)
@@ -33,7 +75,7 @@ void Menu(Node* headNode)
 						int dataOfTheNode = Randomize();
 						free(headNode);
 						headNode = InitializationOfList(dataOfTheNode);
-						ShowList(headNode);
+						Show(headNode);
 					}
 					else
 					{
@@ -41,62 +83,62 @@ void Menu(Node* headNode)
 						headNode = headNode->NextNode;
 						headNode->PreviousNode = nullptr;
 						free(buffer);
-						ShowList(headNode);
+						Show(headNode);
 					}
 					break;
 				}
-				DeleteElement(dev, index);
-				ShowList(headNode);
+				DeleteElement(bufferNode, index);
+				Show(headNode);
 				break;
 			}
 
-			case 2:
+			case InsertToTop:
 			{
 				int dataOfNode = EnterNumber(
 					"Enter data of the new node:\n");
 				headNode = AddInTheBeginning(headNode, dataOfNode);
-				ShowList(headNode);
+				Show(headNode);
 				break;
 			}
 
-			case 3:
+			case InsertToEnd:
 			{
 				int dataOfNewNode = EnterNumber(
 					"Enter data of the new node:\n");
 				AddInTheEnd(headNode, dataOfNewNode);
-				ShowList(headNode);
+				Show(headNode);
 				break;
 			}
 
-			case 4:
+			case InsertAfter:
 			{
 				//TODO: RSDN +
 				int index;
 				do
 				{
-					//TODO: длинная строка
+					//TODO: длинная строка +
 					index = EnterNumber(
-						"Enter the index of the element to insert after\n");
+						"Enter the index to insert after\n");
 				} while (index > ElementCount(headNode) - 1 || index < 0);
-				//TODO: длинная строка
+				//TODO: длинная строка +
 				int dataOfNode = EnterNumber(
 					"Enter the data of the element to be added\n");
 				AddAfter(headNode, dataOfNode, index);
-				ShowList(headNode);
+				Show(headNode);
 				break;
 			}
 
-			case 5:
+			case InsertBefore:
 			{
 				//TODO: RSDN +
 				int index;
 				do
 				{
-					//TODO: длина
+					//TODO: длина +
 					index = EnterNumber(
-						"Enter the index of the element to insert before\n");
+						"Enter the index to insert before\n");
 				} while (index > ElementCount(headNode) - 1 || index < 0);
-				//TODO: длина
+				//TODO: длина +
 				int dataOfNewNode = EnterNumber(
 					"Enter the data of the element to be added\n");
 				if (index == 0)
@@ -107,29 +149,30 @@ void Menu(Node* headNode)
 				{
 					AddBefore(headNode, dataOfNewNode, index);
 				}
-				ShowList(headNode);
+				Show(headNode);
 				break;
 			}
 
-			case 6:
+			case Sort:
 			{
 				BubbleSort(headNode);
-				ShowList(headNode);
+				Show(headNode);
 				break;
 			}
 
-			case 7:
+			case Find:
 			{
 				int searchingValue = EnterNumber(
 					"Enter the searching value\n");
-				//TODO: длина
-				Node* searchResult = LinearSearch(headNode, searchingValue);
+				//TODO: длина +
+				Node* searchResult =
+					LinearSearch(headNode, searchingValue);
 				PrintFinded(searchResult, headNode);
-				ShowList(headNode);
+				Show(headNode);
 				break;
 			}
 
-			case 8:
+			case Quit:
 			{
 				return;
 			}
@@ -137,7 +180,7 @@ void Menu(Node* headNode)
 			default:
 			{
 				cout << "Try again!\n";
-				ShowList(headNode);
+				Show(headNode);
 				break;
 			}
 		}
@@ -155,7 +198,7 @@ void PrintFinded(Node* indexes, Node* headNode)
 		{
 			bufferList = bufferList->NextNode;
 		}
-		cout << "\nlist[" << indexes->DataOfNode << "] = " << 
+		cout << "\nlist[" << indexes->DataOfNode << "] = " <<
 			bufferList->DataOfNode;
 		indexes = indexes->NextNode;
 	}
@@ -163,7 +206,7 @@ void PrintFinded(Node* indexes, Node* headNode)
 }
 
 //TODO: не должно быть в структуре данных +
-void PrintList(Node* headNode)
+void Print(Node* headNode)
 {
 	int i = 0;
 	while (headNode != nullptr)
@@ -175,10 +218,10 @@ void PrintList(Node* headNode)
 	}
 }
 
-void ShowList(Node* headNode)
+void Show(Node* headNode)
 {
 	cout << "Your list:\n";
-	PrintList(headNode);
+	Print(headNode);
 }
 
 int EnterNumber(string message)

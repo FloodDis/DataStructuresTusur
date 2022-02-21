@@ -25,10 +25,10 @@ int EnterNumber(string message);
 /// Функция вывода списка на экран
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
-void PrintList(Node* headNode);
+void Print(Node* headNode);
 
 ///<summary>
 /// Функция вывода сообщения Your list: и списка
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
-void ShowList(Node* headNode);
+void Show(Node* headNode);

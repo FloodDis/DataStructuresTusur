@@ -141,6 +141,8 @@ void BubbleSort(Node* headNode)
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
 	//TODO: RSDN +
+	//TODO: Возможно, есть более удачное имя для indexes,
+	//TODO: т.к. не понятно сходу, индексы чего она должна хранить?
 	Node* indexes = InitializationOfList(0);
 	Node* bufferList = headNode;
 	int index = 0;

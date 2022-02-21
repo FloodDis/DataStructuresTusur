@@ -6,19 +6,23 @@ void Menu(Node* headNode)
 	{
 		cout << "\nSelect an action:\n1) Delete element\n";
 		cout << "2) Add element at the beginning\n";
+		//TODO: длина строки
 		cout << "3) Add element at the end\n4) Add after specific element\n";
 		cout << "5) Add before specific element\n6) Sorting of list\n";
 		cout << "7) Leanear search of an element\n8) Quit\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
+			//TODO: для кейсов ввести enum
 			case 1:
 			{
+				//TODO: сокращения в названиях переменных запрещены
 				Node* dev = headNode;
 				//TODO: RSDN +
 				int index;
 				do
 				{
+					//TODO: длина строки
 					index = EnterNumber(
 						"Enter index of the element to be deleted\n");
 				} while (index > ElementCount(headNode) - 1 || index < 0);
@@ -70,9 +74,11 @@ void Menu(Node* headNode)
 				int index;
 				do
 				{
+					//TODO: длинная строка
 					index = EnterNumber(
 						"Enter the index of the element to insert after\n");
 				} while (index > ElementCount(headNode) - 1 || index < 0);
+				//TODO: длинная строка
 				int dataOfNode = EnterNumber(
 					"Enter the data of the element to be added\n");
 				AddAfter(headNode, dataOfNode, index);
@@ -86,10 +92,11 @@ void Menu(Node* headNode)
 				int index;
 				do
 				{
+					//TODO: длина
 					index = EnterNumber(
 						"Enter the index of the element to insert before\n");
 				} while (index > ElementCount(headNode) - 1 || index < 0);
-
+				//TODO: длина
 				int dataOfNewNode = EnterNumber(
 					"Enter the data of the element to be added\n");
 				if (index == 0)
@@ -115,6 +122,7 @@ void Menu(Node* headNode)
 			{
 				int searchingValue = EnterNumber(
 					"Enter the searching value\n");
+				//TODO: длина
 				Node* searchResult = LinearSearch(headNode, searchingValue);
 				PrintFinded(searchResult, headNode);
 				ShowList(headNode);

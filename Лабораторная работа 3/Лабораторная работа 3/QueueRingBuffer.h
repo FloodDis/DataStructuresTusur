@@ -24,14 +24,18 @@ RingBuffer* CreateQueue(int sizeOfQueue);
 /// <summary>
 /// Функция добавления элемента в очередь
 /// </summary>
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
+/// <param name="queueRingBufferUnit">
+/// указатель на экземпляр структуры
+/// </param>
 /// <param name="value">значение нового элемента</param>
 void Enqueue(RingBuffer*& queueRingBufferUnit, int value);
 
 /// <summary>
 /// Функция удаления элемента из очереди
 /// </summary>
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
+/// <param name="queueRingBufferUnit">
+/// указатель на экземпляр структуры
+/// </param>
 /// <returns>значение извлеченного элемента</returns>
 int Dequeue(RingBuffer*& queueRingBufferUnit);
 
@@ -57,7 +61,9 @@ bool IsEmpty(RingBuffer* queueRingBufferUnit);
 ///<summary>
 ///Функция проверки очереди на заполненность
 /// </summary>
-/// <param name="queueRingBufferUnit">экземпляр очереди на базе кольцевого буфера</param>
+/// <param name="queueRingBufferUnit">
+/// экземпляр очереди на базе кольцевого буфера
+/// </param>
 /// <returns>
 /// true - очередь заполнена, false - очередь не заполнена
 /// </returns>

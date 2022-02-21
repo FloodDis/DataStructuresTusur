@@ -109,6 +109,7 @@ void AVLTreeMenu()
 	}
 }
 
+//TODO: именование, см. лаб 3
 void ShowAVLTree(AVLTreeNode* rootNode)
 {
 	cout << "Ваше АВЛ-дерево:\n";

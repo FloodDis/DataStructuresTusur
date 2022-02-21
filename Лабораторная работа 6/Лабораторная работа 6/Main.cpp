@@ -4,6 +4,7 @@ using namespace std;
 
 void MainMenu();
 
+//TODO: лишняя сложность
 void main()
 {
 	MainMenu();

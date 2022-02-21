@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+//TODO: длина во всём файле, включая XML-комментарии
+
 /// <summary>
 /// Дочерний узел
 /// </summary>
@@ -42,7 +44,9 @@ struct RBTreeNode
 class RBTree
 {
 public:
+	//TODO: XML
 	RBTree();
+	//TODO: XML
 	~RBTree();
 
 	/// <summary>

@@ -3,6 +3,7 @@
 using namespace std;
 
 
+//TODO: длина во всём файле
 AVLTreeNode* CreationOfAVLTree(int keyOfRoot, int dataOfRoot)
 {
 	AVLTreeNode* rootNode = new AVLTreeNode;

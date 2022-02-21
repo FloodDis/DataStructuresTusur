@@ -25,18 +25,18 @@ void LenearSearch(DinamicArray* arrayUnit, int searchingValue);
 
 void BinarySearch(DinamicArray* arrayUnit, int searchingValue);
 
-void PrintArray(DinamicArray* arrayUnit);
+void Print(DinamicArray* arrayUnit);
 
 void Menu(DinamicArray* arrayUnit);
 
-void ShowArray(DinamicArray* arrayUnit);
+void Show(DinamicArray* arrayUnit);
 
 void main()
 {
 	srand(time(nullptr));
 	DinamicArray arrayUnit;
 	CreateArray(&arrayUnit, 6, 9);
-	ShowArray(&arrayUnit);
+	Show(&arrayUnit);
 	Menu(&arrayUnit);
 }
 
@@ -82,7 +82,9 @@ void AddByIndex(DinamicArray* arrayUnit, int index)
 		delete[] arrayUnit->Array;
 		arrayUnit->Array = nullptr;
 
-		CreateArray(arrayUnit, arrayUnit->Length, arrayUnit->Length + arrayUnit->GrowthFactor);
+		CreateArray(arrayUnit, 
+			arrayUnit->Length, 
+			arrayUnit->Length + arrayUnit->GrowthFactor);
 		for (int i = 0; i < arrayUnit->Length; i++)
 		{
 			arrayUnit->Array[i] = tempArray.Array[i];
@@ -104,8 +106,10 @@ void DeleteByIndex(DinamicArray* arrayUnit, int index)
 
 void CountingSort(DinamicArray* arrayUnit)
 {
-	int max = *max_element(arrayUnit->Array, arrayUnit->Array + arrayUnit->Length);
-	int min = *min_element(arrayUnit->Array, arrayUnit->Array + arrayUnit->Length);
+	int max = *max_element(arrayUnit->Array, 
+		arrayUnit->Array + arrayUnit->Length);
+	int min = *min_element(arrayUnit->Array, 
+		arrayUnit->Array + arrayUnit->Length);
 	int range = max - min + 1;
 	int* count = new int[range];
 	int* output = new int[arrayUnit->Length];
@@ -156,7 +160,8 @@ void LenearSearch(DinamicArray* arrayUnit, int searchingValue)
 
 	if (index != -1)
 	{
-		cout << "array [" << index << "] = " << arrayUnit->Array[index] << "\n";
+		cout << "array [" << index << "] = " 
+			<< arrayUnit->Array[index] << "\n";
 	}
 	else
 	{
@@ -181,18 +186,20 @@ void BinarySearch(DinamicArray* arrayUnit, int searchingValue)
 		}
 	}
 
-	if (first == arrayUnit->Length || arrayUnit->Array[first] != searchingValue)
+	if (first == arrayUnit->Length || 
+		arrayUnit->Array[first] != searchingValue)
 	{
 		cout << "\nElement wasn't found\n" << endl;
 	}
 	else
 	{
-		cout << "\narray[" << first << "] = " << arrayUnit->Array[first] << "\n";
+		cout << "\narray[" << first << "] = " 
+			<< arrayUnit->Array[first] << "\n";
 	}
 
 }
 
-void PrintArray(DinamicArray* arrayUnit)
+void Print(DinamicArray* arrayUnit)
 {
 	cout << endl;
 	for (int i = 0; i < arrayUnit->Length; i++)
@@ -202,10 +209,10 @@ void PrintArray(DinamicArray* arrayUnit)
 	cout << endl;
 }
 
-void ShowArray(DinamicArray* arrayUnit)
+void Show(DinamicArray* arrayUnit)
 {
 	cout << "Your array:\n";
-	PrintArray(arrayUnit);
+	Print(arrayUnit);
 }
 
 int EnterNumber(string message)
@@ -254,7 +261,7 @@ void Menu(DinamicArray* arrayUnit)
 					index = EnterNumber("");
 				} while (index < 0 || index > arrayUnit->Length);
 				AddByIndex(arrayUnit, index);
-				ShowArray(arrayUnit);
+				Show(arrayUnit);
 				break;
 			}
 
@@ -280,24 +287,26 @@ void Menu(DinamicArray* arrayUnit)
 				} while (index < 0 || index >= arrayUnit->Length);
 
 				DeleteByIndex(arrayUnit, index);
-				ShowArray(arrayUnit);
+				Show(arrayUnit);
 				break;
 			}
 
 			case 3:
 			{
 				CountingSort(arrayUnit);
-				ShowArray(arrayUnit);
+				Show(arrayUnit);
 				break;
 			}
 
 			case 4:
 			{
-				int searchingValue = EnterNumber("Enter searching value: ");
+				int searchingValue = 
+					EnterNumber("Enter searching value: ");
 				do
 				{
 					option = EnterNumber(
-						"Select search method:\n1) Lenear search\n2) Binary search\n");
+						"Select search method:\n1) Lenear search\n"
+						"2) Binary search\n");
 
 					if (option == 1)
 					{
@@ -309,13 +318,13 @@ void Menu(DinamicArray* arrayUnit)
 						BinarySearch(arrayUnit, searchingValue);
 					}
 				} while (option < 1 || option>2);
-				ShowArray(arrayUnit);
+				Show(arrayUnit);
 				break;
 			}
 
 			case 5:
 			{
-				ShowArray(arrayUnit);
+				Show(arrayUnit);
 				break;
 			}
 

@@ -103,8 +103,8 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 	}
 }
 
-RBTreeNode* 
-RBTree::DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced)
+RBTreeNode* RBTree::DeleteFix(RBTreeNode* node
+	, bool direction, bool& isBalanced)
 {
 	RBTreeNode* parent = node;
 	RBTreeNode* sibling = node->Child[!direction];

@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-void InitializationOfHashTable(HashTable*& hashTableUnit, int size)
+void InitializeHashTable(HashTable*& hashTableUnit, int size)
 {
 	hashTableUnit->arrayOfLists.resize(size);
 	hashTableUnit->Size = size;
@@ -13,7 +13,7 @@ void InitializationOfHashTable(HashTable*& hashTableUnit, int size)
 	}
 }
 
-void DeleteElementInHashTable(HashTable* hashTableUnit, string key)
+void Delete(HashTable* hashTableUnit, string key)
 {
 	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
 	KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
@@ -84,12 +84,12 @@ void Rehashing(HashTable*& tableToRehash, double countOfElements)
 	int newSize = (int)(tableToRehash->GrowthFactor * oldSize);
 	tableToRehash->arrayOfLists.clear();
 	tableToRehash->Size = 0;
-	InitializationOfHashTable(tableToRehash, newSize);
+	InitializeHashTable(tableToRehash, newSize);
 	for (int i = 0; i < countOfElements; i++)
 	{
 		string value = temp[i].Value;
 		string key = temp[i].Key;
-		AddElementInHashTable(tableToRehash, value, key);
+		Add(tableToRehash, value, key);
 	}
 }
 
@@ -104,7 +104,7 @@ int HashFunction(string key, int size)
 }
 
 //TODO: длина
-void AddElementInHashTable(HashTable* hashTableUnit, string value, string key)
+void Add(HashTable* hashTableUnit, string value, string key)
 {
 	KeyValueList* newEndNode;
 	newEndNode = new KeyValueList;
@@ -129,7 +129,7 @@ void AddElementInHashTable(HashTable* hashTableUnit, string value, string key)
 	}
 }
 
-string SearchInHashTable(string searchingKey, HashTable* hashTableUnit)
+string Search(string searchingKey, HashTable* hashTableUnit)
 {
 	int hash =
 		HashFunction(searchingKey, hashTableUnit->arrayOfLists.size());

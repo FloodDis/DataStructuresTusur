@@ -62,8 +62,7 @@ struct HashTable
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="size">размер хеш-таблицы</param>
-//TODO: именование, см. лаб3
-void InitializationOfHashTable(HashTable*& hashTableUnit, int size);
+void InitializeHashTable(HashTable*& hashTableUnit, int size);
 
 /// <summary>
 /// Функция добавления пары ключ-значение в хеш-таблицы
@@ -71,16 +70,14 @@ void InitializationOfHashTable(HashTable*& hashTableUnit, int size);
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="value">значение добавляемого элемента</param>
 /// <param name="key">ключ добавляемого элемента</param>
-//TODO: именование, см. лаб3
-void AddElementInHashTable(HashTable* hashTableUnit, string value, string key);
+void Add(HashTable* hashTableUnit, string value, string key);
 
 /// <summary>
 /// Функция удаления пары ключ-значение из хеш-таблицы
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ удаляемой удаляемого элемента</param>
-//TODO: именование, см. лаб3
-void DeleteElementInHashTable(HashTable* hashTableUnit, string key);
+void Delete(HashTable* hashTableUnit, string key);
 
 /// <summary>
 /// Функция рехешинга
@@ -103,8 +100,7 @@ int HashFunction(string key, int size);
 /// <param name="searchingKey">ключ искомого элемента</param>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <returns>строка с ответом</returns>
-//TODO: именование, см. лаб3
-string SearchInHashTable(string searchingKey, HashTable* hashTableUnit);
+string Search(string searchingKey, HashTable* hashTableUnit);
 
 ///<summary>
 /// Функция подсчета элементов

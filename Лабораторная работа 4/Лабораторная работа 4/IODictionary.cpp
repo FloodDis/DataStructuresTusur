@@ -6,8 +6,8 @@ void DictionaryMenu()
 	dictionaryUnit->HashTable = new HashTable;
 	setlocale(LC_ALL, "ru");
 	int size = EnterNumber("¬ведите размер словар€:\n");
-	InitializationOfDictionary(dictionaryUnit->HashTable, size);
-	ShowDictionary(dictionaryUnit->HashTable);
+	InitializeDictionary(dictionaryUnit->HashTable, size);
+	Show(dictionaryUnit->HashTable);
 
 	while (true)
 	{
@@ -33,8 +33,8 @@ void DictionaryMenu()
 						ElementCount(dictionaryUnit->HashTable);
 					Rehashing(dictionaryUnit->HashTable, elementCount);
 				}
-				AddInDictionary(dictionaryUnit->HashTable, value, key);
-				ShowDictionary(dictionaryUnit->HashTable);
+				Add(dictionaryUnit->HashTable, value, key);
+				Show(dictionaryUnit->HashTable);
 				break;
 			}
 
@@ -43,15 +43,15 @@ void DictionaryMenu()
 				string key =
 					EnterString("¬ведите key удал€емого элемента: ");
 				string answer = 
-					SearchInDictionary(dictionaryUnit->HashTable, key);
+					Find(dictionaryUnit->HashTable, key);
 				if (answer == "")
 				{
 					cout << "Ёлемент не найден.\n";
-					ShowDictionary(dictionaryUnit->HashTable);
+					Show(dictionaryUnit->HashTable);
 					break;
 				}
-				DeleteFromDictionary(dictionaryUnit->HashTable, key);
-				ShowDictionary(dictionaryUnit->HashTable);
+				Delete(dictionaryUnit->HashTable, key);
+				Show(dictionaryUnit->HashTable);
 				break;
 			}
 
@@ -61,17 +61,17 @@ void DictionaryMenu()
 					EnterString("¬ведите key искомого элемента: ");
 				string answer = "";
 				answer =
-					SearchInDictionary(dictionaryUnit->HashTable, key);
+					Find(dictionaryUnit->HashTable, key);
 				if (answer == "")
 				{
 					cout << "Ёлемент не найден.\n";
-					ShowDictionary(dictionaryUnit->HashTable);
+					Show(dictionaryUnit->HashTable);
 					break;
 				}
 				else
 				{
 					cout << answer;
-					ShowDictionary(dictionaryUnit->HashTable);
+					Show(dictionaryUnit->HashTable);
 					break;
 				}
 			}
@@ -81,7 +81,7 @@ void DictionaryMenu()
 				//TODO: 
 				int elementCount = ElementCount(dictionaryUnit->HashTable);
 				Rehashing(dictionaryUnit->HashTable, elementCount);
-				ShowDictionary(dictionaryUnit->HashTable);
+				Show(dictionaryUnit->HashTable);
 				break;
 			}
 
@@ -93,7 +93,7 @@ void DictionaryMenu()
 			default:
 			{
 				cout << "ѕопробуйте снова!" << endl;
-				ShowDictionary(dictionaryUnit->HashTable);
+				Show(dictionaryUnit->HashTable);
 				break;
 			}
 		}
@@ -102,13 +102,13 @@ void DictionaryMenu()
 //TODO: см. лаб 3
 //TODO: ѕередаваемый параметр должен называтьс€ dictionary,
 //TODO: ведь это словарь, а не хеш-таблица.
-void ShowDictionary(HashTable* hashTableUnit)
+void Show(HashTable* hashTableUnit)
 {
 	cout << "¬аш словарь:\n";
-	PrintDictionary(hashTableUnit);
+	Print(hashTableUnit);
 }
 //TODO: Ћишн€€ сложность, можно обойтись без этого метода
-void PrintDictionary(HashTable* hashTableUnit)
+void Print(HashTable* hashTableUnit)
 {
 	PrintTable(hashTableUnit);
 }

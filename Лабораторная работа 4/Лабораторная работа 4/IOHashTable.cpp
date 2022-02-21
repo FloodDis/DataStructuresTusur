@@ -5,7 +5,7 @@ void HashTableMenu()
 	setlocale(LC_ALL, "ru");
 	HashTable* hashTableUnit = new HashTable;
 	int size = EnterNumber("¬ведите размер хеш-таблицы:\n");
-	InitializationOfHashTable(hashTableUnit, size);
+	InitializeHashTable(hashTableUnit, size);
 	ShowHashTable(hashTableUnit);
 	while (true)
 	{
@@ -30,7 +30,7 @@ void HashTableMenu()
 				{
 					Rehashing(hashTableUnit, ElementCount(hashTableUnit));
 				}
-				AddElementInHashTable(hashTableUnit, value, key);
+				Add(hashTableUnit, value, key);
 				ShowHashTable(hashTableUnit);
 				break;
 			}
@@ -40,14 +40,14 @@ void HashTableMenu()
 				//TODO: длина
 				string key = 
 					EnterString("¬ведите key удал€емого элемента: ");
-				string answer = SearchInHashTable(key, hashTableUnit);
+				string answer = Search(key, hashTableUnit);
 				if (answer == "")
 				{
 					cout << "Ёлемент не найден.\n";
 					ShowHashTable(hashTableUnit);
 					break;
 				}
-				DeleteElementInHashTable(hashTableUnit, key);
+				Delete(hashTableUnit, key);
 				ShowHashTable(hashTableUnit);
 				break;
 			}
@@ -57,7 +57,7 @@ void HashTableMenu()
 				//TODO: длина
 				string key = 
 					EnterString("¬ведите key искомого элемента: ");
-				string answer = SearchInHashTable(key, hashTableUnit);
+				string answer = Search(key, hashTableUnit);
 				if (answer == "")
 				{
 					cout << "Ёлемент не найден.\n";

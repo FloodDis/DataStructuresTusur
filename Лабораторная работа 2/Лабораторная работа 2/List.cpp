@@ -3,15 +3,6 @@
 #include <cstdlib>
 using namespace std;
 
-int Randomize()
-{
-	//TODO: RSDN +
-	//TODO: nullptr +
-	srand(time(nullptr));
-	int randomNumber = rand() % 100 - 50;
-	return randomNumber;
-}
-
 Node* InitializationOfList(int dataOfHeadNode)
 {
 	//TODO: new? +
@@ -141,9 +132,7 @@ void BubbleSort(Node* headNode)
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
 	//TODO: RSDN +
-	//TODO: Возможно, есть более удачное имя для indexes,
-	//TODO: т.к. не понятно сходу, индексы чего она должна хранить?
-	Node* indexes = InitializationOfList(0);
+	Node* foundIndexes = InitializationOfList(0);
 	Node* bufferList = headNode;
 	int index = 0;
 	//TODO: nullptr +
@@ -151,12 +140,12 @@ Node* LinearSearch(Node* headNode, int searchingValue)
 	{
 		if (bufferList->DataOfNode == searchingValue)
 		{
-			AddInTheEnd(indexes, index);
+			AddInTheEnd(foundIndexes, index);
 		}
 		index++;
 		bufferList = bufferList->NextNode;
 	}
-	return indexes;
+	return foundIndexes;
 }
 
 int ElementCount(Node* headNode)

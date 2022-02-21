@@ -64,7 +64,13 @@ void Menu(Node* headNode)
 				Node* bufferNode = headNode;
 				int index = EnterNumber(
 					"Enter index of the element to be deleted\n");
-				if (index == 0)
+				if (index > ElementCount(bufferNode) - 1 || index < 0)
+				{
+					cout << "Element doesn't exist.\n";
+					Show(headNode);
+					break;
+				}
+				else if (index == 0)
 				{
 					if (headNode->NextNode == nullptr)
 					{
@@ -178,20 +184,20 @@ void Menu(Node* headNode)
 	}
 }
 
-void PrintFinded(Node* indexes, Node* headNode)
+void PrintFinded(Node* foundIndexes, Node* headNode)
 {
 	//TODO: +
-	indexes = indexes->NextNode;
-	while (indexes != nullptr)
+	foundIndexes = foundIndexes->NextNode;
+	while (foundIndexes != nullptr)
 	{
 		Node* bufferList = headNode;
-		for (int i = 0; i < indexes->DataOfNode; i++)
+		for (int i = 0; i < foundIndexes->DataOfNode; i++)
 		{
 			bufferList = bufferList->NextNode;
 		}
-		cout << "\nlist[" << indexes->DataOfNode << "] = " <<
+		cout << "\nlist[" << foundIndexes->DataOfNode << "] = " <<
 			bufferList->DataOfNode;
-		indexes = indexes->NextNode;
+		foundIndexes = foundIndexes->NextNode;
 	}
 	cout << "\n\n";
 }
@@ -233,4 +239,13 @@ int EnterNumber(string message)
 			cout << "Incorrect input!\n";
 		}
 	}
+}
+
+int Randomize()
+{
+	//TODO: RSDN +
+	//TODO: nullptr +
+	srand(time(nullptr));
+	int randomNumber = rand() % 100 - 50;
+	return randomNumber;
 }

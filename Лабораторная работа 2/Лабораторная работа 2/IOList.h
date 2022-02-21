@@ -32,3 +32,11 @@ void Print(Node* headNode);
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
 void Show(Node* headNode);
+
+///<summary>
+/// Функция получения случайного числа
+/// </summary>
+/// <returns>
+/// случайное число
+/// </returns>
+int Randomize();

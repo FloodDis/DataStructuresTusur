@@ -99,11 +99,3 @@ Node* LinearSearch(Node* headNode, int searchingValue);
 /// кол-во элементов списка
 /// </returns>
 int ElementCount(Node* headNode);
-
-///<summary>
-/// Функция получения случайного числа
-/// </summary>
-/// <returns>
-/// случайное число
-/// </returns>
-int Randomize();

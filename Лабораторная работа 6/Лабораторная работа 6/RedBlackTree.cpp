@@ -63,7 +63,6 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 				delete node;
 				isBalanced = true;
 			}
-
 			else if (IsRed(singleChild))
 			{
 				singleChild->IsBlack = true;
@@ -79,7 +78,6 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 		}
 		else
 		{
-
 			RBTreeNode* maximum = node->Child[Left];
 			while (maximum->Child[Right] != nullptr)
 			{
@@ -118,7 +116,6 @@ RBTree::DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced)
 
 	if (sibling)
 	{
-
 		if (!IsRed(sibling->Child[Left]) && 
 			!IsRed(sibling->Child[Right]))
 		{

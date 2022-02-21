@@ -10,14 +10,18 @@ void QueueRingBufferMenu()
 	cout << "Очередь создана!\n";
 	ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 	while (true)
-	{
-		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n";
+	{	
+		//TODO: Читабельность.
+		//TODO: Каждую строку в консоли лучше писать в отдельный cout
+		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n";	
+		//TODO: длина
 		cout << "2) Извлечение элемента из очереди\n3) Удалить очередь\n";
 		cout << "4) Выход\n";
 		int option;
 		option = EnterNumber("");
 		switch (option)
-		{
+		{	
+		//TODO: enum для кейсов
 			case 1:
 			{
 				if (IsQueueRingBufferFull(queueRingBuffer->ringBuffer))
@@ -29,7 +33,8 @@ void QueueRingBufferMenu()
 				else
 				{
 					int newElement = EnterNumber(
-						"Введите новый элемент очереди\n");
+						"Введите новый элемент очереди\n");	
+					//TODO: длина
 					EnqueueRingBuffer(queueRingBuffer->ringBuffer, newElement);
 					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 					break;
@@ -46,8 +51,10 @@ void QueueRingBufferMenu()
 				}
 				else
 				{
+					//TODO: длина
 					int elementFromQueue =
 						DequeueRingBuffer(queueRingBuffer->ringBuffer);
+					//TODO: длина
 					cout << "Извлеченный элемент:" << elementFromQueue << "\n";
 					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
 					break;
@@ -58,6 +65,7 @@ void QueueRingBufferMenu()
 			{
 				DeleteQueueRingBuffer(queueRingBuffer->ringBuffer);
 				cout << "Ваша очередь удалена!\n";
+				//TODO: длина
 				int sizeOfQueue = EnterNumber("Введите размер очереди: ");
 				queueRingBuffer->ringBuffer = CreationOfQueue(sizeOfQueue);
 				cout << "Очередь создана!\n";
@@ -79,12 +87,14 @@ void QueueRingBufferMenu()
 		}
 	}
 }
-
+//TODO: лишняя сложность
 void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit)
 {
 	PrintBuffer(queueRingBufferUnit);
 }
-
+//TODO: Неудачное именование методов.
+//TODO: Невозможно понять разницу между ShowQueueRingBuffer()
+//TODO: и PrintQueueRingBuffer(), не заглядывая в сигнатуры методов.
 void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
 {
 	cout << "Ваш буфер:\n";

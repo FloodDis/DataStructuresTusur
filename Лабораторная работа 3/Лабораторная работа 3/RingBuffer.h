@@ -58,6 +58,7 @@ bool IsEmpty(RingBuffer* ringBuffer);
 /// </summary>
 /// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
 /// <param name="value">значение добавляемого элемента</param>
+//TODO: см. PopFromStack
 void PushInRingBuffer(RingBuffer*& ringBuffer, int value);
 
 /// <summary>
@@ -65,6 +66,7 @@ void PushInRingBuffer(RingBuffer*& ringBuffer, int value);
 /// </summary>
 /// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
 /// <returns>значение извлекаемого элемента</returns>
+//TODO: см. PopFromStack
 int PopFromRingBuffer(RingBuffer*& ringBuffer);
 
 /// <summary>
@@ -72,5 +74,6 @@ int PopFromRingBuffer(RingBuffer*& ringBuffer);
 /// </summary>
 /// <param name="sizeOfRingBuffer">размер кольцевого буфера</param>
 /// <returns>экземпляр кольцевого буфера</returns>
+//TODO: см. PopFromStack
 RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer);
 

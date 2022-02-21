@@ -1,5 +1,6 @@
 ﻿#include "Red_Black_Tree.h"
 
+//TODO: длина во всём файле
 RBTree::RBTree()
 {
 	_root = nullptr;
@@ -257,6 +258,7 @@ RBTreeNode* RBTree::Insert(RBTreeNode* node, int key)
 	return InsertFix(node, direction);
 }
 
+//TODO: консольный вывод вывести в main, он не относится к СД
 void RBTree::PrintRBTree(RBTreeNode* rootNode, int tabCount)
 {
 	if (rootNode != nullptr)

@@ -2,6 +2,7 @@
 
 RingBuffer* CreationOfQueue(int sizeOfQueue)
 {
+	//TODO: длина
 	RingBuffer* QueueRingBuffer = InitializationOfRingBuffer(sizeOfQueue);
 	return QueueRingBuffer;
 }

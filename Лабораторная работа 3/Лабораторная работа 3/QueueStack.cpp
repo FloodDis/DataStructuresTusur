@@ -9,6 +9,8 @@ void CreationOfQueueStackBased(QueueStackBased*& queueStackUnit)
 	queueStackUnit->StackOut->PreviousNode = nullptr;
 }
 
+
+//TODO:длина
 void EnqueueStackBased(QueueStackBased*& queueStackUnit, int dataOfElement)
 {
 	if (queueStackUnit->IsStackInEmpty)
@@ -38,6 +40,8 @@ int DequeueStackBased(QueueStackBased*& queueStackUnit)
 		while (queueStackUnit->StackIn != nullptr)
 		{
 			Node* stackOut = queueStackUnit->StackOut;
+			
+	//TODO: длина
 			int valueFromStackIn = PopFromStack(queueStackUnit->StackIn);
 			queueStackUnit->StackOut = 
 				PushInStack(stackOut, valueFromStackIn);

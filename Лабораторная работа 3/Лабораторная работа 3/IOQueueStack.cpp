@@ -9,12 +9,14 @@ void QueueStackBasedMenu()
 	PrintQueueStackBased(queueStackUnit);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент в очередь\n";
+		cout << "Выберите действие:\n1) Добавить элемент в очередь\n";	
+		//TODO: длина
 		cout << "2) Извлечение элемента из очереди\n3) Удалить очередь\n";
 		cout << "4) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
-		{
+		{	
+		//TODO: ввести enum для кейсов
 			case 1:
 			{
 				int dataOfNewElement = EnterNumber(
@@ -72,20 +74,24 @@ void QueueStackBasedMenu()
 
 void PrintQueueStackBased(QueueStackBased* queueStackUnit)
 {
-	setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "Russian");	
+	//TODO: cout
 	printf("\nStackIn:");
 	if (queueStackUnit->IsStackInEmpty)
-	{
+	{	
+		//TODO: cout
 		printf("\n{ }\n");
 	}
 	else
 	{
 		PrintStack(queueStackUnit->StackIn);
 	}
-
+		
+	//TODO: cout
 	printf("\nStackOut:");
 	if (queueStackUnit->IsStackOutEmpty)
-	{
+	{	
+		//TODO: cout
 		printf("\n{ }\n");
 	}
 	else

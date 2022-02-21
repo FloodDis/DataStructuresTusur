@@ -17,6 +17,8 @@ struct Dictionary
 /// </summary>
 /// <param name="hashTableUnit">ссылка на экземпляр хэш-таблицы</param>
 /// <param name="size">размер словаря</param>
+//TODO: именование
+//TODO: Аргумент должен быть назван в соответствии с dictionary
 void InitializationOfDictionary(HashTable*& hashTableUnit, int size);
 
 /// <summary>
@@ -25,6 +27,8 @@ void InitializationOfDictionary(HashTable*& hashTableUnit, int size);
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="value">значение добавляемого элемента</param>
 /// <param name="key">ключ добавляемого элемента</param>
+//TODO: именование
+//TODO: Аргумент должен быть назван в соответствии с dictionary
 void AddInDictionary(HashTable* hashTableUnit, string value, string key);
 
 /// <summary>
@@ -32,6 +36,8 @@ void AddInDictionary(HashTable* hashTableUnit, string value, string key);
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ удаляемого элемента</param>
+//TODO: именование
+//TODO: Аргумент должен быть назван в соответствии с dictionary
 void DeleteFromDictionary(HashTable*& hashTableUnit, string key);
 
 /// <summary>
@@ -39,4 +45,6 @@ void DeleteFromDictionary(HashTable*& hashTableUnit, string key);
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ искомого элемента</param>
+//TODO: именование
+//TODO: Аргумент должен быть назван в соответствии с dictionary
 string SearchInDictionary(HashTable*& hashTableUnit, string key);

@@ -14,10 +14,12 @@ void BinaryTreeMenu();
 /// </summary>
 /// <param name="rootNode">указатель на корень бинарного дерева</param>
 /// <param name="tabCount">кол-во табуляций</param>
+//TODO: именование, см. лаб 3
 void PrintBinaryTree(BinaryTreeNode* rootNode, int tabCount);
 
 /// <summary>
 /// Функция вывода сообщения Ваше бинарное дерево: и бинарного дерева
 /// </summary>
 /// <param name="rootNode">указатель на корень бинарного дерева</param>
+//TODO: именование, см. лаб 3
 void ShowBinaryTree(BinaryTreeNode* rootNode);

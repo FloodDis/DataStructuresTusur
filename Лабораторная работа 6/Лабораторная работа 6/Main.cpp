@@ -3,6 +3,7 @@
 using namespace std;
 
 void MainMenu();
+
 void main()
 {
 	MainMenu();
@@ -31,10 +32,11 @@ void MainMenu()
 		Exit = 3
 	};
 	setlocale(LC_ALL, "ru");
-	int option;
 	while (true)
 	{
-		EnterNumber("Выберите структуру данных:\n1) AVL-дерево\n2) Красно-черное дерево\n3) Выйти\n", option);
+		cout << "Выберите структуру данных:\n1) AVL-дерево\n"
+			<< "2) Красно-черное дерево\n3) Выйти\n";
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case AVLTree:
@@ -52,7 +54,6 @@ void MainMenu()
 			case Exit:
 			{
 				return;
-				break;
 			}
 
 			default:

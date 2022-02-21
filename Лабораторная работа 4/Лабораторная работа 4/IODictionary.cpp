@@ -26,7 +26,6 @@ void DictionaryMenu()
 					dictionaryUnit->HashTable->arrayOfLists.size();
 				double fillFactor =
 					ElementCount(dictionaryUnit->HashTable) / size;
-				//TODO: длина
 				if (fillFactor >= dictionaryUnit->HashTable->MaxFillFactor)
 				{
 					int elementCount =
@@ -78,7 +77,6 @@ void DictionaryMenu()
 
 			case 4:
 			{
-				//TODO: 
 				int elementCount = ElementCount(dictionaryUnit->HashTable);
 				Rehashing(dictionaryUnit->HashTable, elementCount);
 				Show(dictionaryUnit->HashTable);
@@ -99,16 +97,14 @@ void DictionaryMenu()
 		}
 	}
 }
-//TODO: см. лаб 3
-//TODO: ѕередаваемый параметр должен называтьс€ dictionary,
-//TODO: ведь это словарь, а не хеш-таблица.
+
 void Show(HashTable* hashTableUnit)
 {
 	cout << "¬аш словарь:\n";
-	Print(hashTableUnit);
+	PrintDictionary(hashTableUnit);
 }
-//TODO: Ћишн€€ сложность, можно обойтись без этого метода
-void Print(HashTable* hashTableUnit)
+
+void PrintDictionary(HashTable* hashTableUnit)
 {
 	PrintTable(hashTableUnit);
 }

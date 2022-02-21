@@ -12,7 +12,7 @@ void DictionaryMenu();
 /// Функция вывода словаря
 /// </summary>
 /// <param name="message">строка с сообщением</param>
-void Print(HashTable* hashTableUnit);
+void PrintDictionary(HashTable* hashTableUnit);
 
 /// <summary>
 /// Функция вывода сообщения Ваш словарь: и словаря 

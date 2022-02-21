@@ -3,7 +3,8 @@
 void StackMenu()
 {
 	setlocale(LC_ALL, "Russian");
-	//TODO: внести в while +
+	//TODO: внести в while +	
+	//TODO: длина
 	int value = EnterNumber("Введите значение первого элемента: ");
 	Node* stack = CreationOfStack();
 	stack->DataOfNode = value;
@@ -15,7 +16,8 @@ void StackMenu()
 		cout << "2) Взять\n3) Удалить стек\n4) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
-		{
+		{	
+			//TODO: ввести enum для кейсов
 			case 1:
 			{
 				int dataOfNewElement = EnterNumber(
@@ -86,7 +88,10 @@ void PrintStack(Node* headNode)
 
 	cout << "\n";
 }
-
+	
+//TODO: Неудачное название методов. Не заглядывая в сигнатуру методов,
+//TODO: невозможно понять, в чём разница между ShowStack()
+//TODO: и PrintStack(). 
 void ShowStack(Node* headNode)
 {
 	cout << "Ваш стек:\n";

@@ -19,6 +19,7 @@ struct QueueRingBuffer
 /// </summary>
 /// <param name="sizeOfQueue">размер очереди</param>
 /// <returns>экземпляр очереди</returns>
+//TODO: см. PopFromStack
 RingBuffer* CreationOfQueue(int sizeOfQueue);
 
 /// <summary>
@@ -26,6 +27,7 @@ RingBuffer* CreationOfQueue(int sizeOfQueue);
 /// </summary>
 /// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
 /// <param name="value">значение нового элемента</param>
+//TODO: см. PopFromStack
 void EnqueueRingBuffer(RingBuffer*& queueRingBufferUnit, int value);
 
 /// <summary>
@@ -33,12 +35,15 @@ void EnqueueRingBuffer(RingBuffer*& queueRingBufferUnit, int value);
 /// </summary>
 /// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
 /// <returns>значение извлеченного элемента</returns>
+//TODO: см. PopFromStack
 int DequeueRingBuffer(RingBuffer*& queueRingBufferUnit);
 
 /// <summary>
 /// Функция удаления очереди
 /// </summary>
+//TODO: длина строки
 /// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
+//TODO: см. PopFromStack
 void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit);
 
 

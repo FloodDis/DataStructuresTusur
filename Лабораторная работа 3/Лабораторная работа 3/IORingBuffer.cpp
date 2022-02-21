@@ -9,12 +9,17 @@ void RingBufferMenu()
 	ShowRingBuffer(ringBuffer);
 	while (true)
 	{
+			
+		//TODO: Длина.
+		//TODO: Каждую строку вывода в консоли лучше
+		//TODO: писать в отдельный cout, если возможно.
 		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n";
 		cout << "2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n";
 		cout << "5) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
-		{
+		{	
+			//TODO: ввести enum для кейсов
 			case 1:
 			{
 				if (IsFull(ringBuffer))
@@ -73,8 +78,10 @@ void RingBufferMenu()
 					break;
 				}
 				else
-				{
-					int elementFromBuffer = PopFromRingBuffer(ringBuffer);
+				{	
+					//TODO: длина
+					int elementFromBuffer = PopFromRingBuffer(ringBuffer);	
+					//TODO: длина
 					cout << "Значение из буфера:  " << elementFromBuffer << "\n";
 					ShowRingBuffer(ringBuffer);
 					break;

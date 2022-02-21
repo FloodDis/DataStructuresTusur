@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "RingBuffer.h"
 
-
 /// <summary>
 /// Очередь на базе кольцевого буфера
 /// </summary>
@@ -56,7 +55,7 @@ void DeleteQueue(RingBuffer*& queueRingBufferUnit);
 /// <returns>
 /// true - очередь пуста, false - очередь не пуста
 /// </returns>
-bool IsEmpty(RingBuffer* queueRingBufferUnit);
+bool IsQueueEmpty(RingBuffer* queueRingBufferUnit);
 
 ///<summary>
 ///Функция проверки очереди на заполненность
@@ -67,4 +66,4 @@ bool IsEmpty(RingBuffer* queueRingBufferUnit);
 /// <returns>
 /// true - очередь заполнена, false - очередь не заполнена
 /// </returns>
-bool IsFull(RingBuffer* queueRingBufferUnit);
+bool IsQueueFull(RingBuffer* queueRingBufferUnit);

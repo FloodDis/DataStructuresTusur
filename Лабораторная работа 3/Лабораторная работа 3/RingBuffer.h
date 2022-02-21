@@ -44,7 +44,7 @@ struct RingBuffer
 /// <returns>
 /// true - буфер полон, false - буфер не полон
 /// </returns>
-bool IsFull(RingBuffer* ringBuffer);
+bool IsBufferFull(RingBuffer* ringBuffer);
 
 /// <summary>
 /// Функция проверки буфера на пустоту
@@ -55,7 +55,7 @@ bool IsFull(RingBuffer* ringBuffer);
 /// <returns>
 /// true - буфер пуст, false - буфер не пуст
 /// </returns>
-bool IsEmpty(RingBuffer* ringBuffer);
+bool IsBufferEmpty(RingBuffer* ringBuffer);
 
 /// <summary>
 /// Функция добавления элемента в кольцевой буфер

@@ -44,7 +44,7 @@ void QueueRingBufferMenu()
 		{
 			case Push:
 			{
-				if (IsFull(queueRingBuffer->ringBuffer))
+				if (IsQueueFull(queueRingBuffer->ringBuffer))
 				{
 					cout << "Очередь заполнена.\n";
 					ShowQueue(queueRingBuffer->ringBuffer);
@@ -62,7 +62,7 @@ void QueueRingBufferMenu()
 
 			case Pop:
 			{
-				if (IsEmpty(queueRingBuffer->ringBuffer))
+				if (IsQueueEmpty(queueRingBuffer->ringBuffer))
 				{
 					cout << "Очередь пуста.\n";
 					ShowQueue(queueRingBuffer->ringBuffer);

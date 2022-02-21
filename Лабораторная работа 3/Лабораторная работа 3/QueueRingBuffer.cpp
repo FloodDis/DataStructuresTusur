@@ -23,12 +23,12 @@ void DeleteQueue(RingBuffer*& queueRingBufferUnit)
 	queueRingBufferUnit = nullptr;
 }
 
-bool IsEmpty(RingBuffer* queueRingBufferUnit)
+bool IsQueueEmpty(RingBuffer* queueRingBufferUnit)
 {
-	return IsEmpty(queueRingBufferUnit);
+	return IsBufferEmpty(queueRingBufferUnit);
 }
 
-bool IsFull(RingBuffer* queueRingBufferUnit)
+bool IsQueueFull(RingBuffer* queueRingBufferUnit)
 {
-	return IsFull(queueRingBufferUnit);
+	return IsBufferFull(queueRingBufferUnit);
 }

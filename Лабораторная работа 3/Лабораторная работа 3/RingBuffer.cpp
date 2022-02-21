@@ -9,14 +9,14 @@ RingBuffer* InitializeRingBuffer(int sizeOfRingBuffer)
 	return ringBuffer;
 }
 
-bool IsFull(RingBuffer* ringBuffer)
+bool IsBufferFull(RingBuffer* ringBuffer)
 {
 	//TODO: RSDN +
 	int freeSpace = ringBuffer->FreeSpace;
 	return freeSpace == 0;
 }
 
-bool IsEmpty(RingBuffer* ringBuffer)
+bool IsBufferEmpty(RingBuffer* ringBuffer)
 {
 	int freeSpace = ringBuffer->FreeSpace;
 	int size = ringBuffer->Size;

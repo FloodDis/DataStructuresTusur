@@ -10,12 +10,12 @@ void RingBufferMenu()
 		/// <summary>
 		/// Полон ли буфер
 		/// </summary>
-		IsBufferFull = 1,
+		IsRingBufferFull = 1,
 
 		/// <summary>
 		/// Пуст ли буфер
 		/// </summary>
-		IsBufferEmpty,
+		IsRingBufferEmpty,
 
 		/// <summary>
 		/// Вставить элемент
@@ -45,9 +45,9 @@ void RingBufferMenu()
 		int option = EnterNumber("");
 		switch (option)
 		{
-			case IsBufferFull:
+			case IsRingBufferFull:
 			{
-				if (IsFull(ringBuffer))
+				if (IsBufferFull(ringBuffer))
 				{
 					cout << "Буфер полон.\n";
 					ShowBuffer(ringBuffer);
@@ -60,9 +60,9 @@ void RingBufferMenu()
 				break;
 			}
 
-			case IsBufferEmpty:
+			case IsRingBufferEmpty:
 			{
-				if (IsEmpty(ringBuffer))
+				if (IsBufferEmpty(ringBuffer))
 				{
 					cout << "\nБуфер пуст.\n";
 					ShowBuffer(ringBuffer);
@@ -77,7 +77,7 @@ void RingBufferMenu()
 
 			case Insert:
 			{
-				if (!IsFull(ringBuffer))
+				if (!IsBufferFull(ringBuffer))
 				{
 					int newElement = EnterNumber(
 						"Введите значение нового элемента: ");
@@ -96,7 +96,7 @@ void RingBufferMenu()
 
 			case Erase:
 			{
-				if (IsEmpty(ringBuffer))
+				if (IsBufferEmpty(ringBuffer))
 				{
 					cout << "Буфер пуст.\n";
 					ShowBuffer(ringBuffer);

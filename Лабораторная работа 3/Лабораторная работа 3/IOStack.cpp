@@ -2,9 +2,32 @@
 
 void StackMenu()
 {
-	setlocale(LC_ALL, "Russian");
-	//TODO: внести в while +	
-	//TODO: длина
+	/// <summary>
+	/// Действия над стеком
+	/// </summary>
+	enum Actions
+	{
+		/// <summary>
+		/// Добавить элемент
+		/// </summary>
+		Insert = 1,
+
+		/// <summary>
+		/// Извлечь элемент
+		/// </summary>
+		Extract,
+
+		/// <summary>
+		/// Удалить стек
+		/// </summary>
+		RemoveStack,
+
+		/// <summary>
+		/// Выйти в главное меню
+		/// </summary>
+		Exit
+	};
+	setlocale(LC_ALL, "Russian");	
 	int value = EnterNumber("Введите значение первого элемента: ");
 	Node* stack = CreateStack();
 	stack->DataOfNode = value;
@@ -14,11 +37,11 @@ void StackMenu()
 	{
 		cout << "Выберите вариант:\n1) Вставить\n";
 		cout << "2) Взять\n3) Удалить стек\n4) Выход\n";
+		//TODO: внести в while +
 		int option = EnterNumber("");
 		switch (option)
 		{	
-			//TODO: ввести enum для кейсов
-			case 1:
+			case Insert:
 			{
 				int dataOfNewElement = EnterNumber(
 					"Введите значение нового элемента: \n");
@@ -27,7 +50,7 @@ void StackMenu()
 				break;
 			}
 
-			case 2:
+			case Extract:
 			{
 				if (stack == nullptr)
 				{
@@ -44,7 +67,7 @@ void StackMenu()
 				break;
 			}
 
-			case 3:
+			case RemoveStack:
 			{
 				Delete(stack);
 				cout << "\nСтек удалён\n";
@@ -54,7 +77,7 @@ void StackMenu()
 				break;
 			}
 
-			case 4:
+			case Exit:
 			{
 				return;
 			}
@@ -88,10 +111,7 @@ void PrintStack(Node* headNode)
 
 	cout << "\n";
 }
-	
-//TODO: Неудачное название методов. Не заглядывая в сигнатуру методов,
-//TODO: невозможно понять, в чём разница между ShowStack()
-//TODO: и PrintStack(). 
+
 void ShowStack(Node* headNode)
 {
 	cout << "Ваш стек:\n";

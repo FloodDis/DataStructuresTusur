@@ -12,4 +12,4 @@ void QueueStackBasedMenu();
 /// Функция вывода очереди на экран
 /// </summary>
 /// <param name="queueStackUnit">указатель на экземпляр очереди</param>
-void PrintQueueStackBased(QueueStackBased* queueStackUnit);
+void PrintQueue(QueueStackBased* queueStackUnit);

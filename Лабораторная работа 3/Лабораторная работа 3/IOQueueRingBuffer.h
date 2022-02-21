@@ -10,7 +10,7 @@ void QueueRingBufferMenu();
 /// <param name="queueRingBufferUnit">
 ///указатель на экземпл€р структуры
 ///</param>
-void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit);
+void PrintQueue(RingBuffer* queueRingBufferUnit);
 
 /// <summary>
 /// ‘ункци€ вывода сообщени€ ¬аш буфер: 
@@ -19,4 +19,4 @@ void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit);
 /// <param name="queueRingBufferUnit">
 ///экземпл€р очереди на базе кольцевого буфера
 /// </param>
-void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit);
+void ShowQueue(RingBuffer* queueRingBufferUnit);

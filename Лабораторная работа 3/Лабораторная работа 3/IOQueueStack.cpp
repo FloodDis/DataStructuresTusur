@@ -2,62 +2,84 @@
 
 void QueueStackBasedMenu()
 {
-	setlocale(LC_ALL, "Russian");
+	/// <summary>
+	/// Действия над очередью на базе 2-х стеков
+	/// </summary>
+	enum Actions
+	{
+		/// <summary>
+		/// Добавить элемент
+		/// </summary>
+		Push = 1,
 
+		/// <summary>
+		/// Извлечь элемент
+		/// </summary>
+		Pop,
+
+		/// <summary>
+		/// Удалить очередь
+		/// </summary>
+		RemoveQueue,
+
+		/// <summary>
+		/// Выйти в главное меню
+		/// </summary>
+		Exit
+	};
+	setlocale(LC_ALL, "Russian");
 	QueueStackBased* queueStackUnit = new QueueStackBased;
 	CreateQueue(queueStackUnit);
-	PrintQueueStackBased(queueStackUnit);
+	PrintQueue(queueStackUnit);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент в очередь\n";	
-		//TODO: длина
-		cout << "2) Извлечение элемента из очереди\n3) Удалить очередь\n";
-		cout << "4) Выход\n";
+		cout << "Выберите действие:\n1) Добавить элемент в очередь\n"
+			<< "2) Извлечение элемента из очереди\n3) Удалить очередь\n"
+			<< "4) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
-		{	
-		//TODO: ввести enum для кейсов
-			case 1:
+		{
+			case Push:
 			{
 				int dataOfNewElement = EnterNumber(
 					"Введите значение нового элемента: ");
 				Enqueue(queueStackUnit, dataOfNewElement);
-				PrintQueueStackBased(queueStackUnit);
+				PrintQueue(queueStackUnit);
 				break;
 			}
 
-			case 2:
+			case Pop:
 			{
 				bool isStackInEmpty = queueStackUnit->IsStackInEmpty;
 				bool isStackOutEmpty = queueStackUnit->IsStackOutEmpty;
 				if (isStackInEmpty && isStackOutEmpty)
 				{
 					cout << "Очередь пуста.\n";
-					PrintQueueStackBased(queueStackUnit);
+					PrintQueue(queueStackUnit);
 					break;
 				}
-					cout << "\nИзвлеченный элемент:" <<
+				cout << "\nИзвлеченный элемент:" <<
 					Dequeue(queueStackUnit) << "\n";
 				if (queueStackUnit->IsStackInEmpty)
 				{
 					queueStackUnit->StackIn = CreateStack();
 					queueStackUnit->StackIn->PreviousNode = nullptr;
 				}
-				PrintQueueStackBased(queueStackUnit);
+				PrintQueue(queueStackUnit);
 				break;
 			}
 
-			case 3:
+			case RemoveQueue:
 			{
 				DeleteQueue(queueStackUnit);
 				cout << "\nВаша очередь удалена!\n";
 				QueueStackBased* queueStackUnit = new QueueStackBased;
 				CreateQueue(queueStackUnit);
-				PrintQueueStackBased(queueStackUnit);
+				PrintQueue(queueStackUnit);
 				break;
 			}
 
-			case 4:
+			case Exit:
 			{
 				return;
 			}
@@ -65,38 +87,33 @@ void QueueStackBasedMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
-				PrintQueueStackBased(queueStackUnit);
+				PrintQueue(queueStackUnit);
 				break;
 			}
 		}
 	}
 }
 
-void PrintQueueStackBased(QueueStackBased* queueStackUnit)
+void PrintQueue(QueueStackBased* queueStackUnit)
 {
-	setlocale(LC_ALL, "Russian");	
-	//TODO: cout
-	printf("\nStackIn:");
+	setlocale(LC_ALL, "Russian");
+	cout << "\nStackIn:";
 	if (queueStackUnit->IsStackInEmpty)
-	{	
-		//TODO: cout
-		printf("\n{ }\n");
+	{
+		cout << "\n{ }\n";
 	}
 	else
 	{
 		PrintStack(queueStackUnit->StackIn);
 	}
-		
-	//TODO: cout
-	printf("\nStackOut:");
+
+	cout << "\nStackOut:";
 	if (queueStackUnit->IsStackOutEmpty)
-	{	
-		//TODO: cout
-		printf("\n{ }\n");
+	{
+		cout << "\n{ }\n";
 	}
 	else
 	{
 		PrintStack(queueStackUnit->StackOut);
 	}
-
 }

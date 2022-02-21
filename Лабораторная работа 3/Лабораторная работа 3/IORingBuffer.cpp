@@ -2,93 +2,117 @@
 
 void RingBufferMenu()
 {
+	/// <summary>
+	/// Действия над кольцевым буфером
+	/// </summary>
+	enum Actions
+	{
+		/// <summary>
+		/// Полон ли буфер
+		/// </summary>
+		IsBufferFull = 1,
+
+		/// <summary>
+		/// Пуст ли буфер
+		/// </summary>
+		IsBufferEmpty,
+
+		/// <summary>
+		/// Вставить элемент
+		/// </summary>
+		Insert,
+
+		/// <summary>
+		/// Взять элемент
+		/// </summary>
+		Erase,
+
+		/// <summary>
+		/// Выйти главное меню
+		/// </summary>
+		Exit
+	};
 	setlocale(LC_ALL, "Russian");
 	int sizeOfBuffer = EnterNumber("Введите размер буфера: ");
 	RingBuffer* ringBuffer = InitializeRingBuffer(sizeOfBuffer);
 	cout << "Буфер создан!\n";
-	ShowRingBuffer(ringBuffer);
+	ShowBuffer(ringBuffer);
 	while (true)
 	{
-			
-		//TODO: Длина.
-		//TODO: Каждую строку вывода в консоли лучше
-		//TODO: писать в отдельный cout, если возможно.
-		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n";
-		cout << "2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n";
-		cout << "5) Выход\n";
+		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n"
+			<< "2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n"
+			<< "5) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
-		{	
-			//TODO: ввести enum для кейсов
-			case 1:
+		{
+			case IsBufferFull:
 			{
 				if (IsFull(ringBuffer))
 				{
 					cout << "Буфер полон.\n";
-					ShowRingBuffer(ringBuffer);
+					ShowBuffer(ringBuffer);
 				}
 				else
 				{
 					cout << "Буфер не полон.\n";
-					ShowRingBuffer(ringBuffer);
+					ShowBuffer(ringBuffer);
 				}
 				break;
 			}
 
-			case 2:
+			case IsBufferEmpty:
 			{
 				if (IsEmpty(ringBuffer))
 				{
 					cout << "\nБуфер пуст.\n";
-					ShowRingBuffer(ringBuffer);
+					ShowBuffer(ringBuffer);
 				}
 				else
 				{
 					cout << "\nБуфер не пуст.\n";
-					ShowRingBuffer(ringBuffer);
+					ShowBuffer(ringBuffer);
 				}
 				break;
 			}
 
-			case 3:
+			case Insert:
 			{
 				if (!IsFull(ringBuffer))
 				{
 					int newElement = EnterNumber(
 						"Введите значение нового элемента: ");
 					Push(ringBuffer, newElement);
-					ShowRingBuffer(ringBuffer);
+					ShowBuffer(ringBuffer);
 					break;
 				}
 				else
 				{
 					cout << "В буфере нет места для записи!\n";
-					ShowRingBuffer(ringBuffer);
+					ShowBuffer(ringBuffer);
 					break;
 				}
 
 			}
 
-			case 4:
+			case Erase:
 			{
 				if (IsEmpty(ringBuffer))
 				{
 					cout << "Буфер пуст.\n";
-					ShowRingBuffer(ringBuffer);
+					ShowBuffer(ringBuffer);
 					break;
 				}
 				else
-				{	
-					//TODO: длина
-					int elementFromBuffer = Pop(ringBuffer);	
-					//TODO: длина
-					cout << "Значение из буфера:  " << elementFromBuffer << "\n";
-					ShowRingBuffer(ringBuffer);
+				{
+					int elementFromBuffer = Pop(ringBuffer);
+					cout << "Значение из буфера:  " 
+						<< elementFromBuffer << "\n";
+					ShowBuffer(ringBuffer);
 					break;
 				}
 			}
 
-			case 5:
+			case Exit:
 			{
 				return;
 			}
@@ -96,7 +120,7 @@ void RingBufferMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
-				ShowRingBuffer(ringBuffer);
+				ShowBuffer(ringBuffer);
 				break;
 			}
 
@@ -112,7 +136,7 @@ void PrintBuffer(RingBuffer* ringBuffer)
 	}
 }
 
-void ShowRingBuffer(RingBuffer* ringBuffer)
+void ShowBuffer(RingBuffer* ringBuffer)
 {
 	cout << "Ваш буфер:\n";
 	PrintBuffer(ringBuffer);

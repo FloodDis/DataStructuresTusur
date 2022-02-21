@@ -3,77 +3,94 @@
 
 void QueueRingBufferMenu()
 {
+	/// <summary>
+	/// Действия над очередью на базе кольцевого буфера
+	/// </summary>
+	enum Actions
+	{
+		/// <summary>
+		/// Добавить элемент
+		/// </summary>
+		Push=1,
+
+		/// <summary>
+		/// Извлечь элемент
+		/// </summary>
+		Pop,
+
+		/// <summary>
+		/// Удалить очередь
+		/// </summary>
+		RemoveQueue,
+
+		/// <summary>
+		/// Выйти в главное меню
+		/// </summary>
+		Exit
+	};
 	setlocale(LC_ALL, "Russian");
 	int sizeOfQueue = EnterNumber("Введите размер очереди: ");
 	QueueRingBuffer* queueRingBuffer = new QueueRingBuffer;
 	queueRingBuffer->ringBuffer = CreateQueue(sizeOfQueue);
 	cout << "Очередь создана!\n";
-	ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+	ShowQueue(queueRingBuffer->ringBuffer);
 	while (true)
-	{	
-		//TODO: Читабельность.
-		//TODO: Каждую строку в консоли лучше писать в отдельный cout
-		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n";	
-		//TODO: длина
-		cout << "2) Извлечение элемента из очереди\n3) Удалить очередь\n";
-		cout << "4) Выход\n";
-		int option;
-		option = EnterNumber("");
+	{
+		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n"
+			<< "2) Извлечение элемента из очереди\n3) Удалить очередь\n"
+			<< "4) Выход\n";
+		int option = EnterNumber("");
 		switch (option)
-		{	
-		//TODO: enum для кейсов
-			case 1:
+		{
+			case Push:
 			{
 				if (IsFull(queueRingBuffer->ringBuffer))
 				{
 					cout << "Очередь заполнена.\n";
-					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					ShowQueue(queueRingBuffer->ringBuffer);
 					break;
 				}
 				else
 				{
 					int newElement = EnterNumber(
-						"Введите новый элемент очереди\n");	
-					//TODO: длина
+						"Введите новый элемент очереди\n");
 					Enqueue(queueRingBuffer->ringBuffer, newElement);
-					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					ShowQueue(queueRingBuffer->ringBuffer);
 					break;
 				}
 			}
 
-			case 2:
+			case Pop:
 			{
 				if (IsEmpty(queueRingBuffer->ringBuffer))
 				{
 					cout << "Очередь пуста.\n";
-					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					ShowQueue(queueRingBuffer->ringBuffer);
 					break;
 				}
 				else
 				{
-					//TODO: длина
 					int elementFromQueue =
 						Dequeue(queueRingBuffer->ringBuffer);
-					//TODO: длина
-					cout << "Извлеченный элемент:" << elementFromQueue << "\n";
-					ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+					cout << "Извлеченный элемент:" << 
+						elementFromQueue << "\n";
+					ShowQueue(queueRingBuffer->ringBuffer);
 					break;
 				}
 			}
 
-			case 3:
+			case RemoveQueue:
 			{
 				DeleteQueue(queueRingBuffer->ringBuffer);
 				cout << "Ваша очередь удалена!\n";
-				//TODO: длина
 				int sizeOfQueue = EnterNumber("Введите размер очереди: ");
 				queueRingBuffer->ringBuffer = CreateQueue(sizeOfQueue);
 				cout << "Очередь создана!\n";
-				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+				ShowQueue(queueRingBuffer->ringBuffer);
 				break;
 			}
 
-			case 4:
+			case Exit:
 			{
 				return;
 			}
@@ -81,22 +98,21 @@ void QueueRingBufferMenu()
 			default:
 			{
 				cout << "Попробуйте ещё раз!\n";
-				ShowQueueRingBuffer(queueRingBuffer->ringBuffer);
+				ShowQueue(queueRingBuffer->ringBuffer);
 				break;
 			}
 		}
 	}
 }
-//TODO: лишняя сложность
-void PrintQueueRingBuffer(RingBuffer* queueRingBufferUnit)
+
+//TODO: лишняя сложность 
+void PrintQueue(RingBuffer* queueRingBufferUnit)
 {
 	PrintBuffer(queueRingBufferUnit);
 }
-//TODO: Неудачное именование методов.
-//TODO: Невозможно понять разницу между ShowQueueRingBuffer()
-//TODO: и PrintQueueRingBuffer(), не заглядывая в сигнатуры методов.
-void ShowQueueRingBuffer(RingBuffer* queueRingBufferUnit)
+
+void ShowQueue(RingBuffer* queueRingBufferUnit)
 {
 	cout << "Ваш буфер:\n";
-	PrintQueueRingBuffer(queueRingBufferUnit);
+	PrintQueue(queueRingBufferUnit);
 }

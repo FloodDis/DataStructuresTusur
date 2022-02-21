@@ -11,8 +11,8 @@ Node* CreateStack()
 Node* Push(Node* headNode, int dataOfNewElement)
 {
 	Node* newHeadNode;
-	//TODO: new?
-	newHeadNode = (struct Node*)malloc(sizeof(struct Node));
+	//TODO: new? +
+	newHeadNode = new Node;
 	newHeadNode->DataOfNode = dataOfNewElement;
 	newHeadNode->PreviousNode = headNode;
 	return newHeadNode;

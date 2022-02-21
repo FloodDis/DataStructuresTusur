@@ -17,4 +17,4 @@ void PrintBuffer(RingBuffer* ringBuffer);
 /// ‘ункци€ вывода сообщение ¬аш буфер: и кольцевого буфера на экран
 /// </summary>
 /// <param name="ringBuffer">указатель на экземпл€р структуры</param>
-void ShowRingBuffer(RingBuffer* ringBuffer);
+void ShowBuffer(RingBuffer* ringBuffer);

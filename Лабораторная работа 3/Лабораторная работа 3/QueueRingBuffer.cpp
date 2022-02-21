@@ -2,7 +2,6 @@
 
 RingBuffer* CreateQueue(int sizeOfQueue)
 {
-	//TODO: длина
 	RingBuffer* QueueRingBuffer = InitializeRingBuffer(sizeOfQueue);
 	return QueueRingBuffer;
 }
@@ -23,8 +22,6 @@ void DeleteQueue(RingBuffer*& queueRingBufferUnit)
 	delete queueRingBufferUnit;
 	queueRingBufferUnit = nullptr;
 }
-
-
 
 bool IsEmpty(RingBuffer* queueRingBufferUnit)
 {

@@ -115,3 +115,33 @@ void ShowAVLTree(AVLTreeNode* rootNode)
 	cout << "Ваше АВЛ-дерево:\n";
 	PrintAVLTree(rootNode, 0);
 }
+
+void PrintAVLTree(AVLTreeNode* rootNode, int tabCount)
+{
+	if (rootNode != nullptr)
+	{
+		PrintAVLTree(rootNode->Right, tabCount + 1);
+		for (int i = 0; i < tabCount; i++)
+		{
+			cout << "\t";
+		}
+		cout << "(" << rootNode->Key << "; " << rootNode->Data << ")";
+		if (rootNode->Left != nullptr && rootNode->Right != nullptr)
+		{
+			cout << "|\n";
+		}
+		if (rootNode->Left == nullptr && rootNode->Right != nullptr)
+		{
+			cout << "/\n";
+		}
+		if (rootNode->Left != nullptr && rootNode->Right == nullptr)
+		{
+			cout << "\\\n";
+		}
+		if (rootNode->Left == nullptr && rootNode->Right == nullptr)
+		{
+			cout << "\n";
+		}
+		PrintAVLTree(rootNode->Left, tabCount + 1);
+	}
+}

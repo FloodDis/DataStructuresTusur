@@ -98,8 +98,8 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance);
 /// Функция добавления элемента в АВЛ-дерево
 /// </summary>
 /// <param name="rootNode">корень дерева</param>
-//TODO: Несоответствие XML-комментария сигнатуре метода 
-/// <param name="keyToAdd">ключ добавляемого элемента</param>
+//TODO: Несоответствие XML-комментария сигнатуре метода +
+/// <param name="key">ключ добавляемого элемента</param>
 /// <param name="dataOfNewNode">данные добавляемого элемента</param>
 /// <returns>
 /// новый корень дерева
@@ -138,12 +138,4 @@ AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete);
 /// </returns>
 //TODO: именование, см. лаб 3
 AVLTreeNode* ElementSearchAVL(AVLTreeNode* rootNode, int searchingKey);
-
-//TODO: вынести в main
-/// <summary>
-/// Функция вывода АВЛ-дерева на экран
-/// </summary>
-/// <param name="rootNode">корень дерева</param>
-/// <param name="tabCount">количество табуляций</param>
-void PrintAVLTree(AVLTreeNode* rootNode, int tabCount);
 

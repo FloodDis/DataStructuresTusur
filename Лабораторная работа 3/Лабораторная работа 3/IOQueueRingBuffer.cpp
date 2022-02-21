@@ -31,9 +31,9 @@ void QueueRingBufferMenu()
 	setlocale(LC_ALL, "Russian");
 	int sizeOfQueue = EnterNumber("Введите размер очереди: ");
 	QueueRingBuffer* queueRingBuffer = new QueueRingBuffer;
-	queueRingBuffer->ringBuffer = CreateQueue(sizeOfQueue);
+	queueRingBuffer->RingBuffer = CreateQueue(sizeOfQueue);
 	cout << "Очередь создана!\n";
-	ShowQueue(queueRingBuffer->ringBuffer);
+	ShowQueue(queueRingBuffer->RingBuffer);
 	while (true)
 	{
 		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n"
@@ -44,49 +44,49 @@ void QueueRingBufferMenu()
 		{
 			case Push:
 			{
-				if (IsQueueFull(queueRingBuffer->ringBuffer))
+				if (IsQueueFull(queueRingBuffer->RingBuffer))
 				{
 					cout << "Очередь заполнена.\n";
-					ShowQueue(queueRingBuffer->ringBuffer);
+					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
 				}
 				else
 				{
 					int newElement = EnterNumber(
 						"Введите новый элемент очереди\n");
-					Enqueue(queueRingBuffer->ringBuffer, newElement);
-					ShowQueue(queueRingBuffer->ringBuffer);
+					Enqueue(queueRingBuffer->RingBuffer, newElement);
+					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
 				}
 			}
 
 			case Pop:
 			{
-				if (IsQueueEmpty(queueRingBuffer->ringBuffer))
+				if (IsQueueEmpty(queueRingBuffer->RingBuffer))
 				{
 					cout << "Очередь пуста.\n";
-					ShowQueue(queueRingBuffer->ringBuffer);
+					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
 				}
 				else
 				{
 					int elementFromQueue =
-						Dequeue(queueRingBuffer->ringBuffer);
+						Dequeue(queueRingBuffer->RingBuffer);
 					cout << "Извлеченный элемент:" << 
 						elementFromQueue << "\n";
-					ShowQueue(queueRingBuffer->ringBuffer);
+					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
 				}
 			}
 
 			case RemoveQueue:
 			{
-				DeleteQueue(queueRingBuffer->ringBuffer);
+				DeleteQueue(queueRingBuffer->RingBuffer);
 				cout << "Ваша очередь удалена!\n";
 				int sizeOfQueue = EnterNumber("Введите размер очереди: ");
-				queueRingBuffer->ringBuffer = CreateQueue(sizeOfQueue);
+				queueRingBuffer->RingBuffer = CreateQueue(sizeOfQueue);
 				cout << "Очередь создана!\n";
-				ShowQueue(queueRingBuffer->ringBuffer);
+				ShowQueue(queueRingBuffer->RingBuffer);
 				break;
 			}
 
@@ -98,7 +98,7 @@ void QueueRingBufferMenu()
 			default:
 			{
 				cout << "Попробуйте ещё раз!\n";
-				ShowQueue(queueRingBuffer->ringBuffer);
+				ShowQueue(queueRingBuffer->RingBuffer);
 				break;
 			}
 		}

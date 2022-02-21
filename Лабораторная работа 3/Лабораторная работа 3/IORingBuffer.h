@@ -11,10 +11,10 @@ void RingBufferMenu();
 /// ‘ункци€ вывода кольцевого буфера на экран
 /// </summary>
 /// <param name="ringBuffer">указатель на экземпл€р структуры</param>
-void PrintBuffer(RingBuffer* ringBuffer);
+void PrintBuffer(RingBuffer* RingBuffer);
 
 /// <summary>
 /// ‘ункци€ вывода сообщение ¬аш буфер: и кольцевого буфера на экран
 /// </summary>
 /// <param name="ringBuffer">указатель на экземпл€р структуры</param>
-void ShowBuffer(RingBuffer* ringBuffer);
+void ShowBuffer(RingBuffer* RingBuffer);

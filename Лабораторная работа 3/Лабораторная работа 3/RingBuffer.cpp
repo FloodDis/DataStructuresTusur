@@ -9,50 +9,50 @@ RingBuffer* InitializeRingBuffer(int sizeOfRingBuffer)
 	return ringBuffer;
 }
 
-bool IsBufferFull(RingBuffer* ringBuffer)
+bool IsBufferFull(RingBuffer* RingBuffer)
 {
 	//TODO: RSDN +
-	int freeSpace = ringBuffer->FreeSpace;
+	int freeSpace = RingBuffer->FreeSpace;
 	return freeSpace == 0;
 }
 
-bool IsBufferEmpty(RingBuffer* ringBuffer)
+bool IsBufferEmpty(RingBuffer* RingBuffer)
 {
-	int freeSpace = ringBuffer->FreeSpace;
-	int size = ringBuffer->Size;
+	int freeSpace = RingBuffer->FreeSpace;
+	int size = RingBuffer->Size;
 	return freeSpace == size;
 }
 
-void Push(RingBuffer*& ringBuffer, int value)
+void Push(RingBuffer*& RingBuffer, int value)
 {
-	ringBuffer->Data[ringBuffer->ElementToWrite] = value;
-	int elementToWrite = ringBuffer->ElementToWrite;
-	int size = ringBuffer->Size;
+	RingBuffer->Data[RingBuffer->ElementToWrite] = value;
+	int elementToWrite = RingBuffer->ElementToWrite;
+	int size = RingBuffer->Size;
 	if (elementToWrite == size - 1)
 	{
-		ringBuffer->ElementToWrite = 0;
+		RingBuffer->ElementToWrite = 0;
 	}
 	else
 	{
-		ringBuffer->ElementToWrite++;
+		RingBuffer->ElementToWrite++;
 	}
-	ringBuffer->FreeSpace--;
+	RingBuffer->FreeSpace--;
 }
 
-int Pop(RingBuffer*& ringBuffer)
+int Pop(RingBuffer*& RingBuffer)
 {
-	int elementToRead = ringBuffer->ElementToRead;
-	int size = ringBuffer->Size;
-	int value = ringBuffer->Data[ringBuffer->ElementToRead];
+	int elementToRead = RingBuffer->ElementToRead;
+	int size = RingBuffer->Size;
+	int value = RingBuffer->Data[RingBuffer->ElementToRead];
 	if (elementToRead == size - 1)
 	{
-		ringBuffer->ElementToRead = 0;
+		RingBuffer->ElementToRead = 0;
 	}
 	else
 	{
-		ringBuffer->ElementToRead++;
+		RingBuffer->ElementToRead++;
 	}
-	ringBuffer->FreeSpace++;
+	RingBuffer->FreeSpace++;
 	return value;
 }
 

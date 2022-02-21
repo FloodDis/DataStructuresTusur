@@ -44,7 +44,7 @@ struct RingBuffer
 /// <returns>
 /// true - буфер полон, false - буфер не полон
 /// </returns>
-bool IsBufferFull(RingBuffer* ringBuffer);
+bool IsBufferFull(RingBuffer* RingBuffer);
 
 /// <summary>
 /// Функция проверки буфера на пустоту
@@ -55,7 +55,7 @@ bool IsBufferFull(RingBuffer* ringBuffer);
 /// <returns>
 /// true - буфер пуст, false - буфер не пуст
 /// </returns>
-bool IsBufferEmpty(RingBuffer* ringBuffer);
+bool IsBufferEmpty(RingBuffer* RingBuffer);
 
 /// <summary>
 /// Функция добавления элемента в кольцевой буфер
@@ -64,7 +64,7 @@ bool IsBufferEmpty(RingBuffer* ringBuffer);
 /// указатель на экземпляр кольцевого буфера
 /// </param>
 /// <param name="value">значение добавляемого элемента</param>
-void Push(RingBuffer*& ringBuffer, int value);
+void Push(RingBuffer*& RingBuffer, int value);
 
 /// <summary>
 /// Функция извлечения элемента из кольцевого буфера
@@ -73,7 +73,7 @@ void Push(RingBuffer*& ringBuffer, int value);
 /// указатель на экземпляр кольцевого буфера
 /// </param>
 /// <returns>значение извлекаемого элемента</returns>
-int Pop(RingBuffer*& ringBuffer);
+int Pop(RingBuffer*& RingBuffer);
 
 /// <summary>
 /// Функция инициализации кольцевого буфера

@@ -34,9 +34,9 @@ void RingBufferMenu()
 	};
 	setlocale(LC_ALL, "Russian");
 	int sizeOfBuffer = EnterNumber("Введите размер буфера: ");
-	RingBuffer* ringBuffer = InitializeRingBuffer(sizeOfBuffer);
+	RingBuffer* RingBuffer = InitializeRingBuffer(sizeOfBuffer);
 	cout << "Буфер создан!\n";
-	ShowBuffer(ringBuffer);
+	ShowBuffer(RingBuffer);
 	while (true)
 	{
 		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n"
@@ -47,48 +47,48 @@ void RingBufferMenu()
 		{
 			case IsRingBufferFull:
 			{
-				if (IsBufferFull(ringBuffer))
+				if (IsBufferFull(RingBuffer))
 				{
 					cout << "Буфер полон.\n";
-					ShowBuffer(ringBuffer);
+					ShowBuffer(RingBuffer);
 				}
 				else
 				{
 					cout << "Буфер не полон.\n";
-					ShowBuffer(ringBuffer);
+					ShowBuffer(RingBuffer);
 				}
 				break;
 			}
 
 			case IsRingBufferEmpty:
 			{
-				if (IsBufferEmpty(ringBuffer))
+				if (IsBufferEmpty(RingBuffer))
 				{
 					cout << "\nБуфер пуст.\n";
-					ShowBuffer(ringBuffer);
+					ShowBuffer(RingBuffer);
 				}
 				else
 				{
 					cout << "\nБуфер не пуст.\n";
-					ShowBuffer(ringBuffer);
+					ShowBuffer(RingBuffer);
 				}
 				break;
 			}
 
 			case Insert:
 			{
-				if (!IsBufferFull(ringBuffer))
+				if (!IsBufferFull(RingBuffer))
 				{
 					int newElement = EnterNumber(
 						"Введите значение нового элемента: ");
-					Push(ringBuffer, newElement);
-					ShowBuffer(ringBuffer);
+					Push(RingBuffer, newElement);
+					ShowBuffer(RingBuffer);
 					break;
 				}
 				else
 				{
 					cout << "В буфере нет места для записи!\n";
-					ShowBuffer(ringBuffer);
+					ShowBuffer(RingBuffer);
 					break;
 				}
 
@@ -96,18 +96,18 @@ void RingBufferMenu()
 
 			case Erase:
 			{
-				if (IsBufferEmpty(ringBuffer))
+				if (IsBufferEmpty(RingBuffer))
 				{
 					cout << "Буфер пуст.\n";
-					ShowBuffer(ringBuffer);
+					ShowBuffer(RingBuffer);
 					break;
 				}
 				else
 				{
-					int elementFromBuffer = Pop(ringBuffer);
+					int elementFromBuffer = Pop(RingBuffer);
 					cout << "Значение из буфера:  " 
 						<< elementFromBuffer << "\n";
-					ShowBuffer(ringBuffer);
+					ShowBuffer(RingBuffer);
 					break;
 				}
 			}
@@ -120,7 +120,7 @@ void RingBufferMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
-				ShowBuffer(ringBuffer);
+				ShowBuffer(RingBuffer);
 				break;
 			}
 
@@ -128,16 +128,16 @@ void RingBufferMenu()
 	}
 }
 
-void PrintBuffer(RingBuffer* ringBuffer)
+void PrintBuffer(RingBuffer* RingBuffer)
 {
-	for (int i = 0; i < ringBuffer->Size; i++)
+	for (int i = 0; i < RingBuffer->Size; i++)
 	{
-		cout << "[" << i << "] " << ringBuffer->Data[i] << "\n";
+		cout << "[" << i << "] " << RingBuffer->Data[i] << "\n";
 	}
 }
 
-void ShowBuffer(RingBuffer* ringBuffer)
+void ShowBuffer(RingBuffer* RingBuffer)
 {
 	cout << "Ваш буфер:\n";
-	PrintBuffer(ringBuffer);
+	PrintBuffer(RingBuffer);
 }

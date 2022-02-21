@@ -6,11 +6,10 @@
 /// </summary>
 struct QueueRingBuffer
 {
-	//TODO: RSDN
 	/// <summary>
 	/// Кольцевой буфер
 	/// </summary>
-	RingBuffer* ringBuffer;
+	RingBuffer* RingBuffer;
 };
 
 /// <summary>

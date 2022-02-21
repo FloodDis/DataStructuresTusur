@@ -9,6 +9,7 @@ void HashTableMenu()
 	ShowHashTable(hashTableUnit);
 	while (true)
 	{
+		//TODO: см. лаб3
 		cout << "Выберите действие:\n1) Добавить элемент\n";
 		cout << "2) Удалить элемент\n3) Поиск элемента\n";
 		cout << "4) Рехешинг\n5) Выйти\n";
@@ -18,7 +19,9 @@ void HashTableMenu()
 			case 1:
 			{
 				double size = hashTableUnit->arrayOfLists.size();
+				//TODO: длина
 				string value = EnterString("Введите значение value: ");
+				//TODO: длина
 				string key = EnterString("Введите значение key: ");
 				double fillFactor;
 				int elementCount = ElementCount(hashTableUnit);
@@ -34,6 +37,7 @@ void HashTableMenu()
 
 			case 2:
 			{
+				//TODO: длина
 				string key = 
 					EnterString("Введите key удаляемого элемента: ");
 				string answer = SearchInHashTable(key, hashTableUnit);
@@ -50,6 +54,7 @@ void HashTableMenu()
 
 			case 3:
 			{
+				//TODO: длина
 				string key = 
 					EnterString("Введите key искомого элемента: ");
 				string answer = SearchInHashTable(key, hashTableUnit);

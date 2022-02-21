@@ -19,12 +19,14 @@ void DictionaryMenu()
 		{
 			case 1:
 			{
+				//TODO: см лаб3
 				string value = EnterString("¬ведите значение value: ");
 				string key = EnterString("¬ведите значение key: ");
 				double size =
 					dictionaryUnit->HashTable->arrayOfLists.size();
 				double fillFactor =
 					ElementCount(dictionaryUnit->HashTable) / size;
+				//TODO: длина
 				if (fillFactor >= dictionaryUnit->HashTable->MaxFillFactor)
 				{
 					int elementCount =
@@ -76,6 +78,7 @@ void DictionaryMenu()
 
 			case 4:
 			{
+				//TODO: 
 				int elementCount = ElementCount(dictionaryUnit->HashTable);
 				Rehashing(dictionaryUnit->HashTable, elementCount);
 				ShowDictionary(dictionaryUnit->HashTable);
@@ -96,13 +99,15 @@ void DictionaryMenu()
 		}
 	}
 }
-
+//TODO: см. лаб 3
+//TODO: ѕередаваемый параметр должен называтьс€ dictionary,
+//TODO: ведь это словарь, а не хеш-таблица.
 void ShowDictionary(HashTable* hashTableUnit)
 {
 	cout << "¬аш словарь:\n";
 	PrintDictionary(hashTableUnit);
 }
-
+//TODO: Ћишн€€ сложность, можно обойтись без этого метода
 void PrintDictionary(HashTable* hashTableUnit)
 {
 	PrintTable(hashTableUnit);

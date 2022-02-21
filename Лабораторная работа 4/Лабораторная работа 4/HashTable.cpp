@@ -24,6 +24,8 @@ void DeleteElementInHashTable(HashTable* hashTableUnit, string key)
 
 	if (buffer->Previous == nullptr)
 	{
+		//TODO: Временные переменные имеют префикс tmp, а не temp,
+		//TODO: нужно уточнить, как лучше поступить в этом случае 
 		KeyValueList* tempBuffer = buffer;
 		buffer = buffer->Next;
 		delete tempBuffer;
@@ -101,6 +103,7 @@ int HashFunction(string key, int size)
 	return hash % size;
 }
 
+//TODO: длина
 void AddElementInHashTable(HashTable* hashTableUnit, string value, string key)
 {
 	KeyValueList* newEndNode;

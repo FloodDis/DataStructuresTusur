@@ -48,18 +48,18 @@ void TreapMenu()
 	int priority = rand() % 100;
 	Treap* rootNode = new Treap;
 	rootNode->Root =
-		CreationOfTreap
-		(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
-	ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+		CreationOfTreap(rootNode->Root,
+			keyOfRoot, priority, nullptr, nullptr);
+	Show("Ваше декартово дерево:\n", rootNode->Root);
 	while (true)
 	{
-		//TODO: Каждую строку в консоли лучше писать на новой 
-		//TODO: строке в исходном коде
 		cout << "Выберите действие:\n"
 			<< "1) Добавить элемент (непотимизировано)\n"
-			<< "2) Добавить элемент (оптимизировано)\n3) Найти элемент\n"
+			<< "2) Добавить элемент (оптимизировано)\n"
+			<< "3) Найти элемент\n"
 			<< "4) Удалить элемент (непотимизировано)\n"
-			<< "5) Удалить элемент(оптимизировано)\n6) Удалить дерево\n"
+			<< "5) Удалить элемент(оптимизировано)\n"
+			<< "6) Удалить дерево\n"
 			<< "7) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
@@ -69,7 +69,7 @@ void TreapMenu()
 				int key = EnterNumber("Введите ключ нового элемента: ");
 				int priority = rand() % 100;
 				AddInTreapUnoptimised(rootNode, key, priority);
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				Show("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 
@@ -79,7 +79,7 @@ void TreapMenu()
 				int priority = rand() % 100;
 				AddInTreapOptomised
 				(rootNode, rootNode->Root, nullptr, key, priority);
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				Show("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 
@@ -97,7 +97,7 @@ void TreapMenu()
 					cout << "Элемент с ключом " << answer->Key <<
 						" имеет приоритет " << answer->Priority << "\n";
 				}
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				Show("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 
@@ -119,7 +119,7 @@ void TreapMenu()
 				{
 					DeleteFromTreapUnoptimised(rootNode, key);
 				}
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				Show("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 
@@ -142,7 +142,7 @@ void TreapMenu()
 					DeleteFromTreapOptimised
 					(rootNode, rootNode->Root, nullptr, key);
 				}
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				Show("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 
@@ -150,14 +150,13 @@ void TreapMenu()
 			{
 				DeleteTreap(rootNode->Root);
 				cout << "Ваше дерево удалено\n";
-				//TODO: длина
 				int keyOfRoot =
 					EnterNumber("Введите ключ корня декартового дерева: ");
 				int priority = rand() % 100;
 				rootNode->Root =
-					CreationOfTreap
-					(rootNode->Root, keyOfRoot, priority, nullptr, nullptr);
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+					CreationOfTreap(rootNode->Root,
+						keyOfRoot, priority, nullptr, nullptr);
+				Show("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 
@@ -169,18 +168,18 @@ void TreapMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
-				ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
+				Show("Ваше декартово дерево:\n", rootNode->Root);
 				break;
 			}
 		}
 	}
 }
 
-void PrintTreap(TreapNode* nodeToPrint, int tabCount)
+void Print(TreapNode* nodeToPrint, int tabCount)
 {
 	if (nodeToPrint != nullptr)
 	{
-		PrintTreap(nodeToPrint->Right, tabCount + 1);
+		Print(nodeToPrint->Right, tabCount + 1);
 		for (int i = 0; i < tabCount; i++)
 		{
 			cout << "\t";
@@ -202,12 +201,12 @@ void PrintTreap(TreapNode* nodeToPrint, int tabCount)
 		{
 			cout << "\n";
 		}
-		PrintTreap(nodeToPrint->Left, tabCount + 1);
+		Print(nodeToPrint->Left, tabCount + 1);
 	}
 }
 
-void ShowTreap(string message, TreapNode* nodeToPrint)
+void Show(string message, TreapNode* nodeToPrint)
 {
 	cout << message;
-	PrintTreap(nodeToPrint, 0);
+	Print(nodeToPrint, 0);
 }

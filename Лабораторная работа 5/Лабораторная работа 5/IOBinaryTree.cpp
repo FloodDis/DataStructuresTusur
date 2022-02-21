@@ -40,10 +40,9 @@ void BinaryTreeMenu()
 	setlocale(LC_ALL, "ru");
 	int dataOfRoot = 
 		EnterNumber("Введите данные корня бинарного дерева: ");
-	//TODO: длина
 	int keyOfRoot = EnterNumber("Введите ключ корня бинарного дерева: ");
 	BinaryTreeNode* rootNode = CreationOfBinaryTree(keyOfRoot, dataOfRoot);
-	ShowBinaryTree(rootNode);
+	Show(rootNode);
 	while (true)
 	{
 		cout << "Выберите действие:\n1) Добавить элемент\n"
@@ -61,7 +60,7 @@ void BinaryTreeMenu()
 					EnterNumber("Введите ключ нового элемента: ");
 				rootNode =
 					AddInBinaryTree(rootNode, keyOfNewNode, dataOfNewNode);
-				ShowBinaryTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -75,7 +74,7 @@ void BinaryTreeMenu()
 					break;
 				}
 				rootNode = DeleteFromBinaryTree(rootNode, keyToDelete);
-				ShowBinaryTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -95,7 +94,7 @@ void BinaryTreeMenu()
 						<< " имеет данные " <<
 						answer->Data << "\n";
 				}
-				ShowBinaryTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -105,7 +104,7 @@ void BinaryTreeMenu()
 				int maximumKey = MaximumBinaryTreeSearch(rootNode)->Key;
 				int maximumData = MaximumBinaryTreeSearch(rootNode)->Data;
 				cout << "(" << maximumKey << ", " << maximumData << ")\n";
-				ShowBinaryTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -115,7 +114,7 @@ void BinaryTreeMenu()
 				int minimumKey = MinimumBinaryTreeSearch(rootNode)->Key;
 				int minimumData = MinimumBinaryTreeSearch(rootNode)->Data;
 				cout << "(" << minimumKey << ", " << minimumData << ")\n";
-				ShowBinaryTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -127,18 +126,18 @@ void BinaryTreeMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
-				ShowBinaryTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 		}
 	}
 }
 
-void PrintBinaryTree(BinaryTreeNode* rootNode, int tabCount)
+void Print(BinaryTreeNode* rootNode, int tabCount)
 {
 	if (rootNode != nullptr)
 	{
-		PrintBinaryTree(rootNode->Right, tabCount + 1);
+		Print(rootNode->Right, tabCount + 1);
 		for (int i = 0; i < tabCount; i++)
 		{
 			cout << "\t";
@@ -160,12 +159,12 @@ void PrintBinaryTree(BinaryTreeNode* rootNode, int tabCount)
 		{
 			cout << "\n";
 		}
-		PrintBinaryTree(rootNode->Left, tabCount + 1);
+		Print(rootNode->Left, tabCount + 1);
 	}
 }
 
-void ShowBinaryTree(BinaryTreeNode* rootNode)
+void Show(BinaryTreeNode* rootNode)
 {
 	cout << "Ваше бинарное дерево поиска:\n";
-	PrintBinaryTree(rootNode, 0);
+	Print(rootNode, 0);
 }

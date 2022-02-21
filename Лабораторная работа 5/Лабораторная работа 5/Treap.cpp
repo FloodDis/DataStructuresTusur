@@ -2,7 +2,8 @@
 #include <iostream>
 using namespace std;
 
-TreapNode* CreationOfTreap(TreapNode* newTreapNode, int key, int priority, TreapNode* left, TreapNode* right)
+TreapNode* CreationOfTreap(TreapNode* newTreapNode, 
+	int key, int priority, TreapNode* left, TreapNode* right)
 {
 	newTreapNode = new TreapNode;
 	newTreapNode->Key = key;
@@ -12,7 +13,8 @@ TreapNode* CreationOfTreap(TreapNode* newTreapNode, int key, int priority, Treap
 	return newTreapNode;
 }
 
-void Split(TreapNode* treapNode, int key, TreapNode*& left, TreapNode*& right)
+void Split(TreapNode* treapNode, 
+	int key, TreapNode*& left, TreapNode*& right)
 {
 	if (treapNode == nullptr)
 	{
@@ -63,7 +65,8 @@ void AddInTreapUnoptimised(Treap* treapUnit, int key, int priority)
 	treapUnit->Root = Merge(left, right);
 }
 
-void AddInTreapOptomised(Treap* treap, TreapNode* node, TreapNode* parent, int key, int priority)
+void AddInTreapOptomised(Treap* treap, 
+	TreapNode* node, TreapNode* parent, int key, int priority)
 {
 	if (node == nullptr)
 	{
@@ -115,7 +118,8 @@ void AddInTreapOptomised(Treap* treap, TreapNode* node, TreapNode* parent, int k
 	}
 	else if (key > node->Key)
 	{
-		return AddInTreapOptomised(treap, node->Right, node, key, priority);
+		return AddInTreapOptomised(treap,
+			node->Right, node, key, priority);
 	}
 }
 
@@ -131,7 +135,8 @@ void DeleteFromTreapUnoptimised(Treap* treapUnit, int key)
 	delete newRight;
 }
 
-void DeleteFromTreapOptimised(Treap* treapUnit, TreapNode* node, TreapNode* parent, int key)
+void DeleteFromTreapOptimised(Treap* treapUnit, 
+	TreapNode* node, TreapNode* parent, int key)
 {
 	if (key < node->Key)
 	{

@@ -46,8 +46,8 @@ struct Treap
 /// <param name="left">указатель на корень левого поддерева</param>
 /// <param name="right">указатель на корень правого поддерева</param>
 /// <returns>указатель на корень декартова дерева</returns>
-//TODO: длина
-TreapNode* CreationOfTreap(TreapNode* node, int key, int priority, TreapNode* left, TreapNode* right);
+TreapNode* CreationOfTreap(TreapNode* node,
+	int key, int priority, TreapNode* left, TreapNode* right);
 
 /// <summary>
 /// Функция поиска элемента в декартовом дереве
@@ -64,8 +64,8 @@ TreapNode* FindElementInTreap(TreapNode* node, int key);
 /// <param name="key">ключ для разрезания</param>
 /// <param name="left">указатель на корень левого дерева</param>
 /// <param name="right">указатель на корень правого дерева</param>
-//TODO: длина
-void Split(TreapNode* treapNode, int key, TreapNode*& left, TreapNode*& right);
+void Split(TreapNode* treapNode,
+	int key, TreapNode*& left, TreapNode*& right);
 
 /// <summary>
 /// Функция слияния деревьев
@@ -91,8 +91,8 @@ void AddInTreapUnoptimised(Treap* treapUnit, int key, int priority);
 /// <param name="parent">указатель на родительский узел дерева</param>
 /// <param name="key">ключ добавляемого элемента</param>
 /// <param name="priority">приоритет добавляемого элемента</param>
-//TODO: длина
-void AddInTreapOptomised(Treap* treap, TreapNode* node, TreapNode* parent, int key, int priority);
+void AddInTreapOptomised(Treap* treap,
+	TreapNode* node, TreapNode* parent, int key, int priority);
 
 /// <summary>
 /// Функция удаления элемента из декартова дерева (неоптимизировано)
@@ -108,15 +108,17 @@ void DeleteFromTreapUnoptimised(Treap* treap, int key);
 /// <param name="node">указатель на корень декартова дерева</param>
 /// <param name="parent">указатель на родительский узел дерева</param>
 /// <param name="key">ключ удаляемого элемента</param>
-//TODO: длина
-void DeleteFromTreapOptimised(Treap* treap, TreapNode* node, TreapNode* parent, int key);
+void DeleteFromTreapOptimised(Treap* treap,
+	TreapNode* node, TreapNode* parent, int key);
 
 /// <summary>
 /// Функция проверки декартова дерева на пустоту
 /// </summary>
 /// <param name="treap">указатель на экземпляр дерева</param>
-//TODO: длина
-/// <returns>true - декартово дерево пустое, false - декартово дерево не пустое</returns>
+/// <returns>
+///true - декартово дерево пустое, 
+///false - декартово дерево не пустое
+/// </returns>
 bool IsTreapEmpty(Treap* treap);
 
 /// <summary>

@@ -14,13 +14,11 @@ void TreapMenu();
 /// </summary>
 /// <param name="nodeToPrint">указатель на корень дерева</param>
 /// <param name="lndent">кол-во табул€ций</param>
-//TODO: именование, см. лаб 3
-void PrintTreap(TreapNode* nodeToPrint, int lndent = 0);
+void Print(TreapNode* nodeToPrint, int lndent = 0);
 
 /// <summary>
 /// ‘ункци€ вывода сообщени€ и декартова дерева
 /// </summary>
 /// <param name=="message">сообщение,выводимое на экран</param>
 /// <param name=="nodeToPrint">корень поддерева</param>
-//TODO: именование, см. лаб 3
-void ShowTreap(string message, TreapNode* nodeToPrint);
+void Show(string message, TreapNode* nodeToPrint);

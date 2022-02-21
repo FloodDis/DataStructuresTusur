@@ -11,8 +11,9 @@ BinaryTreeNode* CreationOfBinaryTree(int keyOfRoot, int dataOfRoot)
 	return(rootNode);
 }
 
-//TODO: длина
-BinaryTreeNode* AddInBinaryTree(BinaryTreeNode* rootNode, int& keyToAdd, int& dataOfNewNode)
+BinaryTreeNode* AddInBinaryTree(BinaryTreeNode* rootNode,
+	int& keyToAdd,
+	int& dataOfNewNode)
 {
 	if (rootNode == nullptr)
 	{
@@ -25,13 +26,13 @@ BinaryTreeNode* AddInBinaryTree(BinaryTreeNode* rootNode, int& keyToAdd, int& da
 	}
 	else if (rootNode->Key > keyToAdd)
 	{
-		//TODO: длина
-		rootNode->Left = AddInBinaryTree(rootNode->Left, keyToAdd, dataOfNewNode);
+		rootNode->Left = 
+			AddInBinaryTree(rootNode->Left, keyToAdd, dataOfNewNode);
 	}
 	else if (rootNode->Key <= keyToAdd)
 	{
-		//TODO: длина
-		rootNode->Right = AddInBinaryTree(rootNode->Right, keyToAdd, dataOfNewNode);
+		rootNode->Right = 
+			AddInBinaryTree(rootNode->Right, keyToAdd, dataOfNewNode);
 	}
 
 	return rootNode;
@@ -46,13 +47,12 @@ BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, int keyToDelete)
 
 	if (rootNode->Key > keyToDelete)
 	{
-		//TODO: длина
 		rootNode->Left = DeleteFromBinaryTree(rootNode->Left, keyToDelete);
 	}
 	else if (rootNode->Key < keyToDelete)
 	{
-		//TODO: длина
-		rootNode->Right = DeleteFromBinaryTree(rootNode->Right, keyToDelete);
+		rootNode->Right = 
+			DeleteFromBinaryTree(rootNode->Right, keyToDelete);
 	}
 	else if (rootNode->Key = keyToDelete)
 	{
@@ -82,16 +82,16 @@ BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, int keyToDelete)
 			BinaryTreeNode* min = MinimumBinaryTreeSearch(rootNode->Right);
 			rootNode->Key = min->Key;
 			rootNode->Data = min->Data;
-			//TODO: длина
-			rootNode->Right = DeleteFromBinaryTree(rootNode->Right, min->Key);
+			rootNode->Right = 
+				DeleteFromBinaryTree(rootNode->Right, min->Key);
 		}
 	}
 
 	return rootNode;
 }
 
-//TODO: длина
-BinaryTreeNode* BinaryTreeElementSearch(BinaryTreeNode* rootNode, int searchingKey)
+BinaryTreeNode* BinaryTreeElementSearch(BinaryTreeNode* rootNode, 
+	int searchingKey)
 {
 	if (rootNode != nullptr)
 	{
@@ -138,13 +138,5 @@ BinaryTreeNode* MinimumBinaryTreeSearch(BinaryTreeNode* rootNode)
 
 bool IsBinaryTreeEmpty(BinaryTreeNode* rootNode)
 {
-	//TODO: Лишнее сравнение.
-	//TODO: rootNode внутри условия вернёт то же 
-	//TODO: значение, что и rootNode == nullptr.
-	//TODO: Заменить условие на rootNode или применить тернарный оператор
-	if (rootNode == nullptr)
-	{
-		return true;
-	}
-	return false;
+	return rootNode == nullptr;
 }

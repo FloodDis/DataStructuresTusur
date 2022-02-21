@@ -5,8 +5,6 @@ using namespace std;
 
 void MainMenu();
 
-//TODO: Лишняя сложность? Надо будет уточнить.
-//TODO: Я думаю, так делать не стоит, т.к. плодит лишние методы
 void main()
 {
 	MainMenu();
@@ -14,26 +12,47 @@ void main()
 
 void MainMenu()
 {
+	/// <summary>
+	/// Выбор структуры данных
+	/// </summary>
+	enum Actions
+	{
+		/// <summary>
+		/// Бинарное дерево
+		/// </summary>
+		BinaryTree=1,
+
+		/// <summary>
+		/// Декартово дерево
+		/// </summary>
+		Treap,
+
+		/// <summary>
+		/// Выйти из программы
+		/// </summary>
+		Exit
+	};
 	setlocale(LC_ALL, "ru");
 	while (true)
 	{
-		cout << "Выберите структуру данных:\n1) Бинарное дерево"
-			<< "\n2) Декартово дерево\n3) Выйти\n";
+		cout << "Выберите структуру данных:"
+			<< "\n1) Бинарное дерево"
+			<< "\n2) Декартово дерево"
+			<< "\n3) Выйти";
 		int option = EnterNumber("");
 		switch (option)
 		{
-			//TODO: enum
-			case 1:
+			case BinaryTree:
 			{
 				BinaryTreeMenu();
 				break;
 			}
-			case 2:
+			case Treap:
 			{
 				TreapMenu();
 				break;
 			}
-			case 3:
+			case Exit:
 			{
 				return;
 			}

@@ -39,7 +39,6 @@ struct AVLTreeNode
 /// <returns>
 /// созданный узел
 /// </returns>
-//TODO: именование, см. лаб 3 +
 AVLTreeNode* CreateTree(int keyOfRoot, int dataOfRoot);
 
 /// <summary>

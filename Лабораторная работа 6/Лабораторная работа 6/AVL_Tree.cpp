@@ -146,17 +146,17 @@ AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete)
 		}
 		else if (bufferNode->Left == nullptr && bufferNode->Right != nullptr)
 		{
-			AVLTreeNode* pDel = bufferNode;
+			AVLTreeNode* nodeToDelete = bufferNode;
 			bufferNode = bufferNode->Right;
-			delete pDel;
-			pDel = nullptr;
+			delete nodeToDelete;
+			nodeToDelete = nullptr;
 		}
 		else if (bufferNode->Left != nullptr && bufferNode->Right == nullptr)
 		{
-			AVLTreeNode* pDel = bufferNode;
+			AVLTreeNode* nodeToDelete = bufferNode;
 			bufferNode = bufferNode->Left;
-			delete pDel;
-			pDel = nullptr;
+			delete nodeToDelete;
+			nodeToDelete = nullptr;
 		}
 		else if (bufferNode->Left != nullptr && bufferNode->Right != nullptr)
 		{

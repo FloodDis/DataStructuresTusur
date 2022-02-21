@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AVL_Tree.cpp" />
+    <ClCompile Include="FrequentlyUsed.cpp" />
     <ClCompile Include="IO_AVL_Tree.cpp" />
     <ClCompile Include="IO_Red_Black_Tree.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AVL_Tree.h" />
+    <ClInclude Include="FrequentlyUsed.h" />
     <ClInclude Include="IO_AVL_Tree.h" />
     <ClInclude Include="IO_Red_Black_Tree.h" />
     <ClInclude Include="Red_Black_Tree.h" />

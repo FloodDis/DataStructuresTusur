@@ -46,7 +46,8 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 
 	if (node->Key == key)
 	{
-		if (node->Child[Left] == nullptr || node->Child[Right] == nullptr)
+		if (node->Child[Left] == nullptr || 
+			node->Child[Right] == nullptr)
 		{
 			RBTreeNode* singleChild = nullptr;
 			if (node->Child[Left])
@@ -92,7 +93,8 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 
 	bool direction = key > node->Key;
 
-	node->Child[direction] = Delete(node->Child[direction], key, isBalanced);
+	node->Child[direction] =
+		Delete(node->Child[direction], key, isBalanced);
 
 	if (isBalanced)
 	{
@@ -104,7 +106,8 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 	}
 }
 
-RBTreeNode* RBTree::DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced)
+RBTreeNode* 
+RBTree::DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced)
 {
 	RBTreeNode* parent = node;
 	RBTreeNode* sibling = node->Child[!direction];
@@ -117,7 +120,8 @@ RBTreeNode* RBTree::DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced
 	if (sibling)
 	{
 
-		if (!IsRed(sibling->Child[Left]) && !IsRed(sibling->Child[Right]))
+		if (!IsRed(sibling->Child[Left]) && 
+			!IsRed(sibling->Child[Right]))
 		{
 			if (IsRed(parent))
 			{
@@ -136,7 +140,8 @@ RBTreeNode* RBTree::DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced
 			}
 			else
 			{
-				parent->Child[!direction] = Rotate(parent->Child[!direction], !direction);
+				parent->Child[!direction] = 
+					Rotate(parent->Child[!direction], !direction);
 				parent = Rotate(parent, direction);
 			}
 
@@ -187,7 +192,8 @@ RBTreeNode* RBTree::InsertFix(RBTreeNode* node, bool direction)
 	{
 		if (IsRed(node->Child[!direction]))
 		{
-			if (IsRed(node->Child[direction]->Child[direction]) || IsRed(node->Child[direction]->Child[!direction]))
+			if (IsRed(node->Child[direction]->Child[direction]) || 
+				IsRed(node->Child[direction]->Child[!direction]))
 			{
 				FlipColor(node);
 			}
@@ -200,7 +206,8 @@ RBTreeNode* RBTree::InsertFix(RBTreeNode* node, bool direction)
 			}
 			else if (IsRed(node->Child[direction]->Child[!direction]))
 			{
-				node->Child[direction] = Rotate(node->Child[direction], direction);
+				node->Child[direction] = 
+					Rotate(node->Child[direction], direction);
 				node = Rotate(node, !direction);
 			}
 		}
@@ -256,43 +263,4 @@ RBTreeNode* RBTree::Insert(RBTreeNode* node, int key)
 	node->Child[direction] = Insert(node->Child[direction], key);
 
 	return InsertFix(node, direction);
-}
-
-//TODO: консольный вывод вывести в main, он не относится к СД
-void RBTree::PrintRBTree(RBTreeNode* rootNode, int tabCount)
-{
-	if (rootNode != nullptr)
-	{
-		PrintRBTree(rootNode->Child[Right], tabCount + 1);
-		for (int i = 0; i < tabCount; i++)
-		{
-			cout << "\t";
-		}
-		cout << "(" << rootNode->Key << "; ";
-		if (rootNode->IsBlack)
-		{
-			cout << "Black)";
-		}
-		else
-		{
-			cout << "Red)";
-		}
-		if (rootNode->Child[Left] != nullptr && rootNode->Child[Right] != nullptr)
-		{
-			cout << "|\n";
-		}
-		if (rootNode->Child[Left] == nullptr && rootNode->Child[Right] != nullptr)
-		{
-			cout << "/\n";
-		}
-		if (rootNode->Child[Left] != nullptr && rootNode->Child[Right] == nullptr)
-		{
-			cout << "\\\n";
-		}
-		if (rootNode->Child[Left] == nullptr && rootNode->Child[Right] == nullptr)
-		{
-			cout << "\n";
-		}
-		PrintRBTree(rootNode->Child[Left], tabCount + 1);
-	}
 }

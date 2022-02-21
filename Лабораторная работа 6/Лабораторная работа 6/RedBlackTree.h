@@ -105,13 +105,6 @@ public:
 	}
 
 	/// <summary>
-	/// Функция вывода АВЛ-дерева на экран
-	/// </summary>
-	/// <param name="rootNode">корень дерева</param>
-	/// <param name="tabCount">количество табуляций</param>
-	void PrintRBTree(RBTreeNode* rootNode, int tabCount);
-
-	/// <summary>
 	/// Сбрасывает количество выполненых поворот над узлам до нуля
 	/// </summary>
 	void ResetNodeRotateCount()

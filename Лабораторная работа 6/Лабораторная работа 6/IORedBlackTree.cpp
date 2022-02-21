@@ -111,9 +111,48 @@ void RBTreeMenu()
 	}
 }
 
+//TODO: консольный вывод вывести в main, он не относится к СД
+void PrintRBTree(RBTreeNode* rootNode, int tabCount)
+{
+	if (rootNode != nullptr)
+	{
+		PrintRBTree(rootNode->Child[Right], tabCount + 1);
+		for (int i = 0; i < tabCount; i++)
+		{
+			cout << "\t";
+		}
+		cout << "(" << rootNode->Key << "; ";
+		if (rootNode->IsBlack)
+		{
+			cout << "Black)";
+		}
+		else
+		{
+			cout << "Red)";
+		}
+		if (rootNode->Child[Left] != nullptr && rootNode->Child[Right] != nullptr)
+		{
+			cout << "|\n";
+		}
+		if (rootNode->Child[Left] == nullptr && rootNode->Child[Right] != nullptr)
+		{
+			cout << "/\n";
+		}
+		if (rootNode->Child[Left] != nullptr && rootNode->Child[Right] == nullptr)
+		{
+			cout << "\\\n";
+		}
+		if (rootNode->Child[Left] == nullptr && rootNode->Child[Right] == nullptr)
+		{
+			cout << "\n";
+		}
+		PrintRBTree(rootNode->Child[Left], tabCount + 1);
+	}
+}
+
 //TODO: именование, см. лаб 3
 void ShowRBTree(RBTree* treeUnit)
 {
 	cout << "Ваше красно-черное дерево:\n";
-	treeUnit->PrintRBTree(treeUnit->GetRoot(), 0);
+	PrintRBTree(treeUnit->GetRoot(), 0);
 }

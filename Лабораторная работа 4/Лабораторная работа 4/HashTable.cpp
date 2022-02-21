@@ -13,7 +13,7 @@ void InitializeHashTable(HashTable*& hashTableUnit, int size)
 	}
 }
 
-void Delete(HashTable* hashTableUnit, string key)
+void DeleteFromHashTable(HashTable* hashTableUnit, string key)
 {
 	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
 	KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
@@ -89,7 +89,7 @@ void Rehashing(HashTable*& tableToRehash, double countOfElements)
 	{
 		string value = temp[i].Value;
 		string key = temp[i].Key;
-		Add(tableToRehash, value, key);
+		AddInHashTable(tableToRehash, value, key);
 	}
 }
 
@@ -104,7 +104,7 @@ int HashFunction(string key, int size)
 }
 
 //TODO: длина
-void Add(HashTable* hashTableUnit, string value, string key)
+void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 {
 	KeyValueList* newEndNode;
 	newEndNode = new KeyValueList;
@@ -172,4 +172,3 @@ double ElementCount(HashTable* hashTableUnit)
 	}
 	return count;
 }
-

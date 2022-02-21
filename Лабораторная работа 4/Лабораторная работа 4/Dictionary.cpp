@@ -20,7 +20,7 @@ void Add(HashTable* hashTableUnit, string value, string key)
 	}
 	if (!match)
 	{
-		Add(hashTableUnit, value, key);
+		AddInHashTable(hashTableUnit, value, key);
 	}
 	else
 	{

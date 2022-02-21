@@ -70,14 +70,14 @@ void InitializeHashTable(HashTable*& hashTableUnit, int size);
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="value">значение добавляемого элемента</param>
 /// <param name="key">ключ добавляемого элемента</param>
-void Add(HashTable* hashTableUnit, string value, string key);
+void AddInHashTable(HashTable* hashTableUnit, string value, string key);
 
 /// <summary>
 /// Функция удаления пары ключ-значение из хеш-таблицы
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ удаляемой удаляемого элемента</param>
-void Delete(HashTable* hashTableUnit, string key);
+void DeleteFromHashTable(HashTable* hashTableUnit, string key);
 
 /// <summary>
 /// Функция рехешинга

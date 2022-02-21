@@ -30,7 +30,7 @@ void HashTableMenu()
 				{
 					Rehashing(hashTableUnit, ElementCount(hashTableUnit));
 				}
-				Add(hashTableUnit, value, key);
+				AddInHashTable(hashTableUnit, value, key);
 				ShowHashTable(hashTableUnit);
 				break;
 			}
@@ -47,7 +47,7 @@ void HashTableMenu()
 					ShowHashTable(hashTableUnit);
 					break;
 				}
-				Delete(hashTableUnit, key);
+				DeleteFromHashTable(hashTableUnit, key);
 				ShowHashTable(hashTableUnit);
 				break;
 			}

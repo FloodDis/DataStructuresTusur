@@ -31,7 +31,6 @@ struct AVLTreeNode
 	int SubTreeHeight;
 };
 
-//TODO: занести методы в структуру
 /// <summary>
 /// Функция создания узла АВЛ-дерева
 /// </summary>
@@ -40,8 +39,8 @@ struct AVLTreeNode
 /// <returns>
 /// созданный узел
 /// </returns>
-//TODO: именование, см. лаб 3
-AVLTreeNode* CreationOfAVLTree(int keyOfRoot, int dataOfRoot);
+//TODO: именование, см. лаб 3 +
+AVLTreeNode* CreateTree(int keyOfRoot, int dataOfRoot);
 
 /// <summary>
 /// Функция получения высоты поддерева
@@ -105,7 +104,7 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance);
 /// новый корень дерева
 /// </returns>
 //TODO: именование, см. лаб 3
-AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode,
+AVLTreeNode* Add(AVLTreeNode* rootNode,
 	int key,
 	int dataOfNewNode);
 
@@ -117,7 +116,7 @@ AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode,
 /// минимальный элемент АВЛ-дерева
 /// </returns>
 //TODO: именование, см. лаб 3
-AVLTreeNode* FindMinAVL(AVLTreeNode* rootNode);
+AVLTreeNode* FindMin(AVLTreeNode* rootNode);
 
 /// <summary>
 /// Функция удаления элемента из АВЛ-дерева
@@ -128,7 +127,7 @@ AVLTreeNode* FindMinAVL(AVLTreeNode* rootNode);
 /// узел сбалансированного АВЛ-дерева
 /// </returns>
 //TODO: именование, см. лаб 3
-AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete);
+AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete);
 
 /// <summary>
 /// Функция поиска элемента в АВЛ-дереве
@@ -139,4 +138,4 @@ AVLTreeNode* DeleteFromAVLTree(AVLTreeNode* rootNode, int keyToDelete);
 /// искомый узел
 /// </returns>
 //TODO: именование, см. лаб 3
-AVLTreeNode* ElementSearchAVL(AVLTreeNode* rootNode, int searchingKey);
+AVLTreeNode* Find(AVLTreeNode* rootNode, int searchingKey);

@@ -29,27 +29,26 @@ void RBTreeMenu()
 	};
 
 	setlocale(LC_ALL, "ru");
-	int option;
-	int key;
 	RBTree* treeUnit = new RBTree;
 	ShowRBTree(treeUnit);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n2) Удалить элемент\n3) Найти элемент\n4) Выйти\n";
-		cin >> option;
+		cout << "Выберите действие:\n1) Добавить элемент\n"
+			<<"2) Удалить элемент\n3) Найти элемент\n4) Выйти\n";
+		int option = EnterNumber("");
 		switch (option)
 		{
 			case Add:
 			{
-				int key;
-				EnterNumber("Введите ключ добавляемого элемента: ", key);
+				int key =
+					EnterNumber("Введите ключ добавляемого элемента: ");
 				try
 				{
 					treeUnit->Insert(key);
 				}
 				catch (char const* error)
 				{
-					cerr << error << '\n';
+					cout << error << '\n';
 				}
 				ShowRBTree(treeUnit);
 				break;
@@ -57,8 +56,8 @@ void RBTreeMenu()
 
 			case Delete:
 			{
-				int key;
-				EnterNumber("Введите ключ удаляемого элемента: ", key);
+				int key =
+					EnterNumber("Введите ключ удаляемого элемента: ");
 				try
 				{
 					treeUnit->Delete(key);
@@ -66,7 +65,7 @@ void RBTreeMenu()
 				}
 				catch (char const* error)
 				{
-					cerr << error << '\n';
+					cout << error << '\n';
 				}
 				ShowRBTree(treeUnit);
 				break;
@@ -74,12 +73,12 @@ void RBTreeMenu()
 
 			case Find:
 			{
-				int key;
-				EnterNumber("Введите ключ искомого элемента: ", key);
+				int key = EnterNumber("Введите ключ искомого элемента: ");
 				RBTreeNode* result = treeUnit->Find(key);
 				if (result != nullptr)
 				{
-					cout << "Элемент с ключом " << result->Key << " имеет цвет: ";
+					cout << "Элемент с ключом " << result->Key 
+						<< " имеет цвет: ";
 					if (result->IsBlack)
 					{
 						cout << "Черный\n";
@@ -105,16 +104,11 @@ void RBTreeMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
+				ShowRBTree(treeUnit);
 				break;
 			}
 		}
 	}
-}
-
-void EnterNumber(string message, int& value)
-{
-	cout << message;
-	cin >> value;
 }
 
 void ShowRBTree(RBTree* treeUnit)

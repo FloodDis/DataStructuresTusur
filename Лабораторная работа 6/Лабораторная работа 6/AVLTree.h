@@ -105,7 +105,9 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance);
 /// новый корень дерева
 /// </returns>
 //TODO: именование, см. лаб 3
-AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode, int key, int dataOfNewNode);
+AVLTreeNode* AddInAVLTree(AVLTreeNode* rootNode,
+	int key,
+	int dataOfNewNode);
 
 /// <summary>
 /// Функция поиска минимального элемента

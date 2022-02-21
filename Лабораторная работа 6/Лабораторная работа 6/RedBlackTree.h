@@ -2,8 +2,6 @@
 #include <iostream>
 using namespace std;
 
-//TODO: длина во всём файле, включая XML-комментарии
-
 /// <summary>
 /// Дочерний узел
 /// </summary>
@@ -44,13 +42,12 @@ struct RBTreeNode
 class RBTree
 {
 public:
-	//TODO: XML
+
 	///<summary>
 	/// Конструктор класса RBTree
 	/// </summary>
 	RBTree();
 
-	//TODO: XML
 	///<summary>
 	/// Деструктор класса RBTree
 	/// </summary>
@@ -167,7 +164,9 @@ private:
 	/// <returns>
 	/// новый корень слабансированного или нет поддерева
 	/// </returns>
-	RBTreeNode* DeleteFix(RBTreeNode* node, bool direction, bool& isBalanced);
+	RBTreeNode* DeleteFix(RBTreeNode* node,
+		bool direction,
+		bool& isBalanced);
 
 	/// <summary>
 	/// Функция рекурсивно ищет узел с заданным 

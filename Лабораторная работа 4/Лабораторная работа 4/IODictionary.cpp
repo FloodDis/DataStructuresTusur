@@ -2,6 +2,36 @@
 
 void DictionaryMenu()
 {
+	/// <summary>
+	/// Действия над словарем
+	/// </summary>
+	enum Actions
+	{
+		/// <summary>
+		/// Добавить элемент
+		/// </summary>
+		AddElement = 1,
+
+		/// <summary>
+		/// Удалить элемент
+		/// </summary>
+		DeleteElement,
+
+		/// <summary>
+		/// Найти элемент
+		/// </summary>
+		FindElement,
+
+		/// <summary>
+		/// Перехешировать словарь
+		/// </summary>
+		Rehash,
+
+		/// <summary>
+		/// Выйти в главное меню
+		/// </summary>
+		Exit
+	};
 	Dictionary* dictionaryUnit = new Dictionary;
 	dictionaryUnit->HashTable = new HashTable;
 	setlocale(LC_ALL, "ru");
@@ -17,7 +47,7 @@ void DictionaryMenu()
 		int option = EnterNumber("");
 		switch (option)
 		{
-			case 1:
+			case AddElement:
 			{
 				//TODO: см лаб3
 				string value = EnterString("Введите значение value: ");
@@ -37,7 +67,7 @@ void DictionaryMenu()
 				break;
 			}
 
-			case 2:
+			case DeleteElement:
 			{
 				string key =
 					EnterString("Введите key удаляемого элемента: ");
@@ -54,7 +84,7 @@ void DictionaryMenu()
 				break;
 			}
 
-			case 3:
+			case FindElement:
 			{
 				string key =
 					EnterString("Введите key искомого элемента: ");
@@ -75,7 +105,7 @@ void DictionaryMenu()
 				}
 			}
 
-			case 4:
+			case Rehash:
 			{
 				int elementCount = ElementCount(dictionaryUnit->HashTable);
 				Rehashing(dictionaryUnit->HashTable, elementCount);
@@ -83,7 +113,7 @@ void DictionaryMenu()
 				break;
 			}
 
-			case 5:
+			case Exit:
 			{
 				return;
 			}

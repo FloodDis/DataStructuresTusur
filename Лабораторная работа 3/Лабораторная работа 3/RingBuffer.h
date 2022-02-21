@@ -32,13 +32,15 @@ struct RingBuffer
 	/// <summary>
 	/// Кол-во незанятых элементов буфера
 	/// </summary>
-	int FreeSpace = Size;
+	int FreeSpace = 0;
 };
 
 /// <summary>
 /// Функция проверки буфера на заполненность
 /// </summary>
-/// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
+/// <param name="ringBuffer">
+/// указатель на экземпляр кольцевого буфера
+/// </param>
 /// <returns>
 /// true - буфер полон, false - буфер не полон
 /// </returns>
@@ -47,7 +49,9 @@ bool IsFull(RingBuffer* ringBuffer);
 /// <summary>
 /// Функция проверки буфера на пустоту
 /// </summary>
-/// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
+/// <param name="ringBuffer">
+/// указатель на экземпляр кольцевого буфера
+/// </param>
 /// <returns>
 /// true - буфер пуст, false - буфер не пуст
 /// </returns>
@@ -56,24 +60,25 @@ bool IsEmpty(RingBuffer* ringBuffer);
 /// <summary>
 /// Функция добавления элемента в кольцевой буфер
 /// </summary>
-/// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
+/// <param name="ringBuffer">
+/// указатель на экземпляр кольцевого буфера
+/// </param>
 /// <param name="value">значение добавляемого элемента</param>
-//TODO: см. PopFromStack
-void PushInRingBuffer(RingBuffer*& ringBuffer, int value);
+void Push(RingBuffer*& ringBuffer, int value);
 
 /// <summary>
 /// Функция извлечения элемента из кольцевого буфера
 /// </summary>
-/// <param name="ringBuffer">указатель на экземпляр кольцевого буфера</param>
+/// <param name="ringBuffer">
+/// указатель на экземпляр кольцевого буфера
+/// </param>
 /// <returns>значение извлекаемого элемента</returns>
-//TODO: см. PopFromStack
-int PopFromRingBuffer(RingBuffer*& ringBuffer);
+int Pop(RingBuffer*& ringBuffer);
 
 /// <summary>
 /// Функция инициализации кольцевого буфера
 /// </summary>
 /// <param name="sizeOfRingBuffer">размер кольцевого буфера</param>
 /// <returns>экземпляр кольцевого буфера</returns>
-//TODO: см. PopFromStack
-RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer);
+RingBuffer* InitializeRingBuffer(int sizeOfRingBuffer);
 

@@ -4,7 +4,7 @@ void RingBufferMenu()
 {
 	setlocale(LC_ALL, "Russian");
 	int sizeOfBuffer = EnterNumber("Введите размер буфера: ");
-	RingBuffer* ringBuffer = InitializationOfRingBuffer(sizeOfBuffer);
+	RingBuffer* ringBuffer = InitializeRingBuffer(sizeOfBuffer);
 	cout << "Буфер создан!\n";
 	ShowRingBuffer(ringBuffer);
 	while (true)
@@ -56,7 +56,7 @@ void RingBufferMenu()
 				{
 					int newElement = EnterNumber(
 						"Введите значение нового элемента: ");
-					PushInRingBuffer(ringBuffer, newElement);
+					Push(ringBuffer, newElement);
 					ShowRingBuffer(ringBuffer);
 					break;
 				}
@@ -80,7 +80,7 @@ void RingBufferMenu()
 				else
 				{	
 					//TODO: длина
-					int elementFromBuffer = PopFromRingBuffer(ringBuffer);	
+					int elementFromBuffer = Pop(ringBuffer);	
 					//TODO: длина
 					cout << "Значение из буфера:  " << elementFromBuffer << "\n";
 					ShowRingBuffer(ringBuffer);

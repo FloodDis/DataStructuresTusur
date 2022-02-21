@@ -1,6 +1,6 @@
 ﻿#include "RingBuffer.h"
 
-RingBuffer* InitializationOfRingBuffer(int sizeOfRingBuffer)
+RingBuffer* InitializeRingBuffer(int sizeOfRingBuffer)
 {
 	RingBuffer* ringBuffer = new RingBuffer;
 	ringBuffer->Data = new int[sizeOfRingBuffer];
@@ -23,7 +23,7 @@ bool IsEmpty(RingBuffer* ringBuffer)
 	return freeSpace == size;
 }
 
-void PushInRingBuffer(RingBuffer*& ringBuffer, int value)
+void Push(RingBuffer*& ringBuffer, int value)
 {
 	ringBuffer->Data[ringBuffer->ElementToWrite] = value;
 	int elementToWrite = ringBuffer->ElementToWrite;
@@ -39,7 +39,7 @@ void PushInRingBuffer(RingBuffer*& ringBuffer, int value)
 	ringBuffer->FreeSpace--;
 }
 
-int PopFromRingBuffer(RingBuffer*& ringBuffer)
+int Pop(RingBuffer*& ringBuffer)
 {
 	int elementToRead = ringBuffer->ElementToRead;
 	int size = ringBuffer->Size;

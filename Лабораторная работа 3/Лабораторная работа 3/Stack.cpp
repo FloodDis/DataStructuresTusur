@@ -1,6 +1,6 @@
 ﻿#include "Stack.h"
 
-Node* CreationOfStack()
+Node* CreateStack()
 {
 	Node* headNode;
 	headNode = new Node;
@@ -8,7 +8,7 @@ Node* CreationOfStack()
 	return headNode;
 }
 
-Node* PushInStack(Node* headNode, int dataOfNewElement)
+Node* Push(Node* headNode, int dataOfNewElement)
 {
 	Node* newHeadNode;
 	//TODO: new?
@@ -18,7 +18,7 @@ Node* PushInStack(Node* headNode, int dataOfNewElement)
 	return newHeadNode;
 }
 
-int PopFromStack(Node*& headNode)
+int Pop(Node*& headNode)
 {
 	Node* bufferHeadNode;
 	bufferHeadNode = headNode;
@@ -26,7 +26,7 @@ int PopFromStack(Node*& headNode)
 	return bufferHeadNode->DataOfNode;
 }
 
-void DeleteStack(Node*& headNode)
+void Delete(Node*& headNode)
 {
 	while (headNode != nullptr)
 	{

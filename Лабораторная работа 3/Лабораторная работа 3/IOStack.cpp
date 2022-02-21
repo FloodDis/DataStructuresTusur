@@ -6,7 +6,7 @@ void StackMenu()
 	//TODO: внести в while +	
 	//TODO: длина
 	int value = EnterNumber("Введите значение первого элемента: ");
-	Node* stack = CreationOfStack();
+	Node* stack = CreateStack();
 	stack->DataOfNode = value;
 	cout << "Стек создан!\n";
 	ShowStack(stack);
@@ -22,7 +22,7 @@ void StackMenu()
 			{
 				int dataOfNewElement = EnterNumber(
 					"Введите значение нового элемента: \n");
-				stack = PushInStack(stack, dataOfNewElement);
+				stack = Push(stack, dataOfNewElement);
 				ShowStack(stack);
 				break;
 			}
@@ -36,7 +36,7 @@ void StackMenu()
 				}
 				else
 				{
-					int valueFromStack = PopFromStack(stack);
+					int valueFromStack = Pop(stack);
 					cout << "\nЗначение из стека:" << valueFromStack <<
 						"\n";
 					ShowStack(stack);
@@ -46,9 +46,9 @@ void StackMenu()
 
 			case 3:
 			{
-				DeleteStack(stack);
+				Delete(stack);
 				cout << "\nСтек удалён\n";
-				Node* stack = CreationOfStack();
+				Node* stack = CreateStack();
 				cout << "\nСтек создан!\n";
 				ShowStack(stack);
 				break;

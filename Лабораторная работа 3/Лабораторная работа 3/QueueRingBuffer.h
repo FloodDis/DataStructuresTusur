@@ -19,43 +19,40 @@ struct QueueRingBuffer
 /// </summary>
 /// <param name="sizeOfQueue">размер очереди</param>
 /// <returns>экземпляр очереди</returns>
-//TODO: см. PopFromStack
-RingBuffer* CreationOfQueue(int sizeOfQueue);
+RingBuffer* CreateQueue(int sizeOfQueue);
 
 /// <summary>
 /// Функция добавления элемента в очередь
 /// </summary>
 /// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
 /// <param name="value">значение нового элемента</param>
-//TODO: см. PopFromStack
-void EnqueueRingBuffer(RingBuffer*& queueRingBufferUnit, int value);
+void Enqueue(RingBuffer*& queueRingBufferUnit, int value);
 
 /// <summary>
 /// Функция удаления элемента из очереди
 /// </summary>
 /// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
 /// <returns>значение извлеченного элемента</returns>
-//TODO: см. PopFromStack
-int DequeueRingBuffer(RingBuffer*& queueRingBufferUnit);
+int Dequeue(RingBuffer*& queueRingBufferUnit);
 
 /// <summary>
 /// Функция удаления очереди
 /// </summary>
-//TODO: длина строки
-/// <param name="queueRingBufferUnit">указатель на экземпляр структуры</param>
-//TODO: см. PopFromStack
-void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit);
-
-
+/// <param name="queueRingBufferUnit">
+///указатель на экземпляр структуры
+/// </param>
+void DeleteQueue(RingBuffer*& queueRingBufferUnit);
 
 /// <summary>
 /// Функция проверки очреди на пустоту
 /// </summary>
-/// <param name="queueRingBufferUnit">экземпляр очереди на базе кольцевого буфера</param>
+/// <param name="queueRingBufferUnit">
+/// экземпляр очереди на базе кольцевого буфера
+/// </param>
 /// <returns>
 /// true - очередь пуста, false - очередь не пуста
 /// </returns>
-bool IsQueueRingBufferEmpty(RingBuffer* queueRingBufferUnit);
+bool IsEmpty(RingBuffer* queueRingBufferUnit);
 
 ///<summary>
 ///Функция проверки очереди на заполненность
@@ -64,4 +61,4 @@ bool IsQueueRingBufferEmpty(RingBuffer* queueRingBufferUnit);
 /// <returns>
 /// true - очередь заполнена, false - очередь не заполнена
 /// </returns>
-bool IsQueueRingBufferFull(RingBuffer* queueRingBufferUnit);
+bool IsFull(RingBuffer* queueRingBufferUnit);

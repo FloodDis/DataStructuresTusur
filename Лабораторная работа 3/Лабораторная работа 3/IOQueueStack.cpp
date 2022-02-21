@@ -5,7 +5,7 @@ void QueueStackBasedMenu()
 	setlocale(LC_ALL, "Russian");
 
 	QueueStackBased* queueStackUnit = new QueueStackBased;
-	CreationOfQueueStackBased(queueStackUnit);
+	CreateQueue(queueStackUnit);
 	PrintQueueStackBased(queueStackUnit);
 	while (true)
 	{
@@ -21,7 +21,7 @@ void QueueStackBasedMenu()
 			{
 				int dataOfNewElement = EnterNumber(
 					"Введите значение нового элемента: ");
-				EnqueueStackBased(queueStackUnit, dataOfNewElement);
+				Enqueue(queueStackUnit, dataOfNewElement);
 				PrintQueueStackBased(queueStackUnit);
 				break;
 			}
@@ -37,10 +37,10 @@ void QueueStackBasedMenu()
 					break;
 				}
 					cout << "\nИзвлеченный элемент:" <<
-					DequeueStackBased(queueStackUnit) << "\n";
+					Dequeue(queueStackUnit) << "\n";
 				if (queueStackUnit->IsStackInEmpty)
 				{
-					queueStackUnit->StackIn = CreationOfStack();
+					queueStackUnit->StackIn = CreateStack();
 					queueStackUnit->StackIn->PreviousNode = nullptr;
 				}
 				PrintQueueStackBased(queueStackUnit);
@@ -49,10 +49,10 @@ void QueueStackBasedMenu()
 
 			case 3:
 			{
-				DeleteQueueStackBased(queueStackUnit);
+				DeleteQueue(queueStackUnit);
 				cout << "\nВаша очередь удалена!\n";
 				QueueStackBased* queueStackUnit = new QueueStackBased;
-				CreationOfQueueStackBased(queueStackUnit);
+				CreateQueue(queueStackUnit);
 				PrintQueueStackBased(queueStackUnit);
 				break;
 			}

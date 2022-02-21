@@ -30,32 +30,29 @@ struct QueueStackBased
 /// <summary>
 /// Функция создания очереди на базе двух стеков
 /// </summary>
-//TODO: длина строки
-/// <param name="queueStackUnit">указатель на экземпляр создаваемой структуры</param>
-//TODO: см. PopFromStack
-void CreationOfQueueStackBased(QueueStackBased*& queueStackUnit);
+/// <param name="queueStackUnit">
+///указатель на экземпляр создаваемой структуры
+/// </param>
+void CreateQueue(QueueStackBased*& queueStackUnit);
 
 /// <summary>
 /// Фукнция добавления элемента в очередь
 /// </summary>
 /// <param name="queueStackUnit">указатель на экземпляр структуры</param>
 /// <param name="dataOfElement">значение нового элемента</param>
-//TODO: см. PopFromStack
-void EnqueueStackBased(QueueStackBased*& queueStackUnit, int dataOfElement);
+void Enqueue(QueueStackBased*& queueStackUnit, int dataOfElement);
 
 /// <summary>
 /// Функция взятия элемента из очереди
 /// </summary>
 /// <param name="queueStackUnit">указатель на экземпляр структуры</param>
 /// <returns>значение извлекаемого элемента</returns>
-//TODO: см. PopFromStack
-int DequeueStackBased(QueueStackBased*& queueStackUnit);
+int Dequeue(QueueStackBased*& queueStackUnit);
 
 /// <summary>
 /// Функция удаления очереди
 /// </summary>
 /// <param name="queueStackUnit">указатель на экземпляр очереди</param>
-//TODO: см. PopFromStack
-void DeleteQueueStackBased(QueueStackBased*& queueStackUnit);
+void DeleteQueue(QueueStackBased*& queueStackUnit);
 
 

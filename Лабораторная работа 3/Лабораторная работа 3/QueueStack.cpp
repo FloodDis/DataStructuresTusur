@@ -1,17 +1,17 @@
 #include "QueueStack.h"
 
-void CreationOfQueueStackBased(QueueStackBased*& queueStackUnit)
+void CreateQueue(QueueStackBased*& queueStackUnit)
 {
 	queueStackUnit = new QueueStackBased;
-	queueStackUnit->StackIn = CreationOfStack();
-	queueStackUnit->StackOut = CreationOfStack();
+	queueStackUnit->StackIn = CreateStack();
+	queueStackUnit->StackOut = CreateStack();
 	queueStackUnit->StackIn->PreviousNode = nullptr;
 	queueStackUnit->StackOut->PreviousNode = nullptr;
 }
 
 
 //TODO:длина
-void EnqueueStackBased(QueueStackBased*& queueStackUnit, int dataOfElement)
+void Enqueue(QueueStackBased*& queueStackUnit, int dataOfElement)
 {
 	if (queueStackUnit->IsStackInEmpty)
 	{
@@ -21,20 +21,20 @@ void EnqueueStackBased(QueueStackBased*& queueStackUnit, int dataOfElement)
 	else
 	{
 		queueStackUnit->StackIn =
-			PushInStack(queueStackUnit->StackIn, dataOfElement);
+			Push(queueStackUnit->StackIn, dataOfElement);
 	}
 }
 
-int DequeueStackBased(QueueStackBased*& queueStackUnit)
+int Dequeue(QueueStackBased*& queueStackUnit)
 {
 	if (queueStackUnit->IsStackOutEmpty)
 	{
 		if (queueStackUnit->StackOut == nullptr)
 		{
-			queueStackUnit->StackOut = CreationOfStack();
+			queueStackUnit->StackOut = CreateStack();
 		}
 		queueStackUnit->StackOut->DataOfNode =
-			PopFromStack(queueStackUnit->StackIn);
+			Pop(queueStackUnit->StackIn);
 		queueStackUnit->StackOut->PreviousNode = nullptr;
 		queueStackUnit->IsStackOutEmpty = false;
 		while (queueStackUnit->StackIn != nullptr)
@@ -42,9 +42,9 @@ int DequeueStackBased(QueueStackBased*& queueStackUnit)
 			Node* stackOut = queueStackUnit->StackOut;
 			
 	//TODO: длина
-			int valueFromStackIn = PopFromStack(queueStackUnit->StackIn);
+			int valueFromStackIn = Pop(queueStackUnit->StackIn);
 			queueStackUnit->StackOut = 
-				PushInStack(stackOut, valueFromStackIn);
+				Push(stackOut, valueFromStackIn);
 		}
 		queueStackUnit->IsStackInEmpty = true;
 	}
@@ -54,13 +54,13 @@ int DequeueStackBased(QueueStackBased*& queueStackUnit)
 		queueStackUnit->IsStackOutEmpty = true;
 	}
 
-	return PopFromStack(queueStackUnit->StackOut);
+	return Pop(queueStackUnit->StackOut);
 }
 
-void DeleteQueueStackBased(QueueStackBased*& queueStackUnit)
+void DeleteQueue(QueueStackBased*& queueStackUnit)
 {
-	DeleteStack(queueStackUnit->StackIn);
-	DeleteStack(queueStackUnit->StackOut);
+	Delete(queueStackUnit->StackIn);
+	Delete(queueStackUnit->StackOut);
 	delete queueStackUnit;
 	queueStackUnit = nullptr;
 }

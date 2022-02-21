@@ -1,23 +1,23 @@
 ﻿#include "QueueRingBuffer.h"
 
-RingBuffer* CreationOfQueue(int sizeOfQueue)
+RingBuffer* CreateQueue(int sizeOfQueue)
 {
 	//TODO: длина
-	RingBuffer* QueueRingBuffer = InitializationOfRingBuffer(sizeOfQueue);
+	RingBuffer* QueueRingBuffer = InitializeRingBuffer(sizeOfQueue);
 	return QueueRingBuffer;
 }
 
-void EnqueueRingBuffer(RingBuffer*& queueRingBufferUnit, int value)
+void Enqueue(RingBuffer*& queueRingBufferUnit, int value)
 {
-	PushInRingBuffer(queueRingBufferUnit, value);
+	Push(queueRingBufferUnit, value);
 }
 
-int DequeueRingBuffer(RingBuffer*& queueRingBufferUnit)
+int Dequeue(RingBuffer*& queueRingBufferUnit)
 {
-	return PopFromRingBuffer(queueRingBufferUnit);
+	return Pop(queueRingBufferUnit);
 }
 
-void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit)
+void DeleteQueue(RingBuffer*& queueRingBufferUnit)
 {
 	delete[] queueRingBufferUnit->Data;
 	delete queueRingBufferUnit;
@@ -26,12 +26,12 @@ void DeleteQueueRingBuffer(RingBuffer*& queueRingBufferUnit)
 
 
 
-bool IsQueueRingBufferEmpty(RingBuffer* queueRingBufferUnit)
+bool IsEmpty(RingBuffer* queueRingBufferUnit)
 {
 	return IsEmpty(queueRingBufferUnit);
 }
 
-bool IsQueueRingBufferFull(RingBuffer* queueRingBufferUnit)
+bool IsFull(RingBuffer* queueRingBufferUnit)
 {
 	return IsFull(queueRingBufferUnit);
 }

@@ -5,6 +5,8 @@ using namespace std;
 
 void MainMenu();
 
+//TODO: Лишняя сложность? Надо будет уточнить.
+//TODO: Я думаю, так делать не стоит, т.к. плодит лишние методы
 void main()
 {
 	MainMenu();
@@ -20,6 +22,7 @@ void MainMenu()
 		int option = EnterNumber("");
 		switch (option)
 		{
+			//TODO: enum
 			case 1:
 			{
 				BinaryTreeMenu();

@@ -53,6 +53,8 @@ void TreapMenu()
 	ShowTreap("Ваше декартово дерево:\n", rootNode->Root);
 	while (true)
 	{
+		//TODO: Каждую строку в консоли лучше писать на новой 
+		//TODO: строке в исходном коде
 		cout << "Выберите действие:\n"
 			<< "1) Добавить элемент (непотимизировано)\n"
 			<< "2) Добавить элемент (оптимизировано)\n3) Найти элемент\n"
@@ -148,6 +150,7 @@ void TreapMenu()
 			{
 				DeleteTreap(rootNode->Root);
 				cout << "Ваше дерево удалено\n";
+				//TODO: длина
 				int keyOfRoot =
 					EnterNumber("Введите ключ корня декартового дерева: ");
 				int priority = rand() % 100;

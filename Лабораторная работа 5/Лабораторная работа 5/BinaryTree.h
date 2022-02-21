@@ -26,6 +26,11 @@ struct BinaryTreeNode
 	int Data;
 };
 
+//TODO: Все методы лучше занести внутрь структуры, это
+//уменьшит кол-во передаваемых параметров, позволит не
+//упоминать в названии каждого метода имя структуры,
+//к которой он относится, улучшит читаемость кода.
+//Это относится ко всем лабам.
 /// <summary>
 /// Создание бинарного дерева
 /// </summary>
@@ -41,6 +46,7 @@ BinaryTreeNode* CreationOfBinaryTree(int keyOfRoot, int dataOfRoot);
 /// <param name="keyToDelete">ключ добавляемого элемента</param>
 /// <param name="dataOfNewNode">данные добавляемого элемента</param>
 /// <returns>указатель на новый корень бинарного дерева</returns>
+//TODO: длина
 BinaryTreeNode* AddInBinaryTree(BinaryTreeNode* rootNode, int& keyToDelete, int& dataOfNewNode);
 
 /// <summary>
@@ -49,6 +55,7 @@ BinaryTreeNode* AddInBinaryTree(BinaryTreeNode* rootNode, int& keyToDelete, int&
 /// <param name="rootNode">указатель на корень бинарного дерева</param>
 /// <param name="keyToDelete">ключ удаляемого элемента</param>
 /// <returns>указатель на новый корень бинарного дерева</returns>
+//TODO: длина
 BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, int keyToDelete);
 
 /// <summary>
@@ -57,6 +64,7 @@ BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, int keyToDelete);
 /// <param name="rootNode">указатель на корень бинарного дерева</param>
 /// <param name="searchingKey">ключ искомого элемента</param>
 /// <returns>указатель на узел искомого элемента</returns>
+//TODO: длина
 BinaryTreeNode* BinaryTreeElementSearch(BinaryTreeNode* rootNode, int searchingKey);
 
 /// <summary>

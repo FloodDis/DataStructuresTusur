@@ -14,6 +14,7 @@ void TreapMenu();
 /// </summary>
 /// <param name="nodeToPrint">указатель на корень дерева</param>
 /// <param name="lndent">кол-во табуляций</param>
+//TODO: именование, см. лаб 3
 void PrintTreap(TreapNode* nodeToPrint, int lndent = 0);
 
 /// <summary>
@@ -21,4 +22,5 @@ void PrintTreap(TreapNode* nodeToPrint, int lndent = 0);
 /// </summary>
 /// <param name=="message">сообщение,выводимое на экран</param>
 /// <param name=="nodeToPrint">корень поддерева</param>
+//TODO: именование, см. лаб 3
 void ShowTreap(string message, TreapNode* nodeToPrint);

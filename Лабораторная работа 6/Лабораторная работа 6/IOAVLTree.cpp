@@ -32,7 +32,7 @@ void AVLTreeMenu()
 	int dataOfRoot = EnterNumber("Введите данные корня AVL-дерева: ");
 	int keyOfRoot = EnterNumber("Введите ключ корня AVL-дерева: ");
 	AVLTreeNode* rootNode = CreationOfAVLTree(keyOfRoot, dataOfRoot);
-	ShowAVLTree(rootNode);
+	Show(rootNode);
 	while (true)
 	{
 		cout << "Выберите действие:\n1) Добавить элемент\n"
@@ -56,7 +56,7 @@ void AVLTreeMenu()
 				{
 					cout << error << '\n';
 				}
-				ShowAVLTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -73,7 +73,7 @@ void AVLTreeMenu()
 				{
 					cout << error << '\n';
 				}
-				ShowAVLTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -92,7 +92,7 @@ void AVLTreeMenu()
 					cout << "Элемент с ключом " << answer->Key 
 						<< " имеет данные " << answer->Data << "\n";
 				}
-				ShowAVLTree(rootNode);
+				Show(rootNode);
 				break;
 			}
 
@@ -111,17 +111,17 @@ void AVLTreeMenu()
 }
 
 //TODO: именование, см. лаб 3
-void ShowAVLTree(AVLTreeNode* rootNode)
+void Show(AVLTreeNode* rootNode)
 {
 	cout << "Ваше АВЛ-дерево:\n";
-	PrintAVLTree(rootNode, 0);
+	Print(rootNode, 0);
 }
 
-void PrintAVLTree(AVLTreeNode* rootNode, int tabCount)
+void Print(AVLTreeNode* rootNode, int tabCount)
 {
 	if (rootNode != nullptr)
 	{
-		PrintAVLTree(rootNode->Right, tabCount + 1);
+		Print(rootNode->Right, tabCount + 1);
 		for (int i = 0; i < tabCount; i++)
 		{
 			cout << "\t";
@@ -143,6 +143,6 @@ void PrintAVLTree(AVLTreeNode* rootNode, int tabCount)
 		{
 			cout << "\n";
 		}
-		PrintAVLTree(rootNode->Left, tabCount + 1);
+		Print(rootNode->Left, tabCount + 1);
 	}
 }

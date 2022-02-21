@@ -103,7 +103,6 @@ AVLTreeNode* Balance(AVLTreeNode* nodeToBalance);
 /// <returns>
 /// новый корень дерева
 /// </returns>
-//TODO: именование, см. лаб 3
 AVLTreeNode* Add(AVLTreeNode* rootNode,
 	int key,
 	int dataOfNewNode);
@@ -115,7 +114,6 @@ AVLTreeNode* Add(AVLTreeNode* rootNode,
 /// <returns>
 /// минимальный элемент АВЛ-дерева
 /// </returns>
-//TODO: именование, см. лаб 3
 AVLTreeNode* FindMin(AVLTreeNode* rootNode);
 
 /// <summary>
@@ -126,7 +124,6 @@ AVLTreeNode* FindMin(AVLTreeNode* rootNode);
 /// <returns>
 /// узел сбалансированного АВЛ-дерева
 /// </returns>
-//TODO: именование, см. лаб 3
 AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete);
 
 /// <summary>
@@ -137,5 +134,4 @@ AVLTreeNode* Delete(AVLTreeNode* rootNode, int keyToDelete);
 /// <returns>
 /// искомый узел
 /// </returns>
-//TODO: именование, см. лаб 3
 AVLTreeNode* Find(AVLTreeNode* rootNode, int searchingKey);

@@ -30,7 +30,7 @@ void RBTreeMenu()
 
 	setlocale(LC_ALL, "ru");
 	RBTree* treeUnit = new RBTree;
-	ShowRBTree(treeUnit);
+	Show(treeUnit);
 	while (true)
 	{
 		cout << "Выберите действие:\n1) Добавить элемент\n"
@@ -50,7 +50,7 @@ void RBTreeMenu()
 				{
 					cout << error << '\n';
 				}
-				ShowRBTree(treeUnit);
+				Show(treeUnit);
 				break;
 			}
 
@@ -67,7 +67,7 @@ void RBTreeMenu()
 				{
 					cout << error << '\n';
 				}
-				ShowRBTree(treeUnit);
+				Show(treeUnit);
 				break;
 			}
 
@@ -92,7 +92,7 @@ void RBTreeMenu()
 				{
 					cout << "Такого элемента нет в дереве!\n";
 				}
-				ShowRBTree(treeUnit);
+				Show(treeUnit);
 				break;
 			}
 
@@ -104,18 +104,18 @@ void RBTreeMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
-				ShowRBTree(treeUnit);
+				Show(treeUnit);
 				break;
 			}
 		}
 	}
 }
 
-void PrintRBTree(RBTreeNode* rootNode, int tabCount)
+void Print(RBTreeNode* rootNode, int tabCount)
 {
 	if (rootNode != nullptr)
 	{
-		PrintRBTree(rootNode->Child[Right], tabCount + 1);
+		Print(rootNode->Child[Right], tabCount + 1);
 		for (int i = 0; i < tabCount; i++)
 		{
 			cout << "\t";
@@ -145,13 +145,13 @@ void PrintRBTree(RBTreeNode* rootNode, int tabCount)
 		{
 			cout << "\n";
 		}
-		PrintRBTree(rootNode->Child[Left], tabCount + 1);
+		Print(rootNode->Child[Left], tabCount + 1);
 	}
 }
 
 //TODO: именование, см. лаб 3
-void ShowRBTree(RBTree* treeUnit)
+void Show(RBTree* treeUnit)
 {
 	cout << "Ваше красно-черное дерево:\n";
-	PrintRBTree(treeUnit->GetRoot(), 0);
+	Print(treeUnit->GetRoot(), 0);
 }

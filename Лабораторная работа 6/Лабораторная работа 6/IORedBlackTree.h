@@ -14,11 +14,11 @@ void RBTreeMenu();
 /// и красно-черного дерева
 /// </summary>
 /// <param name="treeUnit">экземпляр красно-черного дерева</param>
-void ShowRBTree(RBTree* treeUnit);
+void Show(RBTree* treeUnit);
 
 /// <summary>
-/// Функция вывода АВЛ-дерева на экран
+/// Функция вывода красно-черного дерева на экран
 /// </summary>
 /// <param name="rootNode">корень дерева</param>
 /// <param name="tabCount">количество табуляций</param>
-void PrintRBTree(RBTreeNode* rootNode, int tabCount);
+void Print(RBTreeNode* rootNode, int tabCount);

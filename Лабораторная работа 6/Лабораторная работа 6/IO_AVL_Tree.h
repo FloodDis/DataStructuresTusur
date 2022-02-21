@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <iostream>
-#include "IO_Red_Black_Tree.h"
 #include "AVL_Tree.h"
+#include "FrequentlyUsed.h"
 using namespace std;
 
 /// <summary>

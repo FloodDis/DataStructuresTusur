@@ -27,7 +27,7 @@ void StackMenu()
 		/// </summary>
 		Exit
 	};
-	setlocale(LC_ALL, "Russian");	
+	setlocale(LC_ALL, "Russian");
 	int value = EnterNumber("Введите значение первого элемента: ");
 	Node* stack = CreateStack();
 	stack->DataOfNode = value;
@@ -35,12 +35,15 @@ void StackMenu()
 	ShowStack(stack);
 	while (true)
 	{
-		cout << "Выберите вариант:\n1) Вставить\n";
-		cout << "2) Взять\n3) Удалить стек\n4) Выход\n";
+		cout << "Выберите вариант:\n"
+			<< "1) Вставить\n"
+			<< "2) Взять\n"
+			<< "3) Удалить стек\n"
+			<< "4) Выход\n";
 		//TODO: внести в while +
 		int option = EnterNumber("");
 		switch (option)
-		{	
+		{
 			case Insert:
 			{
 				int dataOfNewElement = EnterNumber(

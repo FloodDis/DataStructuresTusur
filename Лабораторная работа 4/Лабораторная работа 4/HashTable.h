@@ -34,11 +34,11 @@ struct KeyValueList
 /// </summary>
 struct HashTable
 {
-	//TODO: RSDN
+	//TODO: RSDN +
 	/// <summary>
 	/// Вектор, состоящий из списков коллизий
 	/// </summary>
-	vector<KeyValueList*> arrayOfLists;
+	vector<KeyValueList*> ArrayOfLists;
 
 	/// <summary>
 	/// Фактор роста хеш-таблицы

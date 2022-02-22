@@ -2,6 +2,9 @@
 #include "QueueRingBuffer.h"
 #include "FrequentlyUsed.h"
 
+/// <summary>
+/// Функция меню очереди на базе кольцевого буфера
+/// </summary>
 void QueueRingBufferMenu();
 
 /// <summary>

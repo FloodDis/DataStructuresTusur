@@ -52,7 +52,7 @@ void DictionaryMenu()
 				string value = EnterString("¬ведите значение value: ");
 				string key = EnterString("¬ведите значение key: ");
 				double size =
-					dictionaryUnit->HashTable->arrayOfLists.size();
+					dictionaryUnit->HashTable->ArrayOfLists.size();
 				double fillFactor =
 					ElementCount(dictionaryUnit->HashTable) / size;
 				if (fillFactor >= dictionaryUnit->HashTable->MaxFillFactor)

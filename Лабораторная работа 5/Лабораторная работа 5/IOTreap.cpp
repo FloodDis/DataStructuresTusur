@@ -184,7 +184,8 @@ void Print(TreapNode* nodeToPrint, int tabCount)
 		{
 			cout << "\t";
 		}
-		cout << "(" << nodeToPrint->Key << "; " << nodeToPrint->Priority << ")";
+		cout << "(" << nodeToPrint->Key << "; " 
+			<< nodeToPrint->Priority << ")";
 		if (nodeToPrint->Left != nullptr && nodeToPrint->Right != nullptr)
 		{
 			cout << "|\n";

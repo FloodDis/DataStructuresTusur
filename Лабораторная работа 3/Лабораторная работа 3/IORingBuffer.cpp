@@ -39,8 +39,11 @@ void RingBufferMenu()
 	ShowBuffer(RingBuffer);
 	while (true)
 	{
-		cout << "Выберите вариант:\n1) Проверить буфер на заполненность\n"
-			<< "2) Проверить, пуст ли буфер\n3) Вставить\n4) Взять\n"
+		cout << "Выберите вариант:\n"
+			<< "1) Проверить буфер на заполненность\n"
+			<< "2) Проверить, пуст ли буфер\n"
+			<< "3) Вставить\n"
+			<< "4) Взять\n"
 			<< "5) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
@@ -105,7 +108,7 @@ void RingBufferMenu()
 				else
 				{
 					int elementFromBuffer = Pop(RingBuffer);
-					cout << "Значение из буфера:  " 
+					cout << "Значение из буфера:  "
 						<< elementFromBuffer << "\n";
 					ShowBuffer(RingBuffer);
 					break;

@@ -38,16 +38,19 @@ void BinaryTreeMenu()
 		Exit = 6
 	};
 	setlocale(LC_ALL, "ru");
-	int dataOfRoot = 
+	int dataOfRoot =
 		EnterNumber("Введите данные корня бинарного дерева: ");
 	int keyOfRoot = EnterNumber("Введите ключ корня бинарного дерева: ");
 	BinaryTreeNode* rootNode = CreationOfBinaryTree(keyOfRoot, dataOfRoot);
 	Show(rootNode);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n"
-			<< "2) Удалить элемент\n3) Найти элемент\n"
-			<< "4) Найти максимум дерева\n5) Найти минимум дерева\n"
+		cout << "Выберите действие:\n"
+			<< "1) Добавить элемент\n"
+			<< "2) Удалить элемент\n"
+			<< "3) Найти элемент\n"
+			<< "4) Найти максимум дерева\n"
+			<< "5) Найти минимум дерева\n"
 			<< "6) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)

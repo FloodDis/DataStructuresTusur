@@ -11,7 +11,7 @@ void QueueRingBufferMenu()
 		/// <summary>
 		/// Добавить элемент
 		/// </summary>
-		Push=1,
+		Push = 1,
 
 		/// <summary>
 		/// Извлечь элемент
@@ -36,8 +36,10 @@ void QueueRingBufferMenu()
 	ShowQueue(queueRingBuffer->RingBuffer);
 	while (true)
 	{
-		cout << "Выберете вариант:\n1) Добавить элемент в очередь\n"
-			<< "2) Извлечение элемента из очереди\n3) Удалить очередь\n"
+		cout << "Выберете вариант:\n"
+			<< "1) Добавить элемент в очередь\n"
+			<< "2) Извлечение элемента из очереди\n"
+			<< "3) Удалить очередь\n"
 			<< "4) Выход\n";
 		int option = EnterNumber("");
 		switch (option)
@@ -72,7 +74,7 @@ void QueueRingBufferMenu()
 				{
 					int elementFromQueue =
 						Dequeue(queueRingBuffer->RingBuffer);
-					cout << "Извлеченный элемент:" << 
+					cout << "Извлеченный элемент:" <<
 						elementFromQueue << "\n";
 					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
@@ -105,7 +107,6 @@ void QueueRingBufferMenu()
 	}
 }
 
-//TODO: лишняя сложность 
 void PrintQueue(RingBuffer* queueRingBufferUnit)
 {
 	PrintBuffer(queueRingBufferUnit);

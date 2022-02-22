@@ -38,7 +38,8 @@ BinaryTreeNode* AddInBinaryTree(BinaryTreeNode* rootNode,
 	return rootNode;
 }
 
-BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, int keyToDelete)
+BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, 
+	int keyToDelete)
 {
 	if (rootNode == nullptr)
 	{

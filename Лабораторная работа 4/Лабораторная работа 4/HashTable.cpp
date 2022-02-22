@@ -5,18 +5,18 @@ using namespace std;
 
 void InitializeHashTable(HashTable*& hashTableUnit, int size)
 {
-	hashTableUnit->arrayOfLists.resize(size);
+	hashTableUnit->ArrayOfLists.resize(size);
 	hashTableUnit->Size = size;
 	for (int i = 0; i < size; i++)
 	{
-		hashTableUnit->arrayOfLists[i] = new KeyValueList;
+		hashTableUnit->ArrayOfLists[i] = new KeyValueList;
 	}
 }
 
 void DeleteFromHashTable(HashTable* hashTableUnit, string key)
 {
-	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
-	KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
+	int hash = HashFunction(key, hashTableUnit->ArrayOfLists.size());
+	KeyValueList* buffer = hashTableUnit->ArrayOfLists[hash];
 	while (buffer->Key != key && buffer != nullptr)
 	{
 		buffer = buffer->Next;
@@ -30,11 +30,11 @@ void DeleteFromHashTable(HashTable* hashTableUnit, string key)
 		tmpBuffer = nullptr;
 		if (buffer == nullptr)
 		{
-			hashTableUnit->arrayOfLists[hash] = new KeyValueList;
+			hashTableUnit->ArrayOfLists[hash] = new KeyValueList;
 		}
 		else
 		{
-			hashTableUnit->arrayOfLists[hash] = buffer;
+			hashTableUnit->ArrayOfLists[hash] = buffer;
 			buffer = nullptr;
 		}
 	}
@@ -60,9 +60,9 @@ void Rehashing(HashTable*& tableToRehash, double countOfElements)
 {
 	vector<KeyValueList> temp;
 	int j = 0;
-	for (int i = 0; i < tableToRehash->arrayOfLists.size(); i++)
+	for (int i = 0; i < tableToRehash->ArrayOfLists.size(); i++)
 	{
-		KeyValueList* keyValueCopy = tableToRehash->arrayOfLists[i];
+		KeyValueList* keyValueCopy = tableToRehash->ArrayOfLists[i];
 		while (keyValueCopy != nullptr)
 		{
 			if (keyValueCopy->Key != "")
@@ -79,7 +79,7 @@ void Rehashing(HashTable*& tableToRehash, double countOfElements)
 	}
 	int oldSize = tableToRehash->Size;
 	int newSize = (int)(tableToRehash->GrowthFactor * oldSize);
-	tableToRehash->arrayOfLists.clear();
+	tableToRehash->ArrayOfLists.clear();
 	tableToRehash->Size = 0;
 	InitializeHashTable(tableToRehash, newSize);
 	for (int i = 0; i < countOfElements; i++)
@@ -105,15 +105,15 @@ void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 	//TODO: RSDN
 	KeyValueList* newEndNode;
 	newEndNode = new KeyValueList;
-	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
-	if (hashTableUnit->arrayOfLists[hash]->Key == "")
+	int hash = HashFunction(key, hashTableUnit->ArrayOfLists.size());
+	if (hashTableUnit->ArrayOfLists[hash]->Key == "")
 	{
-		hashTableUnit->arrayOfLists[hash]->Key = key;
-		hashTableUnit->arrayOfLists[hash]->Value = value;
+		hashTableUnit->ArrayOfLists[hash]->Key = key;
+		hashTableUnit->ArrayOfLists[hash]->Value = value;
 	}
 	else
 	{
-		KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
+		KeyValueList* buffer = hashTableUnit->ArrayOfLists[hash];
 		while (buffer->Next != nullptr)
 		{
 			buffer = buffer->Next;
@@ -130,8 +130,8 @@ void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 string Search(string searchingKey, HashTable* hashTableUnit)
 {
 	int hash =
-		HashFunction(searchingKey, hashTableUnit->arrayOfLists.size());
-	KeyValueList* buffer = hashTableUnit->arrayOfLists[hash];
+		HashFunction(searchingKey, hashTableUnit->ArrayOfLists.size());
+	KeyValueList* buffer = hashTableUnit->ArrayOfLists[hash];
 	string message = "";
 	while (buffer != nullptr)
 	{
@@ -156,9 +156,9 @@ string Search(string searchingKey, HashTable* hashTableUnit)
 double ElementCount(HashTable* hashTableUnit)
 {
 	double count = 0;
-	for (int i = 0; i < hashTableUnit->arrayOfLists.size(); i++)
+	for (int i = 0; i < hashTableUnit->ArrayOfLists.size(); i++)
 	{
-		KeyValueList* buffer = hashTableUnit->arrayOfLists[i];
+		KeyValueList* buffer = hashTableUnit->ArrayOfLists[i];
 		while (buffer != nullptr)
 		{
 			if (buffer->Key != "")

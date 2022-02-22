@@ -51,4 +51,3 @@ int Pop(RingBuffer*& RingBuffer)
 	RingBuffer->FreeSpace++;
 	return value;
 }
-

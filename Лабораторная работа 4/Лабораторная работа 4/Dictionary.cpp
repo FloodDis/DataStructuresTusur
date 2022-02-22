@@ -3,9 +3,9 @@
 
 void Add(HashTable* hashTableUnit, string value, string key)
 {
-	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
+	int hash = HashFunction(key, hashTableUnit->ArrayOfLists.size());
 	bool match = false;
-	KeyValueList* bufferHead = hashTableUnit->arrayOfLists[hash];
+	KeyValueList* bufferHead = hashTableUnit->ArrayOfLists[hash];
 	while (bufferHead != nullptr)
 	{
 		if (bufferHead->Key == key)
@@ -24,12 +24,12 @@ void Add(HashTable* hashTableUnit, string value, string key)
 	}
 	else
 	{
-		while (hashTableUnit->arrayOfLists[hash]->Key != key)
+		while (hashTableUnit->ArrayOfLists[hash]->Key != key)
 		{
-			hashTableUnit->arrayOfLists[hash] = 
-				hashTableUnit->arrayOfLists[hash]->Next;
+			hashTableUnit->ArrayOfLists[hash] = 
+				hashTableUnit->ArrayOfLists[hash]->Next;
 		}
-		hashTableUnit->arrayOfLists[hash]->Value = value;
+		hashTableUnit->ArrayOfLists[hash]->Value = value;
 	}
 }
 

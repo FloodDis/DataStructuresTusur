@@ -47,7 +47,7 @@ void HashTableMenu()
 		{
 			case Add:
 			{
-				double size = hashTableUnit->arrayOfLists.size();
+				double size = hashTableUnit->ArrayOfLists.size();
 				string value = EnterString("¬ведите значение value: ");
 				string key = EnterString("¬ведите значение key: ");
 				double fillFactor = ElementCount(hashTableUnit) / size;
@@ -117,10 +117,10 @@ void HashTableMenu()
 
 void PrintTable(HashTable* hashTableUnit)
 {
-	for (int i = 0; i < hashTableUnit->arrayOfLists.size(); i++)
+	for (int i = 0; i < hashTableUnit->ArrayOfLists.size(); i++)
 	{
 		cout << i;
-		PrintKeyValueList(hashTableUnit->arrayOfLists[i]);
+		PrintKeyValueList(hashTableUnit->ArrayOfLists[i]);
 	}
 }
 

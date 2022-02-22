@@ -38,11 +38,11 @@ BinaryTreeNode* CreationOfBinaryTree(int keyOfRoot, int dataOfRoot);
 /// Функция добавления элемента в бинарное дерево
 /// </summary>
 /// <param name="rootNode">указатель на корень бинарного дерева</param>
-/// <param name="keyToDelete">ключ добавляемого элемента</param>
+/// <param name="keyToAdd">ключ добавляемого элемента</param>
 /// <param name="dataOfNewNode">данные добавляемого элемента</param>
 /// <returns>указатель на новый корень бинарного дерева</returns>
 BinaryTreeNode* AddInBinaryTree(BinaryTreeNode* rootNode, 
-	int& keyToDelete, int& dataOfNewNode);
+	int& keyToAdd, int& dataOfNewNode);
 
 /// <summary>
 /// Функция удаления элемента из бинарного дерева

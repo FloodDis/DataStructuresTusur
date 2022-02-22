@@ -24,12 +24,19 @@ void Add(HashTable* hashTableUnit, string value, string key)
 	}
 	else
 	{
-		while (hashTableUnit->ArrayOfLists[hash]->Key != key)
+		bufferHead = hashTableUnit->ArrayOfLists[hash];
+		while (bufferHead != nullptr)
 		{
-			hashTableUnit->ArrayOfLists[hash] = 
-				hashTableUnit->ArrayOfLists[hash]->Next;
+			if (bufferHead->Key == key)
+			{
+				bufferHead->Value = value;
+				bufferHead = bufferHead->Next;
+			}
+			else
+			{
+				bufferHead = bufferHead->Next;
+			}
 		}
-		hashTableUnit->ArrayOfLists[hash]->Value = value;
 	}
 }
 

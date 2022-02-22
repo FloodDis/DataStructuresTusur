@@ -66,7 +66,6 @@ BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, int keyToDelete)
 			BinaryTreeNode* bufferNode = rootNode;
 			rootNode = rootNode->Right;
 			delete bufferNode;
-			//TODO: +
 			bufferNode = nullptr;
 		}
 		else if (rootNode->Left != nullptr && rootNode->Right == nullptr)
@@ -74,7 +73,6 @@ BinaryTreeNode* DeleteFromBinaryTree(BinaryTreeNode* rootNode, int keyToDelete)
 			BinaryTreeNode* bufferNode = rootNode;
 			rootNode = rootNode->Left;
 			delete bufferNode;
-			//TODO: +
 			bufferNode = nullptr;
 		}
 		else if (rootNode->Left != nullptr && rootNode->Right != nullptr)

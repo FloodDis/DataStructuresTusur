@@ -11,16 +11,12 @@ RingBuffer* InitializeRingBuffer(int sizeOfRingBuffer)
 
 bool IsBufferFull(RingBuffer* RingBuffer)
 {
-	//TODO: RSDN +
-	int freeSpace = RingBuffer->FreeSpace;
-	return freeSpace == 0;
+	return RingBuffer->FreeSpace == 0;
 }
 
 bool IsBufferEmpty(RingBuffer* RingBuffer)
 {
-	int freeSpace = RingBuffer->FreeSpace;
-	int size = RingBuffer->Size;
-	return freeSpace == size;
+	return RingBuffer->FreeSpace == RingBuffer->Size;
 }
 
 void Push(RingBuffer*& RingBuffer, int value)

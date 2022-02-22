@@ -77,7 +77,6 @@ void Rehashing(HashTable*& tableToRehash, double countOfElements)
 		delete keyValueCopy;
 		keyValueCopy = nullptr;
 	}
-	//TODO: to const +
 	int oldSize = tableToRehash->Size;
 	int newSize = (int)(tableToRehash->GrowthFactor * oldSize);
 	tableToRehash->arrayOfLists.clear();
@@ -103,6 +102,7 @@ int HashFunction(string key, int size)
 
 void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 {
+	//TODO: RSDN
 	KeyValueList* newEndNode;
 	newEndNode = new KeyValueList;
 	int hash = HashFunction(key, hashTableUnit->arrayOfLists.size());
@@ -126,6 +126,7 @@ void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 	}
 }
 
+//TODO: убрать строку
 string Search(string searchingKey, HashTable* hashTableUnit)
 {
 	int hash =

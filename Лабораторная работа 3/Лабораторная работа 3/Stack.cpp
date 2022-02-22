@@ -2,6 +2,7 @@
 
 Node* CreateStack()
 {
+	//TODO: RSDN
 	Node* headNode;
 	headNode = new Node;
 	headNode->PreviousNode = nullptr;
@@ -10,8 +11,8 @@ Node* CreateStack()
 
 Node* Push(Node* headNode, int dataOfNewElement)
 {
+	//TODO: RSDN
 	Node* newHeadNode;
-	//TODO: new? +
 	newHeadNode = new Node;
 	newHeadNode->DataOfNode = dataOfNewElement;
 	newHeadNode->PreviousNode = headNode;
@@ -20,6 +21,7 @@ Node* Push(Node* headNode, int dataOfNewElement)
 
 int Pop(Node*& headNode)
 {
+	//TODO: RSDN
 	Node* bufferHeadNode;
 	bufferHeadNode = headNode;
 	headNode = headNode->PreviousNode;

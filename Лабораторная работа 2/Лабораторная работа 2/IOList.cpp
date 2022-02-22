@@ -114,7 +114,6 @@ void Menu(Node* headNode)
 
 			case InsertAfter:
 			{
-				//TODO: RSDN +
 				int index;
 				do
 				{
@@ -130,7 +129,6 @@ void Menu(Node* headNode)
 
 			case InsertBefore:
 			{
-				//TODO: RSDN +
 				int index;
 				do
 				{
@@ -186,7 +184,6 @@ void Menu(Node* headNode)
 
 void PrintFinded(Node* foundIndexes, Node* headNode)
 {
-	//TODO: +
 	foundIndexes = foundIndexes->NextNode;
 	while (foundIndexes != nullptr)
 	{
@@ -202,13 +199,11 @@ void PrintFinded(Node* foundIndexes, Node* headNode)
 	cout << "\n\n";
 }
 
-//TODO: не должно быть в структуре данных +
 void Print(Node* headNode)
 {
 	int i = 0;
 	while (headNode != nullptr)
 	{
-		//TODO: +
 		cout << "list[" << i << "] =" << headNode->DataOfNode << "\n";
 		headNode = headNode->NextNode;
 		i++;
@@ -243,8 +238,6 @@ int EnterNumber(string message)
 
 int Randomize()
 {
-	//TODO: RSDN +
-	//TODO: nullptr +
 	srand(time(nullptr));
 	int randomNumber = rand() % 100 - 50;
 	return randomNumber;

@@ -29,13 +29,12 @@ struct KeyValueList
 	KeyValueList* Previous = nullptr;
 };
 
-//TODO: в отдельную HashTable +
-
 /// <summary>
 /// Хеш-таблица
 /// </summary>
 struct HashTable
 {
+	//TODO: RSDN
 	/// <summary>
 	/// Вектор, состоящий из списков коллизий
 	/// </summary>
@@ -44,12 +43,12 @@ struct HashTable
 	/// <summary>
 	/// Фактор роста хеш-таблицы
 	/// </summary>
-	const float GrowthFactor = 1.5;
+	const float GrowthFactor = 1.5f;
 
 	/// <summary>
 	/// Максимальный коэффициент заполнения
 	/// </summary>
-	const float MaxFillFactor = 0.9;
+	const float MaxFillFactor = 0.9f;
 
 	/// <summary>
 	/// Размер хеш-таблицы

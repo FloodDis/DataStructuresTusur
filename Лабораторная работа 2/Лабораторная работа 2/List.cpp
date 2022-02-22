@@ -5,7 +5,6 @@ using namespace std;
 
 Node* InitializationOfList(int dataOfHeadNode)
 {
-	//TODO: new? +
 	Node* headNode = new Node;
 	headNode->DataOfNode = dataOfHeadNode;
 	headNode->NextNode = nullptr;
@@ -15,15 +14,13 @@ Node* InitializationOfList(int dataOfHeadNode)
 
 void DeleteElement(Node* headNode, int index)
 {
-	//TODO: RSDN +
 	for (int i = 0; i < index; i++)
 	{
 		headNode = headNode->NextNode;
 	}
 	Node* previous = headNode->PreviousNode;
 	Node* next = headNode->NextNode;
-
-	//TODO:+
+	
 	if (previous != nullptr)
 	{
 		previous->NextNode = headNode->NextNode;
@@ -37,7 +34,6 @@ void DeleteElement(Node* headNode, int index)
 
 Node* AddInTheBeginning(Node* headNode, int dataOfNewNode)
 {
-	//TODO: RSDN +
 	Node* newHeadNode = new Node;
 	newHeadNode->PreviousNode = nullptr;
 	newHeadNode->NextNode = headNode;
@@ -48,9 +44,7 @@ Node* AddInTheBeginning(Node* headNode, int dataOfNewNode)
 
 void AddInTheEnd(Node* headNode, int dataOfNewNode)
 {
-	//TODO: RSDN +
 	Node* newEndNode = new Node;
-	//TODO: new +
 	while (headNode->NextNode != nullptr)
 	{
 		headNode = headNode->NextNode;
@@ -74,14 +68,13 @@ Node* AddBefore(Node* headNode, int dataOfNewNode, int index)
 		{
 			headNode = headNode->NextNode;
 		}
-		//TODO: RSDN +
 		Node* newNode = new Node;
 		Node* buffer = headNode->NextNode;
 		headNode->NextNode = newNode;
 		newNode->DataOfNode = dataOfNewNode;
 		newNode->NextNode = buffer;
 		newNode->PreviousNode = headNode;
-		//TODO: +
+
 		if (buffer != nullptr)
 		{
 			buffer->PreviousNode = newNode;
@@ -95,10 +88,8 @@ void AddAfter(Node* headNode, int dataOfNewNode, int index)
 	{
 		headNode = headNode->NextNode;
 	}
-	//TODO: RSDN +
 	Node* newNode = new Node;
 	Node* buffer = headNode->NextNode;
-	//TODO: new +
 	headNode->NextNode = newNode;
 	newNode->DataOfNode = dataOfNewNode;
 	newNode->NextNode = buffer;
@@ -111,7 +102,6 @@ void AddAfter(Node* headNode, int dataOfNewNode, int index)
 
 void BubbleSort(Node* headNode)
 {
-	//TODO: RSDN +
 	Node* firstNode = headNode;
 	Node* secondNode = headNode;
 	while (firstNode != nullptr)
@@ -131,11 +121,9 @@ void BubbleSort(Node* headNode)
 
 Node* LinearSearch(Node* headNode, int searchingValue)
 {
-	//TODO: RSDN +
 	Node* foundIndexes = InitializationOfList(0);
 	Node* bufferList = headNode;
 	int index = 0;
-	//TODO: nullptr +
 	while (bufferList != nullptr)
 	{
 		if (bufferList->DataOfNode == searchingValue)

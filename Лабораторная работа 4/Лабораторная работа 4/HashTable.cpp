@@ -102,9 +102,8 @@ int HashFunction(string key, int size)
 
 void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 {
-	//TODO: RSDN
-	KeyValueList* newEndNode;
-	newEndNode = new KeyValueList;
+	//TODO: RSDN +
+	KeyValueList* newEndNode = new KeyValueList;
 	int hash = HashFunction(key, hashTableUnit->ArrayOfLists.size());
 	if (hashTableUnit->ArrayOfLists[hash]->Key == "")
 	{
@@ -127,22 +126,20 @@ void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 }
 
 //TODO: убрать строку
-string Search(string searchingKey, HashTable* hashTableUnit)
+vector<KeyValueList*> Search(string searchingKey, HashTable* hashTableUnit)
 {
 	int hash =
 		HashFunction(searchingKey, hashTableUnit->ArrayOfLists.size());
 	KeyValueList* buffer = hashTableUnit->ArrayOfLists[hash];
-	string message = "";
+	vector<KeyValueList*> temp;
+	int j = 0;
 	while (buffer != nullptr)
 	{
 		if (buffer->Key == searchingKey)
 		{
-			message += "Элемент Key = ";
-			message += buffer->Key;
-			message += " Value = ";
-			message += buffer->Value;
-			message += " найден с хешем ";
-			message += to_string(hash) + "\n";
+			temp.resize(j + 1);
+			temp[j] = buffer;
+			j++;
 			buffer = buffer->Next;
 		}
 		else
@@ -150,7 +147,7 @@ string Search(string searchingKey, HashTable* hashTableUnit)
 			buffer = buffer->Next;
 		}
 	}
-	return message;
+	return temp;
 }
 
 double ElementCount(HashTable* hashTableUnit)

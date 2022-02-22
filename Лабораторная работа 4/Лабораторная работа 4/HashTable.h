@@ -99,7 +99,7 @@ int HashFunction(string key, int size);
 /// <param name="searchingKey">ключ искомого элемента</param>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <returns>строка с ответом</returns>
-string Search(string searchingKey, HashTable* hashTableUnit);
+vector<KeyValueList*> Search(string searchingKey, HashTable* hashTableUnit);
 
 ///<summary>
 /// Функция подсчета элементов

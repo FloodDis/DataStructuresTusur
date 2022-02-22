@@ -61,7 +61,9 @@ void AddInTheEnd(Node* headNode, int dataOfNewNode);
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
 /// <param name="dataOfNewNode">данные нового элемента</param>
-/// <param name="index">индекс элемента, перед которым нужно добавить новый элемент</param>
+/// <param name="index">
+/// индекс элемента, перед которым нужно добавить новый элемент
+/// </param>
 /// <returns>
 /// указатель на новый корень списка
 /// </returns>
@@ -72,7 +74,9 @@ Node* AddBefore(Node* headNode, int dataOfNewNode, int index);
 /// </summary>
 /// <param name="headNode">указатель на корень списка</param>
 /// <param name="dataOfNewNode">данные нового элемента</param>
-/// <param name="index">индекс элемента, после которого нужно добавить новый элемент</param>
+/// <param name="index">
+/// индекс элемента, после которого нужно добавить новый элемент
+/// </param>
 void AddAfter(Node* headNode, int dataOfNewNode, int index);
 
 /// <summary>

@@ -5,7 +5,9 @@
 /// <summary>
 /// Функция вывода на экран элементов, найденных с помощью линейного поиска
 /// </summary>
-/// <param name="indexes">указатель на корень списка индексов найденных элементов</param>
+/// <param name="indexes">
+/// указатель на корень списка индексов найденных элементов
+/// </param>
 /// <param name="headNode">>указатель на корень списка</param>
 void PrintFinded(Node* indexes, Node* headNode);
 

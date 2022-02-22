@@ -38,7 +38,7 @@ void Delete(HashTable*& hashTableUnit, string key)
 	Delete(hashTableUnit, key);
 }
 
-string Find(HashTable*& hashTableUnit, string key)
+vector<KeyValueList*> Find(HashTable*& hashTableUnit, string key)
 {
 	return Search(key, hashTableUnit);
 }

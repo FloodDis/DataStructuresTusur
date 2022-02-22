@@ -10,7 +10,7 @@ void HashTableMenu()
 		/// <summary>
 		/// Добавить элемент
 		/// </summary>
-		Add=1,
+		Add = 1,
 
 		/// <summary>
 		/// Удалить элемент
@@ -65,8 +65,8 @@ void HashTableMenu()
 			{
 				string key =
 					EnterString("Введите key удаляемого элемента: ");
-				string answer = Search(key, hashTableUnit);
-				if (answer == "")
+				vector<KeyValueList*> answer = Search(key, hashTableUnit);
+				if (answer.size() == 0)
 				{
 					cout << "Элемент не найден.\n";
 					ShowHashTable(hashTableUnit);
@@ -81,14 +81,28 @@ void HashTableMenu()
 			{
 				string key =
 					EnterString("Введите key искомого элемента: ");
-				string answer = Search(key, hashTableUnit);
-				if (answer == "")
+				vector<KeyValueList*> answer = Search(key, hashTableUnit);
+				if (answer.size() == 0)
 				{
 					cout << "Элемент не найден.\n";
 					ShowHashTable(hashTableUnit);
 					break;
 				}
-				cout << answer << "\n";
+				if (answer.size() > 1)
+				{
+					cout << "Найденные элементы:\n";
+				}
+				else
+				{
+					cout << "Найденный элемент:\n";
+				}
+				
+				for (int i = 0; i < answer.size(); i++)
+				{
+					cout << "Key: " << answer[i]->Key << "\n";
+					cout << "Value: " << answer[i]->Value << "\n";
+					cout << "\n";
+				}
 				ShowHashTable(hashTableUnit);
 				break;
 			}

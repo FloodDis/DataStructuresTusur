@@ -125,7 +125,7 @@ void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 	}
 }
 
-//TODO: убрать строку
+//TODO: убрать строку +
 vector<KeyValueList*> Search(string searchingKey, HashTable* hashTableUnit)
 {
 	int hash =

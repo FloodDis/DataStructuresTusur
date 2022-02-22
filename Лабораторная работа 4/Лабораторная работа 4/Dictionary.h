@@ -39,4 +39,4 @@ void Delete(HashTable*& hashTableUnit, string key);
 /// </summary>
 /// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 /// <param name="key">ключ искомого элемента</param>
-string Find(HashTable*& hashTableUnit, string key);
+vector<KeyValueList*> Find(HashTable*& hashTableUnit, string key);

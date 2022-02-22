@@ -41,9 +41,12 @@ void DictionaryMenu()
 
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n"
-			<< "2) Удалить элемент\n3) Поиск элемента\n"
-			<< "4) Рехешинг\n5) Выйти\n";
+		cout << "Выберите действие:\n"
+			<< "1) Добавить элемент\n"
+			<< "2) Удалить элемент\n"
+			<< "3) Поиск элемента\n"
+			<< "4) Рехешинг\n"
+			<< "5) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -70,9 +73,9 @@ void DictionaryMenu()
 			{
 				string key =
 					EnterString("Введите key удаляемого элемента: ");
-				string answer = 
+				vector<KeyValueList*> answer =
 					Find(dictionaryUnit->HashTable, key);
-				if (answer == "")
+				if (answer.size() == 0)
 				{
 					cout << "Элемент не найден.\n";
 					Show(dictionaryUnit->HashTable);
@@ -87,10 +90,9 @@ void DictionaryMenu()
 			{
 				string key =
 					EnterString("Введите key искомого элемента: ");
-				string answer = "";
-				answer =
+				vector<KeyValueList*> answer =
 					Find(dictionaryUnit->HashTable, key);
-				if (answer == "")
+				if (answer.size() == 0)
 				{
 					cout << "Элемент не найден.\n";
 					Show(dictionaryUnit->HashTable);
@@ -98,7 +100,9 @@ void DictionaryMenu()
 				}
 				else
 				{
-					cout << answer;
+					cout << "Найденный элемент:\n";
+					cout << "Key: " << answer[0]->Key << "\n";
+					cout << "Value: " << answer[0]->Value << "\n";
 					Show(dictionaryUnit->HashTable);
 					break;
 				}

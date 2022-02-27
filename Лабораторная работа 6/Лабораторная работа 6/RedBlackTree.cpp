@@ -45,7 +45,7 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 
 	if (node->Key == key)
 	{
-		if (node->Child[Left] == nullptr || 
+		if (node->Child[Left] == nullptr ||
 			node->Child[Right] == nullptr)
 		{
 			RBTreeNode* singleChild = nullptr;
@@ -103,11 +103,13 @@ RBTreeNode* RBTree::Delete(RBTreeNode* node, int key, bool& isBalanced)
 	}
 }
 
-RBTreeNode* RBTree::DeleteFix(RBTreeNode* node
-	, bool direction, bool& isBalanced)
+RBTreeNode* RBTree::DeleteFix(RBTreeNode* node,
+	bool direction, bool& isBalanced)
 {
 	RBTreeNode* parent = node;
 	RBTreeNode* sibling = node->Child[!direction];
+	// Брат красный, выполняем поворот, 
+	//чтобы получить LL или RR, а не LR или RL.
 	if (IsRed(sibling))
 	{
 		node = Rotate(node, direction);
@@ -116,29 +118,38 @@ RBTreeNode* RBTree::DeleteFix(RBTreeNode* node
 
 	if (sibling)
 	{
-		if (!IsRed(sibling->Child[Left]) && 
-			!IsRed(sibling->Child[Right]))
+		// Родной брат чёрный без красных дочерних узлов.
+		if (!IsRed(sibling->Child[Left])
+			&& !IsRed(sibling->Child[Right]))
 		{
 			if (IsRed(parent))
 			{
 				isBalanced = true;
 			}
+			// КЧ2 -> КЧ1
 			parent->IsBlack = true;
 			sibling->IsBlack = false;
 		}
 		else
 		{
+			// Сохраняем цвет родителя, 
+			//чтобы цвет заменяющего его узла был такой же.
 			bool parentColor = parent->IsBlack;
+			// Брат был красный, 
+			//значит до этого был выполнен поворот => меняем ребёнка на родителя.
 			bool isSiblingRed = !(node == parent);
 			if (IsRed(sibling->Child[!direction]))
 			{
+				// RR , LL
 				parent = Rotate(parent, direction);
 			}
 			else
 			{
-				parent->Child[!direction] = 
+				// RL , LR
+				parent->Child[!direction] =
 					Rotate(parent->Child[!direction], !direction);
 				parent = Rotate(parent, direction);
+				//parent = DoubleRotate(parent, direction);
 			}
 
 			parent->IsBlack = parentColor;
@@ -188,7 +199,7 @@ RBTreeNode* RBTree::InsertFix(RBTreeNode* node, bool direction)
 	{
 		if (IsRed(node->Child[!direction]))
 		{
-			if (IsRed(node->Child[direction]->Child[direction]) || 
+			if (IsRed(node->Child[direction]->Child[direction]) ||
 				IsRed(node->Child[direction]->Child[!direction]))
 			{
 				FlipColor(node);
@@ -202,7 +213,7 @@ RBTreeNode* RBTree::InsertFix(RBTreeNode* node, bool direction)
 			}
 			else if (IsRed(node->Child[direction]->Child[!direction]))
 			{
-				node->Child[direction] = 
+				node->Child[direction] =
 					Rotate(node->Child[direction], direction);
 				node = Rotate(node, !direction);
 			}
@@ -223,7 +234,6 @@ RBTreeNode* RBTree::Rotate(RBTreeNode* node, bool direction)
 	RBTreeNode* newRoot = node->Child[!direction];
 	node->Child[!direction] = newRoot->Child[direction];
 	newRoot->Child[direction] = node;
-
 	newRoot->IsBlack = node->IsBlack;
 	node->IsBlack = false;
 

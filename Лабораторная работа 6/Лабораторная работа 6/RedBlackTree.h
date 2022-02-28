@@ -93,6 +93,25 @@ public:
 		return _root;
 	}
 
+	/// <summary>
+	/// Функция получения количества выполненных поворотов 
+	/// </summary>
+	///<returns>
+	/// Кол-во поворотов
+	/// </returns>
+	int GetNodeRotateCount()
+	{
+		return _nodeRotateCount;
+	}
+
+	/// <summary>
+	/// Сбрасывает количество выполненых поворотов над узлом до нуля
+	/// </summary>
+	void ResetNodeRotateCount()
+	{
+		_nodeRotateCount = 0;
+	}
+
 private:
 	/// <summary>
 	/// Функция проверки красный ли заданный узел
@@ -211,5 +230,10 @@ private:
 	/// Корень красно-чёрного дерева
 	/// </summary>
 	RBTreeNode* _root;
+
+	/// <summary>
+	/// Количество выполненых поворотов за время существования дерева
+	/// </summary>
+	int _nodeRotateCount;
 };
 

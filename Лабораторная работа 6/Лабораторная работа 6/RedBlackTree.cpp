@@ -3,7 +3,6 @@
 RBTree::RBTree()
 {
 	_root = nullptr;
-	_nodeRotateCount = 0;
 }
 
 RBTree::~RBTree()

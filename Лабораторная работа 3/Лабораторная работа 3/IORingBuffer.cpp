@@ -1,50 +1,50 @@
-#include "IORingBuffer.h"
+п»ї#include "IORingBuffer.h"
 
 void RingBufferMenu()
 {
 	/// <summary>
-	/// Действия над кольцевым буфером
+	/// Р”РµР№СЃС‚РІРёСЏ РЅР°Рґ РєРѕР»СЊС†РµРІС‹Рј Р±СѓС„РµСЂРѕРј
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Полон ли буфер
+		/// РџРѕР»РѕРЅ Р»Рё Р±СѓС„РµСЂ
 		/// </summary>
 		IsRingBufferFull = 1,
 
 		/// <summary>
-		/// Пуст ли буфер
+		/// РџСѓСЃС‚ Р»Рё Р±СѓС„РµСЂ
 		/// </summary>
 		IsRingBufferEmpty,
 
 		/// <summary>
-		/// Вставить элемент
+		/// Р’СЃС‚Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Insert,
 
 		/// <summary>
-		/// Взять элемент
+		/// Р’Р·СЏС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Erase,
 
 		/// <summary>
-		/// Выйти главное меню
+		/// Р’С‹Р№С‚Рё РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit
 	};
 	setlocale(LC_ALL, "Russian");
-	int sizeOfBuffer = EnterNumber("Введите размер буфера: ");
+	int sizeOfBuffer = EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ Р±СѓС„РµСЂР°: ");
 	RingBuffer* RingBuffer = InitializeRingBuffer(sizeOfBuffer);
-	cout << "Буфер создан!\n";
+	cout << "Р‘СѓС„РµСЂ СЃРѕР·РґР°РЅ!\n";
 	ShowBuffer(RingBuffer);
 	while (true)
 	{
-		cout << "Выберите вариант:\n"
-			<< "1) Проверить буфер на заполненность\n"
-			<< "2) Проверить, пуст ли буфер\n"
-			<< "3) Вставить\n"
-			<< "4) Взять\n"
-			<< "5) Выход\n";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РІР°СЂРёР°РЅС‚:\n"
+			<< "1) РџСЂРѕРІРµСЂРёС‚СЊ Р±СѓС„РµСЂ РЅР° Р·Р°РїРѕР»РЅРµРЅРЅРѕСЃС‚СЊ\n"
+			<< "2) РџСЂРѕРІРµСЂРёС‚СЊ, РїСѓСЃС‚ Р»Рё Р±СѓС„РµСЂ\n"
+			<< "3) Р’СЃС‚Р°РІРёС‚СЊ\n"
+			<< "4) Р’Р·СЏС‚СЊ\n"
+			<< "5) Р’С‹С…РѕРґ\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -52,12 +52,12 @@ void RingBufferMenu()
 			{
 				if (IsBufferFull(RingBuffer))
 				{
-					cout << "Буфер полон.\n";
+					cout << "Р‘СѓС„РµСЂ РїРѕР»РѕРЅ.\n";
 					ShowBuffer(RingBuffer);
 				}
 				else
 				{
-					cout << "Буфер не полон.\n";
+					cout << "Р‘СѓС„РµСЂ РЅРµ РїРѕР»РѕРЅ.\n";
 					ShowBuffer(RingBuffer);
 				}
 				break;
@@ -67,12 +67,12 @@ void RingBufferMenu()
 			{
 				if (IsBufferEmpty(RingBuffer))
 				{
-					cout << "\nБуфер пуст.\n";
+					cout << "\nР‘СѓС„РµСЂ РїСѓСЃС‚.\n";
 					ShowBuffer(RingBuffer);
 				}
 				else
 				{
-					cout << "\nБуфер не пуст.\n";
+					cout << "\nР‘СѓС„РµСЂ РЅРµ РїСѓСЃС‚.\n";
 					ShowBuffer(RingBuffer);
 				}
 				break;
@@ -83,14 +83,14 @@ void RingBufferMenu()
 				if (!IsBufferFull(RingBuffer))
 				{
 					int newElement = EnterNumber(
-						"Введите значение нового элемента: ");
+						"Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 					Push(RingBuffer, newElement);
 					ShowBuffer(RingBuffer);
 					break;
 				}
 				else
 				{
-					cout << "В буфере нет места для записи!\n";
+					cout << "Р’ Р±СѓС„РµСЂРµ РЅРµС‚ РјРµСЃС‚Р° РґР»СЏ Р·Р°РїРёСЃРё!\n";
 					ShowBuffer(RingBuffer);
 					break;
 				}
@@ -101,14 +101,14 @@ void RingBufferMenu()
 			{
 				if (IsBufferEmpty(RingBuffer))
 				{
-					cout << "Буфер пуст.\n";
+					cout << "Р‘СѓС„РµСЂ РїСѓСЃС‚.\n";
 					ShowBuffer(RingBuffer);
 					break;
 				}
 				else
 				{
 					int elementFromBuffer = Pop(RingBuffer);
-					cout << "Значение из буфера:  "
+					cout << "Р—РЅР°С‡РµРЅРёРµ РёР· Р±СѓС„РµСЂР°:  "
 						<< elementFromBuffer << "\n";
 					ShowBuffer(RingBuffer);
 					break;
@@ -122,7 +122,7 @@ void RingBufferMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				ShowBuffer(RingBuffer);
 				break;
 			}
@@ -141,6 +141,6 @@ void PrintBuffer(RingBuffer* RingBuffer)
 
 void ShowBuffer(RingBuffer* RingBuffer)
 {
-	cout << "Ваш буфер:\n";
+	cout << "Р’Р°С€ Р±СѓС„РµСЂ:\n";
 	PrintBuffer(RingBuffer);
 }

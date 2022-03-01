@@ -1,59 +1,59 @@
-#include "IODictionary.h"
+п»ї#include "IODictionary.h"
 
 void DictionaryMenu()
 {
 	/// <summary>
-	/// Действия над словарем
+	/// Р”РµР№СЃС‚РІРёСЏ РЅР°Рґ СЃР»РѕРІР°СЂРµРј
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		AddElement = 1,
 
 		/// <summary>
-		/// Удалить элемент
+		/// РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		DeleteElement,
 
 		/// <summary>
-		/// Найти элемент
+		/// РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚
 		/// </summary>
 		FindElement,
 
 		/// <summary>
-		/// Перехешировать словарь
+		/// РџРµСЂРµС…РµС€РёСЂРѕРІР°С‚СЊ СЃР»РѕРІР°СЂСЊ
 		/// </summary>
 		Rehash,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit
 	};
 	Dictionary* dictionaryUnit = new Dictionary;
 	dictionaryUnit->HashTable = new HashTable;
 	setlocale(LC_ALL, "ru");
-	int size = EnterNumber("Введите размер словаря:\n");
+	int size = EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ СЃР»РѕРІР°СЂСЏ:\n");
 	InitializeDictionary(dictionaryUnit->HashTable, size);
 	Show(dictionaryUnit->HashTable);
 
 	while (true)
 	{
-		cout << "Выберите действие:\n"
-			<< "1) Добавить элемент\n"
-			<< "2) Удалить элемент\n"
-			<< "3) Поиск элемента\n"
-			<< "4) Рехешинг\n"
-			<< "5) Выйти\n";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n"
+			<< "1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n"
+			<< "2) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚\n"
+			<< "3) РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°\n"
+			<< "4) Р РµС…РµС€РёРЅРі\n"
+			<< "5) Р’С‹Р№С‚Рё\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
 			case AddElement:
 			{
-				string value = EnterString("Введите значение value: ");
-				string key = EnterString("Введите значение key: ");
+				string value = EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ value: ");
+				string key = EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ key: ");
 				double size =
 					dictionaryUnit->HashTable->ArrayOfLists.size();
 				double fillFactor =
@@ -72,12 +72,12 @@ void DictionaryMenu()
 			case DeleteElement:
 			{
 				string key =
-					EnterString("Введите key удаляемого элемента: ");
+					EnterString("Р’РІРµРґРёС‚Рµ key СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 				vector<KeyValueList*> answer =
 					Find(dictionaryUnit->HashTable, key);
 				if (answer.size() == 0)
 				{
-					cout << "Элемент не найден.\n";
+					cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ.\n";
 					Show(dictionaryUnit->HashTable);
 					break;
 				}
@@ -89,18 +89,18 @@ void DictionaryMenu()
 			case FindElement:
 			{
 				string key =
-					EnterString("Введите key искомого элемента: ");
+					EnterString("Р’РІРµРґРёС‚Рµ key РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 				vector<KeyValueList*> answer =
 					Find(dictionaryUnit->HashTable, key);
 				if (answer.size() == 0)
 				{
-					cout << "Элемент не найден.\n";
+					cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ.\n";
 					Show(dictionaryUnit->HashTable);
 					break;
 				}
 				else
 				{
-					cout << "Найденный элемент:\n";
+					cout << "РќР°Р№РґРµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚:\n";
 					cout << "Key: " << answer[0]->Key << "\n";
 					cout << "Value: " << answer[0]->Value << "\n";
 					Show(dictionaryUnit->HashTable);
@@ -123,7 +123,7 @@ void DictionaryMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!" << endl;
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!" << endl;
 				Show(dictionaryUnit->HashTable);
 				break;
 			}
@@ -133,7 +133,7 @@ void DictionaryMenu()
 
 void Show(HashTable* hashTableUnit)
 {
-	cout << "Ваш словарь:\n";
+	cout << "Р’Р°С€ СЃР»РѕРІР°СЂСЊ:\n";
 	PrintDictionary(hashTableUnit);
 }
 

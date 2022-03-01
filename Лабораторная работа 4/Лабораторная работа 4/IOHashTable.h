@@ -1,26 +1,26 @@
-#pragma once
+п»ї#pragma once
 #include "HashTable.h"
 #include "FrequentlyUsed.h"
 
 ///<summary>
-///Функция вызова меню хеш-таблицы
+///Р¤СѓРЅРєС†РёСЏ РІС‹Р·РѕРІР° РјРµРЅСЋ С…РµС€-С‚Р°Р±Р»РёС†С‹
 ///</summary>
 void HashTableMenu();
 
 /// <summary>
-/// Функция вывода хеш-таблицы на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° С…РµС€-С‚Р°Р±Р»РёС†С‹ РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
 void PrintTable(HashTable* hashTableUnit);
 
 ///<summary>
-/// Функция вывода строки Ваша хеш-таблица и хеш-таблицы
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃС‚СЂРѕРєРё Р’Р°С€Р° С…РµС€-С‚Р°Р±Р»РёС†Р° Рё С…РµС€-С‚Р°Р±Р»РёС†С‹
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
 void ShowHashTable(HashTable* hashTableUnit);
 
 /// <summary>
-/// Функция вывода списка коллизий на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРїРёСЃРєР° РєРѕР»Р»РёР·РёР№ РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="listUnit">экзмепляр списка коллизий</param>
+/// <param name="listUnit">СЌРєР·РјРµРїР»СЏСЂ СЃРїРёСЃРєР° РєРѕР»Р»РёР·РёР№</param>
 void PrintKeyValueList(KeyValueList* listUnit);

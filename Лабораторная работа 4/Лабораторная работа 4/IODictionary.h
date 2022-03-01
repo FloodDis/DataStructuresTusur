@@ -1,21 +1,21 @@
-#pragma once
+п»ї#pragma once
 #include "Dictionary.h"
 #include "FrequentlyUsed.h"
 #include "IOHashTable.h"
 
 ///<summary>
-///Функция вызова меню словаря
+///Р¤СѓРЅРєС†РёСЏ РІС‹Р·РѕРІР° РјРµРЅСЋ СЃР»РѕРІР°СЂСЏ
 ///</summary>
 void DictionaryMenu();
 
 /// <summary>
-/// Функция вывода словаря
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃР»РѕРІР°СЂСЏ
 /// </summary>
-/// <param name="message">строка с сообщением</param>
+/// <param name="message">СЃС‚СЂРѕРєР° СЃ СЃРѕРѕР±С‰РµРЅРёРµРј</param>
 void PrintDictionary(HashTable* hashTableUnit);
 
 /// <summary>
-/// Функция вывода сообщения Ваш словарь: и словаря 
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ Р’Р°С€ СЃР»РѕРІР°СЂСЊ: Рё СЃР»РѕРІР°СЂСЏ 
 /// </summary>
-/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
+/// <param name="hashTableUnit">СЌРєР·РµРјРїР»СЏСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹</param>
 void Show(HashTable* hashTableUnit);

@@ -1,55 +1,55 @@
-#include "IOHashTable.h"
+п»ї#include "IOHashTable.h"
 
 void HashTableMenu()
 {
 	/// <summary>
-	/// Действия над хеш-таблицей
+	/// Р”РµР№СЃС‚РІРёСЏ РЅР°Рґ С…РµС€-С‚Р°Р±Р»РёС†РµР№
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Add = 1,
 
 		/// <summary>
-		/// Удалить элемент
+		/// РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Delete,
 
 		/// <summary>
-		/// Найти элемент
+		/// РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Find,
 
 		/// <summary>
-		/// Перехешировать таблицу
+		/// РџРµСЂРµС…РµС€РёСЂРѕРІР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ
 		/// </summary>
 		Rehash,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit
 	};
 	setlocale(LC_ALL, "ru");
 	HashTable* hashTableUnit = new HashTable;
-	int size = EnterNumber("Введите размер хеш-таблицы:\n");
+	int size = EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ С…РµС€-С‚Р°Р±Р»РёС†С‹:\n");
 	InitializeHashTable(hashTableUnit, size);
 	ShowHashTable(hashTableUnit);
 	while (true)
 	{
-		cout << "Выберите действие:\n1) Добавить элемент\n"
-			<< "2) Удалить элемент\n3) Поиск элемента\n"
-			<< "4) Рехешинг\n5) Выйти\n";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n"
+			<< "2) РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚\n3) РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°\n"
+			<< "4) Р РµС…РµС€РёРЅРі\n5) Р’С‹Р№С‚Рё\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
 			case Add:
 			{
 				double size = hashTableUnit->ArrayOfLists.size();
-				string value = EnterString("Введите значение value: ");
-				string key = EnterString("Введите значение key: ");
+				string value = EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ value: ");
+				string key = EnterString("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ key: ");
 				double fillFactor = ElementCount(hashTableUnit) / size;
 				int elementCount = ElementCount(hashTableUnit);
 				if (fillFactor >= hashTableUnit->MaxFillFactor)
@@ -64,11 +64,11 @@ void HashTableMenu()
 			case Delete:
 			{
 				string key =
-					EnterString("Введите key удаляемого элемента: ");
+					EnterString("Р’РІРµРґРёС‚Рµ key СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 				vector<KeyValueList*> answer = Search(key, hashTableUnit);
 				if (answer.size() == 0)
 				{
-					cout << "Элемент не найден.\n";
+					cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ.\n";
 					ShowHashTable(hashTableUnit);
 					break;
 				}
@@ -80,21 +80,21 @@ void HashTableMenu()
 			case Find:
 			{
 				string key =
-					EnterString("Введите key искомого элемента: ");
+					EnterString("Р’РІРµРґРёС‚Рµ key РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 				vector<KeyValueList*> answer = Search(key, hashTableUnit);
 				if (answer.size() == 0)
 				{
-					cout << "Элемент не найден.\n";
+					cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ.\n";
 					ShowHashTable(hashTableUnit);
 					break;
 				}
 				if (answer.size() > 1)
 				{
-					cout << "Найденные элементы:\n";
+					cout << "РќР°Р№РґРµРЅРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹:\n";
 				}
 				else
 				{
-					cout << "Найденный элемент:\n";
+					cout << "РќР°Р№РґРµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚:\n";
 				}
 				
 				for (int i = 0; i < answer.size(); i++)
@@ -121,7 +121,7 @@ void HashTableMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°\n";
 				ShowHashTable(hashTableUnit);
 				break;
 			}
@@ -140,7 +140,7 @@ void PrintTable(HashTable* hashTableUnit)
 
 void ShowHashTable(HashTable* hashTableUnit)
 {
-	cout << "Ваша хеш-таблица:\n";
+	cout << "Р’Р°С€Р° С…РµС€-С‚Р°Р±Р»РёС†Р°:\n";
 	PrintTable(hashTableUnit);
 }
 

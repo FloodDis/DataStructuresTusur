@@ -1,29 +1,29 @@
-#include "IOQueueStack.h"
+п»ї#include "IOQueueStack.h"
 
 void QueueStackBasedMenu()
 {
 	/// <summary>
-	/// Действия над очередью на базе 2-х стеков
+	/// Р”РµР№СЃС‚РІРёСЏ РЅР°Рґ РѕС‡РµСЂРµРґСЊСЋ РЅР° Р±Р°Р·Рµ 2-С… СЃС‚РµРєРѕРІ
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Push = 1,
 
 		/// <summary>
-		/// Извлечь элемент
+		/// РР·РІР»РµС‡СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Pop,
 
 		/// <summary>
-		/// Удалить очередь
+		/// РЈРґР°Р»РёС‚СЊ РѕС‡РµСЂРµРґСЊ
 		/// </summary>
 		RemoveQueue,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit
 	};
@@ -33,18 +33,18 @@ void QueueStackBasedMenu()
 	PrintQueue(queueStackUnit);
 	while (true)
 	{
-		cout << "Выберите действие:\n"
-			<< "1) Добавить элемент в очередь\n"
-			<< "2) Извлечение элемента из очереди\n"
-			<< "3) Удалить очередь\n"
-			<< "4) Выход\n";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n"
+			<< "1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РѕС‡РµСЂРµРґСЊ\n"
+			<< "2) РР·РІР»РµС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РёР· РѕС‡РµСЂРµРґРё\n"
+			<< "3) РЈРґР°Р»РёС‚СЊ РѕС‡РµСЂРµРґСЊ\n"
+			<< "4) Р’С‹С…РѕРґ\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
 			case Push:
 			{
 				int dataOfNewElement = EnterNumber(
-					"Введите значение нового элемента: ");
+					"Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 				Enqueue(queueStackUnit, dataOfNewElement);
 				PrintQueue(queueStackUnit);
 				break;
@@ -56,11 +56,11 @@ void QueueStackBasedMenu()
 				bool isStackOutEmpty = queueStackUnit->IsStackOutEmpty;
 				if (isStackInEmpty && isStackOutEmpty)
 				{
-					cout << "Очередь пуста.\n";
+					cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°.\n";
 					PrintQueue(queueStackUnit);
 					break;
 				}
-				cout << "\nИзвлеченный элемент:" <<
+				cout << "\nРР·РІР»РµС‡РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚:" <<
 					Dequeue(queueStackUnit) << "\n";
 				if (queueStackUnit->IsStackInEmpty)
 				{
@@ -74,7 +74,7 @@ void QueueStackBasedMenu()
 			case RemoveQueue:
 			{
 				DeleteQueue(queueStackUnit);
-				cout << "\nВаша очередь удалена!\n";
+				cout << "\nР’Р°С€Р° РѕС‡РµСЂРµРґСЊ СѓРґР°Р»РµРЅР°!\n";
 				QueueStackBased* queueStackUnit = new QueueStackBased;
 				CreateQueue(queueStackUnit);
 				PrintQueue(queueStackUnit);
@@ -88,7 +88,7 @@ void QueueStackBasedMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				PrintQueue(queueStackUnit);
 				break;
 			}

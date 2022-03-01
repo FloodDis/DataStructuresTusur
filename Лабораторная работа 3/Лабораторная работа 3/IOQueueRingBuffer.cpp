@@ -1,46 +1,46 @@
-#include "IOQueueRingBuffer.h"
+п»ї#include "IOQueueRingBuffer.h"
 #include "IORingBuffer.h"
 
 void QueueRingBufferMenu()
 {
 	/// <summary>
-	/// Действия над очередью на базе кольцевого буфера
+	/// Р”РµР№СЃС‚РІРёСЏ РЅР°Рґ РѕС‡РµСЂРµРґСЊСЋ РЅР° Р±Р°Р·Рµ РєРѕР»СЊС†РµРІРѕРіРѕ Р±СѓС„РµСЂР°
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Push = 1,
 
 		/// <summary>
-		/// Извлечь элемент
+		/// РР·РІР»РµС‡СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Pop,
 
 		/// <summary>
-		/// Удалить очередь
+		/// РЈРґР°Р»РёС‚СЊ РѕС‡РµСЂРµРґСЊ
 		/// </summary>
 		RemoveQueue,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit
 	};
 	setlocale(LC_ALL, "Russian");
-	int sizeOfQueue = EnterNumber("Введите размер очереди: ");
+	int sizeOfQueue = EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё: ");
 	QueueRingBuffer* queueRingBuffer = new QueueRingBuffer;
 	queueRingBuffer->RingBuffer = CreateQueue(sizeOfQueue);
-	cout << "Очередь создана!\n";
+	cout << "РћС‡РµСЂРµРґСЊ СЃРѕР·РґР°РЅР°!\n";
 	ShowQueue(queueRingBuffer->RingBuffer);
 	while (true)
 	{
-		cout << "Выберете вариант:\n"
-			<< "1) Добавить элемент в очередь\n"
-			<< "2) Извлечение элемента из очереди\n"
-			<< "3) Удалить очередь\n"
-			<< "4) Выход\n";
+		cout << "Р’С‹Р±РµСЂРµС‚Рµ РІР°СЂРёР°РЅС‚:\n"
+			<< "1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РѕС‡РµСЂРµРґСЊ\n"
+			<< "2) РР·РІР»РµС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РёР· РѕС‡РµСЂРµРґРё\n"
+			<< "3) РЈРґР°Р»РёС‚СЊ РѕС‡РµСЂРµРґСЊ\n"
+			<< "4) Р’С‹С…РѕРґ\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -48,14 +48,14 @@ void QueueRingBufferMenu()
 			{
 				if (IsQueueFull(queueRingBuffer->RingBuffer))
 				{
-					cout << "Очередь заполнена.\n";
+					cout << "РћС‡РµСЂРµРґСЊ Р·Р°РїРѕР»РЅРµРЅР°.\n";
 					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
 				}
 				else
 				{
 					int newElement = EnterNumber(
-						"Введите новый элемент очереди\n");
+						"Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё\n");
 					Enqueue(queueRingBuffer->RingBuffer, newElement);
 					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
@@ -66,7 +66,7 @@ void QueueRingBufferMenu()
 			{
 				if (IsQueueEmpty(queueRingBuffer->RingBuffer))
 				{
-					cout << "Очередь пуста.\n";
+					cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°.\n";
 					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
 				}
@@ -74,7 +74,7 @@ void QueueRingBufferMenu()
 				{
 					int elementFromQueue =
 						Dequeue(queueRingBuffer->RingBuffer);
-					cout << "Извлеченный элемент:" <<
+					cout << "РР·РІР»РµС‡РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚:" <<
 						elementFromQueue << "\n";
 					ShowQueue(queueRingBuffer->RingBuffer);
 					break;
@@ -84,10 +84,10 @@ void QueueRingBufferMenu()
 			case RemoveQueue:
 			{
 				DeleteQueue(queueRingBuffer->RingBuffer);
-				cout << "Ваша очередь удалена!\n";
-				int sizeOfQueue = EnterNumber("Введите размер очереди: ");
+				cout << "Р’Р°С€Р° РѕС‡РµСЂРµРґСЊ СѓРґР°Р»РµРЅР°!\n";
+				int sizeOfQueue = EnterNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё: ");
 				queueRingBuffer->RingBuffer = CreateQueue(sizeOfQueue);
-				cout << "Очередь создана!\n";
+				cout << "РћС‡РµСЂРµРґСЊ СЃРѕР·РґР°РЅР°!\n";
 				ShowQueue(queueRingBuffer->RingBuffer);
 				break;
 			}
@@ -99,7 +99,7 @@ void QueueRingBufferMenu()
 
 			default:
 			{
-				cout << "Попробуйте ещё раз!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰С‘ СЂР°Р·!\n";
 				ShowQueue(queueRingBuffer->RingBuffer);
 				break;
 			}
@@ -114,6 +114,6 @@ void PrintQueue(RingBuffer* queueRingBufferUnit)
 
 void ShowQueue(RingBuffer* queueRingBufferUnit)
 {
-	cout << "Ваш буфер:\n";
+	cout << "Р’Р°С€ Р±СѓС„РµСЂ:\n";
 	PrintQueue(queueRingBufferUnit);
 }

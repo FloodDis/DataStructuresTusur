@@ -1,4 +1,4 @@
-#include "PerformanceTest.h"
+﻿#include "PerformanceTest.h"
 
 string GetTreePerformanceMeasurementAVL(AVLTree* tree)
 {

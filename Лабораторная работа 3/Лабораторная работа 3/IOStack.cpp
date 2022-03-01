@@ -1,53 +1,53 @@
-#include "IOStack.h"
+п»ї#include "IOStack.h"
 
 void StackMenu()
 {
 	/// <summary>
-	/// Действия над стеком
+	/// Р”РµР№СЃС‚РІРёСЏ РЅР°Рґ СЃС‚РµРєРѕРј
 	/// </summary>
 	enum Actions
 	{
 		/// <summary>
-		/// Добавить элемент
+		/// Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Insert = 1,
 
 		/// <summary>
-		/// Извлечь элемент
+		/// РР·РІР»РµС‡СЊ СЌР»РµРјРµРЅС‚
 		/// </summary>
 		Extract,
 
 		/// <summary>
-		/// Удалить стек
+		/// РЈРґР°Р»РёС‚СЊ СЃС‚РµРє
 		/// </summary>
 		RemoveStack,
 
 		/// <summary>
-		/// Выйти в главное меню
+		/// Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		/// </summary>
 		Exit
 	};
 	setlocale(LC_ALL, "Russian");
-	int value = EnterNumber("Введите значение первого элемента: ");
+	int value = EnterNumber("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: ");
 	Node* stack = CreateStack();
 	stack->DataOfNode = value;
-	cout << "Стек создан!\n";
+	cout << "РЎС‚РµРє СЃРѕР·РґР°РЅ!\n";
 	ShowStack(stack);
 	while (true)
 	{
-		cout << "Выберите вариант:\n"
-			<< "1) Вставить\n"
-			<< "2) Взять\n"
-			<< "3) Удалить стек\n"
-			<< "4) Выход\n";
-		//TODO: внести в while +
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РІР°СЂРёР°РЅС‚:\n"
+			<< "1) Р’СЃС‚Р°РІРёС‚СЊ\n"
+			<< "2) Р’Р·СЏС‚СЊ\n"
+			<< "3) РЈРґР°Р»РёС‚СЊ СЃС‚РµРє\n"
+			<< "4) Р’С‹С…РѕРґ\n";
+		//TODO: РІРЅРµСЃС‚Рё РІ while +
 		int option = EnterNumber("");
 		switch (option)
 		{
 			case Insert:
 			{
 				int dataOfNewElement = EnterNumber(
-					"Введите значение нового элемента: \n");
+					"Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: \n");
 				stack = Push(stack, dataOfNewElement);
 				ShowStack(stack);
 				break;
@@ -57,13 +57,13 @@ void StackMenu()
 			{
 				if (stack == nullptr)
 				{
-					cout << "\nСтек пуст\n";
+					cout << "\nРЎС‚РµРє РїСѓСЃС‚\n";
 					ShowStack(stack);
 				}
 				else
 				{
 					int valueFromStack = Pop(stack);
-					cout << "\nЗначение из стека:" << valueFromStack <<
+					cout << "\nР—РЅР°С‡РµРЅРёРµ РёР· СЃС‚РµРєР°:" << valueFromStack <<
 						"\n";
 					ShowStack(stack);
 				}
@@ -73,9 +73,9 @@ void StackMenu()
 			case RemoveStack:
 			{
 				Delete(stack);
-				cout << "\nСтек удалён\n";
+				cout << "\nРЎС‚РµРє СѓРґР°Р»С‘РЅ\n";
 				Node* stack = CreateStack();
-				cout << "\nСтек создан!\n";
+				cout << "\nРЎС‚РµРє СЃРѕР·РґР°РЅ!\n";
 				ShowStack(stack);
 				break;
 			}
@@ -87,7 +87,7 @@ void StackMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°!\n";
 				ShowStack(stack);
 				break;
 			}
@@ -117,6 +117,6 @@ void PrintStack(Node* headNode)
 
 void ShowStack(Node* headNode)
 {
-	cout << "Ваш стек:\n";
+	cout << "Р’Р°С€ СЃС‚РµРє:\n";
 	PrintStack(headNode);
 }

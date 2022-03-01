@@ -138,7 +138,7 @@ void Print(AVLTreeNode* rootNode, int tabCount)
 		{
 			cout << "\t";
 		}
-		cout << "(" << rootNode->Key << "; " << rootNode->Data << ")";
+		cout << "(" << rootNode->Key << ";" << rootNode->SubTreeHeight << ")";
 		if (rootNode->Left != nullptr && rootNode->Right != nullptr)
 		{
 			cout << "|\n";

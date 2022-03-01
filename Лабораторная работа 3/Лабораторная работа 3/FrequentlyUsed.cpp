@@ -1,6 +1,6 @@
-#include "FrequentlyUsed.h"
+п»ї#include "FrequentlyUsed.h"
 
-//TODO: Переделать на вариант с возвращением из функции +
+//TODO: РџРµСЂРµРґРµР»Р°С‚СЊ РЅР° РІР°СЂРёР°РЅС‚ СЃ РІРѕР·РІСЂР°С‰РµРЅРёРµРј РёР· С„СѓРЅРєС†РёРё +
 int EnterNumber(string message)
 {
 	cout << message;
@@ -16,7 +16,7 @@ int EnterNumber(string message)
 		}
 		else
 		{
-			cout << "Неверный ввод!\n";
+			cout << "РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ!\n";
 		}
 	}
 }

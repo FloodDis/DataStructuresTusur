@@ -1,10 +1,10 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 using namespace std;
 
 /// <summary>
-/// Функция ввода переменной типа int и вывода сообщения на экран
+/// Р¤СѓРЅРєС†РёСЏ РІРІРѕРґР° РїРµСЂРµРјРµРЅРЅРѕР№ С‚РёРїР° int Рё РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="message">текст выводимого сообщения</param>
-/// <returns>вводимое значение</returns>
+/// <param name="message">С‚РµРєСЃС‚ РІС‹РІРѕРґРёРјРѕРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ</param>
+/// <returns>РІРІРѕРґРёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ</returns>
 int EnterNumber(string message);

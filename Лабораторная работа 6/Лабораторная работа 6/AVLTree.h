@@ -23,11 +23,6 @@ struct AVLTreeNode
 	int Key;
 
 	/// <summary>
-	/// Данные узла
-	/// </summary>
-	int Data;
-
-	/// <summary>
 	/// Высота поддерева
 	/// </summary>
 	int SubTreeHeight;

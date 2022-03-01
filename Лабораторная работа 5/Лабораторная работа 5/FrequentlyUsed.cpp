@@ -1,4 +1,4 @@
-#include "FrequentlyUsed.h"
+ï»¿#include "FrequentlyUsed.h"
 
 int EnterNumber(string message)
 {
@@ -15,7 +15,7 @@ int EnterNumber(string message)
 		}
 		else
 		{
-			cout << "Íåâåğíûé ââîä!\n";
+			cout << "ĞĞµĞ²ĞµÑ€Ğ½Ñ‹Ğ¹ Ğ²Ğ²Ğ¾Ğ´!\n";
 		}
 	}
 }

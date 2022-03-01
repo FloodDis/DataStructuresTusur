@@ -33,6 +33,15 @@
     <ClCompile Include="FrequentlyUsed.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="StopWatch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTest.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AVLTree.h">
@@ -48,6 +57,15 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="FrequentlyUsed.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="StopWatch.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="PerformanceTest.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

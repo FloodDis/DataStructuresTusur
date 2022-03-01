@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include "PerformanceTest.h"
+#include <fstream>
 #include <iostream>
 #include "AVLTree.h"
 #include "FrequentlyUsed.h"

@@ -1,6 +1,8 @@
 ﻿#pragma once
+#include "PerformanceTest.h"
 #include "RedBlackTree.h"
 #include "FrequentlyUsed.h"
+#include <fstream>
 #include <iostream>
 using namespace std;
 

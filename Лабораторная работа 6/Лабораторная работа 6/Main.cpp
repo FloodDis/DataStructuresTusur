@@ -34,8 +34,8 @@ void MainMenu()
 	setlocale(LC_ALL, "ru");
 	while (true)
 	{
-		cout << "Выберите структуру данных:"
-			<< "\n1) AVL - дерево\n"
+		cout << "Выберите структуру данных:\n"
+			<< "1) AVL - дерево\n"
 			<< "2) Красно-черное дерево\n"
 			<< "3) Выйти\n";
 		int option = EnterNumber("");

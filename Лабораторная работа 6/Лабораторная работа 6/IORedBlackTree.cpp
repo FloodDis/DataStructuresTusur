@@ -23,9 +23,14 @@ void RBTreeMenu()
 		Find = 3,
 
 		/// <summary>
+		/// Тест производительности
+		/// </summary>
+		Test = 4,
+
+		/// <summary>
 		/// Выйти в главное меню
 		/// </summary>
-		Exit = 4
+		Exit = 5
 	};
 
 	setlocale(LC_ALL, "ru");
@@ -37,7 +42,8 @@ void RBTreeMenu()
 			<< "\n1) Добавить элемент"
 			<< "\n2) Удалить элемент"
 			<< "\n3) Найти элемент"
-			<< "\n4) Выйти\n";
+			<< "\n4) Тест производительности дерева"
+			<< "\n5) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
@@ -99,6 +105,18 @@ void RBTreeMenu()
 				break;
 			}
 
+			case Test:
+			{
+				cout << "Performance tests are executing."
+					<< "Please wait...\n";
+				ofstream file{ "RBTreePerformanceTest.txt" };
+				file << GetTreePerformanceMeasurementRB(treeUnit);
+				file.close();
+				cout << "Performance tests are finished."
+					<< "Result are saved in file.\n";
+				break;
+			}
+
 			case Exit:
 			{
 				return;
@@ -132,22 +150,22 @@ void Print(RBTreeNode* rootNode, int tabCount)
 		{
 			cout << "Red)";
 		}
-		if (rootNode->Child[Left] != nullptr && 
+		if (rootNode->Child[Left] != nullptr &&
 			rootNode->Child[Right] != nullptr)
 		{
 			cout << "|\n";
 		}
-		if (rootNode->Child[Left] == nullptr && 
+		if (rootNode->Child[Left] == nullptr &&
 			rootNode->Child[Right] != nullptr)
 		{
 			cout << "/\n";
 		}
-		if (rootNode->Child[Left] != nullptr && 
+		if (rootNode->Child[Left] != nullptr &&
 			rootNode->Child[Right] == nullptr)
 		{
 			cout << "\\\n";
 		}
-		if (rootNode->Child[Left] == nullptr && 
+		if (rootNode->Child[Left] == nullptr &&
 			rootNode->Child[Right] == nullptr)
 		{
 			cout << "\n";

@@ -144,14 +144,20 @@
     <ClCompile Include="IOAVLTree.cpp" />
     <ClCompile Include="IORedBlackTree.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PerformanceTest.cpp" />
     <ClCompile Include="RedBlackTree.cpp" />
+    <ClCompile Include="StopWatch.cpp" />
+    <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AVLTree.h" />
     <ClInclude Include="FrequentlyUsed.h" />
     <ClInclude Include="IOAVLTree.h" />
     <ClInclude Include="IORedBlackTree.h" />
+    <ClInclude Include="PerformanceTest.h" />
     <ClInclude Include="RedBlackTree.h" />
+    <ClInclude Include="StopWatch.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

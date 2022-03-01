@@ -23,42 +23,43 @@ void AVLTreeMenu()
 		FindElement = 3,
 
 		/// <summary>
+		/// Тест производительности
+		/// </summary>
+		Test = 4,
+
+		/// <summary>
 		/// Выйти в главное меню
 		/// </summary>
-		Exit = 4
+		Exit = 5
 	};
 
 	setlocale(LC_ALL, "ru");
-	int dataOfRoot = EnterNumber("Введите данные корня AVL-дерева: ");
-	int keyOfRoot = EnterNumber("Введите ключ корня AVL-дерева: ");
-	AVLTreeNode* rootNode = CreateTree(keyOfRoot, dataOfRoot);
-	Show(rootNode);
+	AVLTree* treeUnit = new AVLTree;
+	Show(treeUnit->GetRoot());
 	while (true)
 	{
 		cout << "Выберите действие:\n"
 			<< "1) Добавить элемент\n"
 			<< "2) Удалить элемент\n"
 			<< "3) Найти элемент\n"
-			<< "4) Выйти\n";
+			<< "4) Тест производительности\n"
+			<< "5) Выйти\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
 			case AddElement:
 			{
-				int dataOfNewNode =
-					EnterNumber("Введите данные нового элемента: ");
 				int	keyOfNewNode =
 					EnterNumber("Введите ключ нового элемента: ");
 				try
 				{
-					rootNode =
-						Insert(rootNode, keyOfNewNode, dataOfNewNode);
+					treeUnit->Insert(keyOfNewNode);
 				}
 				catch (char const* error)
 				{
 					cout << error << '\n';
 				}
-				Show(rootNode);
+				Show(treeUnit->GetRoot());
 				break;
 			}
 
@@ -68,14 +69,14 @@ void AVLTreeMenu()
 					EnterNumber("Введите ключ удаляемого элемента: ");
 				try
 				{
-					rootNode = Delete(rootNode, keyToDelete);
+					treeUnit->Delete(keyToDelete);
 					cout << "Элемент был удален из дерева!\n";
 				}
 				catch (char const* error)
 				{
 					cout << error << '\n';
 				}
-				Show(rootNode);
+				Show(treeUnit->GetRoot());
 				break;
 			}
 
@@ -84,17 +85,26 @@ void AVLTreeMenu()
 				AVLTreeNode* answer = nullptr;
 				int searchingKey =
 					EnterNumber("Введите ключ искомого элемента: ");
-				answer = Find(rootNode, searchingKey);
+				answer = treeUnit->Find(searchingKey);
 				if (answer == nullptr)
 				{
 					cout << "Элемент не найден!\n";
 				}
 				else
 				{
-					cout << "Элемент с ключом " << answer->Key
-						<< " имеет данные " << answer->Data << "\n";
+					cout << "Элемент с ключом " << answer->Key << " есть в дереве\n";
 				}
-				Show(rootNode);
+				Show(treeUnit->GetRoot());
+				break;
+			}
+
+			case Test:
+			{
+				cout << "Performance tests are executing. Please wait...\n";
+				ofstream file{ "AVLTreePerformanceTest.txt" };
+				file << GetTreePerformanceMeasurementAVL(treeUnit);
+				file.close();
+				cout << "Performance tests are finished. Result are saved in file.\n";
 				break;
 			}
 
@@ -106,7 +116,7 @@ void AVLTreeMenu()
 			default:
 			{
 				cout << "Попробуйте снова!\n";
-				Show(rootNode);
+				Show(treeUnit->GetRoot());
 				break;
 			}
 		}

@@ -33,7 +33,7 @@ long long Stopwatch::GetDuration()
 		Stop();
 		Start();
 	}
-	//TODO: RSDN
+	//TODO: RSDN +
 	return 
 		std::chrono::time_point_cast
 			<std::chrono::nanoseconds>(_timeDuration)

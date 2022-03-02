@@ -8,11 +8,11 @@
 ///</summary>
 void DictionaryMenu();
 
-//TODO: Несоответствие XML комментариям
+//TODO: Несоответствие XML комментариям +
 /// <summary>
 /// Функция вывода словаря
 /// </summary>
-/// <param name="message">строка с сообщением</param>
+/// <param name="hashTableUnit">экземпляр хеш-таблицы</param>
 void PrintDictionary(HashTable* hashTableUnit);
 
 /// <summary>

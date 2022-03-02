@@ -1,15 +1,15 @@
-#pragma once
+п»ї#pragma once
 #include "QueueStack.h"
 #include "FrequentlyUsed.h"
 #include "IOStack.h"
 
 ///<summary>
-///Функция меню очереди на базе 2-х стеков
+///Р¤СѓРЅРєС†РёСЏ РјРµРЅСЋ РѕС‡РµСЂРµРґРё РЅР° Р±Р°Р·Рµ 2-С… СЃС‚РµРєРѕРІ
 ///</summary>
 void QueueStackBasedMenu();
 
 /// <summary>
-/// Функция вывода очереди на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РѕС‡РµСЂРµРґРё РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="queueStackUnit">указатель на экземпляр очереди</param>
+/// <param name="queueStackUnit">СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌРєР·РµРјРїР»СЏСЂ РѕС‡РµСЂРµРґРё</param>
 void PrintQueue(QueueStackBased* queueStackUnit);

@@ -1,20 +1,20 @@
-#pragma once
+п»ї#pragma once
 #include "Stack.h"
 #include "FrequentlyUsed.h"
 
 ///<summary>
-///Функция меню для стека
+///Р¤СѓРЅРєС†РёСЏ РјРµРЅСЋ РґР»СЏ СЃС‚РµРєР°
 ///</summary>
 void StackMenu();
 
 /// <summary>
-/// Функция вывода стека на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃС‚РµРєР° РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="headNode">укзатель на корень стека</param>
+/// <param name="headNode">СѓРєР·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</param>
 void PrintStack(Node* headNode);
 
 /// <summary>
-/// Функция вывода сообщения Ваш стек: и стека на экран
+/// Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ Р’Р°С€ СЃС‚РµРє: Рё СЃС‚РµРєР° РЅР° СЌРєСЂР°РЅ
 /// </summary>
-/// <param name="headNode">укзатель на корень стека</param>
+/// <param name="headNode">СѓРєР·Р°С‚РµР»СЊ РЅР° РєРѕСЂРµРЅСЊ СЃС‚РµРєР°</param>
 void ShowStack(Node* headNode);

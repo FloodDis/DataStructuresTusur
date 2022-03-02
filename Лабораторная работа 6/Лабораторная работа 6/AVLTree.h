@@ -27,23 +27,7 @@ struct AVLTreeNode
 	/// </summary>
 	int SubTreeHeight;
 };
-//TODO:
-/*
-/// <summary>
-/// АВЛ-дерево
-/// </summary>
-struct AVLTree
-{
-	/// <summary>
-	/// Корень АВЛ-дерева
-	/// </summary>
-	AVLTreeNode* Root;
-
-	/// <summary>
-	/// Кол-во поворотов
-	/// </summary>
-	int NodeRotateCount;
-};*/
+//TODO:+
 
 /// <summary>
 /// АВЛ-дерево

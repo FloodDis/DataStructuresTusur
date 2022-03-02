@@ -40,7 +40,6 @@ void StackMenu()
 			<< "2) Взять\n"
 			<< "3) Удалить стек\n"
 			<< "4) Выход\n";
-		//TODO: внести в while +
 		int option = EnterNumber("");
 		switch (option)
 		{

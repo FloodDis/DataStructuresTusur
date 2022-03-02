@@ -1,5 +1,5 @@
-#include "FrequentlyUsed.h"
-
+﻿#include "FrequentlyUsed.h"
+//TODO: Вынести в отдельный проект
 int EnterNumber(string message)
 {
 	cout << message;
@@ -15,7 +15,7 @@ int EnterNumber(string message)
 		}
 		else
 		{
-			cout << "�������� ����!\n";
+			cout << "Íåâåðíûé ââîä!\n";
 		}
 	}
 }

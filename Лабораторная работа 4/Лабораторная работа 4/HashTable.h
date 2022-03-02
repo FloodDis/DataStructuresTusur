@@ -34,7 +34,6 @@ struct KeyValueList
 /// </summary>
 struct HashTable
 {
-	//TODO: RSDN +
 	/// <summary>
 	/// Вектор, состоящий из списков коллизий
 	/// </summary>

@@ -102,7 +102,6 @@ int HashFunction(string key, int size)
 
 void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 {
-	//TODO: RSDN +
 	KeyValueList* newEndNode = new KeyValueList;
 	int hash = HashFunction(key, hashTableUnit->ArrayOfLists.size());
 	if (hashTableUnit->ArrayOfLists[hash]->Key == "")
@@ -125,7 +124,6 @@ void AddInHashTable(HashTable* hashTableUnit, string value, string key)
 	}
 }
 
-//TODO: убрать строку +
 vector<KeyValueList*> Search(string searchingKey, HashTable* hashTableUnit)
 {
 	int hash =

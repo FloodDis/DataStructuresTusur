@@ -1,6 +1,5 @@
 ﻿#include "FrequentlyUsed.h"
-
-//TODO: Переделать на вариант с возвращением из функции +
+//TODO: Вынести в отдельный проект
 int EnterNumber(string message)
 {
 	cout << message;

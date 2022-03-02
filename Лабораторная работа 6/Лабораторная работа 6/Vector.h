@@ -93,6 +93,7 @@ public:
 	Type GetElement(unsigned int index);
 	Type operator[](unsigned int index);
 
+	//TODO: const
 	/// <summary>
 	/// Возвращает текущий размер массива.
 	/// </summary>

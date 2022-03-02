@@ -33,7 +33,9 @@ long long Stopwatch::GetDuration()
 		Stop();
 		Start();
 	}
-
+	//TODO: RSDN
 	return 
-		std::chrono::time_point_cast<std::chrono::nanoseconds>(_timeDuration).time_since_epoch().count();
+		std::chrono::time_point_cast
+			<std::chrono::nanoseconds>(_timeDuration)
+				.time_since_epoch().count();
 }

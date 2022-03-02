@@ -27,7 +27,6 @@ struct AVLTreeNode
 	/// </summary>
 	int SubTreeHeight;
 };
-//TODO:+
 
 /// <summary>
 /// АВЛ-дерево

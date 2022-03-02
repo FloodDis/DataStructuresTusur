@@ -38,19 +38,19 @@ void RBTreeMenu()
 	Show(treeUnit);
 	while (true)
 	{
-		cout << "Выберите действие:"
-			<< "\n1) Добавить элемент"
-			<< "\n2) Удалить элемент"
-			<< "\n3) Найти элемент"
-			<< "\n4) Тест производительности дерева"
-			<< "\n5) Выйти\n";
+		cout << "Choose an action:"
+			<< "\n1) Add element"
+			<< "\n2) Delete element"
+			<< "\n3) Find element"
+			<< "\n4) Test performance"
+			<< "\n5) Exit\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
 			case Add:
 			{
 				int key =
-					EnterNumber("Введите ключ добавляемого элемента: ");
+					EnterNumber("Enter key of new element: ");
 				try
 				{
 					treeUnit->Insert(key);
@@ -66,11 +66,11 @@ void RBTreeMenu()
 			case Delete:
 			{
 				int key =
-					EnterNumber("Введите ключ удаляемого элемента: ");
+					EnterNumber("Enter key of element to delete: ");
 				try
 				{
 					treeUnit->Delete(key);
-					cout << "Элемент был удален!\n";
+					cout << "Element was deleted!\n";
 				}
 				catch (char const* error)
 				{
@@ -82,24 +82,24 @@ void RBTreeMenu()
 
 			case Find:
 			{
-				int key = EnterNumber("Введите ключ искомого элемента: ");
+				int key = EnterNumber("Enter key of element to find : ");
 				RBTreeNode* result = treeUnit->Find(key);
 				if (result != nullptr)
 				{
-					cout << "Элемент с ключом " << result->Key
-						<< " имеет цвет: ";
+					cout << "Element with key  " << result->Key
+						<< " have a color: ";
 					if (result->IsBlack)
 					{
-						cout << "Черный\n";
+						cout << "Black\n";
 					}
 					else
 					{
-						cout << "Красный\n";
+						cout << "Red\n";
 					}
 				}
 				else
 				{
-					cout << "Такого элемента нет в дереве!\n";
+					cout << "Element isn't found!\n";
 				}
 				Show(treeUnit);
 				break;
@@ -124,7 +124,7 @@ void RBTreeMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "Try again!\n";
 				Show(treeUnit);
 				break;
 			}

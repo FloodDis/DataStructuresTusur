@@ -15,7 +15,7 @@ int EnterNumber(string message)
 		}
 		else
 		{
-			cout << "Íåâåðíûé ââîä!\n";
+			cout << "Wrong value!\n";
 		}
 	}
 }

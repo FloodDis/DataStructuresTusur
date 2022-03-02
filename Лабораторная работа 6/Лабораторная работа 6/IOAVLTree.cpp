@@ -38,19 +38,19 @@ void AVLTreeMenu()
 	Show(treeUnit->GetRoot());
 	while (true)
 	{
-		cout << "Выберите действие:\n"
-			<< "1) Добавить элемент\n"
-			<< "2) Удалить элемент\n"
-			<< "3) Найти элемент\n"
-			<< "4) Тест производительности\n"
-			<< "5) Выйти\n";
+		cout << "Choose an action:\n"
+			<< "1) Add element\n"
+			<< "2) Delete element\n"
+			<< "3) Find element\n"
+			<< "4) Test performance\n"
+			<< "5) Exit\n";
 		int option = EnterNumber("");
 		switch (option)
 		{
 			case AddElement:
 			{
 				int	keyOfNewNode =
-					EnterNumber("Введите ключ нового элемента: ");
+					EnterNumber("Enter key of new element: ");
 				try
 				{
 					treeUnit->Insert(keyOfNewNode);
@@ -66,11 +66,11 @@ void AVLTreeMenu()
 			case DeleteElement:
 			{
 				int keyToDelete =
-					EnterNumber("Введите ключ удаляемого элемента: ");
+					EnterNumber("Enter key of element to delete: ");
 				try
 				{
 					treeUnit->Delete(keyToDelete);
-					cout << "Элемент был удален из дерева!\n";
+					cout << "Element was deleted!\n";
 				}
 				catch (char const* error)
 				{
@@ -84,15 +84,16 @@ void AVLTreeMenu()
 			{
 				AVLTreeNode* answer = nullptr;
 				int searchingKey =
-					EnterNumber("Введите ключ искомого элемента: ");
+					EnterNumber("Enter key of element to find : ");
 				answer = treeUnit->Find(searchingKey);
 				if (answer == nullptr)
 				{
-					cout << "Элемент не найден!\n";
+					cout << "Element isn't found!\n";
 				}
 				else
 				{
-					cout << "Элемент с ключом " << answer->Key << " есть в дереве\n";
+					cout << "Element with key " << answer->Key 
+						<< " is in the tree\n";
 				}
 				Show(treeUnit->GetRoot());
 				break;
@@ -104,7 +105,8 @@ void AVLTreeMenu()
 				ofstream file{ "AVLTreePerformanceTest.txt" };
 				file << GetTreePerformanceMeasurementAVL(treeUnit);
 				file.close();
-				cout << "Performance tests are finished. Result are saved in file.\n";
+				cout << "Performance tests are finished."
+					<<" Result are saved in file.\n";
 				break;
 			}
 
@@ -115,7 +117,7 @@ void AVLTreeMenu()
 
 			default:
 			{
-				cout << "Попробуйте снова!\n";
+				cout << "Try again!\n";
 				Show(treeUnit->GetRoot());
 				break;
 			}
@@ -125,7 +127,7 @@ void AVLTreeMenu()
 
 void Show(AVLTreeNode* rootNode)
 {
-	cout << "Ваше АВЛ-дерево:\n";
+	cout << "Your AVL tree:\n";
 	Print(rootNode, 0);
 }
 

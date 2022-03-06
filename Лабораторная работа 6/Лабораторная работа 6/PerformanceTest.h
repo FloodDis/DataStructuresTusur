@@ -4,7 +4,6 @@
 #include "Vector.h"
 #include "Vector.cpp"
 #include "Stopwatch.h"
-
 #include <sstream>
 
 using namespace std;

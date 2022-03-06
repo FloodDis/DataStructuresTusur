@@ -140,6 +140,7 @@ AVLTreeNode* AVLTree::RotateRight(AVLTreeNode* node)
 	bufferNode->Right = node;
 	UpdateHeight(node);
 	UpdateHeight(bufferNode);
+	_nodeRotateCount += 1;
 	return (bufferNode);
 }
 
@@ -150,6 +151,7 @@ AVLTreeNode* AVLTree::RotateLeft(AVLTreeNode* node)
 	bufferNode->Left = node;
 	UpdateHeight(bufferNode);
 	UpdateHeight(node);
+	_nodeRotateCount += 1;
 	return (bufferNode);
 }
 
@@ -159,7 +161,9 @@ AVLTreeNode* AVLTree::BalanceNode(AVLTreeNode* node)
 	{
 		return nullptr;
 	}
+
 	UpdateHeight(node);
+
 	if (GetBalanceFactor(node) == 2)
 	{
 		if (GetBalanceFactor(node->Right) < 0)

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6e6f098a-4632-4319-a89a-6306ce1dc82f}</ProjectGuid>
-    <RootNamespace>Лабораторнаяработа6</RootNamespace>
+    <ProjectGuid>{38390b9d-f705-4c7d-972f-546aec371189}</ProjectGuid>
+    <RootNamespace>Console</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,26 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AVLTree.cpp" />
-    <ClCompile Include="FrequentlyUsed.cpp" />
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="PerformanceTest.cpp" />
-    <ClCompile Include="RedBlackTree.cpp" />
-    <ClCompile Include="StopWatch.cpp" />
-    <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AVLTree.h" />
-    <ClInclude Include="FrequentlyUsed.h" />
-    <ClInclude Include="PerformanceTest.h" />
-    <ClInclude Include="RedBlackTree.h" />
-    <ClInclude Include="StopWatch.h" />
-    <ClInclude Include="Vector.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Console\Console.vcxproj">
-      <Project>{38390b9d-f705-4c7d-972f-546aec371189}</Project>
-    </ProjectReference>
+    <ClInclude Include="Console.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

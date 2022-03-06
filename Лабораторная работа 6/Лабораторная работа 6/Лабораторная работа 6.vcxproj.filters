@@ -24,9 +24,6 @@
     <ClCompile Include="RedBlackTree.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="FrequentlyUsed.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="StopWatch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -42,9 +39,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="RedBlackTree.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="FrequentlyUsed.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="StopWatch.h">

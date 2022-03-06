@@ -8,7 +8,6 @@
 ///</summary>
 void DictionaryMenu();
 
-//TODO: Несоответствие XML комментариям +
 /// <summary>
 /// Функция вывода словаря
 /// </summary>

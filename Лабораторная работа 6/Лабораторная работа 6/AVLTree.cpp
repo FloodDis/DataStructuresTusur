@@ -149,8 +149,8 @@ AVLTreeNode* AVLTree::RotateLeft(AVLTreeNode* node)
 	AVLTreeNode* bufferNode = node->Right;
 	node->Right = bufferNode->Left;
 	bufferNode->Left = node;
-	UpdateHeight(bufferNode);
 	UpdateHeight(node);
+	UpdateHeight(bufferNode);
 	_nodeRotateCount += 1;
 	return (bufferNode);
 }

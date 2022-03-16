@@ -7,6 +7,9 @@
 #include "../../Console/Console.cpp"
 using namespace std;
 
+/// <summary>
+/// Функция вызова главного меню
+/// </summary>
 void MainMenu();
 
 /// <summary>
@@ -79,7 +82,22 @@ void MainMenu()
 			<< "1) AVL tree\n"
 			<< "2) Red-black tree \n"
 			<< "3) Exit\n";
-		int option = Console::ReadInt("");
+		bool isWrong = true;
+		int option;
+		while (isWrong)
+		{
+			try
+			{
+				option = Console::ReadInt("");
+				isWrong = false;
+			}
+			catch (exception& error)
+			{
+				cout << "Wrong data!\n";
+			}
+			
+		}
+
 		switch (option)
 		{
 			case AVLTree:
@@ -161,12 +179,12 @@ void RBTreeMenu()
 				option = Console::ReadInt("");
 				isWrong = false;
 			}
-			catch (exception error)
+			catch (exception& error)
 			{
 				cout << "Wrong data!\n";
 			}
 		}
-		
+
 		switch (option)
 		{
 			case Add:
@@ -177,11 +195,11 @@ void RBTreeMenu()
 				{
 					try
 					{
-						key = 
+						key =
 							Console::ReadInt("Enter key of new element: ");
 						isWrong = false;
 					}
-					catch (exception error)
+					catch (exception& error)
 					{
 						cout << "Wrong data!\n";
 					}
@@ -212,12 +230,12 @@ void RBTreeMenu()
 								"Enter key of element to delete: ");
 						isWrong = false;
 					}
-					catch (exception error)
+					catch (exception& error)
 					{
 						cout << "Wrong data!\n";
 					}
 				}
-				
+
 				try
 				{
 					treeUnit->Delete(key);
@@ -244,12 +262,12 @@ void RBTreeMenu()
 								"Enter key of element to find: ");
 						isWrong = false;
 					}
-					catch (exception error)
+					catch (exception& error)
 					{
 						cout << "Wrong data!\n";
 					}
 				}
-			
+
 				RBTreeNode* result = treeUnit->Find(key);
 				if (result != nullptr)
 				{
@@ -406,7 +424,7 @@ void AVLTreeMenu()
 				cout << "Wrong data!\n";
 			}
 		}
-		
+
 		switch (option)
 		{
 			case AddElement:
@@ -427,7 +445,7 @@ void AVLTreeMenu()
 						cout << "Wrong data!\n";
 					}
 				}
-				
+
 				try
 				{
 					treeUnit->Insert(keyOfNewNode);
@@ -458,7 +476,7 @@ void AVLTreeMenu()
 						cout << "Wrong data!\n";
 					}
 				}
-				
+
 				try
 				{
 					treeUnit->Delete(keyToDelete);
@@ -491,7 +509,7 @@ void AVLTreeMenu()
 						cout << "Wrong data!\n";
 					}
 				}
-				
+
 				answer = treeUnit->Find(searchingKey);
 				if (answer == nullptr)
 				{
